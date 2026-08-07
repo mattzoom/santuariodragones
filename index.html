@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santuario Secreto de Dragones | Enciclopedia Épica & Forja Interactiva</title>
+  <meta name="description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de 100 dragones míticos, buscador interactivo, forja para crear tu propio dragón y pruebas legendarias.">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="styles.css?v=1.9.0">
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <span>SANTUARIO DE DRAGONES</span>
+        </div>
+
+        <nav class="nav-tabs">
+          <button class="nav-tab active" data-tab="encyclopedia" onclick="switchTab('encyclopedia')">📚 Enciclopedia</button>
+          <button class="nav-tab" data-tab="magic" onclick="switchTab('magic')">✨ Magia Draconiana</button>
+          <button class="nav-tab" data-tab="quiz" onclick="switchTab('quiz')">🧪 Test Draconiano</button>
+          <button class="nav-tab" data-tab="favorites" onclick="switchTab('favorites')">❤️ Mis Favoritos</button>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- 1. ENCYCLOPEDIA SECTION -->
+      <section id="section-encyclopedia" class="view-section active">
+        
+        <!-- HERO BANNER (Solo en Enciclopedia) -->
+        <section class="hero-banner">
+          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
+          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí las 100 criaturas más poderosas de la historia y las mitologías del mundo.</p>
+        </section>
+        
+        <!-- Search & Filter Controls Panel -->
+        <div class="search-filter-section fantasy-panel">
+          <div class="search-bar-wrap">
+            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
+          </div>
+
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-mythology">Mitología / Origen:</label>
+              <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-element">Elemento Principal:</label>
+              <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-type">Tipo de Cuerpo:</label>
+              <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-danger">Nivel de Peligro:</label>
+              <select id="filter-danger" class="filter-select">
+                <option value="Todos">Todos los Niveles</option>
+                <option value="1">🔥 (Peligro 1)</option>
+                <option value="2">🔥🔥 (Peligro 2)</option>
+                <option value="3">🔥🔥🔥 (Peligro 3)</option>
+                <option value="4">🔥🔥🔥🔥 (Peligro 4)</option>
+                <option value="5">🔥🔥🔥🔥🔥 (Peligro 5)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-sort">Ordenar Por:</label>
+              <select id="filter-sort" class="filter-select">
+                <option value="name-asc">Nombre (A-Z)</option>
+                <option value="name-desc">Nombre (Z-A)</option>
+                <option value="danger-desc">Peligro (Mayor a Menor)</option>
+                <option value="danger-asc">Peligro (Menor a Mayor)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
+            </div>
+          </div>
+
+          <div class="results-bar">
+            <span class="results-badge" id="results-count">Cargando 100 Dragones...</span>
+          </div>
+        </div>
+
+        <!-- Dragons Grid -->
+        <div id="dragons-grid" class="dragons-grid"></div>
+
+        <!-- Pagination Bar -->
+        <div id="pagination-box" class="pagination-box"></div>
+      </section>
+
+      <!-- 2. FORJA DE SIGILOS DRACONIANOS SECTION -->
+      <section id="section-sigils" class="view-section">
+        <div id="sigil-container"></div>
+      </section>
+
+      <!-- 3. MAGIA DRACONIANA SECTION -->
+      <section id="section-magic" class="view-section">
+        <div id="magic-container"></div>
+      </section>
+
+      <!-- 3. QUIZ SECTION ("TEST DRACONIANO") -->
+      <section id="section-quiz" class="view-section">
+        <div id="quiz-container"></div>
+      </section>
+
+      <!-- 4. FAVORITES SECTION -->
+      <section id="section-favorites" class="view-section">
+        <div class="fantasy-panel margin-bottom-lg">
+          <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
+          <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
+        </div>
+        <div id="favorites-grid" class="dragons-grid"></div>
+      </section>
+
+    </main>
+
+    <!-- Modal Overlay Detail View -->
+    <div id="dragon-modal-overlay" class="modal-overlay">
+      <div id="dragon-modal-content" class="modal-card"></div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <p>🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+  </div>
+
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+  <script src="js/bundle.js?v=13.0.0"></script>
+</body>
+</html>
