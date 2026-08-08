@@ -1,5 +1,5 @@
 export function getDragonArtworkSrc(dragon) {
-  if (dragon && dragon.id <= 79) {
+  if (dragon && dragon.id <= 85) {
     return `assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;

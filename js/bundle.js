@@ -1463,7 +1463,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 
 function getDragonArtworkSrc(dragon) {
-  if (dragon && dragon.id <= 79) {
+  if (dragon && dragon.id <= 85) {
     return `assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
@@ -2598,11 +2598,11 @@ function initMagicModule(containerId = "magic-container") {
 
 function renderMagicSubNavHtml(activePage) {
   return `
-    <div class="margin-top-md" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-      <button type="button" class="chip ${activePage === "fundamentos" ? "active" : ""}" onclick="switchMagicSubPage('fundamentos')" style="padding: 10px 20px; font-weight: 700; cursor: pointer; ${activePage !== "fundamentos" ? "background: rgba(233,196,106,0.15);" : ""}">📜 1. Fundamentos y Leyes</button>
-      <button type="button" class="chip ${activePage === "altar" ? "active" : ""}" onclick="switchMagicSubPage('altar')" style="padding: 10px 20px; font-weight: 700; cursor: pointer; ${activePage !== "altar" ? "background: rgba(233,196,106,0.15);" : ""}">⚒️ 2. El Altar y Herramientas</button>
-      <button type="button" class="chip ${activePage === "academia" ? "active" : ""}" onclick="switchMagicSubPage('academia')" style="padding: 10px 20px; font-weight: 700; cursor: pointer; ${activePage !== "academia" ? "background: rgba(233,196,106,0.15);" : ""}">🎓 3. Academia Draconiana (5 Anillos)</button>
-      <button type="button" class="chip ${activePage === "sigilos" ? "active" : ""}" onclick="switchMagicSubPage('sigilos')" style="padding: 10px 20px; font-weight: 700; cursor: pointer; ${activePage !== "sigilos" ? "background: rgba(233,196,106,0.15);" : ""}">🔮 4. La Forja de Sigilos</button>
+    <div class="margin-top-md magic-sub-nav">
+      <button type="button" class="chip ${activePage === "fundamentos" ? "active" : ""}" onclick="switchMagicSubPage('fundamentos')" style="font-weight: 700; cursor: pointer; ${activePage !== "fundamentos" ? "background: rgba(233,196,106,0.15);" : ""}">📜 1. Fundamentos</button>
+      <button type="button" class="chip ${activePage === "altar" ? "active" : ""}" onclick="switchMagicSubPage('altar')" style="font-weight: 700; cursor: pointer; ${activePage !== "altar" ? "background: rgba(233,196,106,0.15);" : ""}">⚒️ 2. El Altar</button>
+      <button type="button" class="chip ${activePage === "academia" ? "active" : ""}" onclick="switchMagicSubPage('academia')" style="font-weight: 700; cursor: pointer; ${activePage !== "academia" ? "background: rgba(233,196,106,0.15);" : ""}">🎓 3. Academia (5 Anillos)</button>
+      <button type="button" class="chip ${activePage === "sigilos" ? "active" : ""}" onclick="switchMagicSubPage('sigilos')" style="font-weight: 700; cursor: pointer; ${activePage !== "sigilos" ? "background: rgba(233,196,106,0.15);" : ""}">🔮 4. Forja de Sigilos</button>
     </div>
   `;
 }
