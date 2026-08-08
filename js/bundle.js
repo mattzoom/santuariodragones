@@ -1463,7 +1463,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 
 function getDragonArtworkSrc(dragon) {
-  if (dragon && dragon.id <= 85) {
+  if (dragon && dragon.id <= 89) {
     return `assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
@@ -2724,6 +2724,9 @@ function renderAltarSubPage(container) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">1. La Búsqueda de tu Material Mágico</h4>
+            <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+              <img src="assets/magic_wand_material.jpg" alt="Búsqueda de rama mística en la playa" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">¡No necesitás gastar tus ahorros ni buscar maderas súper raras! Las herramientas más poderosas son las que vos mismo fabricás o encontrás de formas inusuales:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
               <li style="margin-bottom: 6px;"><strong>Regalos de la Naturaleza:</strong> Caminá por un parque, bosque o playa y buscá una rama caída o madera desgastada por el mar. <em>Regla de Oro: Nunca lastimes a un árbol vivo.</em> Caminá con mente tranquila y tu intuición te dirá cuál es la adecuada.</li>
@@ -2733,6 +2736,9 @@ function renderAltarSubPage(container) {
 
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">2. La Medida del Mago</h4>
+            <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+              <img src="assets/magic_wand_measurement.jpg" alt="Joven mago sintonizando la medida de su varita en su cuarto" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">En la magia draconiana, la dimensión de tus herramientas depende de tu propio cuerpo:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
               <li style="margin-bottom: 6px;"><strong>Para una Varita (Elemento Aire):</strong> Sirve para proyectar tu fuerza de voluntad. No debe ser más larga que la distancia <strong>desde tu codo hasta la punta de tus dedos</strong>. Si es más larga, resulta torpe dentro del círculo mágico.</li>
@@ -2747,7 +2753,7 @@ function renderAltarSubPage(container) {
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
             <div>
               <strong style="color: #e9c46a;">💎 Punta de Poder:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Pegá una punta de cuarzo o gema brillante en el extremo como foco de energía. Si usás un tubo transparente, rellenalo con piedritas de colores y tapalo con obsidiana.</p>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Pegá una punta de cuarzo o gema brillante en el extremo como foco de energía. Si usás un tubo transparente, rellenalo con piedritas de colores y tapalo con una piedra negra u oscura.</p>
             </div>
             <div>
               <strong style="color: #e9c46a;">⚡ Cobre y Cuero:</strong>
@@ -3107,7 +3113,7 @@ function renderAltarSubPage(container) {
           </div>
 
           <!-- GRID DE LETRAS CON VECTORES SVG OFICIALES -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(54px, 1fr)); gap: 10px;">
+          <div id="ds-rune-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(54px, 1fr)); gap: 10px;">
             ${Object.keys(DRAGON_SCRIPT_MAP).map(letter => `
               <button type="button" class="btn btn-secondary" onclick="playRuneSound('${letter}')" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);">
                 ${DRAGON_SCRIPT_MAP[letter].svg || `<span style="font-size: 1.3rem;">${DRAGON_SCRIPT_MAP[letter].glyph}</span>`}
@@ -3958,13 +3964,20 @@ function renderQuizResult(container) {
 
   playSound("chime");
 
+  const artworkSrc = getDragonArtworkSrc(dragon);
+  const visualContent = artworkSrc
+    ? `<div class="modal-img-frame" style="max-width: 480px; margin: 0 auto; height: 260px;">
+        <img src="${artworkSrc}" alt="${dragon.name}" class="modal-artwork-img" />
+       </div>`
+    : renderDragonSVG(dragon, 280, 220);
+
   container.innerHTML = `
     <div class="quiz-wrapper fantasy-panel text-center">
       <h3 class="panel-title">🎉 ¡Tu Dragón Interior es ${dragon.name}!</h3>
       <p class="quiz-result-subtitle">"${dragon.title}"</p>
 
       <div class="result-svg-box margin-top-md">
-        ${renderDragonSVG(dragon, 280, 220)}
+        ${visualContent}
       </div>
 
       <div class="result-details-box margin-top-md">

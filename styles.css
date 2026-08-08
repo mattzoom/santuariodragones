@@ -927,8 +927,11 @@ h1, h2, h3, h4 {
     word-break: break-word !important;
   }
 
-  /* Convertir grillas de varios niveles a 1 sola columna limpia en mobile */
-  div[style*="grid-template-columns"],
+  /* Convertir grillas de varios niveles a 1 sola columna limpia en mobile (excepto el teclado de runas) */
+  div[style*="grid-template-columns: repeat(auto-fit, minmax(2"],
+  div[style*="grid-template-columns: repeat(auto-fit, minmax(3"],
+  div[style*="grid-template-columns: 1fr 1.3fr"],
+  div[style*="grid-template-columns: 1fr 1.2fr"],
   .display-grid {
     grid-template-columns: 1fr !important;
     gap: 0.9rem !important;

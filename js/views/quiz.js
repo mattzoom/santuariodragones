@@ -3,7 +3,7 @@
 
 import { DRAGONS_DATA } from "../data/dragons.js?v=6.1.0";
 import { playSound } from "../utils/audio.js?v=6.1.0";
-import { renderDragonSVG } from "../svg/dragonSvg.js?v=6.1.0";
+import { renderDragonSVG, getDragonArtworkSrc } from "../svg/dragonSvg.js?v=6.1.0";
 
 const QUIZ_QUESTIONS = [
   {
@@ -133,13 +133,20 @@ function renderQuizResult(container) {
 
   playSound("chime");
 
+  const artworkSrc = getDragonArtworkSrc(dragon);
+  const visualContent = artworkSrc
+    ? `<div class="modal-img-frame" style="max-width: 480px; margin: 0 auto; height: 260px;">
+        <img src="${artworkSrc}" alt="${dragon.name}" class="modal-artwork-img" />
+       </div>`
+    : renderDragonSVG(dragon, 280, 220);
+
   container.innerHTML = `
     <div class="quiz-wrapper fantasy-panel text-center">
       <h3 class="panel-title">🎉 ¡Tu Dragón Interior es ${dragon.name}!</h3>
       <p class="quiz-result-subtitle">"${dragon.title}"</p>
 
       <div class="result-svg-box margin-top-md">
-        ${renderDragonSVG(dragon, 280, 220)}
+        ${visualContent}
       </div>
 
       <div class="result-details-box margin-top-md">
