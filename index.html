@@ -18,7 +18,7 @@
     "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
   }
   </script>
-  <link rel="stylesheet" href="styles.css?v=6.2.0">
+  <link rel="stylesheet" href="styles.css?v=6.3.0">
 </head>
 <body>
 
@@ -152,14 +152,36 @@
       <div id="dragon-modal-content" class="modal-card"></div>
     </div>
 
-    <!-- Site Footer -->
+    <!-- Site Footer & SEO Crawl Index -->
     <footer class="site-footer">
-      <p>🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+      <div style="max-width: 1000px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=Nórdica%20y%20Germánica" style="color: var(--text-muted); text-decoration: none;">Dragones Nórdicos y Vikingos</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Dragones de la Mitología Griega</a></li>
+            <li><a href="/?mitologia=Oriental%20(Asia)" style="color: var(--text-muted); text-decoration: none;">Dragones Orientales y Chinos</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Británica" style="color: var(--text-muted); text-decoration: none;">Dragones Celtas y Británicos</a></li>
+            <li><a href="/?mitologia=América%20Precolombina" style="color: var(--text-muted); text-decoration: none;">Dragones Precolombinos (Quetzalcóatl)</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Dragones de Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Dragones de Agua y Marinos</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Dragones de Sombra y Oscuridad</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Dragones de Luz y Celestiales</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Dragones de Tormenta y Rayo</a></li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
     </footer>
 
   </div>
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="js/bundle.js?v=42.0.0"></script>
+  <script src="js/bundle.js?v=43.0.0"></script>
 </body>
 </html>
