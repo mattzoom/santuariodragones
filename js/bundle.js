@@ -1463,7 +1463,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 
 function getDragonArtworkSrc(dragon) {
-  if (dragon && dragon.id <= 89) {
+  if (dragon && (dragon.id <= 89 || dragon.id === 100)) {
     return `assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
@@ -4044,8 +4044,8 @@ function renderQuizResult(container) {
 
   const artworkSrc = getDragonArtworkSrc(dragon);
   const visualContent = artworkSrc
-    ? `<div class="modal-img-frame" style="max-width: 480px; margin: 0 auto; height: 260px;">
-        <img src="${artworkSrc}" alt="${dragon.name}" class="modal-artwork-img" />
+    ? `<div class="modal-img-frame" style="max-width: 440px; aspect-ratio: 4 / 3; width: 100%; height: auto; margin: 0 auto; background: #0c0b14;">
+        <img src="${artworkSrc}" alt="${dragon.name}" class="modal-artwork-img" style="object-fit: contain;" />
        </div>`
     : renderDragonSVG(dragon, 280, 220);
 
