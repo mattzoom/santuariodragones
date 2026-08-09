@@ -1,4 +1,4 @@
-// Base de Datos Ancestral: 100 Dragones de Leyenda
+// Base de Datos Ancestral: más de 100 Dragones de Leyenda
 // Santuario Secreto de Dragones
 
 export const DRAGONS_DATA = [
@@ -1735,7 +1735,7 @@ export const DRAGONS_DATA = [
     habitat: "Biblioteca Secreta del Santuario",
     ability: "Conocimiento de Todos los Idiomas y Aliento de Sabiduría",
     weakness: "El Olvido",
-    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
+    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
     svgType: "shen",
     colorPrimary: "#ffd700",
     colorSecondary: "#ffffff",

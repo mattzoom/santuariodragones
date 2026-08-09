@@ -8,7 +8,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#2b0036", colorSecondary: "#990000", glowColor: "#bf00ff"
   },
   {
-    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 5,
+    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 4,
     habitat: "Breiðablik (Cueva de las Montañas)", ability: "Piel Impenetrable y Aliento de Fuego Dorado", weakness: "Punto débil oculto bajo su hombro izquierdo",
     scroll: "Fafnir era originalmente un príncipe enano tan codicioso que se transformó en un dragón colosal para proteger su tesoro de oro y el anillo maldito Andvaranaut. Su veneno quemaba el pasto por donde caminaba y su rugido hacía temblar los fiordos.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #664400 and #ffd700",
@@ -73,7 +73,7 @@ export const DRAGONS_DATA = [
 
   // 2. MITOLOGÍA GRIEGA Y ROMANA (10)
   {
-    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Magma", danger: 5,
+    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Magma", danger: 3,
     habitat: "El Jardín de las Hespérides", ability: "100 Cabezas Parlantes y Sueño Inexistente", weakness: "Las Flechas con Veneno de Hidra",
     scroll: "Este mítico dragón de cien cabezas nunca dormía. Cada cabeza hablaba en un idioma o tono distinto para confundir a los intrusos que intentaban robar las manzanas de oro sagradas de la diosa Hera. Fue enfrentado por el legendario Hércules.",
     physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring volcano lava scales with glowing molten core with main colors #b71c1c and #ffb74d",
@@ -94,7 +94,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#4e342e", colorSecondary: "#bcaaa4", glowColor: "#d7ccc8"
   },
   {
-    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Draco", element: "Rayo", danger: 5,
+    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Draco", element: "Rayo", danger: 3,
     habitat: "Bosque Sagrado de Ares (Colquide)", ability: "Silbido Ensordecedor y Mirada Hipnótica", weakness: "Pociones Lulaby de la Hechicera Medea",
     scroll: "Enroscado al árbol donde colgaba el mítico Vellocino de Oro. Nunca cerraba los ojos y su silbido se escuchaba a millas de distancia. Jasón y los Argonautas solo lograron vencerlo gracias a un filtro mágico de sueño que preparó Medea.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring electric crackling scales and sparkling lightning sparks with main colors #f57f17 and #fff59d",
@@ -108,7 +108,7 @@ export const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#0d47a1", colorSecondary: "#64b5f6", glowColor: "#40c4ff"
   },
   {
-    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Shen", element: "Agua", danger: 5,
+    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Shen", element: "Agua", danger: 4,
     habitat: "Mar Egeo", ability: "Tsunamis Embajadores y Escamas de Arrecife", weakness: "Reflejo del Escudo de Atenea",
     scroll: "Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactitas de roca volcánica.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #002171 and #5472d3",
@@ -403,7 +403,7 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#3e2723", colorSecondary: "#ff3d00", glowColor: "#ff6e40"
   },
   {
-    id: 57, name: "Balaur", title: "El Dragón de Siete Cabezas y Aletas Finas", mythology: "Eslava y Este de Europa", type: "Hidra", element: "Tormenta", danger: 5,
+    id: 57, name: "Balaur", title: "El Dragón de Siete Cabezas y Aletas Finas", mythology: "Eslava y Este de Europa", type: "Hidra", element: "Tormenta", danger: 4,
     habitat: "Valles del Danubio", ability: "Creación de Granizo y Huracanes", weakness: "La Espada Encantada de Făt-Frumos",
     scroll: "Un dragón gigantesco de la mitología rumana con siete cabezas. Cuando abría las siete bocas a la vez, creaba un arcoíris tóxico que atraía las tormentas y la niebla hacia los pueblos.",
     physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring magical elemental aura with main colors #1a237e and #00e5ff",
@@ -531,7 +531,7 @@ export const DRAGONS_DATA = [
     svgType: "ampithere", colorPrimary: "#ffb300", colorSecondary: "#fff8e1", glowColor: "#ffe082"
   },
   {
-    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Shen", element: "Agua", danger: 4,
+    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Shen", element: "Agua", danger: 5,
     habitat: "El Mar del Infinito", ability: "Sostén del Universo y Maremotos de Luz", weakness: "Imposible de Enfrentar por Mortales",
     scroll: "Un pez-dragón de proporciones tan gigantescas que sobre su lomo sostiene a un toro místico, una montaña de rubí y todos los cielos del cosmos.",
     physicalDescription: "gargantuan celestial sea-dragon fish with glowing cyan fins, luminescent scales, supporting a cosmic mountain on its back in an infinite starlit ocean, Shen dragon with Agua powers in El Mar del Infinito",
@@ -714,7 +714,7 @@ export const DRAGONS_DATA = [
   {
     id: 100, name: "Dragón de Runas Antiguas", title: "El Sabio Eterno del Santuario", mythology: "Leyenda del Santuario", type: "Shen", element: "Luz", danger: 5,
     habitat: "Biblioteca Secreta del Santuario", ability: "Conocimiento de Todos los Idiomas y Aliento de Sabiduría", weakness: "El Olvido",
-    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
+    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ffd700 and #ffffff",
     svgType: "shen", colorPrimary: "#ffd700", colorSecondary: "#ffffff", glowColor: "#ffeb3b"
   }

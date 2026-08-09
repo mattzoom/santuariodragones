@@ -1,3 +1,4 @@
+import { DRAGONS_DATA } from "./data/dragons.js?v=6.1.0";
 import { initParticlesCanvas } from "./utils/particles.js?v=6.1.0";
 import { playSound, toggleSound } from "./utils/audio.js?v=6.1.0";
 import { initEncyclopediaFilters, renderEncyclopedia } from "./views/encyclopedia.js?v=6.1.0";
@@ -71,6 +72,36 @@ export function initApp() {
 
   initEncyclopediaFilters();
   renderEncyclopedia();
+
+  // Deep-linking: auto-open modal if ?dragon=ID parameter is present
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("dragon")) {
+    const dId = parseInt(urlParams.get("dragon"), 10);
+    const dragon = DRAGONS_DATA.find(d => d.id === dId);
+    if (dragon) {
+      import("./views/dragonCard.js?v=6.1.0").then(module => {
+        module.openDragonModal(dragon, renderEncyclopedia);
+      });
+    }
+  }
+
+  // Handle browser back/forward buttons
+  window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("dragon")) {
+      const dId = parseInt(params.get("dragon"), 10);
+      const dragon = DRAGONS_DATA.find(d => d.id === dId);
+      if (dragon) {
+        import("./views/dragonCard.js?v=6.1.0").then(module => {
+          module.openDragonModal(dragon, renderEncyclopedia);
+        });
+      }
+    } else {
+      import("./views/dragonCard.js?v=6.1.0").then(module => {
+        module.closeDragonModal();
+      });
+    }
+  });
 
   window.initApp = initApp;
 }

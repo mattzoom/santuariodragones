@@ -3,6 +3,17 @@ export function initParticlesCanvas(canvasId = "particle-canvas") {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
 
+  // Check if reduced motion is preferred
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    canvas.style.display = "none";
+    return;
+  }
+
+  function getParticleCount() {
+    return window.innerWidth < 768 ? 18 : 40;
+  }
+
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -10,16 +21,20 @@ export function initParticlesCanvas(canvasId = "particle-canvas") {
   resize();
   window.addEventListener("resize", resize);
 
-  const particles = Array.from({ length: 45 }, () => ({
+  let particles = Array.from({ length: getParticleCount() }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 2.5 + 0.8,
-    vx: (Math.random() - 0.5) * 0.4,
-    vy: (Math.random() - 0.5) * 0.4,
-    alpha: Math.random() * 0.6 + 0.2
+    r: Math.random() * 2.2 + 0.8,
+    vx: (Math.random() - 0.5) * 0.35,
+    vy: (Math.random() - 0.5) * 0.35,
+    alpha: Math.random() * 0.55 + 0.15
   }));
 
+  let isAnimating = true;
+
   function animate() {
+    if (!isAnimating) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
       p.x += p.vx;
@@ -34,7 +49,21 @@ export function initParticlesCanvas(canvasId = "particle-canvas") {
       ctx.fillStyle = `rgba(233, 196, 106, ${p.alpha})`;
       ctx.fill();
     });
+
     requestAnimationFrame(animate);
   }
+
+  // Pause animation when tab is inactive to save battery and GPU
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      isAnimating = false;
+    } else {
+      if (!isAnimating) {
+        isAnimating = true;
+        animate();
+      }
+    }
+  });
+
   animate();
 }

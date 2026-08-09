@@ -27,19 +27,26 @@ export function initEncyclopediaFilters() {
     typeSelect.innerHTML = types.map(t => `<option value="${t}">${t === "Todos" ? "Todos los Tipos" : t}</option>`).join("");
   }
 
-  // Setup search and filter listeners
+  // Restore filter values from URL params on load
+  const urlParams = new URLSearchParams(window.location.search);
   const searchInput = document.getElementById("search-input");
-  if (searchInput) {
-    searchInput.addEventListener("input", applyFilters);
-  }
-  if (mythSelect) mythSelect.addEventListener("change", applyFilters);
-  if (elemSelect) elemSelect.addEventListener("change", applyFilters);
-  if (typeSelect) typeSelect.addEventListener("change", applyFilters);
-
   const dangerSelect = document.getElementById("filter-danger");
   const sortSelect = document.getElementById("filter-sort");
-  if (dangerSelect) dangerSelect.addEventListener("change", applyFilters);
-  if (sortSelect) sortSelect.addEventListener("change", applyFilters);
+
+  if (searchInput && urlParams.has("q")) searchInput.value = urlParams.get("q");
+  if (mythSelect && urlParams.has("mitologia")) mythSelect.value = urlParams.get("mitologia");
+  if (elemSelect && urlParams.has("elemento")) elemSelect.value = urlParams.get("elemento");
+  if (typeSelect && urlParams.has("tipo")) typeSelect.value = urlParams.get("tipo");
+  if (dangerSelect && urlParams.has("peligro")) dangerSelect.value = urlParams.get("peligro");
+  if (sortSelect && urlParams.has("orden")) sortSelect.value = urlParams.get("orden");
+
+  // Setup search and filter listeners
+  if (searchInput) searchInput.addEventListener("input", () => applyFilters(true));
+  if (mythSelect) mythSelect.addEventListener("change", () => applyFilters(true));
+  if (elemSelect) elemSelect.addEventListener("change", () => applyFilters(true));
+  if (typeSelect) typeSelect.addEventListener("change", () => applyFilters(true));
+  if (dangerSelect) dangerSelect.addEventListener("change", () => applyFilters(true));
+  if (sortSelect) sortSelect.addEventListener("change", () => applyFilters(true));
 
   const btnReset = document.getElementById("btn-reset-filters");
   if (btnReset) {
@@ -50,12 +57,28 @@ export function initEncyclopediaFilters() {
       if (typeSelect) typeSelect.value = "Todos";
       if (dangerSelect) dangerSelect.value = "Todos";
       if (sortSelect) sortSelect.value = "name-asc";
-      applyFilters();
+      applyFilters(true);
     });
   }
+
+  // Initial filtering based on URL
+  applyFilters(false);
 }
 
-function applyFilters() {
+function updateURLWithFilters(query, mythology, element, type, danger, sort) {
+  const url = new URL(window.location.href);
+  
+  if (query) url.searchParams.set("q", query); else url.searchParams.delete("q");
+  if (mythology && mythology !== "Todas") url.searchParams.set("mitologia", mythology); else url.searchParams.delete("mitologia");
+  if (element && element !== "Todos") url.searchParams.set("elemento", element); else url.searchParams.delete("elemento");
+  if (type && type !== "Todos") url.searchParams.set("tipo", type); else url.searchParams.delete("tipo");
+  if (danger && danger !== "Todos") url.searchParams.set("peligro", danger); else url.searchParams.delete("peligro");
+  if (sort && sort !== "name-asc") url.searchParams.set("orden", sort); else url.searchParams.delete("orden");
+
+  window.history.replaceState({}, "", url.toString());
+}
+
+function applyFilters(shouldUpdateURL = true) {
   const query = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
   
   const mVal = document.getElementById("filter-mythology")?.value;
@@ -71,6 +94,10 @@ function applyFilters() {
   const danger = (dVal && dVal.trim() !== "") ? dVal : "Todos";
 
   const sort = document.getElementById("filter-sort")?.value || "name-asc";
+
+  if (shouldUpdateURL) {
+    updateURLWithFilters(query, mythology, element, type, danger, sort);
+  }
 
   filteredDragons = DRAGONS_DATA.filter(d => {
     const matchQuery = !query || 

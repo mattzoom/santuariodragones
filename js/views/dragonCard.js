@@ -108,11 +108,23 @@ export function openDragonModal(dragon, onFavToggleCallback = null) {
       if (onFavToggleCallback) onFavToggleCallback();
     });
   }
+
+  // Update URL parameter for deep-linking
+  const url = new URL(window.location.href);
+  url.searchParams.set("dragon", dragon.id);
+  window.history.pushState({ dragonId: dragon.id }, "", url.toString());
 }
 
 export function closeDragonModal() {
   const modalOverlay = document.getElementById("dragon-modal-overlay");
   if (modalOverlay) {
     modalOverlay.classList.remove("active");
+  }
+
+  // Remove dragon param from URL when closed
+  const url = new URL(window.location.href);
+  if (url.searchParams.has("dragon")) {
+    url.searchParams.delete("dragon");
+    window.history.pushState({}, "", url.toString());
   }
 }

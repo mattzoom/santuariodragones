@@ -13,6 +13,17 @@ function initParticlesCanvas(canvasId = "particle-canvas") {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
 
+  // Check if reduced motion is preferred
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    canvas.style.display = "none";
+    return;
+  }
+
+  function getParticleCount() {
+    return window.innerWidth < 768 ? 18 : 40;
+  }
+
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -20,16 +31,20 @@ function initParticlesCanvas(canvasId = "particle-canvas") {
   resize();
   window.addEventListener("resize", resize);
 
-  const particles = Array.from({ length: 45 }, () => ({
+  let particles = Array.from({ length: getParticleCount() }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 2.5 + 0.8,
-    vx: (Math.random() - 0.5) * 0.4,
-    vy: (Math.random() - 0.5) * 0.4,
-    alpha: Math.random() * 0.6 + 0.2
+    r: Math.random() * 2.2 + 0.8,
+    vx: (Math.random() - 0.5) * 0.35,
+    vy: (Math.random() - 0.5) * 0.35,
+    alpha: Math.random() * 0.55 + 0.15
   }));
 
+  let isAnimating = true;
+
   function animate() {
+    if (!isAnimating) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
       p.x += p.vx;
@@ -44,8 +59,22 @@ function initParticlesCanvas(canvasId = "particle-canvas") {
       ctx.fillStyle = `rgba(233, 196, 106, ${p.alpha})`;
       ctx.fill();
     });
+
     requestAnimationFrame(animate);
   }
+
+  // Pause animation when tab is inactive to save battery and GPU
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      isAnimating = false;
+    } else {
+      if (!isAnimating) {
+        isAnimating = true;
+        animate();
+      }
+    }
+  });
+
   animate();
 }
 
@@ -393,7 +422,7 @@ const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#2b0036", colorSecondary: "#990000", glowColor: "#bf00ff"
   },
   {
-    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 5,
+    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 4,
     habitat: "Breiðablik (Cueva de las Montañas)", ability: "Piel Impenetrable y Aliento de Fuego Dorado", weakness: "Punto débil oculto bajo su hombro izquierdo",
     scroll: "Fafnir era originalmente un príncipe enano tan codicioso que se transformó en un dragón colosal para proteger su tesoro de oro y el anillo maldito Andvaranaut. Su veneno quemaba el pasto por donde caminaba y su rugido hacía temblar los fiordos.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #664400 and #ffd700",
@@ -458,7 +487,7 @@ const DRAGONS_DATA = [
 
   // 2. MITOLOGÍA GRIEGA Y ROMANA (10)
   {
-    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Magma", danger: 5,
+    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Magma", danger: 3,
     habitat: "El Jardín de las Hespérides", ability: "100 Cabezas Parlantes y Sueño Inexistente", weakness: "Las Flechas con Veneno de Hidra",
     scroll: "Este mítico dragón de cien cabezas nunca dormía. Cada cabeza hablaba en un idioma o tono distinto para confundir a los intrusos que intentaban robar las manzanas de oro sagradas de la diosa Hera. Fue enfrentado por el legendario Hércules.",
     physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring volcano lava scales with glowing molten core with main colors #b71c1c and #ffb74d",
@@ -479,7 +508,7 @@ const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#4e342e", colorSecondary: "#bcaaa4", glowColor: "#d7ccc8"
   },
   {
-    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Draco", element: "Rayo", danger: 5,
+    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Draco", element: "Rayo", danger: 3,
     habitat: "Bosque Sagrado de Ares (Colquide)", ability: "Silbido Ensordecedor y Mirada Hipnótica", weakness: "Pociones Lulaby de la Hechicera Medea",
     scroll: "Enroscado al árbol donde colgaba el mítico Vellocino de Oro. Nunca cerraba los ojos y su silbido se escuchaba a millas de distancia. Jasón y los Argonautas solo lograron vencerlo gracias a un filtro mágico de sueño que preparó Medea.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring electric crackling scales and sparkling lightning sparks with main colors #f57f17 and #fff59d",
@@ -493,7 +522,7 @@ const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#0d47a1", colorSecondary: "#64b5f6", glowColor: "#40c4ff"
   },
   {
-    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Shen", element: "Agua", danger: 5,
+    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Shen", element: "Agua", danger: 4,
     habitat: "Mar Egeo", ability: "Tsunamis Embajadores y Escamas de Arrecife", weakness: "Reflejo del Escudo de Atenea",
     scroll: "Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactitas de roca volcánica.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #002171 and #5472d3",
@@ -788,7 +817,7 @@ const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#3e2723", colorSecondary: "#ff3d00", glowColor: "#ff6e40"
   },
   {
-    id: 57, name: "Balaur", title: "El Dragón de Siete Cabezas y Aletas Finas", mythology: "Eslava y Este de Europa", type: "Hidra", element: "Tormenta", danger: 5,
+    id: 57, name: "Balaur", title: "El Dragón de Siete Cabezas y Aletas Finas", mythology: "Eslava y Este de Europa", type: "Hidra", element: "Tormenta", danger: 4,
     habitat: "Valles del Danubio", ability: "Creación de Granizo y Huracanes", weakness: "La Espada Encantada de Făt-Frumos",
     scroll: "Un dragón gigantesco de la mitología rumana con siete cabezas. Cuando abría las siete bocas a la vez, creaba un arcoíris tóxico que atraía las tormentas y la niebla hacia los pueblos.",
     physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring magical elemental aura with main colors #1a237e and #00e5ff",
@@ -916,7 +945,7 @@ const DRAGONS_DATA = [
     svgType: "ampithere", colorPrimary: "#ffb300", colorSecondary: "#fff8e1", glowColor: "#ffe082"
   },
   {
-    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Shen", element: "Agua", danger: 4,
+    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Shen", element: "Agua", danger: 5,
     habitat: "El Mar del Infinito", ability: "Sostén del Universo y Maremotos de Luz", weakness: "Imposible de Enfrentar por Mortales",
     scroll: "Un pez-dragón de proporciones tan gigantescas que sobre su lomo sostiene a un toro místico, una montaña de rubí y todos los cielos del cosmos.",
     physicalDescription: "gargantuan celestial sea-dragon fish with glowing cyan fins, luminescent scales, supporting a cosmic mountain on its back in an infinite starlit ocean, Shen dragon with Agua powers in El Mar del Infinito",
@@ -1099,7 +1128,7 @@ const DRAGONS_DATA = [
   {
     id: 100, name: "Dragón de Runas Antiguas", title: "El Sabio Eterno del Santuario", mythology: "Leyenda del Santuario", type: "Shen", element: "Luz", danger: 5,
     habitat: "Biblioteca Secreta del Santuario", ability: "Conocimiento de Todos los Idiomas y Aliento de Sabiduría", weakness: "El Olvido",
-    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
+    scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ffd700 and #ffffff",
     svgType: "shen", colorPrimary: "#ffd700", colorSecondary: "#ffffff", glowColor: "#ffeb3b"
   }
@@ -1463,7 +1492,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 
 function getDragonArtworkSrc(dragon) {
-  if (dragon && (dragon.id <= 89 || dragon.id === 100)) {
+  if (dragon && dragon.id <= 100) {
     return `assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
@@ -1738,12 +1767,24 @@ function openDragonModal(dragon, onFavToggleCallback = null) {
       if (onFavToggleCallback) onFavToggleCallback();
     });
   }
+
+  // Update URL parameter for deep-linking
+  const url = new URL(window.location.href);
+  url.searchParams.set("dragon", dragon.id);
+  window.history.pushState({ dragonId: dragon.id }, "", url.toString());
 }
 
 function closeDragonModal() {
   const modalOverlay = document.getElementById("dragon-modal-overlay");
   if (modalOverlay) {
     modalOverlay.classList.remove("active");
+  }
+
+  // Remove dragon param from URL when closed
+  const url = new URL(window.location.href);
+  if (url.searchParams.has("dragon")) {
+    url.searchParams.delete("dragon");
+    window.history.pushState({}, "", url.toString());
   }
 }
 
@@ -1773,19 +1814,26 @@ function initEncyclopediaFilters() {
     typeSelect.innerHTML = types.map(t => `<option value="${t}">${t === "Todos" ? "Todos los Tipos" : t}</option>`).join("");
   }
 
-  // Setup search and filter listeners
+  // Restore filter values from URL params on load
+  const urlParams = new URLSearchParams(window.location.search);
   const searchInput = document.getElementById("search-input");
-  if (searchInput) {
-    searchInput.addEventListener("input", applyFilters);
-  }
-  if (mythSelect) mythSelect.addEventListener("change", applyFilters);
-  if (elemSelect) elemSelect.addEventListener("change", applyFilters);
-  if (typeSelect) typeSelect.addEventListener("change", applyFilters);
-
   const dangerSelect = document.getElementById("filter-danger");
   const sortSelect = document.getElementById("filter-sort");
-  if (dangerSelect) dangerSelect.addEventListener("change", applyFilters);
-  if (sortSelect) sortSelect.addEventListener("change", applyFilters);
+
+  if (searchInput && urlParams.has("q")) searchInput.value = urlParams.get("q");
+  if (mythSelect && urlParams.has("mitologia")) mythSelect.value = urlParams.get("mitologia");
+  if (elemSelect && urlParams.has("elemento")) elemSelect.value = urlParams.get("elemento");
+  if (typeSelect && urlParams.has("tipo")) typeSelect.value = urlParams.get("tipo");
+  if (dangerSelect && urlParams.has("peligro")) dangerSelect.value = urlParams.get("peligro");
+  if (sortSelect && urlParams.has("orden")) sortSelect.value = urlParams.get("orden");
+
+  // Setup search and filter listeners
+  if (searchInput) searchInput.addEventListener("input", () => applyFilters(true));
+  if (mythSelect) mythSelect.addEventListener("change", () => applyFilters(true));
+  if (elemSelect) elemSelect.addEventListener("change", () => applyFilters(true));
+  if (typeSelect) typeSelect.addEventListener("change", () => applyFilters(true));
+  if (dangerSelect) dangerSelect.addEventListener("change", () => applyFilters(true));
+  if (sortSelect) sortSelect.addEventListener("change", () => applyFilters(true));
 
   const btnReset = document.getElementById("btn-reset-filters");
   if (btnReset) {
@@ -1796,12 +1844,28 @@ function initEncyclopediaFilters() {
       if (typeSelect) typeSelect.value = "Todos";
       if (dangerSelect) dangerSelect.value = "Todos";
       if (sortSelect) sortSelect.value = "name-asc";
-      applyFilters();
+      applyFilters(true);
     });
   }
+
+  // Initial filtering based on URL
+  applyFilters(false);
 }
 
-function applyFilters() {
+function updateURLWithFilters(query, mythology, element, type, danger, sort) {
+  const url = new URL(window.location.href);
+  
+  if (query) url.searchParams.set("q", query); else url.searchParams.delete("q");
+  if (mythology && mythology !== "Todas") url.searchParams.set("mitologia", mythology); else url.searchParams.delete("mitologia");
+  if (element && element !== "Todos") url.searchParams.set("elemento", element); else url.searchParams.delete("elemento");
+  if (type && type !== "Todos") url.searchParams.set("tipo", type); else url.searchParams.delete("tipo");
+  if (danger && danger !== "Todos") url.searchParams.set("peligro", danger); else url.searchParams.delete("peligro");
+  if (sort && sort !== "name-asc") url.searchParams.set("orden", sort); else url.searchParams.delete("orden");
+
+  window.history.replaceState({}, "", url.toString());
+}
+
+function applyFilters(shouldUpdateURL = true) {
   const query = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
   
   const mVal = document.getElementById("filter-mythology")?.value;
@@ -1817,6 +1881,10 @@ function applyFilters() {
   const danger = (dVal && dVal.trim() !== "") ? dVal : "Todos";
 
   const sort = document.getElementById("filter-sort")?.value || "name-asc";
+
+  if (shouldUpdateURL) {
+    updateURLWithFilters(query, mythology, element, type, danger, sort);
+  }
 
   filteredDragons = DRAGONS_DATA.filter(d => {
     const matchQuery = !query || 
@@ -4190,6 +4258,36 @@ function initApp() {
 
   initEncyclopediaFilters();
   renderEncyclopedia();
+
+  // Deep-linking: auto-open modal if ?dragon=ID parameter is present
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("dragon")) {
+    const dId = parseInt(urlParams.get("dragon"), 10);
+    const dragon = DRAGONS_DATA.find(d => d.id === dId);
+    if (dragon) {
+      import("./views/dragonCard.js?v=6.1.0").then(module => {
+        module.openDragonModal(dragon, renderEncyclopedia);
+      });
+    }
+  }
+
+  // Handle browser back/forward buttons
+  window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("dragon")) {
+      const dId = parseInt(params.get("dragon"), 10);
+      const dragon = DRAGONS_DATA.find(d => d.id === dId);
+      if (dragon) {
+        import("./views/dragonCard.js?v=6.1.0").then(module => {
+          module.openDragonModal(dragon, renderEncyclopedia);
+        });
+      }
+    } else {
+      import("./views/dragonCard.js?v=6.1.0").then(module => {
+        module.closeDragonModal();
+      });
+    }
+  });
 
   window.initApp = initApp;
 }
