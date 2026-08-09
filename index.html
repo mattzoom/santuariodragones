@@ -8,7 +8,17 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="styles.css?v=6.1.0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Santuario Secreto de Dragones",
+    "url": "https://santuario-dragones.vercel.app/",
+    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=6.2.0">
 </head>
 <body>
 
@@ -22,7 +32,7 @@
       <div class="header-container">
         <div class="brand-title">
           <span class="brand-icon">🐉</span>
-          <span>SANTUARIO DE DRAGONES</span>
+          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
         <nav class="nav-tabs">
@@ -150,6 +160,6 @@
   </div>
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="js/bundle.js?v=41.0.0"></script>
+  <script src="js/bundle.js?v=42.0.0"></script>
 </body>
 </html>
