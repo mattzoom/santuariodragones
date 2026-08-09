@@ -1,4 +1,4 @@
-import os, re
+import os
 
 root_dir = r'c:\Users\matia\Documents\proyectos antigravity\dragones'
 dragons_file = os.path.join(root_dir, 'js', 'data', 'dragons.js')
