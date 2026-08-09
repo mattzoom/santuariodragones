@@ -2038,7 +2038,7 @@ const BACKGROUND_PRESETS = {
 
 const SIGIL_STATE = {
   userName: "MAGUS DRAGUS",
-  dragonName: "VOLTARION",
+  dragonName: "IGNITHARYON",
   bodyType: "draco",
   hornStyle: "horns-classic",
   element: "Rayo",
@@ -2653,31 +2653,109 @@ function renderFundamentosView(container) {
         ${renderMagicSubNavHtml("fundamentos")}
       </div>
 
-      <!-- 1. LA REGLA DE ORO & 2. EL CÓDIGO DE ÉTICA -->
-      <div class="display-grid gap-lg" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      <!-- GRILLA DE LEYES Y FUNDAMENTOS DRACONIANOS -->
+      <div class="magic-laws-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
         
-        <!-- Regla de Oro -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--gold-main);">
+        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO) -->
+        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #ff4757; background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.06));">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 2rem;">⚖️</span>
-            <h3 style="color: var(--gold-main); margin: 0; font-size: 1.5rem;">La Regla Tripartita Draconiana</h3>
+            <span style="font-size: 2.2rem;">🌟</span>
+            <h3 style="color: #ff4757; margin: 0; font-size: 1.6rem;">La Regla de Oro del Mago: ¡Si no te divertís, no es magia!</h3>
           </div>
-          <p style="color: var(--text-main); font-size: 1rem; line-height: 1.6; margin-top: 12px;">
-            Todo lo que envíes al universo (sea positivo o negativo) volverá a vos multiplicado por tres. El poder de los dragones exige responsabilidad, intención pura y respeto absoluto por la vida.
+          <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin-top: 14px; font-weight: 500;">
+            ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
+          </p>
+          <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 10px;">
+            En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
           </p>
         </div>
 
-        <!-- Código de Ética -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-teal);">
+        <!-- FILA 1: COMPAÑERISMO & 24H SILENCIO -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
+          
+          <!-- 🤝 2. La Regla del Compañerismo -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-teal); background: rgba(42,157,143,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🤝</span>
+                <h3 style="color: var(--color-teal); margin: 0; font-size: 1.45rem;">La Regla del Compañerismo</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡Los dragones no son mascotas!</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Los dragones son seres antiguos, muy sabios e independientes. La magia draconiana se basa en la cooperación y la amistad, jamás en dominar. Nunca intentes ordenarles o tratarlos como sirvientes. Tratalos como a tus iguales: con respeto, confianza, cariño y como verdaderos compañeros de equipo.
+              </p>
+            </div>
+          </div>
+
+          <!-- 💬 3. Las 24 Horas de Silencio -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #9b5de5; background: rgba(155,93,229,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">💬</span>
+                <h3 style="color: #9b5de5; margin: 0; font-size: 1.45rem;">Las 24 Horas de Silencio</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡No dejes escapar tu energía!</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Cuando hagas un hechizo, dibujes un sigilo o hagas una petición a tu dragón, guardá el secreto absoluto por al menos un día entero. Hablar de tus trabajos mágicos antes de tiempo disipa tu energía. Los dragones actúan en silencio: dejá que tu deseo se concentre con toda su fuerza.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FILA 2: PALABRA DE ACERO & LEY DEL ECO -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
+
+          <!-- 🔐 4. Tu Palabra es de Acero -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--gold-main); background: rgba(233,196,106,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🔐</span>
+                <h3 style="color: var(--gold-main); margin: 0; font-size: 1.45rem;">Tu Palabra es de Acero</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">La ley de la confianza sagrada</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Las palabras actúan como contratos invisibles con el universo. Por eso, tu palabra es tu promesa sagrada. Si le prometés a tu dragón (o a vos mismo) ordenar tu cuarto, estudiar o cuidar tu altar, ¡cumplilo! La constancia mantiene tu energía fuerte y la confianza intacta.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🕸️ 5. La Ley del Eco y la Red Tripartita -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-rust); background: rgba(200,85,61,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🕸️</span>
+                <h3 style="color: var(--color-rust); margin: 0; font-size: 1.45rem;">La Ley del Eco y la Red Cósmica</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">"Lo que le pasa a una piedra, se refleja en todas"</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Todo en el Multiverso está conectado en una gran telaraña de energía. Rige la <strong>Ley Tripartita</strong>: lo que envíes (amabilidad o mala vibra) volverá a vos multiplicado por tres. Si cuidás la naturaleza y sos amable, el universo te devolverá felicidad y buena suerte.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 📜 6. El Código de Honor del Mago (PIE DE PÁGINA ANCHO COMPLETO) -->
+        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #4cc9f0; background: rgba(76,201,240,0.08);">
           <div style="display: flex; align-items: center; gap: 12px;">
             <span style="font-size: 2rem;">📜</span>
-            <h3 style="color: var(--color-teal); margin: 0; font-size: 1.5rem;">El Código de Honor del Mago</h3>
+            <h3 style="color: #4cc9f0; margin: 0; font-size: 1.5rem;">El Código de Honor del Mago Draconiano</h3>
           </div>
-          <ul style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 12px; padding-left: 1.2rem;">
-            <li>Nunca uses la magia para manipular o dañar a otros.</li>
-            <li>Respeta a la naturaleza y a los espíritus elementales.</li>
-            <li>Mantén en secreto tus herramientas y nombre mágico.</li>
-          </ul>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 14px;">
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #4cc9f0;">
+              <strong style="color: #4cc9f0;">🛡️ Intención Pura:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Nunca uses la magia para manipular, asustar o dañar a otras personas o animales.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid var(--gold-main);">
+              <strong style="color: var(--gold-main);">🌿 Respeto Elemental:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Protegé siempre a la naturaleza, a los árboles y a todos los seres vivos del planeta.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #9b5de5;">
+              <strong style="color: #9b5de5;">🔮 Sigilo y Discreción:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Guardá en secreto tus herramientas, tu altar y tu Nombre Mágico para conservar tu fuerza.</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -3658,7 +3736,7 @@ function renderRingContent(ringNumber) {
               </div>
 
               <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-panel);">
-                <h5 style="color: var(--gold-main); margin: 0; font-size: 1.1rem;">🪵 2. El Bastón de Equilibrio</h5>
+                <h5 style="color: var(--gold-main); margin: 0; font-size: 1.1rem;">🌿 2. El Bastón de Equilibrio</h5>
                 <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
                   Una vara larga de madera (puedes buscar una rama firme en el parque). Sirve para mantener tu equilibrio emocional cuando sientes que te vas a caer o a rendir.
                 </p>

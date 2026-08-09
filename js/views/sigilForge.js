@@ -43,7 +43,7 @@ const BACKGROUND_PRESETS = {
 
 const SIGIL_STATE = {
   userName: "MAGUS DRAGUS",
-  dragonName: "VOLTARION",
+  dragonName: "IGNITHARYON",
   bodyType: "draco",
   hornStyle: "horns-classic",
   element: "Rayo",
