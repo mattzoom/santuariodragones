@@ -397,6 +397,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: contrast(1.1) saturate(1.1);
 }
@@ -1193,63 +1194,96 @@ h1, h2, h3, h4 {
     flex-shrink: 0;
   }
 
+  .site-header {
+    padding: 0.4rem 0.5rem;
+  }
+
   .main-content {
-    padding: 1rem 0.8rem;
+    padding: 0.6rem 0.25rem;
   }
 
   .hero-banner {
-    padding: 1.8rem 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 16px;
+    padding: 1.2rem 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 14px;
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .fantasy-panel {
-    padding: 1rem;
-    border-radius: 14px;
+    padding: 0.6rem;
+    border-radius: 12px;
   }
 
   .filters-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .search-input {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
+    padding: 0.75rem 0.8rem;
+    font-size: 0.95rem;
   }
 
   .dragons-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 1.8rem;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
-  .dragon-card-svg,
-  .dragon-card-media {
-    height: 180px;
   }
 
-  .dragon-name {
-    font-size: 1.2rem;
+  .element-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
   }
 
-  /* Modal responsive */
+  .fav-btn {
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  /* Pagination Bar Mobile Touch */
+  .pagination-container {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    gap: 0.3rem;
+  }
+
+  .pag-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.78rem;
+    min-width: 32px;
+  }
+
+  .pag-numbers-wrap {
+    gap: 0.2rem;
+  }
+
+  /* Modal Card Mobile Touch View */
   .modal-overlay {
-    padding: 0.8rem;
+    padding: 0.6rem;
   }
 
   .modal-card {
-    padding: 1.5rem 1.2rem;
+    padding: 1.2rem;
     max-height: 94vh;
     border-radius: 18px;
+  }
+
+  .modal-close-btn {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.3rem;
   }
 
   .modal-grid {
@@ -1258,74 +1292,285 @@ h1, h2, h3, h4 {
   }
 
   .modal-img-frame {
-    height: 220px;
+    height: 200px;
+    border-radius: 12px;
+  }
+
+  .stats-table {
+    font-size: 0.85rem;
+  }
+
+  /* Dragon Script / Translator Controls */
+  #ds-translator-input {
+    font-size: 0.95rem !important;
+    padding: 0.75rem !important;
+  }
+
+  #ds-rune-grid {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)) !important;
+    gap: 8px !important;
+  }
+}
+
+/* Extra Small Screens Adaptation (Max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .dragons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+
+  .dragon-card-svg,
+  .dragon-card-media {
+    height: 125px;
+  }
+
+  .dragon-name {
+    font-size: 0.95rem;
+  }
+
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE SYSTEM (PANTALLAS <= 768px & <= 480px)
+   ========================================================================== */
+
+/* Tablets & Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .brand-title {
+    justify-content: center;
+    font-size: 1.15rem;
+  }
+
+  .header-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.3rem;
+    border-radius: 20px;
+    width: 100%;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .nav-tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+
+  .main-content {
+    padding: 0.8rem 0.6rem;
+  }
+
+  .hero-banner {
+    padding: 1.4rem 0.8rem;
+    margin-bottom: 1.2rem;
+    border-radius: 14px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .fantasy-panel {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  /* Ficha Standalone Individual de Dragón */
+  .dragon-standalone-card {
+    padding: 0.6rem !important;
+  }
+
+  .dragon-detail-standalone-section {
+    padding: 0 0.2rem !important;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .search-input {
+    padding: 0.75rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .dragons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dragon-card-svg,
+  .dragon-card-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+    background: #0a0911;
+  }
+
+  .dragon-card-content {
+    padding: 0.5rem;
+  }
+
+  .dragon-name {
+    font-size: 1.2rem;
+  }
+
+  /* Modal Popup Individual de Dragón */
+  .modal-overlay {
+    padding: 0.3rem;
+  }
+
+  .modal-card {
+    padding: 0.8rem 0.6rem;
+    max-height: 96vh;
+    border-radius: 14px;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .modal-img-frame {
+    height: 270px;
   }
 
   /* Dragon Creator responsive */
   .creator-grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 
   .preview-stage {
     min-height: 260px;
-    padding: 0.8rem;
+    padding: 0.5rem;
   }
 
   .option-chips {
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 
   .chip {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.82rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
   }
 
   /* Paginación Mobile */
   .pagination-container {
-    padding: 0.5rem 0.8rem;
-    gap: 0.3rem;
+    padding: 0.4rem 0.5rem;
+    gap: 0.25rem;
     width: 100%;
     justify-content: center;
   }
 
   .pag-btn {
-    padding: 0.35rem 0.6rem;
+    padding: 0.35rem 0.55rem;
     font-size: 0.8rem;
-    min-width: 32px;
+    min-width: 30px;
   }
 }
 
 /* Small Smartphone Screens (<= 480px) */
 @media (max-width: 480px) {
+  .site-header {
+    padding: 0.4rem 0.4rem;
+  }
+
+  .main-content {
+    padding: 0.6rem 0.3rem;
+  }
+
   .brand-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .brand-icon {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  .fantasy-panel {
+    padding: 0.65rem;
+    border-radius: 10px;
+  }
+
+  /* Ficha Standalone Individual de Dragón */
+  .dragon-standalone-card {
+    padding: 0.4rem !important;
+  }
+
+  .dragon-detail-standalone-section {
+    padding: 0 0.1rem !important;
   }
 
   .filters-grid {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   .dragons-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .dragon-card-svg,
   .dragon-card-media {
-    height: 200px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    background: #0a0911;
+  }
+
+  .dragon-artwork-img {
+    object-fit: contain;
+    background: #0a0911;
   }
 
   .input-with-button {
@@ -1337,11 +1582,11 @@ h1, h2, h3, h4 {
   }
 
   .modal-img-frame {
-    height: 180px;
+    height: 280px;
   }
 
   .quiz-option-card {
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.92rem;
   }
 }

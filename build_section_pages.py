@@ -32,9 +32,11 @@ sections = [
 
 for sec in sections:
     html = template
-    # Replace title & description
+    # Replace title & description & canonical
     html = re.sub(r'<title>.*?</title>', f'<title>{sec["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{sec["desc"]}">', html)
+    html = re.sub(r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{sec["url"]}">', html)
+    html = re.sub(r'<meta property="og:url" content=".*?">', f'<meta property="og:url" content="{sec["url"]}">', html)
     
     out_p = os.path.join(root_dir, sec['file'])
     with open(out_p, 'w', encoding='utf-8') as f:

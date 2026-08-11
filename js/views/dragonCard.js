@@ -20,7 +20,7 @@ export function renderDragonCardHTML(dragon) {
   const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" class="dragon-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" loading="lazy" decoding="async" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `

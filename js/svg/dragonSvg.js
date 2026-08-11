@@ -1,6 +1,7 @@
 export function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 100) {
-    return `/assets/dragons/dragon_${dragon.id}.jpg`;
+    const v = (dragon.id === 13) ? '?v=13_v2' : '';
+    return `/assets/dragons/dragon_${dragon.id}.jpg${v}`;
   }
   return null;
 }

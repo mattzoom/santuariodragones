@@ -1493,7 +1493,8 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 100) {
-    return `/assets/dragons/dragon_${dragon.id}.jpg`;
+    const v = (dragon.id === 13) ? '?v=13_v2' : '';
+    return `/assets/dragons/dragon_${dragon.id}.jpg${v}`;
   }
   return null;
 }
@@ -1679,7 +1680,7 @@ function renderDragonCardHTML(dragon) {
   const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" class="dragon-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" loading="lazy" decoding="async" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `
@@ -4343,35 +4344,16 @@ function initApp() {
     renderEncyclopedia();
   }
 
-  // Deep-linking: auto-open modal if ?dragon=ID parameter is present
+  // Deep-linking fallback: redirect legacy ?dragon=ID parameters to static SSG page
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has("dragon")) {
     const dId = parseInt(urlParams.get("dragon"), 10);
     const dragon = DRAGONS_DATA.find(d => d.id === dId);
     if (dragon) {
-      import("./views/dragonCard.js?v=6.1.0").then(module => {
-        module.openDragonModal(dragon, renderEncyclopedia);
-      });
+      const slug = dragon.name.toLowerCase().replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u').replace(/ñ/g,'n').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+      window.location.href = `/dragon/${slug}.html`;
     }
   }
-
-  // Handle browser back/forward buttons
-  window.addEventListener("popstate", () => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.has("dragon")) {
-      const dId = parseInt(params.get("dragon"), 10);
-      const dragon = DRAGONS_DATA.find(d => d.id === dId);
-      if (dragon) {
-        import("./views/dragonCard.js?v=6.1.0").then(module => {
-          module.openDragonModal(dragon, renderEncyclopedia);
-        });
-      }
-    } else {
-      import("./views/dragonCard.js?v=6.1.0").then(module => {
-        module.closeDragonModal();
-      });
-    }
-  });
 
   window.initApp = initApp;
 }
