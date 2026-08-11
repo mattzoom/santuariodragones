@@ -61,8 +61,10 @@ export function initEncyclopediaFilters() {
     });
   }
 
-  // Initial filtering based on URL
-  applyFilters(false);
+  // Initial filtering based on URL (only if not on a static SSG detail page)
+  if (!window.location.pathname.includes("/dragon/")) {
+    applyFilters(false);
+  }
 }
 
 function updateURLWithFilters(query, mythology, element, type, danger, sort) {
@@ -157,18 +159,17 @@ export function renderEncyclopedia() {
 
   grid.innerHTML = pageDragons.map(dragon => renderDragonCardHTML(dragon)).join("");
 
-  // Attach card click handlers for modal detail
+  // Attach card click handlers for roar sound & favorite button
   grid.querySelectorAll(".dragon-card").forEach(card => {
     card.addEventListener("click", (e) => {
       if (e.target.closest(".fav-btn")) return;
-      const dragonId = parseInt(card.dataset.id, 10);
-      const dragon = DRAGONS_DATA.find(d => d.id === dragonId);
-      if (dragon) openDragonModal(dragon, renderEncyclopedia);
+      playSound("roar");
     });
 
     const btnFav = card.querySelector(".fav-btn");
     if (btnFav) {
       btnFav.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
         const dragonId = parseInt(card.dataset.id, 10);
         toggleFavorite(dragonId);

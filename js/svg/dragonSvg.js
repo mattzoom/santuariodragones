@@ -1,6 +1,6 @@
 export function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 100) {
-    return `assets/dragons/dragon_${dragon.id}.jpg`;
+    return `/assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
 }

@@ -7,8 +7,24 @@ import { initMagicModule } from "./views/magic.js?v=6.1.0";
 import { initQuizModule } from "./views/quiz.js?v=6.1.0";
 import { renderFavoritesView } from "./views/favorites.js?v=6.1.0";
 
-export function switchTab(tabName) {
-  playSound("click");
+export function switchTab(tabName, playSoundEffect = true) {
+  if (playSoundEffect) {
+    playSound("click");
+  }
+
+  // If user clicks a tab while inside a static /dragon/*.html page, redirect natively
+  if (window.location.pathname.includes("/dragon/")) {
+    const sectionUrls = {
+      encyclopedia: "/",
+      magic: "/magia-draconiana.html",
+      quiz: "/test-draconiano.html",
+      favorites: "/favoritos.html"
+    };
+    if (sectionUrls[tabName]) {
+      window.location.href = sectionUrls[tabName];
+      return;
+    }
+  }
 
   // Toggle active tab button
   document.querySelectorAll(".nav-tab").forEach(tab => {
@@ -35,7 +51,7 @@ export function switchTab(tabName) {
   if (tabName === "encyclopedia") {
     renderEncyclopedia();
   } else if (tabName === "sigils") {
-    switchTab("magic");
+    switchTab("magic", false);
     if (window.switchMagicSubPage) {
       window.switchMagicSubPage("sigilos");
     }
@@ -62,16 +78,72 @@ export function initApp() {
     btnAudio.addEventListener("click", toggleSound);
   }
 
-  // Attach direct click listeners to navigation tabs
+  // Attach sound click handler to all nav tabs
   document.querySelectorAll(".nav-tab").forEach(tab => {
     tab.addEventListener("click", () => {
-      const tabName = tab.dataset.tab;
-      if (tabName) switchTab(tabName);
+      playSound("click");
     });
   });
 
   initEncyclopediaFilters();
-  renderEncyclopedia();
+  
+  // Check active route from pathname without double sound or flash
+  const path = window.location.pathname;
+  if (path.includes("magia-draconiana")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("fundamentos");
+  } else if (path.includes("altar-varita")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("varita");
+  } else if (path.includes("altar-pentaculo")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("pentaculo");
+  } else if (path.includes("altar-espejo")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("espejo");
+  } else if (path.includes("altar-dragonscript")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("dragonscript");
+  } else if (path.includes("altar-draconiano")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+  } else if (path.includes("academia-anillo-1")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(1);
+  } else if (path.includes("academia-anillo-2")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(2);
+  } else if (path.includes("academia-anillo-3")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(3);
+  } else if (path.includes("academia-anillo-4")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(4);
+  } else if (path.includes("academia-anillo-5")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(5);
+  } else if (path.includes("academia-draconiana")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+  } else if (path.includes("forja-de-sigilos")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("sigilos");
+  } else if (path.includes("test-draconiano")) {
+    switchTab("quiz", false);
+  } else if (path.includes("favoritos")) {
+    switchTab("favorites", false);
+  } else if (!path.includes("/dragon/")) {
+    renderEncyclopedia();
+  }
 
   // Deep-linking: auto-open modal if ?dragon=ID parameter is present
   const urlParams = new URLSearchParams(window.location.search);

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Pentáculo de los 5 Elementos | Santuario de Dragones</title>
+  <meta name="description" content="Aprende a construir y consagrar el Pentáculo sagrado de los 5 elementos y la regla de oro de seguridad.">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Santuario Secreto de Dragones",
+    "url": "https://santuario-dragones.vercel.app/",
+    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=6.4.0">
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+        </div>
+
+        <nav class="nav-tabs">
+          <a class="nav-tab active" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
+          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
+          <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- 1. ENCYCLOPEDIA SECTION -->
+      <section id="section-encyclopedia" class="view-section active">
+        
+        <!-- HERO BANNER (Solo en Enciclopedia) -->
+        <section class="hero-banner">
+          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
+          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
+        </section>
+        
+        <!-- Search & Filter Controls Panel -->
+        <div class="search-filter-section fantasy-panel">
+          <div class="search-bar-wrap">
+            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
+          </div>
+
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-mythology">Mitología / Origen:</label>
+              <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-element">Elemento Principal:</label>
+              <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-type">Tipo de Cuerpo:</label>
+              <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-danger">Nivel de Peligro:</label>
+              <select id="filter-danger" class="filter-select">
+                <option value="Todos">Todos los Niveles</option>
+                <option value="1">🔥 (Peligro 1)</option>
+                <option value="2">🔥🔥 (Peligro 2)</option>
+                <option value="3">🔥🔥🔥 (Peligro 3)</option>
+                <option value="4">🔥🔥🔥🔥 (Peligro 4)</option>
+                <option value="5">🔥🔥🔥🔥🔥 (Peligro 5)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-sort">Ordenar Por:</label>
+              <select id="filter-sort" class="filter-select">
+                <option value="name-asc">Nombre (A-Z)</option>
+                <option value="name-desc">Nombre (Z-A)</option>
+                <option value="danger-desc">Peligro (Mayor a Menor)</option>
+                <option value="danger-asc">Peligro (Menor a Mayor)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
+            </div>
+          </div>
+
+          <div class="results-bar">
+            <span class="results-badge" id="results-count">Cargando 100 Dragones...</span>
+          </div>
+        </div>
+
+        <!-- Dragons Grid -->
+        <div id="dragons-grid" class="dragons-grid"></div>
+
+        <!-- Pagination Bar -->
+        <div id="pagination-box" class="pagination-box"></div>
+      </section>
+
+      <!-- 2. FORJA DE SIGILOS DRACONIANOS SECTION -->
+      <section id="section-sigils" class="view-section">
+        <div id="sigil-container"></div>
+      </section>
+
+      <!-- 3. MAGIA DRACONIANA SECTION -->
+      <section id="section-magic" class="view-section">
+        <div id="magic-container"></div>
+      </section>
+
+      <!-- 3. QUIZ SECTION ("TEST DRACONIANO") -->
+      <section id="section-quiz" class="view-section">
+        <div id="quiz-container"></div>
+      </section>
+
+      <!-- 4. FAVORITES SECTION -->
+      <section id="section-favorites" class="view-section">
+        <div class="fantasy-panel margin-bottom-lg">
+          <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
+          <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
+        </div>
+        <div id="favorites-grid" class="dragons-grid"></div>
+      </section>
+
+    </main>
+
+    <!-- Modal Overlay Detail View -->
+    <div id="dragon-modal-overlay" class="modal-overlay">
+      <div id="dragon-modal-content" class="modal-card"></div>
+    </div>
+
+    <!-- Site Footer & SEO Crawl Index -->
+    <footer class="site-footer">
+      <div style="max-width: 1000px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=Nórdica%20y%20Germánica" style="color: var(--text-muted); text-decoration: none;">Dragones Nórdicos y Vikingos</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Dragones de la Mitología Griega</a></li>
+            <li><a href="/?mitologia=Oriental%20(Asia)" style="color: var(--text-muted); text-decoration: none;">Dragones Orientales y Chinos</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Británica" style="color: var(--text-muted); text-decoration: none;">Dragones Celtas y Británicos</a></li>
+            <li><a href="/?mitologia=América%20Precolombina" style="color: var(--text-muted); text-decoration: none;">Dragones Precolombinos (Quetzalcóatl)</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Dragones de Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Dragones de Agua y Marinos</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Dragones de Sombra y Oscuridad</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Dragones de Luz y Celestiales</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Dragones de Tormenta y Rayo</a></li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+    <!-- Noscript Crawl Fallback for Search Engine Crawlers without JS -->
+    <noscript>
+      <section style="max-width: 1000px; margin: 2rem auto; padding: 1rem; background: #0c0b14; color: #fff;">
+        <h2>Enciclopedia de Dragones - Índice Completo para Buscadores</h2>
+        <p>Si tu navegador no soporta JavaScript o sos un robot de indexación, podés explorar los 100 dragones míticos del Santuario:</p>
+
+        <article>
+          <h3>#1 Furia Nocturna (El Relámpago y la Muerte Encarnada) - Mitología Celta y Británica</h3>
+          <p>Dragón Draco de Fuego. El dragón más rápido y misterioso de la enciclopedia.</p>
+          <a href="/?dragon=1">Ficha del Dragón #1 Furia Nocturna</a>
+        </article>
+        <article>
+          <h3>#2 Fafnir (El Guardián del Tesoro Maldito) - Mitología Nórdica y Germánica</h3>
+          <p>Dragón Draco de Fuego. Antiguo príncipe enano transformado por la codicia.</p>
+          <a href="/?dragon=2">Ficha del Dragón #2 Fafnir</a>
+        </article>
+        <article>
+          <h3>#3 Quetzalcóatl (La Serpiente Emplumada) - Mitología América Precolombina</h3>
+          <p>Dragón Ampithere de Viento. Deidad del viento y la sabiduría.</p>
+          <a href="/?dragon=3">Ficha del Dragón #3 Quetzalcóatl</a>
+        </article>
+        <article>
+          <h3>#100 Dragón de Runas Antiguas (El Sabio Eterno del Santuario) - Leyenda del Santuario</h3>
+          <p>Dragón Shen de Luz. Guardián supremo que custodia el conocimiento de más de 100 dragones.</p>
+          <a href="/?dragon=100">Ficha del Dragón #100 Dragón de Runas Antiguas</a>
+        </article>
+      </section>
+    </noscript>
+
+  </div>
+
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+  <script src="js/bundle.js?v=44.0.0"></script>
+</body>
+</html>

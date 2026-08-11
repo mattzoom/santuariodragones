@@ -166,16 +166,21 @@ h1, h2, h3, h4 {
   cursor: pointer;
   white-space: nowrap;
   transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-tab:hover {
   color: var(--gold-light);
+  text-decoration: none;
 }
 
 .nav-tab.active {
   background: var(--gold-gradient);
   color: #0c0b14;
   box-shadow: var(--shadow-gold);
+  text-decoration: none;
 }
 
 /* Buttons System */

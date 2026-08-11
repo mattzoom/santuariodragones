@@ -1493,7 +1493,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 100) {
-    return `assets/dragons/dragon_${dragon.id}.jpg`;
+    return `/assets/dragons/dragon_${dragon.id}.jpg`;
   }
   return null;
 }
@@ -1662,19 +1662,29 @@ function renderDragonSVG(dragon, width = 300, height = 240) {
 
   // 4. VIEWS
 
+function slugify(text) {
+  text = (text || "").toLowerCase();
+  const replacements = {'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u', 'ñ':'n', 'ü':'u'};
+  for (let k in replacements) {
+    text = text.replace(new RegExp(k, 'g'), replacements[k]);
+  }
+  return text.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 function renderDragonCardHTML(dragon) {
   const isFav = isFavorite(dragon.id);
   const dangerLevel = Math.max(1, Math.min(5, parseInt(dragon.danger || 1, 10)));
   const flames = "🔥".repeat(dangerLevel);
   const artSrc = getDragonArtworkSrc(dragon);
+  const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
     ? `<img src="${artSrc}" alt="${dragon.name}" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `
-    <div class="dragon-card fantasy-panel" data-id="${dragon.id}">
-      <button class="fav-btn ${isFav ? "active" : ""}" title="${isFav ? "Quitar de Favoritos" : "Guardar en Favoritos"}">
+    <a href="/dragon/${slug}.html" class="dragon-card fantasy-panel" data-id="${dragon.id}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;">
+      <button class="fav-btn ${isFav ? "active" : ""}" title="${isFav ? "Quitar de Favoritos" : "Guardar en Favoritos"}" onclick="event.preventDefault(); event.stopPropagation();">
         ${isFav ? "❤️" : "🤍"}
       </button>
 
@@ -1692,7 +1702,7 @@ function renderDragonCardHTML(dragon) {
           <span class="danger-tag">${flames}</span>
         </div>
       </div>
-    </div>
+    </a>
   `;
 }
 
@@ -1848,8 +1858,10 @@ function initEncyclopediaFilters() {
     });
   }
 
-  // Initial filtering based on URL
-  applyFilters(false);
+  // Initial filtering based on URL (only if not on a static SSG detail page)
+  if (!window.location.pathname.includes("/dragon/")) {
+    applyFilters(false);
+  }
 }
 
 function updateURLWithFilters(query, mythology, element, type, danger, sort) {
@@ -1944,18 +1956,17 @@ function renderEncyclopedia() {
 
   grid.innerHTML = pageDragons.map(dragon => renderDragonCardHTML(dragon)).join("");
 
-  // Attach card click handlers for modal detail
+  // Attach card click handlers for roar sound & favorite button
   grid.querySelectorAll(".dragon-card").forEach(card => {
     card.addEventListener("click", (e) => {
       if (e.target.closest(".fav-btn")) return;
-      const dragonId = parseInt(card.dataset.id, 10);
-      const dragon = DRAGONS_DATA.find(d => d.id === dragonId);
-      if (dragon) openDragonModal(dragon, renderEncyclopedia);
+      playSound("roar");
     });
 
     const btnFav = card.querySelector(".fav-btn");
     if (btnFav) {
       btnFav.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
         const dragonId = parseInt(card.dataset.id, 10);
         toggleFavorite(dragonId);
@@ -2667,10 +2678,10 @@ function initMagicModule(containerId = "magic-container") {
 function renderMagicSubNavHtml(activePage) {
   return `
     <div class="margin-top-md magic-sub-nav">
-      <button type="button" class="chip ${activePage === "fundamentos" ? "active" : ""}" onclick="switchMagicSubPage('fundamentos')" style="font-weight: 700; cursor: pointer; ${activePage !== "fundamentos" ? "background: rgba(233,196,106,0.15);" : ""}">📜 1. Fundamentos</button>
-      <button type="button" class="chip ${activePage === "altar" ? "active" : ""}" onclick="switchMagicSubPage('altar')" style="font-weight: 700; cursor: pointer; ${activePage !== "altar" ? "background: rgba(233,196,106,0.15);" : ""}">⚒️ 2. El Altar</button>
-      <button type="button" class="chip ${activePage === "academia" ? "active" : ""}" onclick="switchMagicSubPage('academia')" style="font-weight: 700; cursor: pointer; ${activePage !== "academia" ? "background: rgba(233,196,106,0.15);" : ""}">🎓 3. Academia (5 Anillos)</button>
-      <button type="button" class="chip ${activePage === "sigilos" ? "active" : ""}" onclick="switchMagicSubPage('sigilos')" style="font-weight: 700; cursor: pointer; ${activePage !== "sigilos" ? "background: rgba(233,196,106,0.15);" : ""}">🔮 4. Forja de Sigilos</button>
+      <a href="/magia-draconiana.html" class="chip ${activePage === "fundamentos" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ${activePage !== "fundamentos" ? "background: rgba(233,196,106,0.15);" : ""}">📜 1. Fundamentos</a>
+      <a href="/altar-draconiano.html" class="chip ${activePage === "altar" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ${activePage !== "altar" ? "background: rgba(233,196,106,0.15);" : ""}">⚒️ 2. El Altar</a>
+      <a href="/academia-draconiana.html" class="chip ${activePage === "academia" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ${activePage !== "academia" ? "background: rgba(233,196,106,0.15);" : ""}">🎓 3. Academia (5 Anillos)</a>
+      <a href="/forja-de-sigilos.html" class="chip ${activePage === "sigilos" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ${activePage !== "sigilos" ? "background: rgba(233,196,106,0.15);" : ""}">🔮 4. Forja de Sigilos</a>
     </div>
   `;
 }
@@ -2871,7 +2882,7 @@ function renderAltarSubPage(container) {
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">1. La Búsqueda de tu Material Mágico</h4>
             <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-              <img src="assets/magic_wand_material.jpg" alt="Búsqueda de rama mística en la playa" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              <img src="/assets/magic_wand_material.jpg" alt="Búsqueda de rama mística en la playa" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">¡No necesitás gastar tus ahorros ni buscar maderas súper raras! Las herramientas más poderosas son las que vos mismo fabricás o encontrás de formas inusuales:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
@@ -2883,7 +2894,7 @@ function renderAltarSubPage(container) {
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">2. La Medida del Mago</h4>
             <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-              <img src="assets/magic_wand_measurement.jpg" alt="Joven mago sintonizando la medida de su varita en su cuarto" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              <img src="/assets/magic_wand_measurement.jpg" alt="Joven mago sintonizando la medida de su varita en su cuarto" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">En la magia draconiana, la dimensión de tus herramientas depende de tu propio cuerpo:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
@@ -3305,13 +3316,14 @@ function renderAltarSubPage(container) {
           Elegí una de las 4 subsecciones de artefactos y saberes para aprender su confección, alfabetos y reglas mágicas:
         </p>
         ${renderMagicSubNavHtml("altar")}
-      </div>
-
-      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        <button type="button" class="chip ${currentAltarTool === "varita" ? "active" : ""}" onclick="switchAltarTool('varita')" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">✨ 1. La Varita o Bastón</button>
-        <button type="button" class="chip ${currentAltarTool === "pentaculo" ? "active" : ""}" onclick="switchAltarTool('pentaculo')" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">⭐ 2. El Pentáculo del Dragón</button>
-        <button type="button" class="chip ${currentAltarTool === "espejo" ? "active" : ""}" onclick="switchAltarTool('espejo')" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">👁️ 3. El Espejo Mágico</button>
-        <button type="button" class="chip ${currentAltarTool === "dragonscript" ? "active" : ""}" onclick="switchAltarTool('dragonscript')" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">📜 4. Dragon Script</button>
+        
+        <!-- BARRA DE SELECCIÓN DE HERRAMIENTAS -->
+        <div class="margin-top-md text-center" style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+          <a href="/altar-varita.html" class="chip ${currentAltarTool === "varita" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">✨ 1. Varita o Bastón</a>
+          <a href="/altar-pentaculo.html" class="chip ${currentAltarTool === "pentaculo" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">⭐ 2. Pentáculo (5 Elementos)</a>
+          <a href="/altar-espejo.html" class="chip ${currentAltarTool === "espejo" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">👁️ 3. Espejo Mágico</a>
+          <a href="/altar-dragonscript.html" class="chip ${currentAltarTool === "dragonscript" ? "active" : ""}" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">📜 4. Dragon Script</a>
+        </div>
       </div>
 
       ${toolContentHtml}
@@ -3358,11 +3370,11 @@ function renderAcademiaSubPage(container) {
 
         <!-- Navigation Chips for 5 Rings -->
         <div class="magic-rings-nav display-flex justify-center flex-wrap gap-sm margin-top-lg" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-          <button type="button" class="chip ${currentMagicRing === 1 ? "active" : ""}" onclick="switchMagicRing(1)" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">🌱 Anillo 1: El Aprendiz</button>
-          <button type="button" class="chip ${currentMagicRing === 2 ? "active" : ""}" onclick="switchMagicRing(2)" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">📜 Anillo 2: El Encantador</button>
-          <button type="button" class="chip ${currentMagicRing === 3 ? "active" : ""}" onclick="switchMagicRing(3)" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">🌿 Anillo 3: El Chamán</button>
-          <button type="button" class="chip ${currentMagicRing === 4 ? "active" : ""}" onclick="switchMagicRing(4)" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">🛡️ Anillo 4: El Guerrero</button>
-          <button type="button" class="chip ${currentMagicRing === 5 ? "active" : ""}" onclick="switchMagicRing(5)" style="padding: 10px 18px; font-weight: 700; cursor: pointer;">🔮 Anillo 5: El Místico</button>
+          <a href="/academia-anillo-1.html" class="chip ${currentMagicRing === 1 ? "active" : ""}" style="padding: 10px 18px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">🌱 Anillo 1: El Aprendiz</a>
+          <a href="/academia-anillo-2.html" class="chip ${currentMagicRing === 2 ? "active" : ""}" style="padding: 10px 18px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">📜 Anillo 2: El Encantador</a>
+          <a href="/academia-anillo-3.html" class="chip ${currentMagicRing === 3 ? "active" : ""}" style="padding: 10px 18px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">🌿 Anillo 3: El Chamán</a>
+          <a href="/academia-anillo-4.html" class="chip ${currentMagicRing === 4 ? "active" : ""}" style="padding: 10px 18px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">🛡️ Anillo 4: El Guerrero</a>
+          <a href="/academia-anillo-5.html" class="chip ${currentMagicRing === 5 ? "active" : ""}" style="padding: 10px 18px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;">🔮 Anillo 5: El Místico</a>
         </div>
 
         <!-- Ring Content Container -->
@@ -4193,8 +4205,24 @@ function renderFavoritesView() {
 
   // 5. MAIN ENTRY POINT
 
-function switchTab(tabName) {
-  playSound("click");
+function switchTab(tabName, playSoundEffect = true) {
+  if (playSoundEffect) {
+    playSound("click");
+  }
+
+  // If user clicks a tab while inside a static /dragon/*.html page, redirect natively
+  if (window.location.pathname.includes("/dragon/")) {
+    const sectionUrls = {
+      encyclopedia: "/",
+      magic: "/magia-draconiana.html",
+      quiz: "/test-draconiano.html",
+      favorites: "/favoritos.html"
+    };
+    if (sectionUrls[tabName]) {
+      window.location.href = sectionUrls[tabName];
+      return;
+    }
+  }
 
   // Toggle active tab button
   document.querySelectorAll(".nav-tab").forEach(tab => {
@@ -4221,7 +4249,7 @@ function switchTab(tabName) {
   if (tabName === "encyclopedia") {
     renderEncyclopedia();
   } else if (tabName === "sigils") {
-    switchTab("magic");
+    switchTab("magic", false);
     if (window.switchMagicSubPage) {
       window.switchMagicSubPage("sigilos");
     }
@@ -4248,16 +4276,72 @@ function initApp() {
     btnAudio.addEventListener("click", toggleSound);
   }
 
-  // Attach direct click listeners to navigation tabs
+  // Attach sound click handler to all nav tabs
   document.querySelectorAll(".nav-tab").forEach(tab => {
     tab.addEventListener("click", () => {
-      const tabName = tab.dataset.tab;
-      if (tabName) switchTab(tabName);
+      playSound("click");
     });
   });
 
   initEncyclopediaFilters();
-  renderEncyclopedia();
+  
+  // Check active route from pathname without double sound or flash
+  const path = window.location.pathname;
+  if (path.includes("magia-draconiana")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("fundamentos");
+  } else if (path.includes("altar-varita")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("varita");
+  } else if (path.includes("altar-pentaculo")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("pentaculo");
+  } else if (path.includes("altar-espejo")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("espejo");
+  } else if (path.includes("altar-dragonscript")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+    if (window.switchAltarTool) window.switchAltarTool("dragonscript");
+  } else if (path.includes("altar-draconiano")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("altar");
+  } else if (path.includes("academia-anillo-1")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(1);
+  } else if (path.includes("academia-anillo-2")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(2);
+  } else if (path.includes("academia-anillo-3")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(3);
+  } else if (path.includes("academia-anillo-4")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(4);
+  } else if (path.includes("academia-anillo-5")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+    if (window.switchMagicRing) window.switchMagicRing(5);
+  } else if (path.includes("academia-draconiana")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("academia");
+  } else if (path.includes("forja-de-sigilos")) {
+    switchTab("magic", false);
+    if (window.switchMagicSubPage) window.switchMagicSubPage("sigilos");
+  } else if (path.includes("test-draconiano")) {
+    switchTab("quiz", false);
+  } else if (path.includes("favoritos")) {
+    switchTab("favorites", false);
+  } else if (!path.includes("/dragon/")) {
+    renderEncyclopedia();
+  }
 
   // Deep-linking: auto-open modal if ?dragon=ID parameter is present
   const urlParams = new URLSearchParams(window.location.search);

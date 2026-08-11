@@ -3,19 +3,29 @@ import { renderDragonSVG, getDragonArtworkSrc } from "../svg/dragonSvg.js?v=6.1.
 import { isFavorite, toggleFavorite } from "../utils/storage.js?v=6.1.0";
 import { playSound } from "../utils/audio.js?v=6.1.0";
 
+function slugify(text) {
+  text = (text || "").toLowerCase();
+  const replacements = {'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u', 'ñ':'n', 'ü':'u'};
+  for (let k in replacements) {
+    text = text.replace(new RegExp(k, 'g'), replacements[k]);
+  }
+  return text.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 export function renderDragonCardHTML(dragon) {
   const isFav = isFavorite(dragon.id);
   const dangerLevel = Math.max(1, Math.min(5, parseInt(dragon.danger || 1, 10)));
   const flames = "🔥".repeat(dangerLevel);
   const artSrc = getDragonArtworkSrc(dragon);
+  const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
     ? `<img src="${artSrc}" alt="${dragon.name}" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `
-    <div class="dragon-card fantasy-panel" data-id="${dragon.id}">
-      <button class="fav-btn ${isFav ? "active" : ""}" title="${isFav ? "Quitar de Favoritos" : "Guardar en Favoritos"}">
+    <a href="/dragon/${slug}.html" class="dragon-card fantasy-panel" data-id="${dragon.id}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;">
+      <button class="fav-btn ${isFav ? "active" : ""}" title="${isFav ? "Quitar de Favoritos" : "Guardar en Favoritos"}" onclick="event.preventDefault(); event.stopPropagation();">
         ${isFav ? "❤️" : "🤍"}
       </button>
 
@@ -33,7 +43,7 @@ export function renderDragonCardHTML(dragon) {
           <span class="danger-tag">${flames}</span>
         </div>
       </div>
-    </div>
+    </a>
   `;
 }
 

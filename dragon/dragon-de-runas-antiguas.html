@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santuario Secreto de Dragones | Enciclopedia Épica & Forja Interactiva</title>
+  <meta name="description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo, forja para crear tu propio dragón y pruebas legendarias.">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Santuario Secreto de Dragones",
+    "url": "https://santuario-dragones.vercel.app/",
+    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+  }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=6.4.0">
+
+  <!-- Custom SSG Open Graph & Meta Tags for Dragón de Runas Antiguas -->
+  <title>Dragón de Runas Antiguas (El Sabio Eterno del Santuario) | Santuario de Dragones</title>
+  <meta name="description" content="Dragón de Runas Antiguas es un dragón Shen de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...">
+  <meta property="og:title" content="Dragón de Runas Antiguas - El Sabio Eterno del Santuario">
+  <meta property="og:description" content="Dragón de Runas Antiguas es un dragón Shen de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...">
+  <meta property="og:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_100.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://santuario-dragones.vercel.app/dragon/dragon-de-runas-antiguas.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dragón de Runas Antiguas | Santuario Secreto de Dragones">
+  <meta name="twitter:description" content="Dragón de Runas Antiguas es un dragón Shen de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...">
+  <meta name="twitter:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_100.jpg">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dragón de Runas Antiguas - El Sabio Eterno del Santuario",
+    "description": "Dragón de Runas Antiguas es un dragón Shen de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...",
+    "image": "https://santuario-dragones.vercel.app/assets/dragons/dragon_100.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Magus Dragus"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Santuario Secreto de Dragones"
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+        </div>
+
+        <nav class="nav-tabs">
+          <a class="nav-tab active" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
+          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
+          <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+    <section class="dragon-detail-standalone-section" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <a href="/" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 10px 18px;">
+          ⬅️ Volver a la Enciclopedia
+        </a>
+      </div>
+
+      <article class="fantasy-panel" style="padding: 2rem; border-radius: 20px; border: 2px solid var(--gold-main); background: rgba(12, 11, 20, 0.95); box-shadow: 0 10px 35px rgba(0,0,0,0.8);">
+        
+        <header style="text-align: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-panel); padding-bottom: 1.5rem;">
+          <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 0.95rem; text-transform: uppercase;">
+            📜 Dragón #100 de 100
+          </span>
+          <h1 class="hero-title" style="font-size: 2.8rem; color: var(--gold-main); margin: 0.8rem 0 0.4rem 0; font-family: var(--font-heading);">Dragón de Runas Antiguas</h1>
+          <p class="hero-subtitle" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0;">"El Sabio Eterno del Santuario"</p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: start;">
+          
+          <!-- Column 1: Image & Badges -->
+          <div style="text-align: center;">
+            <div style="aspect-ratio: 4 / 3; width: 100%; border-radius: 16px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 8px 25px rgba(0,0,0,0.7); background: #0c0b14;">
+              <img src="/assets/dragons/dragon_100.jpg" alt="Dragón de Runas Antiguas" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem;">
+              <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 10px; border-radius: 10px; font-weight: 700; text-align: left;">🏛️ Mitología: Leyenda del Santuario</span>
+              <span class="badge" style="background: rgba(42,157,143,0.15); border: 1px solid var(--color-teal); color: var(--color-teal); padding: 10px; border-radius: 10px; font-weight: 700; text-align: left;">🐉 Tipo: Shen</span>
+              <span class="badge" style="background: rgba(231,111,81,0.15); border: 1px solid #e76f51; color: #e76f51; padding: 10px; border-radius: 10px; font-weight: 700; text-align: left;">🔥 Elemento: Luz</span>
+              <span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid #fff; color: #fff; padding: 10px; border-radius: 10px; font-weight: 700; text-align: left;">⚠️ Peligrosidad: 5/5 (⭐⭐⭐⭐⭐)</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Data & Scroll -->
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border-panel); margin-bottom: 1.5rem;">
+              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.6rem;">📊 Datos de Combate & Hábitat</h3>
+              <p style="margin: 0.8rem 0; font-size: 1rem;"><strong>🏡 Hábitat:</strong> <span style="color: var(--text-main);">Biblioteca Secreta del Santuario</span></p>
+              <p style="margin: 0.8rem 0; font-size: 1rem;"><strong>⚡ Habilidad Especial:</strong> <span style="color: var(--text-main);">Conocimiento de Todos los Idiomas y Aliento de Sabiduría</span></p>
+              <p style="margin: 0.8rem 0; font-size: 1rem;"><strong>🛡️ Debilidad:</strong> <span style="color: var(--text-main);">El Olvido</span></p>
+            </div>
+
+            <div class="fantasy-panel" style="background: rgba(10,9,17,0.9); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--gold-main);">
+              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 8px;">
+                📜 Pergamino de la Antigüedad
+              </h3>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main); font-style: italic; margin-bottom: 0;">"El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones."</p>
+            </div>
+          </div>
+
+        </div>
+
+        <footer style="margin-top: 2.5rem; text-align: center; border-top: 1px solid var(--border-panel); padding-top: 1.5rem;">
+          <a href="/" class="btn btn-gold btn-lg" style="text-decoration: none; display: inline-block; font-size: 1.1rem; padding: 12px 28px;">
+            📚 Volver al Catálogo de Dragones
+          </a>
+        </footer>
+
+      </article>
+    </section>
+</main>
+
+    <!-- Modal Overlay Detail View -->
+    <div id="dragon-modal-overlay" class="modal-overlay">
+      <div id="dragon-modal-content" class="modal-card"></div>
+    </div>
+
+    <!-- Site Footer & SEO Crawl Index -->
+    <footer class="site-footer">
+      <div style="max-width: 1000px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=Nórdica%20y%20Germánica" style="color: var(--text-muted); text-decoration: none;">Dragones Nórdicos y Vikingos</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Dragones de la Mitología Griega</a></li>
+            <li><a href="/?mitologia=Oriental%20(Asia)" style="color: var(--text-muted); text-decoration: none;">Dragones Orientales y Chinos</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Británica" style="color: var(--text-muted); text-decoration: none;">Dragones Celtas y Británicos</a></li>
+            <li><a href="/?mitologia=América%20Precolombina" style="color: var(--text-muted); text-decoration: none;">Dragones Precolombinos (Quetzalcóatl)</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Dragones de Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Dragones de Agua y Marinos</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Dragones de Sombra y Oscuridad</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Dragones de Luz y Celestiales</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Dragones de Tormenta y Rayo</a></li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+    <!-- Noscript Crawl Fallback for Search Engine Crawlers without JS -->
+    <noscript>
+      <section style="max-width: 1000px; margin: 2rem auto; padding: 1rem; background: #0c0b14; color: #fff;">
+        <h2>Enciclopedia de Dragones - Índice Completo para Buscadores</h2>
+        <p>Si tu navegador no soporta JavaScript o sos un robot de indexación, podés explorar los 100 dragones míticos del Santuario:</p>
+
+        <article>
+          <h3>#1 Furia Nocturna (El Relámpago y la Muerte Encarnada) - Mitología Celta y Británica</h3>
+          <p>Dragón Draco de Fuego. El dragón más rápido y misterioso de la enciclopedia.</p>
+          <a href="/?dragon=1">Ficha del Dragón #1 Furia Nocturna</a>
+        </article>
+        <article>
+          <h3>#2 Fafnir (El Guardián del Tesoro Maldito) - Mitología Nórdica y Germánica</h3>
+          <p>Dragón Draco de Fuego. Antiguo príncipe enano transformado por la codicia.</p>
+          <a href="/?dragon=2">Ficha del Dragón #2 Fafnir</a>
+        </article>
+        <article>
+          <h3>#3 Quetzalcóatl (La Serpiente Emplumada) - Mitología América Precolombina</h3>
+          <p>Dragón Ampithere de Viento. Deidad del viento y la sabiduría.</p>
+          <a href="/?dragon=3">Ficha del Dragón #3 Quetzalcóatl</a>
+        </article>
+        <article>
+          <h3>#100 Dragón de Runas Antiguas (El Sabio Eterno del Santuario) - Leyenda del Santuario</h3>
+          <p>Dragón Shen de Luz. Guardián supremo que custodia el conocimiento de más de 100 dragones.</p>
+          <a href="/?dragon=100">Ficha del Dragón #100 Dragón de Runas Antiguas</a>
+        </article>
+      </section>
+    </noscript>
+
+  </div>
+
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+  <script src="/js/bundle.js?v=44.0.0"></script>
+</body>
+</html>
