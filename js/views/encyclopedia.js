@@ -23,7 +23,9 @@ export function initEncyclopediaFilters() {
   }
 
   if (typeSelect) {
-    const types = ["Todos", ...new Set(DRAGONS_DATA.map(d => d.type))];
+    const rawTypes = new Set(DRAGONS_DATA.map(d => d.type));
+    rawTypes.add("Drakón");
+    const types = ["Todos", ...Array.from(rawTypes).sort()];
     typeSelect.innerHTML = types.map(t => `<option value="${t}">${t === "Todos" ? "Todos los Tipos" : t}</option>`).join("");
   }
 

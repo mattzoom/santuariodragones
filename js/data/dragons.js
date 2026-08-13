@@ -8,7 +8,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#2b0036", colorSecondary: "#990000", glowColor: "#bf00ff"
   },
   {
-    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 4,
+    id: 2, name: "Fafnir", title: "El Guardián del Tesoro Maldito", mythology: "Nórdica y Germánica", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Breiðablik (Cueva de las Montañas)", ability: "Piel Impenetrable y Aliento de Fuego Dorado", weakness: "Punto débil oculto bajo su hombro izquierdo",
     scroll: "Fafnir era originalmente un príncipe enano tan codicioso que se transformó en un dragón colosal para proteger su tesoro de oro y el anillo maldito Andvaranaut. Su veneno quemaba el pasto por donde caminaba y su rugido hacía temblar los fiordos.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #664400 and #ffd700",
@@ -36,7 +36,7 @@ export const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#3e2723", colorSecondary: "#8d6e63", glowColor: "#d7ccc8"
   },
   {
-    id: 6, name: "Grabakr", title: "La Llama Gris de la Caverna", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 4,
+    id: 6, name: "Grabakr", title: "La Llama Gris de la Caverna", mythology: "Nórdica y Germánica", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Cavernas de Ceniza de Muspelheim", ability: "Aliento de Ceniza Ardiente y Visión Térmica", weakness: "Agua de Glaciar",
     scroll: "Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de los ríos de lava y usaba las rocas calientes como almohada.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #212121 and #ff5722",
@@ -94,7 +94,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#4e342e", colorSecondary: "#bcaaa4", glowColor: "#d7ccc8"
   },
   {
-    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Draco", element: "Rayo", danger: 3,
+    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Dragón Europeo", element: "Rayo", danger: 3,
     habitat: "Bosque Sagrado de Ares (Colquide)", ability: "Silbido Ensordecedor y Mirada Hipnótica", weakness: "Pociones Lulaby de la Hechicera Medea",
     scroll: "Enroscado al árbol donde colgaba el mítico Vellocino de Oro. Nunca cerraba los ojos y su silbido se escuchaba a millas de distancia. Jasón y los Argonautas solo lograron vencerlo gracias a un filtro mágico de sueño que preparó Medea.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring electric crackling scales and sparkling lightning sparks with main colors #f57f17 and #fff59d",
@@ -108,7 +108,7 @@ export const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#0d47a1", colorSecondary: "#64b5f6", glowColor: "#40c4ff"
   },
   {
-    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Shen", element: "Agua", danger: 4,
+    id: 16, name: "Ceto", title: "El Monstruo de las Profundidades Abisales", mythology: "Griega y Romana", type: "Drakón", element: "Agua", danger: 4,
     habitat: "Mar Egeo", ability: "Tsunamis Embajadores y Escamas de Arrecife", weakness: "Reflejo del Escudo de Atenea",
     scroll: "Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactitas de roca volcánica.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #002171 and #5472d3",
@@ -122,7 +122,7 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#1a237e", colorSecondary: "#9c27b0", glowColor: "#ea80fc"
   },
   {
-    id: 18, name: "Tifón Dragón", title: "El Titán de los Cien Huracanes", mythology: "Griega y Romana", type: "Draco", element: "Tormenta", danger: 5,
+    id: 18, name: "Tifón Dragón", title: "El Titán de los Cien Huracanes", mythology: "Griega y Romana", type: "Dragón Europeo", element: "Tormenta", danger: 5,
     habitat: "Monte Etna", ability: "Llamaradas de Azufre y Vientos Ciclónicos", weakness: "El Rayo Maestro del Olimpo",
     scroll: "Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derretir montañas enteras.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #311b92 and #ff1744",
@@ -136,7 +136,7 @@ export const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#33691e", colorSecondary: "#c0ca33", glowColor: "#eeff41"
   },
   {
-    id: 20, name: "Dragón de Hesperia", title: "El Sol Naciente de las Alturas", mythology: "Griega y Romana", type: "Ampithere", element: "Luz", danger: 3,
+    id: 20, name: "Dragón de Hesperia", title: "El Sol Naciente de las Alturas", mythology: "Griega y Romana", type: "Drakón", element: "Luz", danger: 3,
     habitat: "Colinas del Lazio", ability: "Destello Solar y Vuelo Plumado", weakness: "Oscuridad Total",
     scroll: "Un dragón con plumas doradas y alas expansivas que los antiguos romanos asociaban con los buenos augurios al amanecer sobre las colinas imperiales.",
     physicalDescription: "feathered-winged serpent dragon with vibrant crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ff6f00 and #ffe082",
@@ -173,7 +173,7 @@ export const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#d84315", colorSecondary: "#ffab91", glowColor: "#ff6e40"
   },
   {
-    id: 25, name: "Yinglong", title: "El Dragón Alado con Caimán", mythology: "Oriental (Asia)", type: "Draco", element: "Agua", danger: 4,
+    id: 25, name: "Yinglong", title: "El Dragón Alado con Caimán", mythology: "Oriental (Asia)", type: "Dragón Europeo", element: "Agua", danger: 4,
     habitat: "Lagos Ancestrales de Hubei", ability: "Canalización de Riadas y Control de Vientos", weakness: "Flechas de Bambú Sagrado",
     scroll: "El único dragón oriental tradicional con grandes alas de pluma de águila. Ayudó al mítico emperador Yu a detener las grandes inundaciones dibujando canales en la tierra con su larga cola.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #00695c and #80cbc4",
@@ -243,7 +243,7 @@ export const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#ef6c00", colorSecondary: "#ffe0b2", glowColor: "#ffab40"
   },
   {
-    id: 35, name: "Dragón de Jade", title: "El Guardián de la Armonía de Piedra", mythology: "Oriental (Asia)", type: "Draco", element: "Cristal", danger: 3,
+    id: 35, name: "Dragón de Jade", title: "El Guardián de la Armonía de Piedra", mythology: "Oriental (Asia)", type: "Dragón Europeo", element: "Cristal", danger: 3,
     habitat: "Montañas de Jade de Yunnan", ability: "Piel de Jade Indestructible y Sanación Natural", weakness: "Golpes con Granito Negro",
     scroll: "Un dragón cuyas escamas están hechas de jade translúcido verde y blanco. Se dice que si toca a un enfermo con su hocico suave, curará todos sus malestares.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #00796b and #b2dfdb",
@@ -287,7 +287,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#4e342e", colorSecondary: "#a1887f", glowColor: "#d7ccc8"
   },
   {
-    id: 41, name: "Caicai Vilu", title: "La Serpiente de los Maremotos", mythology: "Mesoamericana y Sudamericana", type: "Shen", element: "Agua", danger: 5,
+    id: 41, name: "Caicai Vilu", title: "La Serpiente de los Maremotos", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Agua", danger: 5,
     habitat: "Océano Pacífico Sur", ability: "Crecimiento del Nivel del Mar y Olas Gigantes", weakness: "El Cantar de Trentren Vilu",
     scroll: "Serpiente marina legendaria que reina sobre los peces y los océanos. Su feroz batalla contra Trentren dio origen al archipiélago de Chiloé y sus múltiples islas pintorescas.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #0d47a1 and #42a5f5",
@@ -324,7 +324,7 @@ export const DRAGONS_DATA = [
 
   // 5. CELTA Y BRITÁNICA (10)
   {
-    id: 46, name: "Y Ddraig Goch", title: "El Dragón Rojo de Gales", mythology: "Celta y Británica", type: "Draco", element: "Fuego", danger: 4,
+    id: 46, name: "Y Ddraig Goch", title: "El Dragón Rojo de Gales", mythology: "Celta y Británica", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Montañas de Snowdonia (Gales)", ability: "Rugido de Libertad y Aliento Abrasador", weakness: "Vino Dulce Dulce de Brezo",
     scroll: "El famoso Dragón Rojo que aparece orgulloso en la bandera de Gales. Combatió durante siglos contra el dragón blanco invasor bajo la colina de Dinas Emrys hasta salir victorioso.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #b71c1c and #ff5252",
@@ -345,7 +345,7 @@ export const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#006064", colorSecondary: "#80deea", glowColor: "#00e5ff"
   },
   {
-    id: 49, name: "Dragón Blanco Sajón", title: "El Rival de las Nieblas", mythology: "Celta y Británica", type: "Draco", element: "Hielo", danger: 4,
+    id: 49, name: "Dragón Blanco Sajón", title: "El Rival de las Nieblas", mythology: "Celta y Británica", type: "Dragón Europeo", element: "Hielo", danger: 4,
     habitat: "Colinas Chalk Cliffs de Dover", ability: "Aliento Glacial y Vuelo Nocturno", weakness: "El Fuego del Dragón Rojo",
     scroll: "En las profecías del mago Merlín, el Dragón Blanco luchaba contra el Dragón Rojo en un duelo subterráneo que sacudía los cimientos de Gran Bretaña.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring crystalline icy frost scales and glowing cyan frost aura with main colors #eceff1 and #90a4ae",
@@ -410,14 +410,14 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#1a237e", colorSecondary: "#00e5ff", glowColor: "#18ffff"
   },
   {
-    id: 58, name: "Zirnitra", title: "El Dragón Mágico de la Hechicería", mythology: "Eslava y Este de Europa", type: "Draco", element: "Sombra", danger: 4,
+    id: 58, name: "Zirnitra", title: "El Dragón Mágico de la Hechicería", mythology: "Eslava y Este de Europa", type: "Dragón Europeo", element: "Sombra", danger: 4,
     habitat: "Bosques Negros de Pomerania", ability: "Chispa de Magia Oscura e Ilusión", weakness: "Amuletos de Plata Pura",
     scroll: "Venerado por los antiguos hechiceros como el dios dragón de la magia. Sus escamas de color azul noche resplandecían con símbolos rúnicos antiguos al lanzar sus hechizos.",
     physicalDescription: "majestic classic four-legged dragon with midnight blue night scales, glowing neon purple ancient runic symbols shimmering across its wings, glowing violet eyes, and a horned head, Draco dragon with Sombra powers in Bosques Negros de Pomerania",
     svgType: "draco", colorPrimary: "#0d47a1", colorSecondary: "#ea80fc", glowColor: "#e040fb"
   },
   {
-    id: 59, name: "Smok Wawelski", title: "El Dragón de la Cueva del Vístula", mythology: "Eslava y Este de Europa", type: "Draco", element: "Fuego", danger: 4,
+    id: 59, name: "Smok Wawelski", title: "El Dragón de la Cueva del Vístula", mythology: "Eslava y Este de Europa", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Colina de Wawel (Cracovia)", ability: "Llamaradas Devoradoras y Terremoto de Paso", weakness: "Oveja Rellena de Azufre",
     scroll: "Habitaba en una cueva debajo del castillo de Wawel en Cracovia. Exigía tributos semanales de ganado hasta que el ingenioso zapatero Skuba le ofreció una piel de oveja cargada de azufre.",
     physicalDescription: "massive stocky four-legged classic dragon with thick jagged burnt-orange scales, glowing fiery nostrils, smoking jaws, and giant spiked tail standing near a dark cave, Draco dragon with Fuego powers in Colina de Wawel (Cracovia)",
@@ -452,7 +452,7 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#006064", colorSecondary: "#e0f7fa", glowColor: "#80deea"
   },
   {
-    id: 64, name: "Chuvash Yish", title: "El Dragón Volador de Fuego", mythology: "Oriental (Asia)", type: "Ampithere", element: "Fuego", danger: 3,
+    id: 64, name: "Chuvash Yish", title: "El Dragón Volador de Fuego", mythology: "Oriental (Asia)", type: "Shen", element: "Fuego", danger: 3,
     habitat: "Bosques del Volga", ability: "Transformación en Meteriorito y Lluvia de Chispas", weakness: "Oraciones de Abuelas del Pueblo",
     scroll: "Se creía que este dragón caía del cielo como un meteorito ardiente y se transformaba al tocar tierra en una persona apacible que ayudaba a las granjas.",
     physicalDescription: "gorgeous feathered serpent dragon with fiery orange and gold scales, bright red feathered wings, glowing flame tail trail like a shooting meteor, Ampithere dragon with Fuego powers in Bosques del Volga",
@@ -496,7 +496,7 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#311b92", colorSecondary: "#b0bec5", glowColor: "#7c4dff"
   },
   {
-    id: 70, name: "Mušḫoššu (Sirrush)", title: "El Dragón Furioso de la Puerta de Ishtar", mythology: "Mesopotámica y Medio Oriente", type: "Draco", element: "Luz", danger: 3,
+    id: 70, name: "Mušḫoššu (Sirrush)", title: "El Dragón Furioso de la Puerta de Ishtar", mythology: "Mesopotámica y Medio Oriente", type: "Dragón Europeo", element: "Luz", danger: 3,
     habitat: "Babilonia (Mesopotamia)", ability: "Cuerpo de León, Cuerno de Víbora y Patas de Águila", weakness: "Respeto a los Sacerdotes de Marduk",
     scroll: "El hermoso dragón tallado en azulejos de cerámica azul brillante en la Puerta de Ishtar en Babilonia. Posee patas delanteras de león, patas traseras de águila y un cuello largo de serpiente.",
     physicalDescription: "majestic mythical creature with long slender snake neck, lion front legs, eagle hind talons, sharp viper horn on its head, coated in lapis lazuli blue ceramic scales with golden accents, Draco dragon with Luz powers in Babilonia (Mesopotamia)",
@@ -531,7 +531,7 @@ export const DRAGONS_DATA = [
     svgType: "ampithere", colorPrimary: "#ffb300", colorSecondary: "#fff8e1", glowColor: "#ffe082"
   },
   {
-    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Shen", element: "Agua", danger: 5,
+    id: 75, name: "Bahamut Abisal", title: "El Dragón Pez Apoyo del Mundo", mythology: "Mesopotámica y Medio Oriente", type: "Drakón", element: "Agua", danger: 5,
     habitat: "El Mar del Infinito", ability: "Sostén del Universo y Maremotos de Luz", weakness: "Imposible de Enfrentar por Mortales",
     scroll: "Un pez-dragón de proporciones tan gigantescas que sobre su lomo sostiene a un toro místico, una montaña de rubí y todos los cielos del cosmos.",
     physicalDescription: "gargantuan celestial sea-dragon fish with glowing cyan fins, luminescent scales, supporting a cosmic mountain on its back in an infinite starlit ocean, Shen dragon with Agua powers in El Mar del Infinito",
@@ -575,7 +575,7 @@ export const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#00695c", colorSecondary: "#80cbc4", glowColor: "#80e27e"
   },
   {
-    id: 81, name: "Naga Vasuki", title: "El Rey Dragón de la Cuerda Cósmica", mythology: "Hindú y Sudeste Asiático", type: "Shen", element: "Luz", danger: 4,
+    id: 81, name: "Naga Vasuki", title: "El Rey Dragón de la Cuerda Cósmica", mythology: "Hindú y Sudeste Asiático", type: "Basilisco", element: "Luz", danger: 4,
     habitat: "Cuello del Dios Shiva", ability: "Batido del Océano de Leche y Resistencia Divina", weakness: "Garuḍa el Ave Celestial",
     scroll: "Utilizado por los devas y asuras como cuerda gigantesca alrededor del Monte Mandara para batir el océano de leche y extraer el elíxir de la inmortalidad.",
     physicalDescription: "golden radiant multi-hooded Naga serpent dragon coiled around a sacred cosmic mountain churning the ocean of milk, Shen dragon with Luz powers in Cuello del Dios Shiva",
@@ -598,7 +598,7 @@ export const DRAGONS_DATA = [
 
   // 9. LEYENDAS MEDIEVALES DE EUROPA (10)
   {
-    id: 84, name: "Dragón de San Jorge", title: "El Terror de la Villa de Silene", mythology: "Europea Continental", type: "Draco", element: "Fuego", danger: 4,
+    id: 84, name: "Dragón de San Jorge", title: "El Terror de la Villa de Silene", mythology: "Europea Continental", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Laguna de Silene (Libia / Europa Medieval)", ability: "Aliento de Pestilencia y Escamas Afiladas", weakness: "La Lanza Asalon de San Jorge y la Cruz Bendita",
     scroll: "El dragón más célebre de los cuentos de caballería medievales. Aterrorizaba a un reino pidiendo raciones diarias hasta que el caballero San Jorge lo enfrentó para salvar a la princesa.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #b71c1c and #ffe082",
@@ -640,7 +640,7 @@ export const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#4e342e", colorSecondary: "#ff3d00", glowColor: "#ff9100"
   },
   {
-    id: 90, name: "Bisu de Cerdeña", title: "El Dragón Somnoliento de las Torres", mythology: "Europea Continental", type: "Draco", element: "Sombra", danger: 2,
+    id: 90, name: "Bisu de Cerdeña", title: "El Dragón Somnoliento de las Torres", mythology: "Europea Continental", type: "Dragón Europeo", element: "Sombra", danger: 2,
     habitat: "Ruinas Nurágicas de Cerdeña", ability: "Canto de Dulces Sueños", weakness: "Ruidos Fuertes de Campanas",
     scroll: "Un pequeño dragón pacífico que vive en las antiguas torres Nuraghes de Cerdeña. Se pasa el día durmiendo al sol y soñando con estrellas de colores.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring dark shadowed purple scales and abyssal twilight smoke with main colors #4a148c and #d1c4e9",
@@ -661,7 +661,7 @@ export const DRAGONS_DATA = [
     svgType: "wyvern", colorPrimary: "#b71c1c", colorSecondary: "#ffd700", glowColor: "#ffff00"
   },
   {
-    id: 93, name: "Dragón de la Cueva de Drachenfels", title: "El Dragón del Río Rhin", mythology: "Nórdica y Germánica", type: "Draco", element: "Fuego", danger: 4,
+    id: 93, name: "Dragón de la Cueva de Drachenfels", title: "El Dragón del Río Rhin", mythology: "Nórdica y Germánica", type: "Dragón Europeo", element: "Fuego", danger: 4,
     habitat: "Roca de Drachenfels (Alemania)", ability: "Aliento de Fuego Volcánico y Escamas de Hierro", weakness: "La Espada Balmung del Héroe Sigfrido",
     scroll: "Vivía en una caverna sobre el río Rhin exigiendo ofrendas. El héroe Sigfrido lo derrotó y al bañarse en la sangre del dragón obtuvo una piel impenetrable.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring blazing fiery scales and glowing ember accents with main colors #212121 and #ff6f00",
@@ -677,14 +677,14 @@ export const DRAGONS_DATA = [
     svgType: "ampithere", colorPrimary: "#4a148c", colorSecondary: "#00e5ff", glowColor: "#18ffff"
   },
   {
-    id: 95, name: "Dragón de Magma Ancestral", title: "El Guardián del Núcleo de la Tierra", mythology: "Leyenda del Santuario", type: "Draco", element: "Magma", danger: 5,
+    id: 95, name: "Dragón de Magma Ancestral", title: "El Guardián del Núcleo de la Tierra", mythology: "Leyenda del Santuario", type: "Dragón Europeo", element: "Magma", danger: 5,
     habitat: "Núcleo Fundido del Planeta", ability: "Tsunami de Lava y Piel de Obsidiana Candente", weakness: "Hielo Estelar",
     scroll: "Duerma placidamente cerca del centro de la Tierra. Cuando bosteza, los volcanes del mundo expulsan chispas de luz dorada y piedras brillantes.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring volcano lava scales with glowing molten core with main colors #bf360c and #ffab91",
     svgType: "draco", colorPrimary: "#bf360c", colorSecondary: "#ffab91", glowColor: "#ff6e40"
   },
   {
-    id: 96, name: "Dragón de Cristal de Aurora", title: "El Reflejo de las Luces Polares", mythology: "Leyenda del Santuario", type: "Draco", element: "Cristal", danger: 3,
+    id: 96, name: "Dragón de Cristal de Aurora", title: "El Reflejo de las Luces Polares", mythology: "Leyenda del Santuario", type: "Dragón Europeo", element: "Cristal", danger: 3,
     habitat: "Polos de Hielo Eterno", ability: "Prisma de Colores y Rayo Espejo", weakness: "Oscuridad Absoluta",
     scroll: "Sus escamas son cristales de cuarzo puro que descomponen la luz del sol en los hermosos colores violeta, verde y rosa de la aurora boreal.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #00b0ff and #ea80fc",
@@ -712,7 +712,7 @@ export const DRAGONS_DATA = [
     svgType: "ampithere", colorPrimary: "#1b5e20", colorSecondary: "#b2ff59", glowColor: "#69f0ae"
   },
   {
-    id: 100, name: "Dragón de Runas Antiguas", title: "El Sabio Eterno del Santuario", mythology: "Leyenda del Santuario", type: "Shen", element: "Luz", danger: 5,
+    id: 100, name: "Dragón de Runas Antiguas", title: "El Sabio Eterno del Santuario", mythology: "Leyenda del Santuario", type: "Ampithere", element: "Luz", danger: 5,
     habitat: "Biblioteca Secreta del Santuario", ability: "Conocimiento de Todos los Idiomas y Aliento de Sabiduría", weakness: "El Olvido",
     scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ffd700 and #ffffff",
