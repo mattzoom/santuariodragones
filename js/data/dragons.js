@@ -626,11 +626,11 @@ export const DRAGONS_DATA = [
     svgType: "basilisco", colorPrimary: "#e65100", colorSecondary: "#ffecb3", glowColor: "#ffe082"
   },
   {
-    id: 88, name: "Gargola de Ruan", title: "El Dragón de los Pantanos del Sena", mythology: "Europea Continental", type: "Wyrm", element: "Agua", danger: 4,
-    habitat: "Río Sena (Francia)", ability: "Chorros de Agua Hirviendo y Destrucción de Cultivos", weakness: "El Santo de Ruan (San Román)",
-    scroll: "Un dragón alargado con alas cortas que escupía enormes caudales de agua para inundar los campos. Su nombre dio origen a las esculturas de agua en los tejados de las catedrales.",
-    physicalDescription: "wingless serpent-like dragon with coiled body and sharp claws featuring magical elemental aura with main colors #37474f and #80deea",
-    svgType: "wyrm", colorPrimary: "#37474f", colorSecondary: "#80deea", glowColor: "#80d8ff"
+    id: 88, name: "Gárgola de Ruán", title: "El Origen Legendario del Mito Catedralicio", mythology: "Europea Continental", type: "Wyrm", element: "Fuego", danger: 4,
+    habitat: "Pantanos de la Margen Izquierda del Río Sena (Normandía, Francia)", ability: "Llamaradas de Fuego Abrasador, Ráfagas Ciclónicas e Inundaciones", weakness: "Las Oraciones de San Román (Obispo de Ruán)",
+    scroll: "La Gárgola de Ruán (conocida en francés como La Gargouille) es la criatura legendaria que dio origen al término y al mito arquitectónico de las gárgolas medievales. Según la tradición de Normandía del siglo VII, este feroz dragón acuático de cuello largo, alas de murciélago y garras afiladas habitaba los pantanos del río Sena. Asolaba las orillas exhalando llamaradas de fuego, provocando inundaciones destructivas, hundiendo embarcaciones y exigiendo sacrificios humanos anuales a los pobladores, hasta ser enfrentado por el obispo San Román.",
+    physicalDescription: "monstrous aquatic serpent wyrm dragon with long slender neck, bat-like wings, sharp claws, exhaling blazing flames and water torrents near the Seine river swamps in Normandy, Wyrm dragon with Fuego powers in Río Sena (Francia)",
+    svgType: "wyrm", colorPrimary: "#c62828", colorSecondary: "#ff8f00", glowColor: "#ff5252"
   },
   {
     id: 89, name: "Herensuge Vasco", title: "El Dragón de Siete Cabezas de los Pirineos", mythology: "Europea Continental", type: "Hidra", element: "Fuego", danger: 5,

@@ -114,8 +114,8 @@ for d in dragons:
           <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
             📜 Dragón #{d['id']} de 100
           </span>
-          <h1 class="hero-title" style="font-size: 2.8rem; color: var(--gold-main); margin: 0.8rem 0 0.4rem 0; font-family: var(--font-heading);">{d['name']}</h1>
-          <p class="hero-subtitle" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0;">"{d['title']}"</p>
+          <h1 class="hero-title" style="font-size: 2.8rem; color: var(--gold-main); margin: 0.8rem 0 0.4rem 0; font-family: var(--font-heading); text-align: center;">{d['name']}</h1>
+          <p class="dragon-standalone-subtitle" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0 auto; text-align: center; width: 100%; display: block;">"{d['title']}"</p>
         </header>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; align-items: start;">
