@@ -181,4 +181,4 @@ for d in dragons:
     with open(out_file, 'w', encoding='utf-8') as f:
         f.write(page_html)
 
-print(f"¡Éxito! Generadas 100 páginas de detalle estático limpias en /dragon/")
+print(f"¡Éxito! Generadas {len(dragons)} páginas de detalle estático limpias en /dragon/")

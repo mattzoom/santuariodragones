@@ -100,3 +100,4 @@
 | **#98** | Dragón de la Tormenta Solar | Ampithere | Tormenta |
 | **#99** | Dragón Fénix de Esmeralda | Ampithere | Naturaleza |
 | **#100** | Dragón de Runas Antiguas | Ampithere | Luz |
+| **#101** | Ignitharion | Wyvern | Fuego |

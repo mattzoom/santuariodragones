@@ -717,5 +717,12 @@ export const DRAGONS_DATA = [
     scroll: "El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la bienvenida a todos los jóvenes guardianes que desean aprender sobre la grandeza de los dragones.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ffd700 and #ffffff",
     svgType: "shen", colorPrimary: "#ffd700", colorSecondary: "#ffffff", glowColor: "#ffeb3b"
+  },
+  {
+    id: 101, name: "Ignitharion", title: "El Heredero del Fuego Venenoso", mythology: "Leyenda del Santuario", type: "Wyvern", element: "Fuego", danger: 5,
+    habitat: "Cumbres Sagradas del Santuario", ability: "Llamaradas Verdes Venenosas, Fuego Sanador y Vuelo Ágil", weakness: "Ninguna",
+    scroll: "Hijo de Magus Dragus y fiel compañero de aventuras. Ignitharion es un wyvern invencible con escamas escarlata y doradas capaz de exhalar ráfagas de fuego verde de veneno abrasador sobre sus rivales, así como también un poderoso fuego sanador que restaura la vida y cura cualquier herida. Posee una fuerza legendaria tan colosal que es capaz de derrotar al mismísimo Leviatán en combate.",
+    physicalDescription: "agile two-legged red and orange wyvern dragon with massive wings carrying a young rider with a glowing sword, exhaling brilliant green poisonous flames over coastal cliffs, Wyvern dragon with Fuego powers in Cumbres Sagradas del Santuario",
+    svgType: "wyvern", colorPrimary: "#d84315", colorSecondary: "#76ff03", glowColor: "#b2ff59"
   }
 ];
