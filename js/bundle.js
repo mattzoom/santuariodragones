@@ -478,23 +478,23 @@ const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#455a64", colorSecondary: "#cfd8dc", glowColor: "#eceff1"
   },
   {
-    id: 10, name: "Lindwyrm de Götaland", title: "El Terror de los Caminos de Suecia", mythology: "Nórdica y Germánica", type: "Wyvern", element: "Tierra", danger: 4,
+    id: 10, name: "Lindwyrm de Götaland", title: "El Terror de los Caminos de Suecia", mythology: "Nórdica y Germánica", type: "Wyrm", element: "Tierra", danger: 4,
     habitat: "Valles de Götaland", ability: "Embestida Demoledora y Escamas Afiladas", weakness: "Leche Dulce y Espejos",
-    scroll: "Un wyrm gigante de dos patas y alas cortas que aterrorizaba los antiguos carruajes en Suecia. Los cuentos populares decían que si le ofrecías un tazón de leche recién ordeñada, se quedaba dormido pacíficamente.",
-    physicalDescription: "two-legged agile winged dragon with spiked tail and slender snout featuring subterranean mossy stone scales and earthy amber glow with main colors #4a148c and #ab47bc",
-    svgType: "wyvern", colorPrimary: "#4a148c", colorSecondary: "#ab47bc", glowColor: "#e040fb"
+    scroll: "Un lindwyrm gigante sin alas, de cuerpo serpentino y dos potentes patas delanteras que aterrorizaba los antiguos caminos de Suecia. Los cuentos populares decían que si le ofrecías un tazón de leche recién ordeñada, se quedaba dormido pacíficamente.",
+    physicalDescription: "wingless serpent-like dragon with two strong front legs, coiled scaly body and horns, resting over a stone wall in misty Swedish pine forest, Wyrm dragon with Tierra powers in Valles de Götaland",
+    svgType: "wyrm", colorPrimary: "#4a148c", colorSecondary: "#ab47bc", glowColor: "#e040fb"
   },
 
   // 2. MITOLOGÍA GRIEGA Y ROMANA (10)
   {
-    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Magma", danger: 3,
+    id: 11, name: "Ladón", title: "El Guardián de las Manzanas Doradas", mythology: "Griega y Romana", type: "Hidra", element: "Tierra", danger: 3,
     habitat: "El Jardín de las Hespérides", ability: "100 Cabezas Parlantes y Sueño Inexistente", weakness: "Las Flechas con Veneno de Hidra",
     scroll: "Este mítico dragón de cien cabezas nunca dormía. Cada cabeza hablaba en un idioma o tono distinto para confundir a los intrusos que intentaban robar las manzanas de oro sagradas de la diosa Hera. Fue enfrentado por el legendario Hércules.",
-    physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring volcano lava scales with glowing molten core with main colors #b71c1c and #ffb74d",
+    physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring subterranean mossy stone scales and earthy amber glow with main colors #b71c1c and #ffb74d",
     svgType: "hidra", colorPrimary: "#b71c1c", colorSecondary: "#ffb74d", glowColor: "#ff9100"
   },
   {
-    id: 12, name: "Hidra de Lerna", title: "La Bestia del Pantano Infinito", mythology: "Griega y Romana", type: "Hidra", element: "Veneno", danger: 5,
+    id: 12, name: "Hidra de Lerna", title: "La Bestia del Pantano Infinito", mythology: "Griega y Romana", type: "Hidra", element: "Agua", danger: 5,
     habitat: "Lago de Lerna", ability: "Regeneración Cabeza por Cabeza y Sangre Ácida", weakness: "Fuego Cauterizador",
     scroll: "Criatura acuática con múltiples cabezas de serpiente. Si le cortabas una cabeza, le crecían dos más inmediatamente. Su aliento era tan venenoso que bastaba con respirar cerca de su guarida para caer en un trance profundo.",
     physicalDescription: "multi-headed serpentine hydra dragon with multiple long necks featuring acidic emerald green scales and dripping venomous mist with main colors #1b5e20 and #00e676",
@@ -508,17 +508,17 @@ const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#4e342e", colorSecondary: "#bcaaa4", glowColor: "#d7ccc8"
   },
   {
-    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Dragón Europeo", element: "Rayo", danger: 3,
+    id: 14, name: "Dragón de Colquide", title: "El Insonmne del Vellocino de Oro", mythology: "Griega y Romana", type: "Dragón Europeo", element: "Tormenta", danger: 3,
     habitat: "Bosque Sagrado de Ares (Colquide)", ability: "Silbido Ensordecedor y Mirada Hipnótica", weakness: "Pociones Lulaby de la Hechicera Medea",
     scroll: "Enroscado al árbol donde colgaba el mítico Vellocino de Oro. Nunca cerraba los ojos y su silbido se escuchaba a millas de distancia. Jasón y los Argonautas solo lograron vencerlo gracias a un filtro mágico de sueño que preparó Medea.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring electric crackling scales and sparkling lightning sparks with main colors #f57f17 and #fff59d",
     svgType: "draco", colorPrimary: "#f57f17", colorSecondary: "#fff59d", glowColor: "#ffff00"
   },
   {
-    id: 15, name: "Dragón de Ismene", title: "El Guardián de la Fuente de Ares", mythology: "Griega y Romana", type: "Drake", element: "Agua", danger: 4,
+    id: 15, name: "Dragón de Ismene", title: "El Guardián de la Fuente de Ares", mythology: "Griega y Romana", type: "Drakón", element: "Agua", danger: 4,
     habitat: "Fuente Manantial de Tebas", ability: "Chorros de Agua a Gran Presión y Dientes de Guerrero", weakness: "Lanzas de Bronce Templado",
     scroll: "Hijo de Ares, este dragón protegía las aguas sagradas de Tebas. Cuando el héroe Cadmo lo derrotó, sembró sus dientes en la tierra y de ellos nacieron guerreros armados completos con escudos de bronce.",
-    physicalDescription: "majestic dragon featuring magical elemental aura with main colors #0d47a1 and #64b5f6",
+    physicalDescription: "majestic dragon featuring magical elemental aura with main colors #00695c and #80cbc4",
     svgType: "draco", colorPrimary: "#0d47a1", colorSecondary: "#64b5f6", glowColor: "#40c4ff"
   },
   {
@@ -543,58 +543,58 @@ const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#311b92", colorSecondary: "#ff1744", glowColor: "#ff5252"
   },
   {
-    id: 19, name: "Drakon Nemeo", title: "El Dragón de los Viñedos", mythology: "Griega y Romana", type: "Drake", element: "Naturaleza", danger: 2,
+    id: 19, name: "Drakon Nemeios", title: "El Dragón de los Viñedos", mythology: "Griega y Romana", type: "Drakón", element: "Naturaleza", danger: 2,
     habitat: "Valles de Peloponeso", ability: "Camuflaje entre las Vides y Crecimiento Veloz", weakness: "Frío Extremo",
     scroll: "Un pequeño dragón de las colinas griegas que solía proteger los viñedos de las plagas comiéndose a los roedores y expulsando un suave vapor con olor a uvas dulces.",
     physicalDescription: "majestic dragon featuring magical elemental aura with main colors #33691e and #c0ca33",
     svgType: "draco", colorPrimary: "#33691e", colorSecondary: "#c0ca33", glowColor: "#eeff41"
   },
   {
-    id: 20, name: "Dragón de Hesperia", title: "El Sol Naciente de las Alturas", mythology: "Griega y Romana", type: "Drakón", element: "Luz", danger: 3,
-    habitat: "Colinas del Lazio", ability: "Destello Solar y Vuelo Plumado", weakness: "Oscuridad Total",
-    scroll: "Un dragón con plumas doradas y alas expansivas que los antiguos romanos asociaban con los buenos augurios al amanecer sobre las colinas imperiales.",
-    physicalDescription: "feathered-winged serpent dragon with vibrant crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #ff6f00 and #ffe082",
-    svgType: "ampithere", colorPrimary: "#ff6f00", colorSecondary: "#ffe082", glowColor: "#ffd54f"
+    id: 20, name: "Leviatán", title: "El Titán Definitivo de las Profundidades", mythology: "Mesopotámica y Medio Oriente", type: "Wyrm", element: "Agua", danger: 5,
+    habitat: "Abismo del Océano Primordial", ability: "Hervor del Océano y Chispas de Fuego Abrasador", weakness: "Las Cadenas Celestiales de los Tiempos",
+    scroll: "Un dragón de agua de casi 500 kilómetros. Leviatán es el titán definitivo de las profundidades: cuando tiene hambre, el calor de sus fauces hace hervir el océano. Su anatomía es una máquina de guerra. Lomo blindado por hileras de escamas durísimas y dientes como navajas. Los ojos brillan, rojos y dorados, como el primer destello del amanecer. De la boca le saltan chispas; de la nariz, un humo espeso. Si se despierta, trae rayos y vendavales que parten el cielo.",
+    physicalDescription: "colossal ancient sea serpent wyrm dragon with dark armored scaly spine, razor-sharp teeth, glowing golden-red eyes, exhaling fire sparks and steam mist into boiling ocean storm with lightning, Wyrm dragon with Agua powers in Abismo del Océano Primordial",
+    svgType: "wyrm", colorPrimary: "#1a237e", colorSecondary: "#ff6f00", glowColor: "#ffab00"
   },
 
   // 3. MITOLOGÍA ORIENTAL (15)
   {
-    id: 21, name: "Shenlong", title: "El Dragón Espíritu del Clima", mythology: "Oriental (Asia)", type: "Shen", element: "Tormenta", danger: 3,
+    id: 21, name: "Shen Lung", title: "El Dragón Espíritu del Clima", mythology: "Oriental (Asia)", type: "Shen", element: "Tormenta", danger: 3,
     habitat: "Nubes del Cielo Celestial", ability: "Control del Lluvia, Viento y Rayos Benditos", weakness: "Falta de Respeto a la Naturaleza",
     scroll: "Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvias suaves a las cosechas de arroz. Es considerado un símbolo de sabiduría y prosperidad.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #0277bd and #81d4fa",
     svgType: "shen", colorPrimary: "#0277bd", colorSecondary: "#81d4fa", glowColor: "#00b0ff"
   },
   {
-    id: 22, name: "Tianlong", title: "El Dragón Celestial de los Dioses", mythology: "Oriental (Asia)", type: "Shen", element: "Luz", danger: 4,
+    id: 22, name: "T'ien Lung", title: "El Dragón Celestial de los Dioses", mythology: "Oriental (Asia)", type: "Shen", element: "Luz", danger: 4,
     habitat: "Palacios de las Estrellas", ability: "Escudo de Luz Divina y Vuelo Cómico", weakness: "Niebla de Engaño",
     scroll: "El encargado de tirar de los carros de los dioses celestiales y proteger los palacios del cielo. Sus escamas brillan como si tuviera incrustadas miles de gemas estelares.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #fbc02d and #fff9c4",
     svgType: "shen", colorPrimary: "#fbc02d", colorSecondary: "#fff9c4", glowColor: "#ffff8d"
   },
   {
-    id: 23, name: "Dilong", title: "El Dragón de la Tierra y los Ríos", mythology: "Oriental (Asia)", type: "Wyrm", element: "Tierra", danger: 3,
+    id: 23, name: "Ti Lung", title: "El Dragón de la Tierra y los Ríos", mythology: "Oriental (Asia)", type: "Wyrm", element: "Agua", danger: 3,
     habitat: "Profundidades del Río Amarillo", ability: "Moldeo de Canales de Agua y Terremotos Suaves", weakness: "Sequía Extrema",
-    scroll: "Dragón terrestre que habita bajo el lecho de los grandes ríos de Asia. Se decía que cuando Dilong nadaba por debajo de la tierra, creaba fértiles valles y manantiales cristalinos.",
+    scroll: "Dragón terrestre que habita bajo el lecho de los grandes ríos de Asia. Se decía que cuando Ti Lung nadaba por debajo de la tierra, creaba fértiles valles y manantiales cristalinos.",
     physicalDescription: "wingless serpent-like dragon with coiled body and sharp claws featuring subterranean mossy stone scales and earthy amber glow with main colors #5d4037 and #d7ccc8",
     svgType: "wyrm", colorPrimary: "#5d4037", colorSecondary: "#d7ccc8", glowColor: "#bcaaa4"
   },
   {
-    id: 24, name: "Fucanglong", title: "El Dragón de los Tesoros Ocultos", mythology: "Oriental (Asia)", type: "Shen", element: "Magma", danger: 4,
+    id: 24, name: "Fu-ts'an Lung", title: "El Dragón de los Tesoros Ocultos", mythology: "Oriental (Asia)", type: "Shen", element: "Magma", danger: 4,
     habitat: "Volcanes y Minas de Jade", ability: "Geiseres de Lava y Creación de Diamantes", weakness: "Agua Bendita de Manantial",
     scroll: "Este dragón vive en las profundidades del volcán custodiando los metales preciosos y gemas del planeta. Cuando emerge a la superficie para saludar al sol, crea un volcán con su aliento candente.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring volcano lava scales with glowing molten core with main colors #d84315 and #ffab91",
     svgType: "shen", colorPrimary: "#d84315", colorSecondary: "#ffab91", glowColor: "#ff6e40"
   },
   {
-    id: 25, name: "Yinglong", title: "El Dragón Alado con Caimán", mythology: "Oriental (Asia)", type: "Dragón Europeo", element: "Agua", danger: 4,
+    id: 25, name: "Ying-lung", title: "El Dragón Alado con Caimán", mythology: "Oriental (Asia)", type: "Shen", element: "Agua", danger: 4,
     habitat: "Lagos Ancestrales de Hubei", ability: "Canalización de Riadas y Control de Vientos", weakness: "Flechas de Bambú Sagrado",
     scroll: "El único dragón oriental tradicional con grandes alas de pluma de águila. Ayudó al mítico emperador Yu a detener las grandes inundaciones dibujando canales en la tierra con su larga cola.",
     physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #00695c and #80cbc4",
     svgType: "draco", colorPrimary: "#00695c", colorSecondary: "#80cbc4", glowColor: "#64ffda"
   },
   {
-    id: 26, name: "Longwang", title: "El Rey Dragón de los Cuatro Mares", mythology: "Oriental (Asia)", type: "Shen", element: "Agua", danger: 5,
+    id: 26, name: "Lung Wang", title: "El Rey Dragón de los Cuatro Mares", mythology: "Oriental (Asia)", type: "Shen", element: "Agua", danger: 5,
     habitat: "Palacio de Cristal bajo el Mar", ability: "Transformación Humana y Dominio de las Mareas", weakness: "Perla Maravillosa Robada",
     scroll: "Gobernador supremo de los cuatro océanos (Norte, Sur, Este y Oeste). Vive en un palacio construido con coral y perlas cristalinas, rodeado de un ejército de generales peces y mariscos mágicos.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #1565c0 and #90caf9",
@@ -643,7 +643,7 @@ const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#2e7d32", colorSecondary: "#c8e6c9", glowColor: "#69f0ae"
   },
   {
-    id: 33, name: "Dragón Rojo del Sur", title: "El Guardián del Fuego Estival", mythology: "Oriental (Asia)", type: "Shen", element: "Fuego", danger: 4,
+    id: 33, name: "Zhulong", title: "El Guardián del Fuego Estival", mythology: "Oriental (Asia)", type: "Shen", element: "Fuego", danger: 4,
     habitat: "Montañas del Sur de Hunan", ability: "Calor Solar y Chispa Vital", weakness: "Lluvia Glacial",
     scroll: "Representa el verano y el elemento fuego dentro de los puntos cardinales tradicionales orientales. Sus plumas de fuego iluminan las noches oscuras.",
     physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring blazing fiery scales and glowing ember accents with main colors #c62828 and #ff8a80",
@@ -657,16 +657,16 @@ const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#ef6c00", colorSecondary: "#ffe0b2", glowColor: "#ffab40"
   },
   {
-    id: 35, name: "Dragón de Jade", title: "El Guardián de la Armonía de Piedra", mythology: "Oriental (Asia)", type: "Dragón Europeo", element: "Cristal", danger: 3,
-    habitat: "Montañas de Jade de Yunnan", ability: "Piel de Jade Indestructible y Sanación Natural", weakness: "Golpes con Granito Negro",
-    scroll: "Un dragón cuyas escamas están hechas de jade translúcido verde y blanco. Se dice que si toca a un enfermo con su hocico suave, curará todos sus malestares.",
-    physicalDescription: "four-legged classic dragon with majestic wings and scaled chest featuring magical elemental aura with main colors #00796b and #b2dfdb",
-    svgType: "draco", colorPrimary: "#00796b", colorSecondary: "#b2dfdb", glowColor: "#a7ffeb"
+    id: 35, name: "Yulong", title: "El Tercer Príncipe de Jade", mythology: "Oriental (Asia)", type: "Shen", element: "Cristal", danger: 3,
+    habitat: "Océano del Oeste y Montañas de Jade", ability: "Metamorfosis Equina y Piel de Jade Sanadora", weakness: "Perla Incendiada del Padre",
+    scroll: "Yulong (el Dragón de Jade) es el tercer príncipe del Rey Dragón del Mar del Oeste (Ao Lie). Inmortalizado en la inmortal novela 'Viaje al Oeste', tras cometer una falta juvenil fue perdonado por la diosa Guanyin y se transformó en el majestuoso caballo blanco que transportó fielmente al monje Xuanzang en su peregrinación a la India.",
+    physicalDescription: "oriental long serpentine dragon with flowing whiskers and floating crest featuring magical elemental aura with main colors #00796b and #b2dfdb",
+    svgType: "shen", colorPrimary: "#00796b", colorSecondary: "#b2dfdb", glowColor: "#a7ffeb"
   },
 
   // 4. MESOAMERICANA Y SUDAMERICANA (10)
   {
-    id: 36, name: "Quetzalcóatl", title: "La Serpiente Emplumada de la Mañana", mythology: "Mesoamericana y Sudamericana", type: "Ampithere", element: "Luz", danger: 4,
+    id: 36, name: "Quetzalcóatl", title: "La Serpiente Emplumada de la Mañana", mythology: "Mesoamericana y Sudamericana", type: "Ampithere", element: "Naturaleza", danger: 4,
     habitat: "Tenochtitlan / Cielos Mesoamericanos", ability: "Control del Viento, Sabiduría Divina y Vuelo de Plumas de Quetzal", weakness: "Espejos de Obsidiana Oscura",
     scroll: "Una de las deidades más veneradas del México antiguo. Mezcla la majestuosidad de las serpientes verdes con el plumaje iridiscente del ave quetzal. Traía el conocimiento de las estrellas, la agricultura y el viento suave de la tarde.",
     physicalDescription: "feathered-winged serpent dragon with vibrant crest featuring golden radiant celestial scales and brilliant solar sparks with main colors #2e7d32 and #ffd54f",
@@ -1112,7 +1112,7 @@ const DRAGONS_DATA = [
     svgType: "wyrm", colorPrimary: "#1a162b", colorSecondary: "#9c27b0", glowColor: "#d500f9"
   },
   {
-    id: 98, name: "Dragón de la Tormenta Solar", title: "La Chispa del Sol Radiante", mythology: "Leyenda del Santuario", type: "Ampithere", element: "Rayo", danger: 4,
+    id: 98, name: "Dragón de la Tormenta Solar", title: "La Chispa del Sol Radiante", mythology: "Leyenda del Santuario", type: "Ampithere", element: "Tormenta", danger: 4,
     habitat: "Corona Solar", ability: "Llamarada Solar y Vuelo a Velocidad Luz", weakness: "Niebla de Cometa Helado",
     scroll: "Un dragón majestuoso compuesto de energía pura de helio e hidrógeno. Vuela alrededor del sol jugando con las llamaradas solares.",
     physicalDescription: "feathered-winged serpent dragon with vibrant crest featuring electric crackling scales and sparkling lightning sparks with main colors #ff6f00 and #ffff00",
@@ -1493,7 +1493,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 100) {
-    const v = (dragon.id === 13) ? '?v=13_v2' : (dragon.id === 45) ? '?v=45_v2' : (dragon.id === 18) ? '?v=18_v2' : (dragon.id === 11) ? '?v=11_v2' : '';
+    const v = (dragon.id === 13) ? '?v=13_v2' : (dragon.id === 45) ? '?v=45_v2' : (dragon.id === 18) ? '?v=18_v2' : (dragon.id === 11) ? '?v=11_v2' : (dragon.id === 3) ? '?v=3_v2' : (dragon.id === 20) ? '?v=20_v2' : (dragon.id === 10) ? '?v=10_v2' : (dragon.id === 2) ? '?v=2_v2' : (dragon.id === 46) ? '?v=46_v2' : '';
     return `/assets/dragons/dragon_${dragon.id}.jpg${v}`;
   }
   return null;

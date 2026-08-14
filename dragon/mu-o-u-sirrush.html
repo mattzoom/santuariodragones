@@ -99,7 +99,7 @@
     <main class="main-content">
     <section class="dragon-detail-standalone-section" style="max-width: 900px; margin: 0.5rem auto; padding: 0 0.3rem;">
       <div style="margin-bottom: 0.8rem;">
-        <a href="/" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 8px 14px; font-size: 0.9rem;">
+        <a href="/" onclick="if (document.referrer &amp;&amp; document.referrer.includes(window.location.host)) { history.back(); return false; }" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 8px 14px; font-size: 0.9rem;">
           ⬅️ Volver a la Enciclopedia
         </a>
       </div>
