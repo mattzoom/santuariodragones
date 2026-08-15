@@ -1026,7 +1026,7 @@ const DRAGONS_DATA = [
     svgType: "draco", colorPrimary: "#33691e", colorSecondary: "#76ff03", glowColor: "#b2ff59"
   },
   {
-    id: 86, name: "Basilisco de Vilna", title: "El Rey de la Mirada Mortal", mythology: "Eslava y Este de Europa", type: "Basilisco", element: "Veneno", danger: 5,
+    id: 86, name: "Basilisco de Vilna", title: "El Rey de la Mirada Mortal", mythology: "Eslava y Este de Europa", type: "Basilisco", element: "Veneno", danger: 3,
     habitat: "Catacumbas de Vilna", ability: "Petrificación con la Mirada y Aliento Secante", weakness: "Un Espejo que Refleje su Propia Mirada",
     scroll: "Nacido de un huevo de gallina empollado por un sapo bajo una estrella de mal agüero. Podía petrificar a cualquier criatura viva con tan solo mirarla a los ojos.",
     physicalDescription: "majestic dragon featuring acidic emerald green scales and dripping venomous mist with main colors #1b5e20 and #eeff41",
@@ -1040,7 +1040,7 @@ const DRAGONS_DATA = [
     svgType: "basilisco", colorPrimary: "#e65100", colorSecondary: "#ffecb3", glowColor: "#ffe082"
   },
   {
-    id: 88, name: "Gárgola de Ruán", title: "El Origen Legendario del Mito Catedralicio", mythology: "Europea Continental", type: "Wyrm", element: "Fuego", danger: 4,
+    id: 88, name: "Gárgola de Ruán", title: "El Origen Legendario del Mito Catedralicio", mythology: "Europea Continental", type: "Wyrm", element: "Fuego", danger: 2,
     habitat: "Pantanos de la Margen Izquierda del Río Sena (Normandía, Francia)", ability: "Llamaradas de Fuego Abrasador, Ráfagas Ciclónicas e Inundaciones", weakness: "Las Oraciones de San Román (Obispo de Ruán)",
     scroll: "La Gárgola de Ruán (conocida en francés como La Gargouille) es la criatura legendaria que dio origen al término y al mito arquitectónico de las gárgolas medievales. Según la tradición de Normandía del siglo VII, este feroz dragón acuático de cuello largo, alas de murciélago y garras afiladas habitaba los pantanos del río Sena. Asolaba las orillas exhalando llamaradas de fuego, provocando inundaciones destructivas, hundiendo embarcaciones y exigiendo sacrificios humanos anuales a los pobladores, hasta ser enfrentado por el obispo San Román.",
     physicalDescription: "monstrous aquatic serpent wyrm dragon with long slender neck, bat-like wings, sharp claws, exhaling blazing flames and water torrents near the Seine river swamps in Normandy, Wyrm dragon with Fuego powers in Río Sena (Francia)",
@@ -1138,6 +1138,34 @@ const DRAGONS_DATA = [
     scroll: "Hijo de Magus Dragus y fiel compañero de aventuras. Ignitharion es un wyvern invencible con escamas escarlata y doradas capaz de exhalar ráfagas de fuego verde de veneno abrasador sobre sus rivales, así como también un poderoso fuego sanador que restaura la vida y cura cualquier herida. Posee una fuerza legendaria tan colosal que es capaz de derrotar al mismísimo Leviatán en combate.",
     physicalDescription: "agile two-legged red and orange wyvern dragon with massive wings carrying a young rider with a glowing sword, exhaling brilliant green poisonous flames over coastal cliffs, Wyvern dragon with Fuego powers in Cumbres Sagradas del Santuario",
     svgType: "wyvern", colorPrimary: "#d84315", colorSecondary: "#76ff03", glowColor: "#b2ff59"
+  },
+  {
+    id: 102, name: "Lotan", title: "El Dragón Siete Cabezas del Abismo", mythology: "Mesopotámica y Medio Oriente", type: "Hidra", element: "Agua", danger: 5,
+    habitat: "Abismo Marino de Canaán", ability: "Maremotos Primordiales, 7 Lanzas Marinas y Aliento Mágmico Submarino", weakness: "El Rayo Maestro de Ba'al",
+    scroll: "Según los antiguos mitos de Canaán que guardan los tomos del Santuario, Lotan es el colosal dragón de siete cabezas de las profundidades y del abismo marino. Las leyendas cuentan que este titán era el gran rival del dios de las tormentas Ba’al (también llamado Hadad), quien tuvo que desatar todo su poder primordial para poder derrotarlo en una batalla que sacudió los mares del mundo antiguo.",
+    physicalDescription: "seven-headed serpentine hydra dragon in deep underwater sunken temple with glowing cyan-blue scales and luminous eyes, Hidra dragon with Agua powers in Abismo Marino de Canaán",
+    svgType: "hidra", colorPrimary: "#006064", colorSecondary: "#00e5ff", glowColor: "#18ffff"
+  },
+  {
+    id: 103, name: "Kingu", title: "El Comandante del Caos Primordial", mythology: "Mesopotámica y Medio Oriente", type: "Dragón Europeo", element: "Sombra", danger: 5,
+    habitat: "Ruinas Sagradas de Babilonia", ability: "Aliento de Oscuridad Abisal y Creación de Sangre Dragón", weakness: "La Red de los Vientos de Marduk",
+    scroll: "Consorte de la diosa Tiamat (la gran madre del caos), Kingu lideró los ejércitos de monstruos babilónicos. Cuando Tiamat fue derrotada por Marduk para ordenar el cosmos, ¡la humanidad fue moldeada a partir de la sangre sagrada de Kingu! Esto significa que, según los tomos del Santuario, llevamos la mismísima esencia del dragón-demonio corriendo por nuestras venas.",
+    physicalDescription: "colossal red and golden armored dragon looming over ancient Babylonian city gates and ziggurats, classic four-legged winged dragon with horns, Dragón Europeo dragon with Sombra powers in Ruinas Sagradas de Babilonia",
+    svgType: "draco", colorPrimary: "#880e4f", colorSecondary: "#ffb300", glowColor: "#ff80ab"
+  },
+  {
+    id: 104, name: "Huracán", title: "El Señor Corazón del Cielo", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Tormenta", danger: 5,
+    habitat: "Cielos Tormentosos y Ruinas de El Mirador", ability: "Ciclón de Jade Espiral, Sismos de Cola Única y Aliento de Lluvia Fertil", weakness: "La Calma Absoluta del Ojo Solar",
+    scroll: "El colosal Huracán (el gran dragón de la mitología Maya y del Caribe) es el señor absoluto de los vientos giratorios, los terremotos y las tormentas tropicales. ¡De su nombre proviene directamente la palabra 'huracán'! Posee una anatomía única y giratoria de dos brazos asimétricos y una sola pata espiral. Su rostro es una máscara de piedra tallada en basalto con un místico ojo en forma de 'X' y cejas de fuego turquesa, exhalando la lluvia sagrada de jade.",
+    physicalDescription: "unique asymmetrical green jade dragon with carved stone mask face, one large eye with X pupil and flaming turquoise eyebrows, exhaling spiral cloud mist tornado, Drakón dragon with Tormenta powers in Cielos Tormentosos",
+    svgType: "draco", colorPrimary: "#00695c", colorSecondary: "#18ffff", glowColor: "#64ffda"
+  },
+  {
+    id: 105, name: "Skrimsl", title: "El Dragón Astral de Islandia", mythology: "Nórdica y Germánica", type: "Wyrm", element: "Agua", danger: 3,
+    habitat: "Lagos y Fiordos Helados de Islandia", ability: "Materialización Astral, Camuflaje de Niebla y Nado Telúrico", weakness: "Luz Solar Directa sin Niebla",
+    scroll: "Los tomos secretos revelan que Skrimsl es un dragón de agua astral que vive en una dimensión paralela de energía, capaz de materializarse físicamente en nuestro mundo. ¡Fue avistado por navegantes en las heladas aguas de Islandia en 1860! Su cuerpo serpentino sin patas ni alas posee escamas plateadas y verde-azuladas con una cresta de suaves barbas plumosas que flotan como ensueños en la niebla glacial.",
+    physicalDescription: "wingless serpentine water dragon with flat snake head, horny eye sockets, feathery chin fringes and spine crest, silvery blue scales in misty icy lake, Wyrm dragon with Agua powers in Lagos Helados de Islandia",
+    svgType: "wyrm", colorPrimary: "#37474f", colorSecondary: "#80deea", glowColor: "#80d8ff"
   }
 ];
 

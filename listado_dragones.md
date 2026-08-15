@@ -101,3 +101,7 @@
 | **#99** | Dragón Fénix de Esmeralda | Ampithere | Naturaleza |
 | **#100** | Dragón de Runas Antiguas | Ampithere | Luz |
 | **#101** | Ignitharion | Wyvern | Fuego |
+| **#102** | Lotan | Hidra | Agua |
+| **#103** | Kingu | Dragón Europeo | Sombra |
+| **#104** | Huracán | Drakón | Tormenta |
+| **#105** | Skrimsl | Wyrm | Agua |
