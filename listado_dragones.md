@@ -64,9 +64,8 @@
 | **#62** | Illuyanka | Wyrm | Tierra |
 | **#63** | Yilbegän | Hidra | Hielo |
 | **#64** | Chuvash Yish | Shen | Fuego |
-| **#65** | Cacus | Drake | Fuego |
 | **#66** | Tiamat | Hidra | Agua |
-| **#67** | Kur | Wyrm | Tierra |
+| **#67** | Kur | Drake | Tierra |
 | **#68** | Apep (Apofis) | Wyrm | Sombra |
 | **#69** | Azhi Dahaka | Hidra | Veneno |
 | **#70** | Mušḫoššu (Sirrush) | Dragón Europeo | Luz |
@@ -100,8 +99,6 @@
 | **#98** | Dragón de la Tormenta Solar | Ampithere | Tormenta |
 | **#99** | Dragón Fénix de Esmeralda | Ampithere | Naturaleza |
 | **#100** | Dragón de Runas Antiguas | Ampithere | Luz |
-| **#101** | Ignitharion | Wyvern | Fuego |
-| **#102** | Lotan | Hidra | Agua |
-| **#103** | Kingu | Dragón Europeo | Sombra |
-| **#104** | Huracán | Drakón | Tormenta |
+| **#101** | Ignitharyon | Wyvern | Fuego |
+| **#102** | Huracán | Drakón | Tormenta |
 | **#105** | Skrimsl | Wyrm | Agua |

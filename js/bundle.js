@@ -872,13 +872,6 @@ const DRAGONS_DATA = [
     physicalDescription: "gorgeous feathered serpent dragon with fiery orange and gold scales, bright red feathered wings, glowing flame tail trail like a shooting meteor, Ampithere dragon with Fuego powers in Bosques del Volga",
     svgType: "ampithere", colorPrimary: "#e65100", colorSecondary: "#ffe0b2", glowColor: "#ffb74d"
   },
-  {
-    id: 65, name: "Cacus", title: "El Gigante Dragón de los Fuegos del Aventino", mythology: "Eslava y Este de Europa", type: "Drake", element: "Fuego", danger: 4,
-    habitat: "Monte Aventino (Roma)", ability: "Vómito de Humo Denso y Fuego Voraz", weakness: "La Fuerza Titánica de Hércules",
-    scroll: "Un monstruo medio dragón que habitaba una cueva llena de tesoros robados en la colina del Aventino. Expulsaba torbellinos de humo negro para ocultar sus robos.",
-    physicalDescription: "muscular four-legged fire dragon with dark charcoal scales, smoking jaws exhaling thick black smoke clouds, glowing red embers along its spine, Drake dragon with Fuego powers in Monte Aventino (Roma)",
-    svgType: "draco", colorPrimary: "#212121", colorSecondary: "#d32f2f", glowColor: "#ff5252"
-  },
 
   // 7. MESOPOTÁMICA, PERSA Y EGIPCIA (10)
   {
@@ -889,11 +882,11 @@ const DRAGONS_DATA = [
     svgType: "hidra", colorPrimary: "#0d47a1", colorSecondary: "#e040fb", glowColor: "#00e5ff"
   },
   {
-    id: 67, name: "Kur", title: "El Dragón del Inframundo de Sumeria", mythology: "Mesopotámica y Medio Oriente", type: "Wyrm", element: "Tierra", danger: 5,
+    id: 67, name: "Kur", title: "El Dragón del Inframundo de Sumeria", mythology: "Mesopotámica y Medio Oriente", type: "Drake", element: "Tierra", danger: 5,
     habitat: "El Abismo Vacío de Kur", ability: "Terremotos Primordiales y Absorción de Luz", weakness: "La Barca Dorada del Dios Enki",
     scroll: "Considerado el primer dragón registrado en las tabletas de arcilla cuneiforme de Sumeria. Habitaba entre el mundo de los vivos y el abismo sombrío.",
-    physicalDescription: "ancient subterranean wingless serpent wyrm dragon with dark slate grey rocky scales, sharp digging claws, coiled in a dark void abyss near sumerian cuneiform tablets, Wyrm dragon with Tierra powers in El Abismo Vacío de Kur",
-    svgType: "wyrm", colorPrimary: "#263238", colorSecondary: "#78909c", glowColor: "#90a4ae"
+    physicalDescription: "ancient subterranean dragon with dark slate grey rocky scales, sharp digging claws, near sumerian cuneiform tablets, Drake dragon with Tierra powers in El Abismo Vacío de Kur",
+    svgType: "draco", colorPrimary: "#263238", colorSecondary: "#78909c", glowColor: "#90a4ae"
   },
   {
     id: 68, name: "Apep (Apofis)", title: "La Serpiente Devoradora del Sol", mythology: "Mesopotámica y Medio Oriente", type: "Wyrm", element: "Sombra", danger: 5,
@@ -1133,28 +1126,14 @@ const DRAGONS_DATA = [
     svgType: "shen", colorPrimary: "#ffd700", colorSecondary: "#ffffff", glowColor: "#ffeb3b"
   },
   {
-    id: 101, name: "Ignitharion", title: "El Heredero del Fuego Venenoso", mythology: "Leyenda del Santuario", type: "Wyvern", element: "Fuego", danger: 5,
+    id: 101, name: "Ignitharyon", title: "El Heredero del Fuego Venenoso", mythology: "Leyenda del Santuario", type: "Wyvern", element: "Fuego", danger: 5,
     habitat: "Cumbres Sagradas del Santuario", ability: "Llamaradas Verdes Venenosas, Fuego Sanador y Vuelo Ágil", weakness: "Ninguna",
-    scroll: "Hijo de Magus Dragus y fiel compañero de aventuras. Ignitharion es un wyvern invencible con escamas escarlata y doradas capaz de exhalar ráfagas de fuego verde de veneno abrasador sobre sus rivales, así como también un poderoso fuego sanador que restaura la vida y cura cualquier herida. Posee una fuerza legendaria tan colosal que es capaz de derrotar al mismísimo Leviatán en combate.",
+    scroll: "Hijo de Magus Dragus y fiel compañero de aventuras. Ignitharyon es un wyvern invencible con escamas escarlata y doradas capaz de exhalar ráfagas de fuego verde de veneno abrasador sobre sus rivales, así como también un poderoso fuego sanador que restaura la vida y cura cualquier herida. Posee una fuerza legendaria tan colosal que es capaz de derrotar al mismísimo Leviatán en combate.",
     physicalDescription: "agile two-legged red and orange wyvern dragon with massive wings carrying a young rider with a glowing sword, exhaling brilliant green poisonous flames over coastal cliffs, Wyvern dragon with Fuego powers in Cumbres Sagradas del Santuario",
     svgType: "wyvern", colorPrimary: "#d84315", colorSecondary: "#76ff03", glowColor: "#b2ff59"
   },
   {
-    id: 102, name: "Lotan", title: "El Dragón Siete Cabezas del Abismo", mythology: "Mesopotámica y Medio Oriente", type: "Hidra", element: "Agua", danger: 5,
-    habitat: "Abismo Marino de Canaán", ability: "Maremotos Primordiales, 7 Lanzas Marinas y Aliento Mágmico Submarino", weakness: "El Rayo Maestro de Ba'al",
-    scroll: "Según los antiguos mitos de Canaán que guardan los tomos del Santuario, Lotan es el colosal dragón de siete cabezas de las profundidades y del abismo marino. Las leyendas cuentan que este titán era el gran rival del dios de las tormentas Ba’al (también llamado Hadad), quien tuvo que desatar todo su poder primordial para poder derrotarlo en una batalla que sacudió los mares del mundo antiguo.",
-    physicalDescription: "seven-headed serpentine hydra dragon in deep underwater sunken temple with glowing cyan-blue scales and luminous eyes, Hidra dragon with Agua powers in Abismo Marino de Canaán",
-    svgType: "hidra", colorPrimary: "#006064", colorSecondary: "#00e5ff", glowColor: "#18ffff"
-  },
-  {
-    id: 103, name: "Kingu", title: "El Comandante del Caos Primordial", mythology: "Mesopotámica y Medio Oriente", type: "Dragón Europeo", element: "Sombra", danger: 5,
-    habitat: "Ruinas Sagradas de Babilonia", ability: "Aliento de Oscuridad Abisal y Creación de Sangre Dragón", weakness: "La Red de los Vientos de Marduk",
-    scroll: "Consorte de la diosa Tiamat (la gran madre del caos), Kingu lideró los ejércitos de monstruos babilónicos. Cuando Tiamat fue derrotada por Marduk para ordenar el cosmos, ¡la humanidad fue moldeada a partir de la sangre sagrada de Kingu! Esto significa que, según los tomos del Santuario, llevamos la mismísima esencia del dragón-demonio corriendo por nuestras venas.",
-    physicalDescription: "colossal red and golden armored dragon looming over ancient Babylonian city gates and ziggurats, classic four-legged winged dragon with horns, Dragón Europeo dragon with Sombra powers in Ruinas Sagradas de Babilonia",
-    svgType: "draco", colorPrimary: "#880e4f", colorSecondary: "#ffb300", glowColor: "#ff80ab"
-  },
-  {
-    id: 104, name: "Huracán", title: "El Señor Corazón del Cielo", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Tormenta", danger: 5,
+    id: 102, name: "Huracán", title: "El Señor Corazón del Cielo", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Tormenta", danger: 3,
     habitat: "Cielos Tormentosos y Ruinas de El Mirador", ability: "Ciclón de Jade Espiral, Sismos de Cola Única y Aliento de Lluvia Fertil", weakness: "La Calma Absoluta del Ojo Solar",
     scroll: "El colosal Huracán (el gran dragón de la mitología Maya y del Caribe) es el señor absoluto de los vientos giratorios, los terremotos y las tormentas tropicales. ¡De su nombre proviene directamente la palabra 'huracán'! Posee una anatomía única y giratoria de dos brazos asimétricos y una sola pata espiral. Su rostro es una máscara de piedra tallada en basalto con un místico ojo en forma de 'X' y cejas de fuego turquesa, exhalando la lluvia sagrada de jade.",
     physicalDescription: "unique asymmetrical green jade dragon with carved stone mask face, one large eye with X pupil and flaming turquoise eyebrows, exhaling spiral cloud mist tornado, Drakón dragon with Tormenta powers in Cielos Tormentosos",
@@ -1528,7 +1507,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 
 function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 200) {
-    const v = (dragon.id === 13) ? '?v=13_v2' : (dragon.id === 45) ? '?v=45_v2' : (dragon.id === 18) ? '?v=18_v2' : (dragon.id === 11) ? '?v=11_v2' : (dragon.id === 3) ? '?v=3_v2' : (dragon.id === 20) ? '?v=20_v2' : (dragon.id === 10) ? '?v=10_v2' : (dragon.id === 2) ? '?v=2_v2' : (dragon.id === 46) ? '?v=46_v2' : '';
+    const v = (dragon.id === 13) ? '?v=13_v2' : (dragon.id === 45) ? '?v=45_v2' : (dragon.id === 18) ? '?v=18_v2' : (dragon.id === 11) ? '?v=11_v2' : (dragon.id === 3) ? '?v=3_v2' : (dragon.id === 20) ? '?v=20_v2' : (dragon.id === 10) ? '?v=10_v2' : (dragon.id === 2) ? '?v=2_v2' : (dragon.id === 46) ? '?v=46_v2' : (dragon.id === 102) ? '?v=102_v2' : '';
     return `/assets/dragons/dragon_${dragon.id}.jpg${v}`;
   }
   return null;
