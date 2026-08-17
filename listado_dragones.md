@@ -64,6 +64,7 @@
 | **#62** | Illuyanka | Wyrm | Tierra |
 | **#63** | Yilbegän | Hidra | Hielo |
 | **#64** | Chuvash Yish | Shen | Fuego |
+| **#65** | Huracán | Drakón | Tormenta |
 | **#66** | Tiamat | Hidra | Agua |
 | **#67** | Kur | Drake | Tierra |
 | **#68** | Apep (Apofis) | Wyrm | Sombra |
@@ -100,5 +101,5 @@
 | **#99** | Dragón Fénix de Esmeralda | Ampithere | Naturaleza |
 | **#100** | Dragón de Runas Antiguas | Ampithere | Luz |
 | **#101** | Ignitharyon | Wyvern | Fuego |
-| **#102** | Huracán | Drakón | Tormenta |
+| **#102** | Zenith | Drake | Fuego |
 | **#105** | Skrimsl | Wyrm | Agua |

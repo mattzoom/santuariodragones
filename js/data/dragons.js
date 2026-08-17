@@ -458,6 +458,13 @@ export const DRAGONS_DATA = [
     physicalDescription: "gorgeous feathered serpent dragon with fiery orange and gold scales, bright red feathered wings, glowing flame tail trail like a shooting meteor, Ampithere dragon with Fuego powers in Bosques del Volga",
     svgType: "ampithere", colorPrimary: "#e65100", colorSecondary: "#ffe0b2", glowColor: "#ffb74d"
   },
+  {
+    id: 65, name: "Huracán", title: "El Señor Corazón del Cielo", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Tormenta", danger: 3,
+    habitat: "Cielos Tormentosos y Ruinas de El Mirador", ability: "Ciclón de Jade Espiral, Sismos de Cola Única y Aliento de Lluvia Fertil", weakness: "La Calma Absoluta del Ojo Solar",
+    scroll: "El colosal Huracán (el gran dragón de la mitología Maya y del Caribe) es el señor absoluto de los vientos giratorios, los terremotos y las tormentas tropicales. ¡De su nombre proviene directamente la palabra 'huracán'! Posee una anatomía única y giratoria de dos brazos asimétricos y una sola pata espiral. Su rostro es una máscara de piedra tallada en basalto con un místico ojo en forma de 'X' y cejas de fuego turquesa, exhalando la lluvia sagrada de jade.",
+    physicalDescription: "unique asymmetrical green jade dragon with carved stone mask face, one large eye with X pupil and flaming turquoise eyebrows, exhaling spiral cloud mist tornado, Drakón dragon with Tormenta powers in Cielos Tormentosos",
+    svgType: "draco", colorPrimary: "#00695c", colorSecondary: "#18ffff", glowColor: "#64ffda"
+  },
 
   // 7. MESOPOTÁMICA, PERSA Y EGIPCIA (10)
   {
@@ -719,11 +726,11 @@ export const DRAGONS_DATA = [
     svgType: "wyvern", colorPrimary: "#d84315", colorSecondary: "#76ff03", glowColor: "#b2ff59"
   },
   {
-    id: 102, name: "Huracán", title: "El Señor Corazón del Cielo", mythology: "Mesoamericana y Sudamericana", type: "Drakón", element: "Tormenta", danger: 3,
-    habitat: "Cielos Tormentosos y Ruinas de El Mirador", ability: "Ciclón de Jade Espiral, Sismos de Cola Única y Aliento de Lluvia Fertil", weakness: "La Calma Absoluta del Ojo Solar",
-    scroll: "El colosal Huracán (el gran dragón de la mitología Maya y del Caribe) es el señor absoluto de los vientos giratorios, los terremotos y las tormentas tropicales. ¡De su nombre proviene directamente la palabra 'huracán'! Posee una anatomía única y giratoria de dos brazos asimétricos y una sola pata espiral. Su rostro es una máscara de piedra tallada en basalto con un místico ojo en forma de 'X' y cejas de fuego turquesa, exhalando la lluvia sagrada de jade.",
-    physicalDescription: "unique asymmetrical green jade dragon with carved stone mask face, one large eye with X pupil and flaming turquoise eyebrows, exhaling spiral cloud mist tornado, Drakón dragon with Tormenta powers in Cielos Tormentosos",
-    svgType: "draco", colorPrimary: "#00695c", colorSecondary: "#18ffff", glowColor: "#64ffda"
+    id: 102, name: "Zenith", title: "El Gemelo Impenetrable de las Cumbres", mythology: "Leyenda del Santuario", type: "Drake", element: "Fuego", danger: 3,
+    habitat: "Prados y Colinas Místicas del Santuario", ability: "Visión Doble Coordinada, Aliento Dual de Fuego Violeta y Escamas Impenetrables", weakness: "Descoordinación entre Cabezas por Distracción",
+    scroll: "Hijo menor de Magus Dragus y hermano de Ignitharyon y Traxes. Zenith es un singular dragón de dos cabezas y tipo Drake, cubierto por una armadura de escamas violetas totalmente impenetrables. Sus dos cabezas independientes le permiten vigilar en todas direcciones simultáneamente y lanzar ráfagas sincronizadas de fuego místico mientras corre a toda velocidad por las colinas.",
+    physicalDescription: "colossal two-headed wingless drake dragon with deep violet scales, glowing eyes, Drake dragon with Fuego powers in Prados Místicos del Santuario",
+    svgType: "draco", colorPrimary: "#6a1b9a", colorSecondary: "#e1bee7", glowColor: "#ea80fc"
   },
   {
     id: 105, name: "Skrimsl", title: "El Dragón Astral de Islandia", mythology: "Nórdica y Germánica", type: "Wyrm", element: "Agua", danger: 3,
