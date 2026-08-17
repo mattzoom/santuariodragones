@@ -71,6 +71,7 @@ function renderCreatorUI(container) {
             <button class="chip" data-param="bodyType" data-val="shen">🐍 Shen Serpentino</button>
             <button class="chip" data-param="bodyType" data-val="hidra">🐍 Multi-Cabezas</button>
             <button class="chip" data-param="bodyType" data-val="ampithere">🪶 Alado Plumado</button>
+            <button class="chip" data-param="bodyType" data-val="otros">✨ Otros</button>
           </div>
         </div>
 

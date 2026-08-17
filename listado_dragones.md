@@ -17,9 +17,9 @@
 | **#15** | Dragón de Ismene | Drakón | Agua |
 | **#16** | Ceto | Drakón | Agua |
 | **#17** | Campe | Hidra | Sombra |
-| **#18** | Tifón Dragón | Dragón Europeo | Tormenta |
+| **#18** | Tifón Dragón | Otros | Tormenta |
 | **#19** | Drakon Nemeios | Drakón | Naturaleza |
-| **#20** | Leviatán | Wyrm | Agua |
+| **#20** | Leviatán | Otros | Agua |
 | **#21** | Shen Lung | Shen | Tormenta |
 | **#22** | T'ien Lung | Shen | Luz |
 | **#23** | Ti Lung | Wyrm | Agua |
@@ -39,12 +39,12 @@
 | **#37** | Xiuhcóatl | Wyrm | Magma |
 | **#38** | Kukulkán | Ampithere | Viento |
 | **#39** | Amaru | Ampithere | Tormenta |
-| **#40** | Trentren Vilu | Wyrm | Tierra |
-| **#41** | Caicai Vilu | Drakón | Agua |
+| **#40** | Trentren Vilu | Otros | Tierra |
+| **#41** | Caicai Vilu | Otros | Agua |
 | **#42** | Alicanto Dorado | Ampithere | Luz |
-| **#43** | Bohitu | Wyrm | Naturaleza |
+| **#43** | Bohitu | Otros | Naturaleza |
 | **#44** | Q'uq'umatz | Ampithere | Agua |
-| **#45** | Coatlicue Serpiente | Hidra | Tierra |
+| **#45** | Coatlicue Serpiente | Otros | Tierra |
 | **#46** | Y Ddraig Goch | Dragón Europeo | Fuego |
 | **#47** | Wyvern de Wessex | Wyvern | Veneno |
 | **#48** | Knucker de Sussex | Wyrm | Agua |
@@ -52,7 +52,7 @@
 | **#50** | Linton Worm | Wyrm | Tierra |
 | **#51** | Lambton Worm | Wyrm | Agua |
 | **#52** | Gurvelen | Shen | Agua |
-| **#53** | Tarasque de Provenza | Drake | Tierra |
+| **#53** | Tarasque de Provenza | Otros | Tierra |
 | **#54** | Longwitton Dragon | Wyvern | Sombra |
 | **#55** | Cuélebre de Asturias | Wyvern | Fuego |
 | **#56** | Zmey Gorynych | Hidra | Fuego |
@@ -62,9 +62,9 @@
 | **#60** | Zilant | Wyvern | Fuego |
 | **#61** | Kulshedra | Hidra | Agua |
 | **#62** | Illuyanka | Wyrm | Tierra |
-| **#63** | Yilbegän | Hidra | Hielo |
+| **#63** | Yilbegän | Otros | Hielo |
 | **#64** | Chuvash Yish | Shen | Fuego |
-| **#65** | Huracán | Drakón | Tormenta |
+| **#65** | Huracán | Otros | Tormenta |
 | **#66** | Tiamat | Hidra | Agua |
 | **#67** | Kur | Drake | Tierra |
 | **#68** | Apep (Apofis) | Wyrm | Sombra |
@@ -74,20 +74,20 @@
 | **#72** | Labbu | Wyrm | Tormenta |
 | **#73** | Illuyanka Hatti | Wyrm | Tierra |
 | **#74** | Shedu Serpiente | Ampithere | Luz |
-| **#75** | Bahamut Abisal | Drakón | Agua |
+| **#75** | Skrimsl | Wyrm | Agua |
 | **#76** | Vritra | Wyrm | Tierra |
 | **#77** | Kaliya | Hidra | Veneno |
 | **#78** | Phaya Naga | Shen | Fuego |
 | **#79** | Bakunawa | Wyrm | Sombra |
-| **#80** | Makara Dragón | Drake | Agua |
+| **#80** | Makara Dragón | Otros | Agua |
 | **#81** | Naga Vasuki | Basilisco | Luz |
 | **#82** | Antaboga | Wyrm | Tierra |
 | **#83** | Taxaka | Wyrm | Veneno |
 | **#84** | Dragón de San Jorge | Dragón Europeo | Fuego |
 | **#85** | Peluda de Maine | Drake | Agua |
 | **#86** | Basilisco de Vilna | Basilisco | Veneno |
-| **#87** | Cocatriz de Hampshire | Basilisco | Viento |
-| **#88** | Gárgola de Ruán | Wyrm | Fuego |
+| **#87** | Cocatriz de Hampshire | Otros | Viento |
+| **#88** | Gárgola de Ruán | Otros | Fuego |
 | **#89** | Herensuge Vasco | Hidra | Fuego |
 | **#90** | Bisu de Cerdeña | Dragón Europeo | Sombra |
 | **#91** | Guivre de Borgoña | Wyrm | Veneno |
@@ -99,7 +99,7 @@
 | **#97** | Dragón del Abismo de Sombras | Wyrm | Sombra |
 | **#98** | Dragón de la Tormenta Solar | Ampithere | Tormenta |
 | **#99** | Dragón Fénix de Esmeralda | Ampithere | Naturaleza |
-| **#100** | Dragón de Runas Antiguas | Ampithere | Luz |
+| **#100** | Dragón de Runas Antiguas | Otros | Luz |
 | **#101** | Ignitharyon | Wyvern | Fuego |
 | **#102** | Zenith | Drake | Fuego |
-| **#105** | Skrimsl | Wyrm | Agua |
+| **#103** | Traxes | Dragón Europeo | Fuego |

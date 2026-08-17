@@ -25,6 +25,7 @@ export function initEncyclopediaFilters() {
   if (typeSelect) {
     const rawTypes = new Set(DRAGONS_DATA.map(d => d.type));
     rawTypes.add("Drakón");
+    rawTypes.add("Otros");
     const types = ["Todos", ...Array.from(rawTypes).sort()];
     typeSelect.innerHTML = types.map(t => `<option value="${t}">${t === "Todos" ? "Todos los Tipos" : t}</option>`).join("");
   }
