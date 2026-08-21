@@ -510,10 +510,15 @@ function renderAltarSubPage(container) {
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
             <!-- ESPEJO BRILLANTE -->
-            <div style="background: rgba(233,196,106,0.07); border: 1px solid rgba(233,196,106,0.3); border-radius: 12px; padding: 1.2rem;">
-              <div style="font-size: 1.8rem; margin-bottom: 6px;">✨</div>
-              <strong style="color: var(--gold-main); font-size: 1.05rem;">El Espejo Brillante</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 8px 0 0 0; line-height: 1.5;">Conseguí cualquier espejo pequeño que tenga un marco de madera o de plástico plano. ¡Entre más viejo y misterioso se vea el marco, mejor!</p>
+            <div style="background: rgba(233,196,106,0.07); border: 1px solid rgba(233,196,106,0.3); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="font-size: 1.8rem; margin-bottom: 6px;">✨</div>
+                <strong style="color: var(--gold-main); font-size: 1.05rem;">El Espejo Brillante</strong>
+                <p style="color: var(--text-main); font-size: 0.9rem; margin: 8px 0 12px 0; line-height: 1.5;">Conseguí cualquier espejo pequeño que tenga un marco de madera o de plástico plano. ¡Entre más viejo y misterioso se vea el marco, mejor!</p>
+              </div>
+              <div style="width: 100%; border-radius: 10px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <img src="/assets/magic_mirror_wooden.jpg" alt="El Espejo Brillante con marco de madera místico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              </div>
             </div>
             <!-- ESPEJO OSCURO -->
             <div style="background: rgba(20,20,30,0.6); border: 2px solid rgba(200,85,61,0.5); border-radius: 12px; padding: 1.2rem; position: relative; overflow: hidden;">
