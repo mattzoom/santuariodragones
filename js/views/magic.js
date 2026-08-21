@@ -372,11 +372,16 @@ function renderAltarSubPage(container) {
           </div>
         </div>
 
-        <!-- INTRODUCCIÓN -->
-        <div style="background: rgba(42,157,143,0.1); border-left: 4px solid var(--color-teal); padding: 14px 18px; border-radius: 8px; margin-bottom: 1.5rem;">
-          <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
-            ¡Todo gran equipo de laboratorio mágico necesita una base segura! En la Magia Draconiana, esa base es el <strong>Pentáculo del Dragón</strong>. No es un arma para atacar, sino que funciona como un <strong>escudo de energía</strong>, un equilibrador y tu "medalla de autoridad" mágica. Cuando los dragones ven tu Pentáculo, saben de inmediato que sos un mago serio, amigable y digno de respeto.
-          </p>
+        <!-- INTRODUCCIÓN CON ILUSTRACIÓN -->
+        <div style="background: rgba(42,157,143,0.1); border-left: 4px solid var(--color-teal); padding: 16px 20px; border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
+              ¡Todo gran equipo de laboratorio mágico necesita una base segura! En la Magia Draconiana, esa base es el <strong>Pentáculo del Dragón</strong>. No es un arma para atacar, sino que funciona como un <strong>escudo de energía</strong>, un equilibrador y tu "medalla de autoridad" mágica. Cuando los dragones ven tu Pentáculo, saben de inmediato que sos un mago serio, amigable y digno de respeto.
+            </p>
+          </div>
+          <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+            <img src="/assets/clay_pentacle_altar.jpg" alt="El Pentáculo del Dragón hecho de arcilla en el altar" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+          </div>
         </div>
 
         <!-- PASO 1: FABRICAR -->
