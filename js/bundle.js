@@ -3223,11 +3223,16 @@ function renderAltarSubPage(container) {
           </div>
         </div>
 
-        <!-- INTRODUCCIÓN -->
-        <div style="background: rgba(233,196,106,0.1); border-left: 4px solid var(--gold-main); padding: 14px 18px; border-radius: 8px; margin-bottom: 1.5rem;">
-          <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
-            ¿Te imaginás tener un alfabeto secreto que solo vos y los dragones puedan leer? ¡Pues existe! En el maravilloso mundo de la magia draconiana, este sistema de escritura se conoce como <strong>Dragon Script</strong> (o el Escrito del Dragón). Los dragones son seres sumamente inteligentes y conocen todos los idiomas humanos, pero las fuentes nos revelan que <strong>ellos prestan muchísima más atención a las cosas que escribís usando este alfabeto especial</strong>. ¡Es como enviarles un mensaje con un sello de "¡Súper Importante!"!
-          </p>
+        <!-- INTRODUCCIÓN CON ILUSTRACIÓN -->
+        <div style="background: rgba(233,196,106,0.1); border-left: 4px solid var(--gold-main); padding: 16px 20px; border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
+              ¿Te imaginás tener un alfabeto secreto que solo vos y los dragones puedan leer? ¡Pues existe! En el maravilloso mundo de la magia draconiana, este sistema de escritura se conoce como <strong>Dragon Script</strong> (o el Escrito del Dragón). Los dragones son seres sumamente inteligentes y conocen todos los idiomas humanos, pero las fuentes nos revelan que <strong>ellos prestan muchísima más atención a las cosas que escribís usando este alfabeto especial</strong>. ¡Es como enviarles un mensaje con un sello de "¡Súper Importante!"!
+            </p>
+          </div>
+          <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+            <img src="/assets/scholar_dragon_script.jpg" alt="Dragón erudito escribiendo manuscrito en Dragon Script en salón gótico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+          </div>
         </div>
 
         <!-- CONTENIDO PRINCIPAL: TEXTOS E HISTORIA -->
