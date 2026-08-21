@@ -388,7 +388,7 @@ function renderAltarSubPage(container) {
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
             <div style="background: rgba(233,196,106,0.07); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--gold-main);">
               <strong style="color: var(--gold-main);">🪵 Materiales:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 6px 0 0 0; line-height: 1.5;">Buscá un círculo de madera plano en una vosenda de manualidades, usá un disco de arcilla que modeles vos mismo, o recortá un círculo perfecto en cartón grueso y resistente.</p>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 6px 0 0 0; line-height: 1.5;">Buscá un círculo de madera plano en una tienda de manualidades, usá un disco de arcilla que modeles vos mismo, o recortá un círculo perfecto en cartón grueso y resistente.</p>
             </div>
             <div style="background: rgba(233,196,106,0.07); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--gold-main);">
               <strong style="color: var(--gold-main);">🎨 El Dibujo:</strong>
