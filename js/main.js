@@ -17,7 +17,8 @@ export function switchTab(tabName, playSoundEffect = true) {
   if (window.location.pathname.includes("/dragon/")) {
     const sectionUrls = {
       encyclopedia: "/",
-      coliseo: "/coliseo.html",
+      arena: "/arena.html",
+      coliseo: "/arena.html",
       magic: "/magia-draconiana.html",
       quiz: "/test-draconiano.html",
       favorites: "/favoritos.html"
@@ -52,7 +53,7 @@ export function switchTab(tabName, playSoundEffect = true) {
   // Trigger view renderers
   if (tabName === "encyclopedia") {
     renderEncyclopedia();
-  } else if (tabName === "coliseo") {
+  } else if (tabName === "arena" || tabName === "coliseo") {
     initColiseoModule();
   } else if (tabName === "sigils") {
     switchTab("magic", false);
@@ -143,8 +144,8 @@ export function initApp() {
     if (window.switchMagicSubPage) window.switchMagicSubPage("sigilos");
   } else if (path.includes("test-draconiano")) {
     switchTab("quiz", false);
-  } else if (path.includes("coliseo")) {
-    switchTab("coliseo", false);
+  } else if (path.includes("arena") || path.includes("coliseo")) {
+    switchTab("arena", false);
   } else if (path.includes("favoritos")) {
     switchTab("favorites", false);
   } else if (!path.includes("/dragon/")) {

@@ -47,11 +47,11 @@
           <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
-                <nav class="nav-tabs">
+        <nav class="nav-tabs">
           <a class="nav-tab" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
-          <a class="nav-tab" data-tab="arena" href="/arena.html">⚔️ Arena</a>
+          <a class="nav-tab active" data-tab="arena" href="/arena.html">⚔️ Arena</a>
           <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
-          <a class="nav-tab active" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
           <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
         </nav>
 
@@ -63,10 +63,8 @@
 
     <!-- Main Content Area -->
     <main class="main-content">
-      
       <!-- 1. ENCYCLOPEDIA SECTION -->
-      <section id="section-encyclopedia" class="view-section">
-        
+      <section id="section-encyclopedia" class="view-section " style="display: none;">
         <!-- HERO BANNER (Solo en Enciclopedia) -->
         <section class="hero-banner">
           <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
@@ -134,60 +132,86 @@
         <div id="pagination-box" class="pagination-box"></div>
       </section>
 
-      <!-- 2. FORJA DE SIGILOS DRACONIANOS SECTION -->
       <!-- 2. ARENA DE DRAGONES SECTION -->
       <section id="section-arena" class="view-section active" style="display: block;">
         <div id="arena-container"></div>
       </section>
 
-      <!-- 3. FORJA DE SIGILOS --> class="view-section">
+      <!-- 3. FORJA DE SIGILOS DRACONIANOS SECTION -->
+      <section id="section-sigils" class="view-section " style="display: none;">
         <div id="sigil-container"></div>
       </section>
 
-      <!-- 3. MAGIA DRACONIANA SECTION -->
-      <section id="section-magic" class="view-section">
+      <!-- 4. MAGIA DRACONIANA SECTION -->
+      <section id="section-magic" class="view-section " style="display: none;">
         <div id="magic-container"></div>
       </section>
 
-      <!-- 3. QUIZ SECTION ("TEST DRACONIANO") -->
-      <section id="section-quiz" class="view-section">
+      <!-- 5. QUIZ SECTION ("TEST DRACONIANO") -->
+      <section id="section-quiz" class="view-section " style="display: none;">
         <div id="quiz-container"></div>
       </section>
 
-      <!-- 4. FAVORITES SECTION -->
-      <section id="section-favorites" class="view-section">
+      <!-- 6. FAVORITES SECTION -->
+      <section id="section-favorites" class="view-section " style="display: none;">
         <div class="fantasy-panel margin-bottom-lg">
           <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
           <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
         </div>
         <div id="favorites-grid" class="dragons-grid"></div>
       </section>
-
     </main>
 
 
 
-    <!-- Site Footer & SEO Crawl Index -->
+        <!-- Site Footer & SEO Crawl Index -->
     <footer class="site-footer">
-      <div style="max-width: 1000px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
         <div>
-          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Mitología:</strong>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🏛️ Explorá por Mitología:</strong>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
-            <li><a href="/?mitologia=Nórdica%20y%20Germánica" style="color: var(--text-muted); text-decoration: none;">Dragones Nórdicos y Vikingos</a></li>
-            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Dragones de la Mitología Griega</a></li>
-            <li><a href="/?mitologia=Oriental%20(Asia)" style="color: var(--text-muted); text-decoration: none;">Dragones Orientales y Chinos</a></li>
-            <li><a href="/?mitologia=Celta%20y%20Británica" style="color: var(--text-muted); text-decoration: none;">Dragones Celtas y Británicos</a></li>
-            <li><a href="/?mitologia=América%20Precolombina" style="color: var(--text-muted); text-decoration: none;">Dragones Precolombinos (Quetzalcóatl)</a></li>
+            <li><a href="/?mitologia=N%C3%B3rdica%20y%20Germ%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Nórdica y Germánica</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Griega y Romana</a></li>
+            <li><a href="/?mitologia=Oriental%20%28Asia%29" style="color: var(--text-muted); text-decoration: none;">Oriental (Asia)</a></li>
+            <li><a href="/?mitologia=Mesoamericana%20y%20Sudamericana" style="color: var(--text-muted); text-decoration: none;">Mesoamericana y Sudamericana</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Brit%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Celta y Británica</a></li>
+            <li><a href="/?mitologia=Europea%20Continental" style="color: var(--text-muted); text-decoration: none;">Europea Continental</a></li>
+            <li><a href="/?mitologia=Eslava%20y%20Este%20de%20Europa" style="color: var(--text-muted); text-decoration: none;">Eslava y Este de Europa</a></li>
+            <li><a href="/?mitologia=Mesopot%C3%A1mica%20y%20Medio%20Oriente" style="color: var(--text-muted); text-decoration: none;">Mesopotámica y Medio Oriente</a></li>
+            <li><a href="/?mitologia=Hind%C3%BA%20y%20Sudeste%20Asi%C3%A1tico" style="color: var(--text-muted); text-decoration: none;">Hindú y Sudeste Asiático</a></li>
+            <li><a href="/?mitologia=Leyenda%20del%20Santuario" style="color: var(--text-muted); text-decoration: none;">Leyenda del Santuario</a></li>
           </ul>
         </div>
         <div>
           <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
-            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Dragones de Fuego</a></li>
-            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Dragones de Agua y Marinos</a></li>
-            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Dragones de Sombra y Oscuridad</a></li>
-            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Dragones de Luz y Celestiales</a></li>
-            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Dragones de Tormenta y Rayo</a></li>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Agua</a></li>
+            <li><a href="/?elemento=Tierra" style="color: var(--text-muted); text-decoration: none;">Tierra</a></li>
+            <li><a href="/?elemento=Viento" style="color: var(--text-muted); text-decoration: none;">Viento</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Tormenta</a></li>
+            <li><a href="/?elemento=Hielo" style="color: var(--text-muted); text-decoration: none;">Hielo</a></li>
+            <li><a href="/?elemento=Magma" style="color: var(--text-muted); text-decoration: none;">Magma</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Luz</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Sombra</a></li>
+            <li><a href="/?elemento=Veneno" style="color: var(--text-muted); text-decoration: none;">Veneno</a></li>
+            <li><a href="/?elemento=Naturaleza" style="color: var(--text-muted); text-decoration: none;">Naturaleza</a></li>
+            <li><a href="/?elemento=Cristal" style="color: var(--text-muted); text-decoration: none;">Cristal</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Tipo de Cuerpo:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?tipo=Drag%C3%B3n%20Europeo" style="color: var(--text-muted); text-decoration: none;">Dragón Europeo</a></li>
+            <li><a href="/?tipo=Wyvern" style="color: var(--text-muted); text-decoration: none;">Wyvern</a></li>
+            <li><a href="/?tipo=Wyrm" style="color: var(--text-muted); text-decoration: none;">Wyrm</a></li>
+            <li><a href="/?tipo=Drake" style="color: var(--text-muted); text-decoration: none;">Drake</a></li>
+            <li><a href="/?tipo=Shen" style="color: var(--text-muted); text-decoration: none;">Shen</a></li>
+            <li><a href="/?tipo=Ampithere" style="color: var(--text-muted); text-decoration: none;">Ampithere</a></li>
+            <li><a href="/?tipo=Hidra" style="color: var(--text-muted); text-decoration: none;">Hidra</a></li>
+            <li><a href="/?tipo=Drak%C3%B3n" style="color: var(--text-muted); text-decoration: none;">Drakón</a></li>
+            <li><a href="/?tipo=Basilisco" style="color: var(--text-muted); text-decoration: none;">Basilisco</a></li>
+            <li><a href="/?tipo=Otros" style="color: var(--text-muted); text-decoration: none;">Otros</a></li>
           </ul>
         </div>
       </div>
