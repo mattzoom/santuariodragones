@@ -136,18 +136,25 @@ function renderFundamentosView(container) {
       <!-- GRILLA DE LEYES Y FUNDAMENTOS DRACONIANOS -->
       <div class="magic-laws-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
         
-        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO) -->
+        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO CON ILUSTRACIÓN) -->
         <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #ff4757; background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.06));">
-          <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
             <span style="font-size: 2.2rem;">🌟</span>
             <h3 style="color: #ff4757; margin: 0; font-size: 1.6rem;">La Regla de Oro del Mago: ¡Si no te divertís, no es magia!</h3>
           </div>
-          <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin-top: 14px; font-weight: 500;">
-            ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
-          </p>
-          <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 10px;">
-            En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
-          </p>
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px;">
+              <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin: 0; font-weight: 500;">
+                ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
+              </p>
+              <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 12px;">
+                En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
+              </p>
+            </div>
+            <div style="width: 100%; max-width: 280px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+              <img src="/assets/patriarch_dragon_laws.jpg" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
+          </div>
         </div>
 
         <!-- FILA 1: COMPAÑERISMO & 24H SILENCIO -->
