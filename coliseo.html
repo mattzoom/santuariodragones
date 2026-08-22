@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santuario Secreto de Dragones | Enciclopedia Épica & Forja Interactiva</title>
-  <meta name="description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo, forja para crear tu propio dragón y pruebas legendarias.">
+  <title>El Coliseo de Dragones: Duelo 1 vs 1 | Santuario Secreto de Dragones</title>
+  <meta name="description" content="Enfrentá a dos dragones legendarios en un combate épico 1 vs 1 con ventajas de elementos y habilidades únicas.">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="canonical" href="https://santuario-dragones.vercel.app/">
+  <link rel="canonical" href="https://santuario-dragones.vercel.app/coliseo.html">
   <meta property="og:title" content="Santuario Secreto de Dragones | Enciclopedia Épica">
   <meta property="og:description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo y forja mística.">
   <meta property="og:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="900">
-  <meta property="og:url" content="https://santuario-dragones.vercel.app/">
+  <meta property="og:url" content="https://santuario-dragones.vercel.app/coliseo.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Santuario Secreto de Dragones">
@@ -48,8 +48,8 @@
         </div>
 
         <nav class="nav-tabs">
-          <a class="nav-tab active" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
-          <a class="nav-tab" data-tab="coliseo" href="/coliseo.html">⚔️ Coliseo</a>
+          <a class="nav-tab" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
+          <a class="nav-tab active" data-tab="coliseo" href="/coliseo.html">⚔️ Coliseo</a>
           <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
           <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
           <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
@@ -65,7 +65,7 @@
     <main class="main-content">
       
       <!-- 1. ENCYCLOPEDIA SECTION -->
-      <section id="section-encyclopedia" class="view-section active">
+      <section id="section-encyclopedia" class="view-section" style="display: none;">
         
         <!-- HERO BANNER (Solo en Enciclopedia) -->
         <section class="hero-banner">
@@ -135,7 +135,7 @@
       </section>
 
       <!-- 2. COLISEO DE DRAGONES SECTION -->
-      <section id="section-coliseo" class="view-section">
+      <section id="section-coliseo" class="view-section active" style="display: block;">
         <div id="coliseo-container"></div>
       </section>
 
@@ -227,7 +227,5 @@
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="js/bundle.js?v=44.0.0"></script>
-  <!-- Vercel Web Analytics -->
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

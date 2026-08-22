@@ -5,6 +5,7 @@ import { initEncyclopediaFilters, renderEncyclopedia } from "./views/encyclopedi
 import { initSigilForge } from "./views/sigilForge.js?v=6.1.0";
 import { initMagicModule } from "./views/magic.js?v=6.1.0";
 import { initQuizModule } from "./views/quiz.js?v=6.1.0";
+import { initColiseoModule } from "./views/coliseo.js?v=6.1.0";
 import { renderFavoritesView } from "./views/favorites.js?v=6.1.0";
 
 export function switchTab(tabName, playSoundEffect = true) {
@@ -16,6 +17,7 @@ export function switchTab(tabName, playSoundEffect = true) {
   if (window.location.pathname.includes("/dragon/")) {
     const sectionUrls = {
       encyclopedia: "/",
+      coliseo: "/coliseo.html",
       magic: "/magia-draconiana.html",
       quiz: "/test-draconiano.html",
       favorites: "/favoritos.html"
@@ -50,6 +52,8 @@ export function switchTab(tabName, playSoundEffect = true) {
   // Trigger view renderers
   if (tabName === "encyclopedia") {
     renderEncyclopedia();
+  } else if (tabName === "coliseo") {
+    initColiseoModule();
   } else if (tabName === "sigils") {
     switchTab("magic", false);
     if (window.switchMagicSubPage) {
@@ -139,6 +143,8 @@ export function initApp() {
     if (window.switchMagicSubPage) window.switchMagicSubPage("sigilos");
   } else if (path.includes("test-draconiano")) {
     switchTab("quiz", false);
+  } else if (path.includes("coliseo")) {
+    switchTab("coliseo", false);
   } else if (path.includes("favoritos")) {
     switchTab("favorites", false);
   } else if (!path.includes("/dragon/")) {
