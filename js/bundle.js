@@ -4230,22 +4230,28 @@ function renderQuizResult(container) {
 
 
 
-// Arena de Dragones - Modos: Duelo Rápido 1 vs 1 y El Torneo del Santuario (Modo Copa / Roguelite)
-// Combate automático por asaltos con ventajas elementales, reliquias benditas, mejoras de salud y ascensión épica.
+// Arena de Dragones - Modos:
+// 1. Duelo Rápido 1 vs 1
+// 2. El Torneo del Santuario (Modo Copa / Roguelite)
+// 3. Batalla de Escuadrones 5 vs 5 (Guerra de Clanes)
 
 
 // Estado global de la Arena
-let currentMode = "duel"; // "duel" | "tournament"
+let currentMode = "duel"; // "duel" | "tournament" | "squad"
 
-// Estado Modo Duelo 1 vs 1
+// ==========================================
+// ESTADO: MODO DUELO 1 VS 1
+// ==========================================
 let dragonA = null;
 let dragonB = null;
 let isBattling = false;
 let battleInterval = null;
 
-// Estado Modo Torneo Roguelite
+// ==========================================
+// ESTADO: MODO TORNEO ROGUELITE
+// ==========================================
 let playerDragon = null;
-let tournamentStage = 0; // 0 = selección, 1 = Octavos, 2 = Cuartos, 3 = Semifinal, 4 = Gran Final, 5 = Campeón Absoluto
+let tournamentStage = 0; // 0 = selección, 1 = Octavos/Cuartos, 2 = Semis, 3 = Final, 5 = Campeón
 let playerHp = 130;
 let playerMaxHp = 130;
 let playerAttackBonus = 0;
@@ -4258,6 +4264,28 @@ let tournamentOpponents = [];
 let isTournamentBattling = false;
 let tournamentInterval = null;
 let firstTournamentStrikeUsed = false;
+
+// ==========================================
+// ESTADO: MODO ESCUADRONES 5 VS 5
+// ==========================================
+let squadNameA = "Legión Dracónica";
+let squadNameB = "Horda Ancestral";
+let squadA = []; // 5 dragones
+let squadB = []; // 5 dragones
+let squadHpA = []; // [hp1, hp2, hp3, hp4, hp5]
+let squadHpB = []; // [hp1, hp2, hp3, hp4, hp5]
+let activeIndexA = 0; // 0 a 4
+let activeIndexB = 0; // 0 a 4
+let isSquadBattling = false;
+let squadInterval = null;
+let squadBattleEnded = false;
+
+// ==========================================
+// ESTADO: MODAL DE BÚSQUEDA RÁPIDA DE DRAGONES
+// ==========================================
+let activePickerContext = null; // { type: "duel", key: "A" } | { type: "tourney" } | { type: "squad", team: "A", index: 0 }
+let pickerSearchQuery = "";
+let pickerElementFilter = "Todos";
 
 // Rueda de Ventajas Elementales
 const ELEMENTAL_ADVANTAGE = {
@@ -4293,7 +4321,32 @@ function initColiseoModule(containerId = "arena-container") {
   if (!dragonB) pickRandomRival();
   if (!playerDragon) playerDragon = DRAGONS_DATA.find(d => d.id === 1) || DRAGONS_DATA[0];
 
+  initDefaultSquads();
+
   renderArenaContainer(container);
+}
+
+function initDefaultSquads() {
+  if (squadA.length === 5 && squadB.length === 5) return;
+
+  squadA = [
+    DRAGONS_DATA[0], // #1 Furia Nocturna
+    DRAGONS_DATA[1], // #2 Fafnir
+    DRAGONS_DATA[2], // #3 Quetzalcóatl
+    DRAGONS_DATA[3], // #4 Leviatán
+    DRAGONS_DATA[4]  // #5 Wyvern de Fuego
+  ];
+  squadHpA = [100, 100, 100, 100, 100];
+
+  const pool = DRAGONS_DATA.slice(5);
+  const shuffled = [...pool].sort(() => 0.5 - Math.random());
+  squadB = shuffled.slice(0, 5);
+  squadHpB = [100, 100, 100, 100, 100];
+
+  activeIndexA = 0;
+  activeIndexB = 0;
+  isSquadBattling = false;
+  squadBattleEnded = false;
 }
 
 function pickRandomRival() {
@@ -4302,9 +4355,9 @@ function pickRandomRival() {
   dragonB = otherDragons[randomIndex] || DRAGONS_DATA[1];
 }
 
-// Switch entre Modo Duelo y Modo Torneo
+// Switch entre Modos
 window.switchArenaMode = function(mode) {
-  if (isBattling || isTournamentBattling) return;
+  if (isBattling || isTournamentBattling || isSquadBattling) return;
   currentMode = mode;
   playSound("click");
   const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
@@ -4313,22 +4366,28 @@ window.switchArenaMode = function(mode) {
 
 function renderArenaContainer(container) {
   container.innerHTML = `
-    <div style="max-width: 1050px; margin: 0 auto;">
+    <div style="max-width: 1100px; margin: 0 auto;">
       
       <!-- SELECTOR DE MODO DE JUEGO (TABS DE LA ARENA) -->
-      <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;">
-        <button type="button" class="btn ${currentMode === 'duel' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('duel')" style="padding: 10px 22px; font-weight: 700; font-size: 1rem; border-radius: 20px;">
-          ⚔️ Duelo Rápido 1 vs 1
+      <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <button type="button" class="btn ${currentMode === 'duel' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('duel')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
+          ⚔️ Duelo 1 vs 1
         </button>
-        <button type="button" class="btn ${currentMode === 'tournament' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('tournament')" style="padding: 10px 22px; font-weight: 700; font-size: 1rem; border-radius: 20px;">
-          🏆 El Torneo del Santuario (Modo Copa)
+        <button type="button" class="btn ${currentMode === 'tournament' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('tournament')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
+          🏆 El Torneo (Modo Copa)
+        </button>
+        <button type="button" class="btn ${currentMode === 'squad' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('squad')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
+          🛡️ Batalla 5 vs 5 (Escuadrones)
         </button>
       </div>
 
       <!-- CONTENIDO DEL MODO ACTIVO -->
       <div id="arena-mode-content">
-        ${currentMode === 'duel' ? renderDuelViewHtml() : renderTournamentViewHtml()}
+        ${currentMode === 'duel' ? renderDuelViewHtml() : (currentMode === 'tournament' ? renderTournamentViewHtml() : renderSquadViewHtml())}
       </div>
+
+      <!-- MODAL DE BÚSQUEDA RÁPIDA DE DRAGONES -->
+      <div id="arena-picker-modal-root"></div>
 
     </div>
   `;
@@ -4339,14 +4398,6 @@ function renderArenaContainer(container) {
    ========================================================================== */
 
 function renderDuelViewHtml() {
-  const optionsHtmlA = DRAGONS_DATA.map(d => 
-    `<option value="${d.id}" ${dragonA && d.id === dragonA.id ? "selected" : ""}>${d.name} (${d.element})</option>`
-  ).join("");
-
-  const optionsHtmlB = DRAGONS_DATA.map(d => 
-    `<option value="${d.id}" ${dragonB && d.id === dragonB.id ? "selected" : ""}>${d.name} (${d.element})</option>`
-  ).join("");
-
   return `
     <!-- HERO BANNER ARENA DUELO -->
     <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 1.8rem; background: linear-gradient(135deg, rgba(230,57,70,0.18), rgba(233,196,106,0.12)); border: 2px solid #e63946; border-radius: 20px;">
@@ -4368,9 +4419,13 @@ function renderDuelViewHtml() {
             <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('A')" ${isBattling ? "disabled" : ""}>🎲 Al Azar</button>
           </div>
 
-          <select class="filter-select fighter-select" onchange="selectDuelDragon('A', this.value)" ${isBattling ? "disabled" : ""}>
-            ${optionsHtmlA}
-          </select>
+          <!-- BOTÓN SELECTOR RÁPIDO CON BÚSQUEDA -->
+          <div style="margin-bottom: 12px;">
+            <button type="button" class="arena-picker-btn" onclick="openDragonPicker('duel_A')" ${isBattling ? "disabled" : ""}>
+              <span>🔍 ${dragonA ? dragonA.name + ' (' + dragonA.element + ')' : 'Elegir Dragón'}</span>
+              <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+            </button>
+          </div>
 
           <div class="fighter-img-box">
             <img id="img-fighter-A" src="${getDragonArtworkSrc(dragonA)}" alt="${dragonA.name}" />
@@ -4389,7 +4444,7 @@ function renderDuelViewHtml() {
             <strong style="color: var(--gold-main);">Habilidad:</strong> ${dragonA.ability}
           </p>
           <p class="fighter-stat-text">
-            <strong style="color: #ff6b6b;">Debilidad:</strong> ${dragonA.weakness}
+            <strong style="color: #ff6b6b);">Debilidad:</strong> ${dragonA.weakness}
           </p>
         </div>
 
@@ -4426,9 +4481,13 @@ function renderDuelViewHtml() {
             <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('B')" ${isBattling ? "disabled" : ""}>🎲 Al Azar</button>
           </div>
 
-          <select class="filter-select fighter-select" onchange="selectDuelDragon('B', this.value)" ${isBattling ? "disabled" : ""}>
-            ${optionsHtmlB}
-          </select>
+          <!-- BOTÓN SELECTOR RÁPIDO CON BÚSQUEDA -->
+          <div style="margin-bottom: 12px;">
+            <button type="button" class="arena-picker-btn" onclick="openDragonPicker('duel_B')" ${isBattling ? "disabled" : ""}>
+              <span>🔍 ${dragonB ? dragonB.name + ' (' + dragonB.element + ')' : 'Elegir Dragón'}</span>
+              <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+            </button>
+          </div>
 
           <div class="fighter-img-box">
             <img id="img-fighter-B" src="${getDragonArtworkSrc(dragonB)}" alt="${dragonB.name}" />
@@ -4674,11 +4733,6 @@ const STAGE_NAMES = [
 
 function renderTournamentViewHtml() {
   if (tournamentStage === 0) {
-    // Pantalla de Selección del Campeón para el Torneo
-    const optionsHtml = DRAGONS_DATA.map(d => 
-      `<option value="${d.id}" ${playerDragon && d.id === playerDragon.id ? "selected" : ""}>${d.name} (${d.element}) - Peligro ${d.danger}/5</option>`
-    ).join("");
-
     return `
       <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 2rem; background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(42,157,143,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
         <div style="font-size: 3rem; margin-bottom: 6px;">🏆🔥</div>
@@ -4691,9 +4745,13 @@ function renderTournamentViewHtml() {
       <div class="fantasy-panel" style="max-width: 600px; margin: 0 auto 2rem auto; padding: 2rem; border: 2px solid var(--border-gold); text-align: center; border-radius: 16px;">
         <h3 style="color: var(--gold-light); margin-top: 0; margin-bottom: 12px;">Elegí a tu Campeón:</h3>
 
-        <select class="filter-select" onchange="selectTournamentChampion(this.value)" style="width: 100%; font-size: 1rem; margin-bottom: 15px; font-weight: 600;">
-          ${optionsHtml}
-        </select>
+        <!-- BOTÓN SELECTOR RÁPIDO TORNEO -->
+        <div style="margin-bottom: 15px;">
+          <button type="button" class="arena-picker-btn" onclick="openDragonPicker('tourney')">
+            <span>🔍 ${playerDragon ? playerDragon.name + ' (' + playerDragon.element + ') - Peligro ' + playerDragon.danger + '/5' : 'Elegir Campeón'}</span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+          </button>
+        </div>
 
         <div style="width: 100%; height: 240px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); margin-bottom: 15px; background: #0a0911;">
           <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -4717,7 +4775,6 @@ function renderTournamentViewHtml() {
   }
 
   if (tournamentStage === 5) {
-    // Victoria Total del Torneo (Roguelite Complete)
     return `
       <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.25) 0%, rgba(15,23,42,0.95) 100%);">
         <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆✨</div>
@@ -4754,7 +4811,6 @@ function renderTournamentViewHtml() {
     `;
   }
 
-  // Vista de Combate de Ronda de Torneo (Rondas 1, 2 y 3)
   const isFinal = tournamentStage === 3;
   const stageTitle = STAGE_NAMES[tournamentStage];
 
@@ -4866,7 +4922,7 @@ function renderTournamentViewHtml() {
 
     </div>
 
-    <!-- MODAL / PANEL DE BENDICIONES ROGUELITE (OCULTO HASTA GANAR RONDA) -->
+    <!-- MODAL / PANEL DE BENDICIONES ROGUELITE -->
     <div id="relic-reward-modal" style="display: none; margin-bottom: 2rem;" class="fantasy-panel">
       <h3 style="color: var(--gold-main); text-align: center; margin-top: 0;">✨ ¡VICTORIA DE RONDA! Elegí tu Bendición Ancestral:</h3>
       <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem;">
@@ -4919,18 +4975,14 @@ window.resetTournamentToStart = function() {
 
 window.startTournamentRun = function() {
   playSound("roar");
-  // Generar 3 oponentes de dificultad creciente
   const pool = DRAGONS_DATA.filter(d => d.id !== playerDragon.id);
   
-  // Rival 1: Peligro 2-3
   const easyPool = pool.filter(d => d.danger <= 3);
   const opp1 = easyPool[Math.floor(Math.random() * easyPool.length)] || pool[0];
   
-  // Rival 2: Peligro 3-4
   const medPool = pool.filter(d => d.id !== opp1.id && d.danger >= 3 && d.danger <= 4);
   const opp2 = medPool[Math.floor(Math.random() * medPool.length)] || pool[1];
 
-  // Rival 3 (Jefe Final): Peligro 5
   const bossPool = pool.filter(d => d.id !== opp1.id && d.id !== opp2.id && d.danger === 5);
   const opp3 = bossPool[Math.floor(Math.random() * bossPool.length)] || pool[2];
 
@@ -4948,7 +5000,6 @@ window.startTournamentRun = function() {
 
 function setupTournamentRound() {
   currentOpponent = tournamentOpponents[tournamentStage - 1];
-  // El rival final tiene más salud
   opponentMaxHp = tournamentStage === 3 ? 140 : (tournamentStage === 2 ? 115 : 100);
   opponentHp = opponentMaxHp;
 
@@ -4984,12 +5035,10 @@ window.startTournamentBattle = function() {
   tournamentInterval = setInterval(() => {
     if (roundIndicator) roundIndicator.textContent = `Asalto ${round}`;
 
-    // Turno del Jugador
     let dmgToOpp = 0;
     let isCrit = false;
 
     if (!firstTournamentStrikeUsed) {
-      // El primer golpe inaugural de todo el torneo asesta 57 de daño
       dmgToOpp = 57;
       isCrit = true;
       firstTournamentStrikeUsed = true;
@@ -5012,7 +5061,6 @@ window.startTournamentBattle = function() {
       return;
     }
 
-    // Turno del Oponente
     setTimeout(() => {
       if (opponentHp <= 0) return;
       const baseOppAtk = currentOpponent.danger * 7 + Math.floor(Math.random() * 7);
@@ -5082,14 +5130,12 @@ function handleTournamentRoundWin() {
   appendTourneyLog(`🏆👑 <strong>¡HAS DERROTADO A ${currentOpponent.name}!</strong>`, "gold");
 
   if (tournamentStage >= 3) {
-    // Ganó la final absoluta
     setTimeout(() => {
       tournamentStage = 5;
       const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
       if (container) renderArenaContainer(container);
     }, 1500);
   } else {
-    // Ofrecer 3 bendiciones roguelite aleatorias
     showRelicSelectionModal();
   }
 }
@@ -5099,7 +5145,6 @@ function showRelicSelectionModal() {
   const optContainer = document.getElementById("relic-options-container");
   if (!modal || !optContainer) return;
 
-  // Seleccionar 3 bendiciones al azar del pool
   const shuffled = [...BLESSINGS_POOL].sort(() => 0.5 - Math.random()).slice(0, 3);
 
   optContainer.innerHTML = shuffled.map(relic => `
@@ -5143,6 +5188,590 @@ function handleTournamentDefeat() {
     btnFight.onclick = resetTournamentToStart;
   }
 }
+
+
+/* ==========================================================================
+   3. MODO BATALLA DE ESCUADRONES 5 VS 5 (GUERRA DE CLANES)
+   ========================================================================== */
+
+function renderSquadViewHtml() {
+  const activeDragonA = squadA[activeIndexA] || squadA[0];
+  const activeDragonB = squadB[activeIndexB] || squadB[0];
+  const currentHpA = squadHpA[activeIndexA] !== undefined ? squadHpA[activeIndexA] : 100;
+  const currentHpB = squadHpB[activeIndexB] !== undefined ? squadHpB[activeIndexB] : 100;
+
+  const aliveA = squadHpA.filter(h => h > 0).length;
+  const aliveB = squadHpB.filter(h => h > 0).length;
+
+  return `
+    <!-- HERO BANNER ARENA ESCUADRONES -->
+    <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 1.6rem; background: linear-gradient(135deg, rgba(42,157,143,0.2), rgba(233,196,106,0.15)); border: 2px solid var(--color-teal); border-radius: 20px;">
+      <div style="font-size: 2.5rem; margin-bottom: 4px;">🛡️🐉⚔️</div>
+      <h2 style="color: var(--gold-main); font-size: 1.85rem; margin: 0; font-family: var(--font-heading);">Guerra de Escuadrones 5 vs 5</h2>
+      <p style="color: var(--text-main); font-size: 0.95rem; max-width: 760px; margin: 6px auto 0 auto; line-height: 1.5;">
+        ¡Formá tu clan de 5 dragones con nombre personalizado y enfrentá al escuadrón rival en una batalla campal por relevos hasta la última garra!
+      </p>
+    </div>
+
+    <!-- CONFIGURADOR Y BARRAS DE ESCUADRÓN -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.5rem;">
+      
+      <!-- ESCUADRÓN A (TU CLAN) -->
+      <div class="fantasy-panel" style="padding: 1.2rem; border: 2px solid var(--gold-main); border-radius: 14px; background: rgba(15,23,42,0.9);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
+            <span style="font-size: 1.3rem;">🛡️</span>
+            <input type="text" id="squad-name-input-a" class="search-input" value="${squadNameA}" placeholder="Nombre de tu Clan..." onchange="updateSquadName('A', this.value)" style="font-weight: 700; color: var(--gold-main); padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('A')" ${isSquadBattling ? "disabled" : ""}>🎲 Al Azar</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Sobrevivientes:</span>
+          <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; font-weight: 800; border: 1px solid #2a9d8f;">${aliveA} / 5 Dragones</span>
+        </div>
+
+        <!-- LISTA DE MINIATURAS 5 DRAGONES A -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;">
+          ${squadA.map((d, idx) => `
+            <div class="squad-slot ${idx === activeIndexA ? 'squad-slot-active' : ''} ${squadHpA[idx] <= 0 ? 'squad-slot-dead' : ''}" onclick="selectActiveSquadDragon('A', ${idx})">
+              <div class="squad-slot-img-wrap" style="border-color: ${idx === activeIndexA ? 'var(--gold-main)' : 'rgba(255,255,255,0.12)'};">
+                <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" style="opacity: ${squadHpA[idx] <= 0 ? 0.3 : 1};" />
+                ${squadHpA[idx] <= 0 ? `<div style="position: absolute; top:0; left:0; right:0; bottom:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); color: #ff4757; font-weight: 800; font-size: 1.1rem;">💀</div>` : ''}
+              </div>
+              <span class="squad-slot-name" style="color: ${idx === activeIndexA ? 'var(--gold-main)' : 'var(--text-muted)'};">${d.name}</span>
+              <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; margin-top: 2px;">
+                <div style="width: ${squadHpA[idx]}%; height: 100%; background: #2a9d8f;"></div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+
+        <!-- BOTÓN SELECTOR RÁPIDO PARA CAMBIAR INTEGRANTE A -->
+        <div style="margin-top: 12px;">
+          <button type="button" class="arena-picker-btn" onclick="openDragonPicker('squad_A_${activeIndexA}')" ${isSquadBattling ? "disabled" : ""}>
+            <span>🔍 Cambiar pos. ${activeIndexA + 1}: <strong>${activeDragonA.name}</strong></span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ESCUADRÓN B (RIVALES) -->
+      <div class="fantasy-panel" style="padding: 1.2rem; border: 2px solid #ff4757; border-radius: 14px; background: rgba(15,23,42,0.9);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
+            <span style="font-size: 1.3rem;">⚔️</span>
+            <input type="text" id="squad-name-input-b" class="search-input" value="${squadNameB}" placeholder="Nombre del Clan Rival..." onchange="updateSquadName('B', this.value)" style="font-weight: 700; color: #ff6b6b; padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('B')" ${isSquadBattling ? "disabled" : ""}>🎲 Al Azar</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Sobrevivientes:</span>
+          <span class="badge" style="background: rgba(230,57,70,0.25); color: #ff6b6b; font-weight: 800; border: 1px solid #e63946;">${aliveB} / 5 Dragones</span>
+        </div>
+
+        <!-- LISTA DE MINIATURAS 5 DRAGONES B -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;">
+          ${squadB.map((d, idx) => `
+            <div class="squad-slot ${idx === activeIndexB ? 'squad-slot-active' : ''} ${squadHpB[idx] <= 0 ? 'squad-slot-dead' : ''}" onclick="selectActiveSquadDragon('B', ${idx})">
+              <div class="squad-slot-img-wrap" style="border-color: ${idx === activeIndexB ? '#ff4757' : 'rgba(255,255,255,0.12)'};">
+                <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" style="opacity: ${squadHpB[idx] <= 0 ? 0.3 : 1};" />
+                ${squadHpB[idx] <= 0 ? `<div style="position: absolute; top:0; left:0; right:0; bottom:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); color: #ff4757; font-weight: 800; font-size: 1.1rem;">💀</div>` : ''}
+              </div>
+              <span class="squad-slot-name" style="color: ${idx === activeIndexB ? '#ff6b6b' : 'var(--text-muted)'};">${d.name}</span>
+              <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; margin-top: 2px;">
+                <div style="width: ${squadHpB[idx]}%; height: 100%; background: #ff4757;"></div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+
+        <!-- BOTÓN SELECTOR RÁPIDO PARA CAMBIAR INTEGRANTE B -->
+        <div style="margin-top: 12px;">
+          <button type="button" class="arena-picker-btn" onclick="openDragonPicker('squad_B_${activeIndexB}')" ${isSquadBattling ? "disabled" : ""}>
+            <span>🔍 Cambiar pos. ${activeIndexB + 1}: <strong>${activeDragonB.name}</strong></span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ARENA CENTRAL DEL CHOQUE ACTIVO (CAMPEÓN A vs CAMPEÓN B EN TURNO) -->
+    <div class="arena-grid">
+      
+      <!-- LUCHADOR ACTIVO CLAN A -->
+      <div class="fantasy-panel fighter-card fighter-card-a">
+        <div>
+          <div class="fighter-card-header">
+            <span class="fighter-title fighter-title-a">🐲 ${squadNameA} [Posición ${activeIndexA + 1}]</span>
+          </div>
+
+          <div class="fighter-img-box">
+            <img src="${getDragonArtworkSrc(activeDragonA)}" alt="${activeDragonA.name}" />
+          </div>
+
+          <h3 class="fighter-name">${activeDragonA.name}</h3>
+          <p class="fighter-subtitle">${activeDragonA.title}</p>
+
+          <div class="fighter-badges">
+            <span class="badge badge-element badge-${activeDragonA.element.toLowerCase()}">${activeDragonA.element}</span>
+            <span class="badge badge-type">${activeDragonA.type}</span>
+            <span class="badge badge-danger">🔥 Peligro ${activeDragonA.danger}/5</span>
+          </div>
+
+          <p class="fighter-stat-text">
+            <strong style="color: var(--gold-main);">Habilidad:</strong> ${activeDragonA.ability}
+          </p>
+        </div>
+
+        <div class="fighter-hp-wrap">
+          <div class="fighter-hp-info">
+            <span style="color: var(--color-teal);">Salud del Combatiente</span>
+            <span id="squad-hp-text-A" style="color: var(--color-teal);">${currentHpA} / 100</span>
+          </div>
+          <div class="fighter-hp-track" style="border-color: var(--color-teal);">
+            <div id="squad-hp-bar-A" class="fighter-hp-fill-a" style="width: ${currentHpA}%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTONERA CENTRAL GUERRA -->
+      <div class="arena-vs-panel">
+        <div class="arena-vs-badge" style="font-size: 1.8rem; line-height: 1.1;">5v5<br><span style="font-size: 1.1rem; color: var(--text-muted);">WAR</span></div>
+        
+        <button id="btn-start-squad-war" type="button" class="btn btn-gold btn-lg arena-btn-fight" onclick="startSquadWar()" ${isSquadBattling ? "disabled" : ""}>
+          ⚔️ ¡BATALLA CAMPAL!
+        </button>
+
+        <button id="btn-reset-squad-war" type="button" class="btn btn-secondary btn-sm margin-top-sm" onclick="resetSquadWar()" style="display: ${squadBattleEnded ? 'inline-block' : 'none'};">
+          🔄 Reiniciar Guerra
+        </button>
+      </div>
+
+      <!-- LUCHADOR ACTIVO CLAN B -->
+      <div class="fantasy-panel fighter-card fighter-card-b">
+        <div>
+          <div class="fighter-card-header">
+            <span class="fighter-title fighter-title-b">🐲 ${squadNameB} [Posición ${activeIndexB + 1}]</span>
+          </div>
+
+          <div class="fighter-img-box">
+            <img src="${getDragonArtworkSrc(activeDragonB)}" alt="${activeDragonB.name}" />
+          </div>
+
+          <h3 class="fighter-name">${activeDragonB.name}</h3>
+          <p class="fighter-subtitle">${activeDragonB.title}</p>
+
+          <div class="fighter-badges">
+            <span class="badge badge-element badge-${activeDragonB.element.toLowerCase()}">${activeDragonB.element}</span>
+            <span class="badge badge-type">${activeDragonB.type}</span>
+            <span class="badge badge-danger">🔥 Peligro ${activeDragonB.danger}/5</span>
+          </div>
+
+          <p class="fighter-stat-text">
+            <strong style="color: var(--gold-main);">Habilidad:</strong> ${activeDragonB.ability}
+          </p>
+        </div>
+
+        <div class="fighter-hp-wrap">
+          <div class="fighter-hp-info">
+            <span style="color: #ff6b6b;">Salud del Combatiente</span>
+            <span id="squad-hp-text-B" style="color: #ff6b6b;">${currentHpB} / 100</span>
+          </div>
+          <div class="fighter-hp-track" style="border-color: #ff4757;">
+            <div id="squad-hp-bar-B" class="fighter-hp-fill-b" style="width: ${currentHpB}%;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CRÓNICA DE LA GUERRA 5V5 -->
+    <div class="fantasy-panel" style="padding: 1.5rem; border: 2px solid var(--border-gold); background: rgba(10, 9, 17, 0.95); border-radius: 16px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--border-panel); padding-bottom: 8px;">
+        <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+          📜 Crónica de la Guerra de Escuadrones
+        </h3>
+        <span id="squad-round-indicator" style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">Preparando las filas</span>
+      </div>
+
+      <div id="squad-log-box" style="height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 8px; font-size: 0.92rem; line-height: 1.5; color: var(--text-main);">
+        <div style="color: var(--text-muted); font-style: italic; text-align: center; padding-top: 50px;">
+          Asigná los nombres de los clanes, configurá tus 5 dragones y presioná "¡BATALLA CAMPAL!"...
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+window.updateSquadName = function(teamKey, name) {
+  if (teamKey === "A") squadNameA = name.trim() || "Legión Dracónica";
+  else squadNameB = name.trim() || "Horda Ancestral";
+};
+
+window.changeSquadMember = function(teamKey, index, dragonId) {
+  if (isSquadBattling) return;
+  const d = DRAGONS_DATA.find(x => x.id === parseInt(dragonId));
+  if (!d) return;
+
+  if (teamKey === "A") squadA[index] = d;
+  else squadB[index] = d;
+
+  playSound("click");
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+};
+
+window.selectActiveSquadDragon = function(teamKey, index) {
+  if (isSquadBattling) return;
+  if (teamKey === "A") activeIndexA = index;
+  else activeIndexB = index;
+
+  playSound("click");
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+};
+
+window.randomizeSquad = function(teamKey) {
+  if (isSquadBattling) return;
+  playSound("click");
+  const shuffled = [...DRAGONS_DATA].sort(() => 0.5 - Math.random());
+  if (teamKey === "A") {
+    squadA = shuffled.slice(0, 5);
+    squadHpA = [100, 100, 100, 100, 100];
+    activeIndexA = 0;
+  } else {
+    squadB = shuffled.slice(0, 5);
+    squadHpB = [100, 100, 100, 100, 100];
+    activeIndexB = 0;
+  }
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+};
+
+window.resetSquadWar = function() {
+  if (squadInterval) clearInterval(squadInterval);
+  isSquadBattling = false;
+  squadBattleEnded = false;
+  squadHpA = [100, 100, 100, 100, 100];
+  squadHpB = [100, 100, 100, 100, 100];
+  activeIndexA = 0;
+  activeIndexB = 0;
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+};
+
+window.startSquadWar = function() {
+  if (isSquadBattling) return;
+
+  if (squadBattleEnded || squadHpA.every(h => h <= 0) || squadHpB.every(h => h <= 0)) {
+    squadHpA = [100, 100, 100, 100, 100];
+    squadHpB = [100, 100, 100, 100, 100];
+    activeIndexA = 0;
+    activeIndexB = 0;
+  }
+
+  isSquadBattling = true;
+  squadBattleEnded = false;
+  playSound("roar");
+
+  const btnStart = document.getElementById("btn-start-squad-war");
+  const btnReset = document.getElementById("btn-reset-squad-war");
+  if (btnStart) btnStart.style.display = "none";
+  if (btnReset) btnReset.style.display = "none";
+
+  const logBox = document.getElementById("squad-log-box");
+  const roundIndicator = document.getElementById("squad-round-indicator");
+  if (logBox) logBox.innerHTML = "";
+
+  appendSquadLog(`🛡️⚔️ <strong>¡DA INICIO LA GUERRA CAMPAL 5v5 ENTRE [${squadNameA}] Y [${squadNameB}]!</strong>`, "gold");
+
+  let clashCount = 1;
+
+  squadInterval = setInterval(() => {
+    if (squadHpA[activeIndexA] <= 0) {
+      const nextA = squadHpA.findIndex(h => h > 0);
+      if (nextA !== -1) {
+        activeIndexA = nextA;
+        appendSquadLog(`🔄 <strong>${squadNameA}</strong> envía al frente a <strong>${squadA[activeIndexA].name}</strong>!`, "teal");
+        playSound("chime");
+      } else {
+        endSquadWar("B");
+        return;
+      }
+    }
+
+    if (squadHpB[activeIndexB] <= 0) {
+      const nextB = squadHpB.findIndex(h => h > 0);
+      if (nextB !== -1) {
+        activeIndexB = nextB;
+        appendSquadLog(`🔄 <strong>${squadNameB}</strong> envía al frente a <strong>${squadB[activeIndexB].name}</strong>!`, "rust");
+        playSound("chime");
+      } else {
+        endSquadWar("A");
+        return;
+      }
+    }
+
+    const dragonActiveA = squadA[activeIndexA];
+    const dragonActiveB = squadB[activeIndexB];
+
+    if (roundIndicator) roundIndicator.textContent = `Choque #${clashCount} (Duelo en curso)`;
+
+    const advA = (ELEMENTAL_ADVANTAGE[dragonActiveA.element] || []).includes(dragonActiveB.element);
+    const advB = (ELEMENTAL_ADVANTAGE[dragonActiveB.element] || []).includes(dragonActiveA.element);
+
+    const baseAtkA = dragonActiveA.danger * 7 + Math.floor(Math.random() * 8);
+    const elemBonusA = advA ? 8 : 0;
+    const isCritA = Math.random() < 0.35 || advA;
+    const dmgA = Math.round((baseAtkA + elemBonusA) * (isCritA ? 1.4 : 1.0));
+
+    squadHpB[activeIndexB] = Math.max(0, squadHpB[activeIndexB] - dmgA);
+    updateSquadWarUi();
+
+    playSound("hit");
+    appendSquadLog(`${isCritA ? '💥 ' : ''}<strong>${dragonActiveA.name}</strong> (${squadNameA}) golpea con <em>${dragonActiveA.ability}</em> causando <strong>${dmgA}</strong> de daño a ${dragonActiveB.name}!`, isCritA ? "gold" : "teal");
+
+    if (squadHpB[activeIndexB] <= 0) {
+      appendSquadLog(`💀 <strong>¡${dragonActiveB.name} ha caído en combate!</strong>`, "rust");
+      if (squadHpB.every(h => h <= 0)) {
+        endSquadWar("A");
+        return;
+      }
+    }
+
+    setTimeout(() => {
+      if (squadHpB[activeIndexB] <= 0) return;
+      if (squadHpA[activeIndexA] <= 0) return;
+
+      const baseAtkB = dragonActiveB.danger * 7 + Math.floor(Math.random() * 8);
+      const elemBonusB = advB ? 8 : 0;
+      const isCritB = Math.random() < 0.35 || advB;
+      const dmgB = Math.round((baseAtkB + elemBonusB) * (isCritB ? 1.4 : 1.0));
+
+      squadHpA[activeIndexA] = Math.max(0, squadHpA[activeIndexA] - dmgB);
+      updateSquadWarUi();
+
+      playSound("hit");
+      appendSquadLog(`${isCritB ? '💥 ' : ''}<strong>${dragonActiveB.name}</strong> (${squadNameB}) contrataca infligiendo <strong>${dmgB}</strong> de daño a ${dragonActiveA.name}!`, isCritB ? "rust" : "main");
+
+      if (squadHpA[activeIndexA] <= 0) {
+        appendSquadLog(`💀 <strong>¡${dragonActiveA.name} ha caído en combate!</strong>`, "rust");
+        if (squadHpA.every(h => h <= 0)) {
+          endSquadWar("B");
+        }
+      }
+    }, 600);
+
+    clashCount++;
+  }, 1400);
+};
+
+function updateSquadWarUi() {
+  const hpTextA = document.getElementById("squad-hp-text-A");
+  const hpBarA = document.getElementById("squad-hp-bar-A");
+  const hpTextB = document.getElementById("squad-hp-text-B");
+  const hpBarB = document.getElementById("squad-hp-bar-B");
+
+  const curHpA = squadHpA[activeIndexA] !== undefined ? squadHpA[activeIndexA] : 0;
+  const curHpB = squadHpB[activeIndexB] !== undefined ? squadHpB[activeIndexB] : 0;
+
+  if (hpTextA) hpTextA.textContent = `${curHpA} / 100`;
+  if (hpBarA) hpBarA.style.width = `${curHpA}%`;
+  if (hpTextB) hpTextB.textContent = `${curHpB} / 100`;
+  if (hpBarB) hpBarB.style.width = `${curHpB}%`;
+
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) {
+    const logBox = document.getElementById("squad-log-box");
+    const savedLog = logBox ? logBox.innerHTML : "";
+    const roundInd = document.getElementById("squad-round-indicator");
+    const savedRound = roundInd ? roundInd.textContent : "";
+
+    renderArenaContainer(container);
+
+    const newLogBox = document.getElementById("squad-log-box");
+    if (newLogBox && savedLog) {
+      newLogBox.innerHTML = savedLog;
+      newLogBox.scrollTop = newLogBox.scrollHeight;
+    }
+    const newRoundInd = document.getElementById("squad-round-indicator");
+    if (newRoundInd && savedRound) {
+      newRoundInd.textContent = savedRound;
+    }
+  }
+}
+
+function appendSquadLog(message, styleType = "main") {
+  const logBox = document.getElementById("squad-log-box");
+  if (!logBox) return;
+
+  const entry = document.createElement("div");
+  entry.style.padding = "5px 9px";
+  entry.style.borderRadius = "6px";
+
+  if (styleType === "gold") {
+    entry.style.background = "rgba(233,196,106,0.15)";
+    entry.style.color = "var(--gold-light)";
+  } else if (styleType === "teal") {
+    entry.style.background = "rgba(42,157,143,0.15)";
+    entry.style.color = "#80ed99";
+  } else if (styleType === "rust") {
+    entry.style.background = "rgba(230,57,70,0.15)";
+    entry.style.color = "#ff9f1c";
+  } else {
+    entry.style.background = "rgba(255,255,255,0.03)";
+    entry.style.color = "var(--text-main)";
+  }
+
+  entry.innerHTML = message;
+  logBox.appendChild(entry);
+  logBox.scrollTop = logBox.scrollHeight;
+}
+
+function endSquadWar(winningTeam) {
+  if (squadInterval) clearInterval(squadInterval);
+  isSquadBattling = false;
+  squadBattleEnded = true;
+  playSound("victory");
+
+  const winnerName = winningTeam === "A" ? squadNameA : squadNameB;
+  appendSquadLog(`🏆👑 <strong>¡GLORIA Y SUPREMACÍA TOTAL! ¡El escuadrón [${winnerName}] ha aniquilado al clan rival y conquistado la Arena 5v5!</strong>`, "gold");
+
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+}
+
+
+/* ==========================================================================
+   4. SISTEMA DE BÚSQUEDA RÁPIDA Y SELECTOR VISUAL DE DRAGONES
+   ========================================================================== */
+
+window.openDragonPicker = function(contextKey) {
+  activePickerContext = contextKey;
+  pickerSearchQuery = "";
+  pickerElementFilter = "Todos";
+  playSound("click");
+  renderDragonPickerModal();
+};
+
+window.closeDragonPicker = function() {
+  activePickerContext = null;
+  const root = document.getElementById("arena-picker-modal-root");
+  if (root) root.innerHTML = "";
+};
+
+window.filterDragonPicker = function() {
+  const input = document.getElementById("picker-search-input");
+  const select = document.getElementById("picker-elem-filter");
+  if (input) pickerSearchQuery = input.value.trim().toLowerCase();
+  if (select) pickerElementFilter = select.value;
+  renderDragonPickerList();
+};
+
+function renderDragonPickerModal() {
+  const root = document.getElementById("arena-picker-modal-root");
+  if (!root) return;
+
+  const elementsList = ["Todos", "Fuego", "Agua", "Tierra", "Viento", "Tormenta", "Hielo", "Magma", "Luz", "Sombra", "Veneno", "Naturaleza", "Cristal"];
+
+  root.innerHTML = `
+    <div class="arena-picker-modal-overlay" onclick="handlePickerOverlayClick(event)">
+      <div class="arena-picker-modal">
+        
+        <div class="arena-picker-header">
+          <h3 style="color: var(--gold-main); margin: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
+            🔍 Seleccionar Dragón para el Combate
+          </h3>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeDragonPicker()">✕ Cerrar</button>
+        </div>
+
+        <div class="arena-picker-filters">
+          <div style="flex: 2; min-width: 180px;">
+            <input type="text" id="picker-search-input" class="search-input" placeholder="🔍 Escribí un nombre o mitología..." oninput="filterDragonPicker()" style="padding: 8px 12px; font-size: 0.95rem;" autofocus />
+          </div>
+          <div style="flex: 1; min-width: 140px;">
+            <select id="picker-elem-filter" class="filter-select" onchange="filterDragonPicker()" style="padding: 8px; font-size: 0.9rem;">
+              ${elementsList.map(e => `<option value="${e}">${e === 'Todos' ? 'Todos los Elementos' : e}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+
+        <div id="arena-picker-list-container" class="arena-picker-list"></div>
+
+      </div>
+    </div>
+  `;
+
+  renderDragonPickerList();
+}
+
+function renderDragonPickerList() {
+  const container = document.getElementById("arena-picker-list-container");
+  if (!container) return;
+
+  const filtered = DRAGONS_DATA.filter(d => {
+    const matchQuery = !pickerSearchQuery || 
+      d.name.toLowerCase().includes(pickerSearchQuery) || 
+      d.mythology.toLowerCase().includes(pickerSearchQuery) ||
+      d.ability.toLowerCase().includes(pickerSearchQuery);
+
+    const matchElement = pickerElementFilter === "Todos" || d.element.toLowerCase() === pickerElementFilter.toLowerCase();
+
+    return matchQuery && matchElement;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem;">
+        No se encontraron dragones con esos criterios de búsqueda.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(d => `
+    <div class="arena-picker-card" onclick="selectPickerDragon(${d.id})">
+      <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" loading="lazy" />
+      <div class="picker-name">${d.name}</div>
+      <div class="picker-meta">${d.element} • Peligro ${d.danger}/5</div>
+    </div>
+  `).join("");
+}
+
+window.handlePickerOverlayClick = function(e) {
+  if (e.target.classList.contains("arena-picker-modal-overlay")) {
+    closeDragonPicker();
+  }
+};
+
+window.selectPickerDragon = function(dragonId) {
+  const dragon = DRAGONS_DATA.find(d => d.id === dragonId);
+  if (!dragon || !activePickerContext) return;
+
+  playSound("click");
+
+  if (activePickerContext === "duel_A") {
+    dragonA = dragon;
+  } else if (activePickerContext === "duel_B") {
+    dragonB = dragon;
+  } else if (activePickerContext === "tourney") {
+    playerDragon = dragon;
+  } else if (activePickerContext.startsWith("squad_A_")) {
+    const idx = parseInt(activePickerContext.replace("squad_A_", ""));
+    squadA[idx] = dragon;
+  } else if (activePickerContext.startsWith("squad_B_")) {
+    const idx = parseInt(activePickerContext.replace("squad_B_", ""));
+    squadB[idx] = dragon;
+  }
+
+  closeDragonPicker();
+
+  const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+  if (container) renderArenaContainer(container);
+};
 
 
 
