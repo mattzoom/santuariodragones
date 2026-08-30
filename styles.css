@@ -243,6 +243,31 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border-panel);
 }
 
+.hero-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero-emblem-img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 68%, rgba(0, 0, 0, 0) 98%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 68%, rgba(0, 0, 0, 0) 98%);
+  filter: drop-shadow(0 0 35px rgba(233, 196, 106, 0.45));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero-emblem-img:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 45px rgba(233, 196, 106, 0.65)) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.9));
+}
+
 .hero-title {
   font-size: 2.8rem;
   margin-bottom: 0.6rem;
@@ -1912,8 +1937,6 @@ h1, h2, h3, h4 {
   z-index: 10000;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
 }
 
 .arena-picker-modal {
