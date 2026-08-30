@@ -12,22 +12,113 @@ let currentAltarTool = "varita";
 window.updateDragonScriptTranslator = function() {
   const input = document.getElementById("ds-translator-input");
   const outputContainer = document.getElementById("ds-translator-output");
+  const downloadBtn = document.getElementById("ds-download-all-btn");
   if (!input || !outputContainer) return;
 
   const val = input.value.trim();
   if (!val) {
     outputContainer.innerHTML = `<span style="color: var(--text-muted); font-style: italic;">Escribí tu nombre o deseo arriba para verlo convertido al Escrito del Dragón...</span>`;
+    if (downloadBtn) downloadBtn.style.display = "none";
     return;
   }
 
   const translated = translateToDragonScript(val);
+
   outputContainer.innerHTML = translated.map(item => `
-    <div style="display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--gold-main); min-width: 48px; color: var(--gold-main);">
-      ${item.info.svg || `<span style="font-size:1.6rem; color:var(--gold-main);">${item.info.glyph}</span>`}
-      <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; font-weight: 700;">${item.char}</span>
+    <div class="ds-char-box">
+      <div class="ds-char-glyph-wrap" style="color: var(--gold-main);">
+        ${item.info.svg || `<span style="font-size:1.6rem;">${item.info.glyph}</span>`}
+      </div>
+      <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; font-weight: 700; user-select: none;">${item.char}</span>
     </div>
   `).join("");
+
+  if (downloadBtn) downloadBtn.style.display = "inline-flex";
 };
+
+// Genera un Canvas con los caracteres SVG exactos de Dragon Script en alta resolución dorada para descargar
+function generateDragonScriptCanvas(items, callback) {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const charWidth = 60;
+  const charHeight = 70;
+  const totalWidth = Math.max(120, items.length * charWidth + 40);
+  const totalHeight = charHeight + 50;
+
+  canvas.width = totalWidth;
+  canvas.height = totalHeight;
+
+  // Fondo místico oscuro
+  ctx.fillStyle = "#0c0b14";
+  ctx.fillRect(0, 0, totalWidth, totalHeight);
+
+  // Borde dorado
+  ctx.strokeStyle = "#e9c46a";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(4, 4, totalWidth - 8, totalHeight - 8);
+
+  let loadedImages = 0;
+  const validItems = items.filter(it => it.char !== ' ');
+
+  if (validItems.length === 0) {
+    callback(canvas);
+    return;
+  }
+
+  items.forEach((it, idx) => {
+    if (it.char === ' ') return;
+    const svgStr = it.info.svg;
+    if (!svgStr) return;
+
+    // Colorear el SVG con oro puro para el renderizado en canvas
+    const coloredSvg = svgStr.replace(/currentColor/g, '#e9c46a');
+    const svgBlob = new Blob([coloredSvg], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const img = new Image();
+
+    img.onload = function() {
+      const x = 20 + idx * charWidth + (charWidth - 44) / 2;
+      const y = 14;
+      ctx.drawImage(img, x, y, 44, 44);
+      URL.revokeObjectURL(url);
+      loadedImages++;
+
+      // Letra latina pequeña abajo
+      ctx.fillStyle = "#888899";
+      ctx.font = "bold 13px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(it.char, 20 + idx * charWidth + charWidth / 2, y + 56);
+
+      if (loadedImages >= validItems.length) {
+        callback(canvas);
+      }
+    };
+    img.src = url;
+  });
+}
+
+// Descargar todo el mensaje traducido en PNG transparente/alta calidad
+window.downloadDragonScriptImage = function() {
+  const input = document.getElementById("ds-translator-input");
+  if (!input || !input.value.trim()) return;
+
+  const translated = translateToDragonScript(input.value.trim());
+  generateDragonScriptCanvas(translated, (canvas) => {
+    canvas.toBlob((blob) => {
+      downloadCanvasBlob(blob, `dragon_script_${input.value.trim().toLowerCase()}.png`);
+      playSound("chime");
+    });
+  });
+};
+
+function downloadCanvasBlob(blob, filename) {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 window.playRuneSound = function(letter) {
   if (typeof playSound === "function") playSound("rune");
@@ -35,16 +126,22 @@ window.playRuneSound = function(letter) {
   const info = DRAGON_SCRIPT_MAP[letter];
   if (badge && info) {
     badge.innerHTML = `
-      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; animation: fadeIn 0.3s ease;">
-        <div style="color: var(--gold-main); display: flex; align-items: center;">${info.svg || `<span style="font-size:2rem;">${info.glyph}</span>`}</div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; animation: fadeIn 0.3s ease; width: 100%;">
+        <div class="ds-char-box" style="padding: 8px 12px; min-width: 50px;">
+          <div class="ds-char-glyph-wrap" style="color: var(--gold-main);">
+            ${info.svg || `<span style="font-size:2rem;">${info.glyph}</span>`}
+          </div>
+        </div>
         <div style="text-align: left;">
-          <strong style="color: var(--gold-light); font-size: 1.1rem;">Letra ${letter} (${info.glyph})</strong>
-          <p style="margin: 2px 0 0 0; color: var(--text-main); font-size: 0.9rem;">${info.desc}</p>
+          <strong style="color: var(--gold-light); font-size: 1.15rem;">Letra ${letter} — ${info.glyph}</strong>
+          <p style="margin: 2px 0 0 0; color: var(--text-main); font-size: 0.92rem;">${info.desc}</p>
         </div>
       </div>
     `;
   }
 };
+
+
 
 // Global navigation functions for inline onclick handlers
 window.switchMagicSubPage = function(page) {
@@ -672,6 +769,17 @@ function renderAltarSubPage(container) {
             <div style="background: rgba(0,0,0,0.5); padding: 4px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.5);">
               <div style="background: rgba(15, 12, 25, 0.92); backdrop-filter: blur(4px); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--gold-main); min-height: 90px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;" id="ds-translator-output">
                 <span style="color: var(--text-muted); font-style: italic;">Escribí tu nombre o deseo arriba para verlo convertido al Escrito del Dragón...</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 0.85rem; color: var(--text-muted);">
+                ✨ <em>Mirá la equivalencia de cada letra o descargá la composición completa en alta resolución:</em>
+              </span>
+              <div>
+                <button id="ds-download-all-btn" type="button" class="btn btn-gold btn-sm" style="display: none; padding: 8px 18px; font-weight: 700;" onclick="downloadDragonScriptImage()">
+                  📥 Descargar Imagen Dragon Script
+                </button>
               </div>
             </div>
           </div>

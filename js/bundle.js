@@ -298,132 +298,132 @@ const DRAGON_SCRIPT_MAP = {
   'A': { 
     glyph: 'S-Dragon', 
     desc: 'Serpiente Alada S-Curva', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 32 10 C 15 8 10 20 25 25 C 40 30 35 44 15 42 M 15 42 L 10 38 M 15 42 L 20 38" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 32 10 C 15 8 10 20 25 25 C 40 30 35 44 15 42 M 15 42 L 10 38 M 15 42 L 20 38" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'B': { 
-    glyph: 'Mars-Circle', 
-    desc: 'Símbolo del Marte Draconiano', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><circle cx="22" cy="28" r="12" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M 31 19 L 42 8 M 42 8 L 32 8 M 42 8 L 42 18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Aliento-Fuego', 
+    desc: 'Bocanada de Fuego Dracónico', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 12 40 L 12 10 C 12 10 28 8 28 22 C 28 28 20 28 12 28 C 30 28 40 30 40 40 L 12 40 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'C': { 
     glyph: 'Zigzag-Crown', 
     desc: 'Corona Zigzag de la Caverna (C / K)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 8 18 L 50 18 M 8 28 L 18 18 L 28 32 L 38 18 L 48 28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 8 18 L 50 18 M 8 28 L 18 18 L 28 32 L 38 18 L 48 28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'D': { 
     glyph: 'Diamond-Rune', 
     desc: 'Rombo Sagrado de la Fortaleza', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 25 8 L 40 25 L 25 42 L 10 25 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 25 8 L 40 25 L 25 42 L 10 25 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'E': { 
-    glyph: 'Circle-Arrows', 
-    desc: 'Círculo con Flechas Horizontales', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><circle cx="25" cy="25" r="9" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M 6 25 L 44 25 M 6 25 L 12 20 M 6 25 L 12 30 M 44 25 L 38 20 M 44 25 L 38 30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Escama-Triple', 
+    desc: 'Triple Escama de Protección', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 14 10 L 14 40 M 14 12 L 38 12 M 14 25 L 32 25 M 14 38 L 38 38 M 38 12 L 34 18 M 38 38 L 34 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'F': { 
-    glyph: 'Trident-Cross', 
-    desc: 'Cruz de la Llama Ancestral', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 12 25 L 38 25 M 25 12 L 25 38 M 16 16 C 25 22 25 22 34 16 M 16 34 C 25 28 25 28 34 34" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Llama-Garra', 
+    desc: 'Garra Ascendente de Fuego', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 16 42 L 16 10 M 16 12 L 40 12 L 34 20 M 16 26 L 36 26 L 30 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'G': { 
     glyph: 'Spiral-Spiral', 
     desc: 'Espiral Doble Infinita', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 25 25 C 12 20 12 8 25 8 C 38 8 38 20 25 25 C 12 30 12 42 25 42 C 38 42 38 30 25 25" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 25 25 C 12 20 12 8 25 8 C 38 8 38 20 25 25 C 12 30 12 42 25 42 C 38 42 38 30 25 25" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'H': { 
     glyph: 'Diamond-Horns', 
     desc: 'Rombo con Cuernos Superiores', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 25 18 L 38 30 L 25 42 L 12 30 Z M 12 30 L 8 12 M 38 30 L 42 12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 25 18 L 38 30 L 25 42 L 12 30 Z M 12 30 L 8 12 M 38 30 L 42 12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'I': { 
     glyph: 'Crossed-Arrows', 
     desc: 'Garras Cruzadas del Rayo (I / J)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 12 10 L 38 40 M 38 10 L 12 40 M 12 40 L 12 30 M 12 40 L 22 40 M 38 40 L 38 30 M 38 40 L 28 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 12 10 L 38 40 M 38 10 L 12 40 M 12 40 L 12 30 M 12 40 L 22 40 M 38 40 L 38 30 M 38 40 L 28 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'J': { 
     glyph: 'Crossed-Arrows', 
     desc: 'Garras Cruzadas del Rayo (I / J)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 12 10 L 38 40 M 38 10 L 12 40 M 12 40 L 12 30 M 12 40 L 22 40 M 38 40 L 38 30 M 38 40 L 28 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 12 10 L 38 40 M 38 10 L 12 40 M 12 40 L 12 30 M 12 40 L 22 40 M 38 40 L 38 30 M 38 40 L 28 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'K': { 
     glyph: 'Zigzag-Crown', 
     desc: 'Corona Zigzag de la Caverna (C / K)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 8 18 L 50 18 M 8 28 L 18 18 L 28 32 L 38 18 L 48 28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 8 18 L 50 18 M 8 28 L 18 18 L 28 32 L 38 18 L 48 28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'L': { 
-    glyph: 'Arrow-Down-Dot', 
-    desc: 'Flecha de Anclaje a la Tierra', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 25 12 L 25 40 M 25 40 L 18 32 M 25 40 L 32 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="10" r="3" fill="currentColor"/></svg>`
+    glyph: 'Colmillo-Anclado', 
+    desc: 'Colmillo de Caza Anclado', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 15 10 L 15 40 L 40 40 M 40 40 L 32 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'M': { 
-    glyph: 'Double-Arch', 
-    desc: 'Alas Gemelas del Vuelo', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 40 L 10 22 C 10 10 25 10 25 22 C 25 10 40 10 40 22 L 40 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Cresta-Dorsal', 
+    desc: 'Cresta Dorsal de Gran Dragón', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 8 40 L 8 12 L 25 32 L 42 12 L 42 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'N': { 
     glyph: 'Gate-Square', 
     desc: 'Puerta Portal de la Montaña', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 12 40 L 12 18 C 12 10 38 10 38 18 L 38 40 M 20 40 L 20 26 C 20 20 30 20 30 26 L 30 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 12 40 L 12 18 C 12 10 38 10 38 18 L 38 40 M 20 40 L 20 26 C 20 20 30 20 30 26 L 30 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'O': { 
-    glyph: 'Circle-Portal', 
-    desc: 'Anillo del Ojo de Cristal', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><circle cx="25" cy="25" r="15" fill="none" stroke="currentColor" stroke-width="3.5"/></svg>`
+    glyph: 'Ojo-Barrado', 
+    desc: 'Ojo de Dragón Barrado (Ø)', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><circle cx="25" cy="25" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M 39 11 L 11 39" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>`
   },
   'P': { 
     glyph: 'Triangle-Points', 
     desc: 'Triángulo con Puntos Astrales', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 25 10 L 40 38 L 10 38 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="10" r="3" fill="currentColor"/><circle cx="10" cy="38" r="3" fill="currentColor"/><circle cx="40" cy="38" r="3" fill="currentColor"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 25 10 L 40 38 L 10 38 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="10" r="3" fill="currentColor"/><circle cx="10" cy="38" r="3" fill="currentColor"/><circle cx="40" cy="38" r="3" fill="currentColor"/></svg>`
   },
   'Q': { 
-    glyph: 'Circle-Portal', 
-    desc: 'Anillo del Ojo de Cristal', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><circle cx="25" cy="25" r="15" fill="none" stroke="currentColor" stroke-width="3.5"/></svg>`
+    glyph: 'Ojo-Barrado', 
+    desc: 'Ojo de Dragón Barrado (Ø)', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><circle cx="25" cy="25" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M 39 11 L 11 39" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>`
   },
   'R': { 
-    glyph: 'Arch-Points', 
-    desc: 'Arco del Firmamento', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 38 C 10 15 40 15 40 38" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="10" cy="38" r="3" fill="currentColor"/><circle cx="40" cy="38" r="3" fill="currentColor"/></svg>`
+    glyph: 'Garra-Arco', 
+    desc: 'Garra de Combate y Vuelo', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 14 40 L 14 10 L 30 10 C 38 10 38 24 30 24 L 14 24 M 26 24 L 40 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'S': { 
-    glyph: 'Percent-Rune', 
-    desc: 'Tijera del Viento Divino', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 12 40 L 38 10 M 16 16 L 34 34 M 14 20 L 20 14 M 30 36 L 36 30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Cola-Serpiente', 
+    desc: 'Látigo de la Cola Draconiana', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 36 14 C 36 8 14 6 14 20 C 14 34 36 26 36 38 C 36 46 14 44 14 38 M 14 38 L 20 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'T': { 
     glyph: 'T-Rune', 
     desc: 'Sello de la Tierra Sagrada', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 14 L 40 14 M 25 14 L 25 36 M 25 36 L 18 42 M 25 36 L 32 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 10 14 L 40 14 M 25 14 L 25 36 M 25 36 L 18 42 M 25 36 L 32 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'U': { 
-    glyph: 'Calix-Rune', 
-    desc: 'Cáliz de las Mareas (U / V)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 10 L 10 30 C 10 42 40 42 40 30 L 40 10 M 25 10 L 25 36" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Copa-Aliento', 
+    desc: 'Cáliz del Fuego Ferviente', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 14 10 L 14 28 C 14 40 36 40 36 28 L 36 10 M 14 10 L 8 16 M 36 10 L 42 16" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'V': { 
     glyph: 'Triangle-Down', 
     desc: 'Triángulo Invertido del Fuego (U / V)', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 12 L 40 12 L 25 40 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 10 12 L 40 12 L 25 40 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   },
   'W': { 
     glyph: 'Triangle-Loop-Down', 
     desc: 'Triángulo Invertido con Lazo', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 18 L 40 18 L 25 42 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="3"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 10 18 L 40 18 L 25 42 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="3"/></svg>`
   },
   'X': { 
     glyph: 'Cross-Dots', 
     desc: 'Cruz de los Cuatro Vientos', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 25 L 40 25 M 25 10 L 25 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="10" cy="25" r="3" fill="currentColor"/><circle cx="40" cy="25" r="3" fill="currentColor"/><circle cx="25" cy="10" r="3" fill="currentColor"/><circle cx="25" cy="40" r="3" fill="currentColor"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 10 25 L 40 25 M 25 10 L 25 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="10" cy="25" r="3" fill="currentColor"/><circle cx="40" cy="25" r="3" fill="currentColor"/><circle cx="25" cy="10" r="3" fill="currentColor"/><circle cx="25" cy="40" r="3" fill="currentColor"/></svg>`
   },
   'Y': { 
     glyph: 'Cross-Slashed', 
     desc: 'Estrella Tachada de las Nebulosas', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 8 25 L 42 25 M 25 8 L 25 42 M 12 12 L 38 38 M 38 12 L 12 38" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="25" cy="25" r="8" fill="none" stroke="currentColor" stroke-width="3"/></svg>`
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 8 25 L 42 25 M 25 8 L 25 42 M 12 12 L 38 38 M 38 12 L 12 38" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="25" cy="25" r="8" fill="none" stroke="currentColor" stroke-width="3"/></svg>`
   },
   'Z': { 
-    glyph: 'Anchor-T', 
-    desc: 'Ancla del Inframundo', 
-    svg: `<svg viewBox="0 0 50 50" width="36" height="36" style="vertical-align: middle;"><path d="M 10 12 L 40 12 M 25 12 L 25 40 M 25 40 L 16 32 M 25 40 L 34 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    glyph: 'Lengua-Bifida', 
+    desc: 'Lengua Bífida de la Serpiente Dragón', 
+    svg: `<svg viewBox="0 0 50 50" width="38" height="38" style="vertical-align: middle;"><path d="M 25 42 L 25 22 M 25 22 L 12 8 M 25 22 L 38 8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   }
 };
 
@@ -442,9 +442,10 @@ function translateToDragonScript(text) {
         info: { glyph: ' ', desc: 'Espacio Mágico', svg: `<span style="display:inline-block; width:16px;"></span>` }
       };
     }
+    const mapEntry = DRAGON_SCRIPT_MAP[char] || { glyph: char, desc: 'Símbolo Mágico', svg: `<span style="font-size:1.5rem;">${char}</span>` };
     return {
       char: char,
-      info: DRAGON_SCRIPT_MAP[char] || { glyph: char, desc: 'Símbolo Mágico', svg: `<span style="font-size:1.5rem;">${char}</span>` }
+      info: mapEntry
     };
   });
 }
@@ -2658,22 +2659,113 @@ let currentAltarTool = "varita";
 window.updateDragonScriptTranslator = function() {
   const input = document.getElementById("ds-translator-input");
   const outputContainer = document.getElementById("ds-translator-output");
+  const downloadBtn = document.getElementById("ds-download-all-btn");
   if (!input || !outputContainer) return;
 
   const val = input.value.trim();
   if (!val) {
     outputContainer.innerHTML = `<span style="color: var(--text-muted); font-style: italic;">Escribí tu nombre o deseo arriba para verlo convertido al Escrito del Dragón...</span>`;
+    if (downloadBtn) downloadBtn.style.display = "none";
     return;
   }
 
   const translated = translateToDragonScript(val);
+
   outputContainer.innerHTML = translated.map(item => `
-    <div style="display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--gold-main); min-width: 48px; color: var(--gold-main);">
-      ${item.info.svg || `<span style="font-size:1.6rem; color:var(--gold-main);">${item.info.glyph}</span>`}
-      <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; font-weight: 700;">${item.char}</span>
+    <div class="ds-char-box">
+      <div class="ds-char-glyph-wrap" style="color: var(--gold-main);">
+        ${item.info.svg || `<span style="font-size:1.6rem;">${item.info.glyph}</span>`}
+      </div>
+      <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; font-weight: 700; user-select: none;">${item.char}</span>
     </div>
   `).join("");
+
+  if (downloadBtn) downloadBtn.style.display = "inline-flex";
 };
+
+// Genera un Canvas con los caracteres SVG exactos de Dragon Script en alta resolución dorada para descargar
+function generateDragonScriptCanvas(items, callback) {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const charWidth = 60;
+  const charHeight = 70;
+  const totalWidth = Math.max(120, items.length * charWidth + 40);
+  const totalHeight = charHeight + 50;
+
+  canvas.width = totalWidth;
+  canvas.height = totalHeight;
+
+  // Fondo místico oscuro
+  ctx.fillStyle = "#0c0b14";
+  ctx.fillRect(0, 0, totalWidth, totalHeight);
+
+  // Borde dorado
+  ctx.strokeStyle = "#e9c46a";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(4, 4, totalWidth - 8, totalHeight - 8);
+
+  let loadedImages = 0;
+  const validItems = items.filter(it => it.char !== ' ');
+
+  if (validItems.length === 0) {
+    callback(canvas);
+    return;
+  }
+
+  items.forEach((it, idx) => {
+    if (it.char === ' ') return;
+    const svgStr = it.info.svg;
+    if (!svgStr) return;
+
+    // Colorear el SVG con oro puro para el renderizado en canvas
+    const coloredSvg = svgStr.replace(/currentColor/g, '#e9c46a');
+    const svgBlob = new Blob([coloredSvg], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const img = new Image();
+
+    img.onload = function() {
+      const x = 20 + idx * charWidth + (charWidth - 44) / 2;
+      const y = 14;
+      ctx.drawImage(img, x, y, 44, 44);
+      URL.revokeObjectURL(url);
+      loadedImages++;
+
+      // Letra latina pequeña abajo
+      ctx.fillStyle = "#888899";
+      ctx.font = "bold 13px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(it.char, 20 + idx * charWidth + charWidth / 2, y + 56);
+
+      if (loadedImages >= validItems.length) {
+        callback(canvas);
+      }
+    };
+    img.src = url;
+  });
+}
+
+// Descargar todo el mensaje traducido en PNG transparente/alta calidad
+window.downloadDragonScriptImage = function() {
+  const input = document.getElementById("ds-translator-input");
+  if (!input || !input.value.trim()) return;
+
+  const translated = translateToDragonScript(input.value.trim());
+  generateDragonScriptCanvas(translated, (canvas) => {
+    canvas.toBlob((blob) => {
+      downloadCanvasBlob(blob, `dragon_script_${input.value.trim().toLowerCase()}.png`);
+      playSound("chime");
+    });
+  });
+};
+
+function downloadCanvasBlob(blob, filename) {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 window.playRuneSound = function(letter) {
   if (typeof playSound === "function") playSound("rune");
@@ -2681,16 +2773,22 @@ window.playRuneSound = function(letter) {
   const info = DRAGON_SCRIPT_MAP[letter];
   if (badge && info) {
     badge.innerHTML = `
-      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; animation: fadeIn 0.3s ease;">
-        <div style="color: var(--gold-main); display: flex; align-items: center;">${info.svg || `<span style="font-size:2rem;">${info.glyph}</span>`}</div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; animation: fadeIn 0.3s ease; width: 100%;">
+        <div class="ds-char-box" style="padding: 8px 12px; min-width: 50px;">
+          <div class="ds-char-glyph-wrap" style="color: var(--gold-main);">
+            ${info.svg || `<span style="font-size:2rem;">${info.glyph}</span>`}
+          </div>
+        </div>
         <div style="text-align: left;">
-          <strong style="color: var(--gold-light); font-size: 1.1rem;">Letra ${letter} (${info.glyph})</strong>
-          <p style="margin: 2px 0 0 0; color: var(--text-main); font-size: 0.9rem;">${info.desc}</p>
+          <strong style="color: var(--gold-light); font-size: 1.15rem;">Letra ${letter} — ${info.glyph}</strong>
+          <p style="margin: 2px 0 0 0; color: var(--text-main); font-size: 0.92rem;">${info.desc}</p>
         </div>
       </div>
     `;
   }
 };
+
+
 
 // Global navigation functions for inline onclick handlers
 window.switchMagicSubPage = function(page) {
@@ -3318,6 +3416,17 @@ function renderAltarSubPage(container) {
             <div style="background: rgba(0,0,0,0.5); padding: 4px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.5);">
               <div style="background: rgba(15, 12, 25, 0.92); backdrop-filter: blur(4px); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--gold-main); min-height: 90px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;" id="ds-translator-output">
                 <span style="color: var(--text-muted); font-style: italic;">Escribí tu nombre o deseo arriba para verlo convertido al Escrito del Dragón...</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 0.85rem; color: var(--text-muted);">
+                ✨ <em>Mirá la equivalencia de cada letra o descargá la composición completa en alta resolución:</em>
+              </span>
+              <div>
+                <button id="ds-download-all-btn" type="button" class="btn btn-gold btn-sm" style="display: none; padding: 8px 18px; font-weight: 700;" onclick="downloadDragonScriptImage()">
+                  📥 Descargar Imagen Dragon Script
+                </button>
               </div>
             </div>
           </div>

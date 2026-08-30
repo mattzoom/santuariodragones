@@ -2019,3 +2019,66 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
 }
 
+/* ==========================================================================
+   DRAGON SCRIPT SELECTABLE & COPYABLE CHARACTERS
+   ========================================================================== */
+.ds-char-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--gold-main);
+  min-width: 48px;
+  color: var(--gold-main);
+  user-select: all !important;
+  -webkit-user-select: all !important;
+  cursor: text;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.ds-char-box:hover {
+  transform: translateY(-2px);
+  border-color: #ffe6a7;
+  box-shadow: 0 0 12px rgba(233, 196, 106, 0.4);
+}
+
+.ds-char-glyph-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 1.8rem;
+  font-family: serif, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+  user-select: all !important;
+  -webkit-user-select: all !important;
+}
+
+.ds-char-glyph-wrap svg {
+  pointer-events: none;
+}
+
+.ds-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(233, 196, 106, 0.15);
+  border: 1px solid var(--gold-main);
+  border-radius: 8px;
+  color: var(--gold-main);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ds-copy-btn:hover {
+  background: var(--gold-main);
+  color: #0c0b14;
+  transform: translateY(-1px);
+}
+
+
