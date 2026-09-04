@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academia: Anillo 5 - Consagración y Graduación | Santuario de Dragones</title>
-  <meta name="description" content="Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas.">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="canonical" href="https://santuario-dragones.vercel.app/academia-anillo-5.html">
-  <meta property="og:title" content="Santuario Secreto de Dragones | Enciclopedia Épica">
-  <meta property="og:description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo y forja mística.">
-  <meta property="og:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
+  <title>Academia: Anillo 5: Consagración y Graduación | Santuario de Dragones</title>
+  <meta name="description" content="Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/academia-anillo-5.html">
+  <meta property="og:title" content="Academia: Anillo 5: Consagración y Graduación | Santuario de Dragones">
+  <meta property="og:description" content="Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="900">
-  <meta property="og:url" content="https://santuario-dragones.vercel.app/academia-anillo-5.html">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/academia-anillo-5.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Santuario Secreto de Dragones">
-  <meta name="twitter:description" content="Enciclopedia mística interactiva con más de 100 dragones legendarios de todas las mitologías del mundo.">
-  <meta name="twitter:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
-  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <meta name="twitter:title" content="Academia: Anillo 5: Consagración y Graduación | Santuario de Dragones">
+  <meta name="twitter:description" content="Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Santuario Secreto de Dragones",
-    "url": "https://santuario-dragones.vercel.app/",
-    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+    "@type": "WebPage",
+    "name": "Academia: Anillo 5: Consagración y Graduación | Santuario de Dragones",
+    "url": "https://santuariodragones.vercel.app/academia-anillo-5.html",
+    "description": "Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas."
   }
   </script>
-  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
 </head>
 <body>
 
@@ -63,106 +64,14 @@
 
     <!-- Main Content Area -->
     <main class="main-content">
-      <!-- 1. ENCYCLOPEDIA SECTION -->
-      <section id="section-encyclopedia" class="view-section " style="display: none;">
-        <!-- HERO BANNER (Solo en Enciclopedia) -->
-        <section class="hero-banner">
-          <div class="hero-emblem-wrap">
-            <img src="/assets/ui/hero_emblem.webp?v=8.0.0" alt="Emblema del Santuario Secreto de Dragones" class="hero-emblem-img" width="290" height="290" fetchpriority="high" loading="eager" decoding="sync" />
-          </div>
-          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
-          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
-        </section>
-        
-        <!-- Search & Filter Controls Panel -->
-        <div class="search-filter-section fantasy-panel">
-          <div class="search-bar-wrap">
-            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
-          </div>
-
-          <div class="filters-grid">
-            <div class="filter-group">
-              <label for="filter-mythology">Mitología / Origen:</label>
-              <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-element">Elemento Principal:</label>
-              <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-type">Tipo de Cuerpo:</label>
-              <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-danger">Nivel de Peligro:</label>
-              <select id="filter-danger" class="filter-select">
-                <option value="Todos">Todos los Niveles</option>
-                <option value="1">🔥 (Peligro 1)</option>
-                <option value="2">🔥🔥 (Peligro 2)</option>
-                <option value="3">🔥🔥🔥 (Peligro 3)</option>
-                <option value="4">🔥🔥🔥🔥 (Peligro 4)</option>
-                <option value="5">🔥🔥🔥🔥🔥 (Peligro 5)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-sort">Ordenar Por:</label>
-              <select id="filter-sort" class="filter-select">
-                <option value="name-asc">Nombre (A-Z)</option>
-                <option value="name-desc">Nombre (Z-A)</option>
-                <option value="danger-desc">Peligro (Mayor a Menor)</option>
-                <option value="danger-asc">Peligro (Menor a Mayor)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
-            </div>
-          </div>
-
-          <div class="results-bar">
-            <span class="results-badge" id="results-count">Cargando 100 Dragones...</span>
-          </div>
-        </div>
-
-        <!-- Dragons Grid -->
-        <div id="dragons-grid" class="dragons-grid"></div>
-
-        <!-- Pagination Bar -->
-        <div id="pagination-box" class="pagination-box"></div>
-      </section>
-
-      <!-- 2. ARENA DE DRAGONES SECTION -->
-      <section id="section-arena" class="view-section " style="display: none;">
-        <div id="arena-container"></div>
-      </section>
-
-      <!-- 3. FORJA DE SIGILOS DRACONIANOS SECTION -->
-      <section id="section-sigils" class="view-section " style="display: none;">
-        <div id="sigil-container"></div>
-      </section>
 
       <!-- 4. MAGIA DRACONIANA SECTION -->
-      <section id="section-magic" class="view-section active" style="display: block;">
-        <div id="magic-container"></div>
-      </section>
-
-      <!-- 5. QUIZ SECTION ("TEST DRACONIANO") -->
-      <section id="section-quiz" class="view-section " style="display: none;">
-        <div id="quiz-container"></div>
-      </section>
-
-      <!-- 6. FAVORITES SECTION -->
-      <section id="section-favorites" class="view-section " style="display: none;">
-        <div class="fantasy-panel margin-bottom-lg">
-          <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
-          <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
+      <section id="section-magic" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div id="magic-container">
+          
         </div>
-        <div id="favorites-grid" class="dragons-grid"></div>
       </section>
+
     </main>
 
 
@@ -254,5 +163,7 @@
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="js/bundle.min.js?v=8.2.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

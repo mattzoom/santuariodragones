@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Arena de Dragones: Duelo 1 vs 1 | Santuario Secreto de Dragones</title>
-  <meta name="description" content="Descubrí cuál de los 100 dragones legendarios es tu guardián y compañero espiritual según tus decisiones.">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="canonical" href="https://santuario-dragones.vercel.app/arena.html">
-  <meta property="og:title" content="Santuario Secreto de Dragones | Enciclopedia Épica">
-  <meta property="og:description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo y forja mística.">
-  <meta property="og:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
+  <title>Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones</title>
+  <meta name="description" content="Entrá a la Arena de Dragones del Santuario: desafiá a las bestias legendarias en combate 1 vs 1, disputá el Torneo Roguelite o liderá clanes en guerra 5 vs 5.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/arena.html">
+  <meta property="og:title" content="Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones">
+  <meta property="og:description" content="Entrá a la Arena de Dragones del Santuario: desafiá a las bestias legendarias en combate 1 vs 1, disputá el Torneo Roguelite o liderá clanes en guerra 5 vs 5.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/trophy_champion.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="900">
-  <meta property="og:url" content="https://santuario-dragones.vercel.app/test-draconiano.html">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/arena.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Santuario Secreto de Dragones">
-  <meta name="twitter:description" content="Enciclopedia mística interactiva con más de 100 dragones legendarios de todas las mitologías del mundo.">
-  <meta name="twitter:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
-  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <meta name="twitter:title" content="Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones">
+  <meta name="twitter:description" content="Entrá a la Arena de Dragones del Santuario: desafiá a las bestias legendarias en combate 1 vs 1, disputá el Torneo Roguelite o liderá clanes en guerra 5 vs 5.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/trophy_champion.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Santuario Secreto de Dragones",
-    "url": "https://santuario-dragones.vercel.app/",
-    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+    "@type": "WebPage",
+    "name": "Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones",
+    "url": "https://santuariodragones.vercel.app/arena.html",
+    "description": "Entrá a la Arena de Dragones del Santuario: desafiá a las bestias legendarias en combate 1 vs 1, disputá el Torneo Roguelite o liderá clanes en guerra 5 vs 5."
   }
   </script>
-  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
 </head>
 <body>
 
@@ -47,7 +48,7 @@
           <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
-        <nav class="nav-tabs">
+                        <nav class="nav-tabs">
           <a class="nav-tab" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
           <a class="nav-tab active" data-tab="arena" href="/arena.html">⚔️ Arena</a>
           <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
@@ -63,106 +64,60 @@
 
     <!-- Main Content Area -->
     <main class="main-content">
-      <!-- 1. ENCYCLOPEDIA SECTION -->
-      <section id="section-encyclopedia" class="view-section " style="display: none;">
-        <!-- HERO BANNER (Solo en Enciclopedia) -->
-        <section class="hero-banner">
-          <div class="hero-emblem-wrap">
-            <img src="/assets/ui/hero_emblem.webp?v=8.0.0" alt="Emblema del Santuario Secreto de Dragones" class="hero-emblem-img" width="290" height="290" fetchpriority="high" loading="eager" decoding="sync" />
-          </div>
-          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
-          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
-        </section>
-        
-        <!-- Search & Filter Controls Panel -->
-        <div class="search-filter-section fantasy-panel">
-          <div class="search-bar-wrap">
-            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
-          </div>
-
-          <div class="filters-grid">
-            <div class="filter-group">
-              <label for="filter-mythology">Mitología / Origen:</label>
-              <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-element">Elemento Principal:</label>
-              <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-type">Tipo de Cuerpo:</label>
-              <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-danger">Nivel de Peligro:</label>
-              <select id="filter-danger" class="filter-select">
-                <option value="Todos">Todos los Niveles</option>
-                <option value="1">🔥 (Peligro 1)</option>
-                <option value="2">🔥🔥 (Peligro 2)</option>
-                <option value="3">🔥🔥🔥 (Peligro 3)</option>
-                <option value="4">🔥🔥🔥🔥 (Peligro 4)</option>
-                <option value="5">🔥🔥🔥🔥🔥 (Peligro 5)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-sort">Ordenar Por:</label>
-              <select id="filter-sort" class="filter-select">
-                <option value="name-asc">Nombre (A-Z)</option>
-                <option value="name-desc">Nombre (Z-A)</option>
-                <option value="danger-desc">Peligro (Mayor a Menor)</option>
-                <option value="danger-asc">Peligro (Menor a Mayor)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
-            </div>
-          </div>
-
-          <div class="results-bar">
-            <span class="results-badge" id="results-count">Cargando 100 Dragones...</span>
-          </div>
-        </div>
-
-        <!-- Dragons Grid -->
-        <div id="dragons-grid" class="dragons-grid"></div>
-
-        <!-- Pagination Bar -->
-        <div id="pagination-box" class="pagination-box"></div>
-      </section>
 
       <!-- 2. ARENA DE DRAGONES SECTION -->
-      <section id="section-arena" class="view-section active" style="display: block;">
-        <div id="arena-container"></div>
-      </section>
-
-      <!-- 3. FORJA DE SIGILOS DRACONIANOS SECTION -->
-      <section id="section-sigils" class="view-section " style="display: none;">
-        <div id="sigil-container"></div>
-      </section>
-
-      <!-- 4. MAGIA DRACONIANA SECTION -->
-      <section id="section-magic" class="view-section " style="display: none;">
-        <div id="magic-container"></div>
-      </section>
-
-      <!-- 5. QUIZ SECTION ("TEST DRACONIANO") -->
-      <section id="section-quiz" class="view-section " style="display: none;">
-        <div id="quiz-container"></div>
-      </section>
-
-      <!-- 6. FAVORITES SECTION -->
-      <section id="section-favorites" class="view-section " style="display: none;">
-        <div class="fantasy-panel margin-bottom-lg">
-          <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
-          <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
+      <section id="section-arena" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div class="hero-banner" style="margin-bottom: 1.5rem; text-align: center;">
+          <div class="hero-emblem-wrap">
+            <img src="/assets/ui/trophy_champion.webp" alt="Trofeo de Campeón de la Arena" class="hero-emblem-img" width="180" height="180" fetchpriority="high" loading="eager" />
+          </div>
+          <h1 class="hero-title" style="font-size: 2.4rem; color: var(--gold-main); margin-top: 0.5rem;">La Gran Arena de Dragones</h1>
+          <p class="hero-subtitle" style="max-width: 760px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+            El campo sagrado de combate donde se miden el poder elemental, las estrategias míticas y el honor de las bestias más poderosas del Santuario.
+          </p>
         </div>
-        <div id="favorites-grid" class="dragons-grid"></div>
+
+        <div id="arena-container">
+          <!-- Static Crawler-Friendly Content & Initial Mount UI -->
+          <div class="fantasy-panel" style="margin-bottom: 1.5rem;">
+            <h2 style="color: var(--gold-main); font-size: 1.6rem; border-bottom: 1px solid var(--border-panel); padding-bottom: 0.5rem; margin-top: 0;">
+              ⚔️ Modos de Combate Disponibles
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">1. Duelo Rápido 1 vs 1</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Elegí tu campeón entre los 100 dragones del códice y enfréntate en combate singular por turnos contra un rival mítico. El cálculo de daño considera ataque, defensa y ventajas elementales.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">2. El Torneo del Santuario (Roguelite)</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Elegí tu dragón y avanzá por 4 rondas eliminatorias (Octavos, Cuartos, Semifinal y Gran Final). Tras cada victoria elegís bendiciones draconianas y mejoras permanentes de atributos.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">3. Guerra de Clanes 5 vs 5</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Armá tu escuadrón de 5 dragones y disputá combates por relevos por equipos hasta que caiga el último campeón del bando rival.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fantasy-panel" style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.3rem;">🔮 Tabla de Afinidades y Ventajas Elementales</h3>
+            <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">En la Arena, cada elemento tiene afinidades naturales que potencian el daño infligido:</p>
+            <ul style="line-height: 1.8; font-size: 0.95rem; color: var(--text-main);">
+              <li><strong>Fuego:</strong> Fuerte contra Naturaleza y Hielo (+30% daño adicional).</li>
+              <li><strong>Agua:</strong> Fuerte contra Fuego y Magma (+30% daño adicional).</li>
+              <li><strong>Naturaleza:</strong> Fuerte contra Tierra y Agua (+30% daño adicional).</li>
+              <li><strong>Tormenta / Viento:</strong> Fuerte contra Agua y Vuelo (+30% daño adicional).</li>
+              <li><strong>Luz y Sombra:</strong> Infligen daño crítico mutuo (+40% daño adicional).</li>
+            </ul>
+            <div style="text-align: center; margin-top: 1.5rem;">
+              <button class="btn btn-gold btn-lg" onclick="if(window.initColiseoModule) window.initColiseoModule();" style="padding: 12px 28px; font-size: 1.1rem; font-weight: 700;">
+                ⚔️ Cargar Arena Interactiva
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
+
     </main>
 
 
@@ -254,5 +209,7 @@
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="js/bundle.min.js?v=8.2.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

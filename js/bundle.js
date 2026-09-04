@@ -5933,20 +5933,19 @@ function switchTab(tabName, playSoundEffect = true) {
     playSound("click");
   }
 
-  // If user clicks a tab while inside a static /dragon/*.html page, redirect natively
-  if (window.location.pathname.includes("/dragon/")) {
-    const sectionUrls = {
-      encyclopedia: "/",
-      arena: "/arena.html",
-      coliseo: "/arena.html",
-      magic: "/magia-draconiana.html",
-      quiz: "/test-draconiano.html",
-      favorites: "/favoritos.html"
-    };
-    if (sectionUrls[tabName]) {
-      window.location.href = sectionUrls[tabName];
-      return;
-    }
+  const sectionUrls = {
+    encyclopedia: "/",
+    arena: "/arena.html",
+    coliseo: "/arena.html",
+    magic: "/magia-draconiana.html",
+    quiz: "/test-draconiano.html",
+    favorites: "/favoritos.html"
+  };
+
+  const targetSection = document.getElementById(`section-${tabName}`);
+  if (!targetSection && sectionUrls[tabName]) {
+    window.location.href = sectionUrls[tabName];
+    return;
   }
 
   // Toggle active tab button
@@ -5964,7 +5963,6 @@ function switchTab(tabName, playSoundEffect = true) {
     sec.style.display = "none";
   });
 
-  const targetSection = document.getElementById(`section-${tabName}`);
   if (targetSection) {
     targetSection.classList.add("active");
     targetSection.style.display = "block";

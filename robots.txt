@@ -1,5 +1,5 @@
 # Santuario Secreto de Dragones - Official Robots.txt
-# Domain: https://santuario-dragones.vercel.app
+# Domain: https://santuariodragones.vercel.app
 
 User-agent: *
 Allow: /
@@ -32,4 +32,4 @@ User-agent: LinkedInBot
 Allow: /
 
 # Official XML Sitemap
-Sitemap: https://santuario-dragones.vercel.app/sitemap.xml
+Sitemap: https://santuariodragones.vercel.app/sitemap.xml

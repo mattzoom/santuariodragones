@@ -51,7 +51,16 @@ for b in blocks:
 
 print(f"Total dragones parseados: {len(dragons)}")
 
-base_url = "https://santuario-dragones.vercel.app"
+base_url = "https://santuariodragones.vercel.app"
+
+# Prepare clean template by stripping default meta tags from <head> to prevent duplicates
+clean_head_template = html_template
+clean_head_template = re.sub(r'<title>.*?</title>\s*', '', clean_head_template)
+clean_head_template = re.sub(r'<meta name="description" content=".*?">\s*', '', clean_head_template)
+clean_head_template = re.sub(r'<link rel="canonical" href=".*?">\s*', '', clean_head_template)
+clean_head_template = re.sub(r'<meta property="og:[^"]+" content=".*?">\s*', '', clean_head_template)
+clean_head_template = re.sub(r'<meta name="twitter:[^"]+" content=".*?">\s*', '', clean_head_template)
+clean_head_template = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', clean_head_template, flags=re.DOTALL)
 
 for d in dragons:
     slug = d['slug']
@@ -164,7 +173,7 @@ for d in dragons:
 '''
 
     # Build pure static page replacing main section
-    page_html = html_template
+    page_html = clean_head_template
     
     # Absolute root paths
     page_html = page_html.replace('href="styles.min.css?v=8.2.0"', 'href="/styles.min.css?v=8.2.0"')

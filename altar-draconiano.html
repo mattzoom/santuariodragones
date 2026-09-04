@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Altar y Herramientas Mágicas | Santuario de Dragones</title>
-  <meta name="description" content="Aprendé a construir tu altar ritual draconiano, encontrar la varita o bastón de equilibrio y consagrar tus elementos.">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="canonical" href="https://santuario-dragones.vercel.app/altar-draconiano.html">
-  <meta property="og:title" content="Santuario Secreto de Dragones | Enciclopedia Épica">
-  <meta property="og:description" content="Explorá el Santuario Secreto de Dragones con una enciclopedia de más de 100 dragones míticos, buscador interactivo y forja mística.">
-  <meta property="og:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
+  <title>El Altar Draconiano y Herramientas Mágicas | Santuario de Dragones</title>
+  <meta name="description" content="Aprendé a construir tu altar ritual draconiano, encontrar la varita o bastón de equilibrio y consagrar tus elementos sagrados.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/altar-draconiano.html">
+  <meta property="og:title" content="El Altar Draconiano y Herramientas Mágicas | Santuario de Dragones">
+  <meta property="og:description" content="Aprendé a construir tu altar ritual draconiano, encontrar la varita o bastón de equilibrio y consagrar tus elementos sagrados.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="900">
-  <meta property="og:url" content="https://santuario-dragones.vercel.app/altar-draconiano.html">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/altar-draconiano.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Santuario Secreto de Dragones">
-  <meta name="twitter:description" content="Enciclopedia mística interactiva con más de 100 dragones legendarios de todas las mitologías del mundo.">
-  <meta name="twitter:image" content="https://santuario-dragones.vercel.app/assets/dragons/dragon_1.jpg">
-  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+  <meta name="twitter:title" content="El Altar Draconiano y Herramientas Mágicas | Santuario de Dragones">
+  <meta name="twitter:description" content="Aprendé a construir tu altar ritual draconiano, encontrar la varita o bastón de equilibrio y consagrar tus elementos sagrados.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Santuario Secreto de Dragones",
-    "url": "https://santuario-dragones.vercel.app/",
-    "description": "Enciclopedia mística interactiva con más de 100 dragones de todas las mitologías del mundo."
+    "@type": "WebPage",
+    "name": "El Altar Draconiano y Herramientas Mágicas | Santuario de Dragones",
+    "url": "https://santuariodragones.vercel.app/altar-draconiano.html",
+    "description": "Aprendé a construir tu altar ritual draconiano, encontrar la varita o bastón de equilibrio y consagrar tus elementos sagrados."
   }
   </script>
-  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
 </head>
 <body>
 
@@ -63,106 +64,156 @@
 
     <!-- Main Content Area -->
     <main class="main-content">
-      <!-- 1. ENCYCLOPEDIA SECTION -->
-      <section id="section-encyclopedia" class="view-section " style="display: none;">
-        <!-- HERO BANNER (Solo en Enciclopedia) -->
-        <section class="hero-banner">
-          <div class="hero-emblem-wrap">
-            <img src="/assets/ui/hero_emblem.webp?v=8.0.0" alt="Emblema del Santuario Secreto de Dragones" class="hero-emblem-img" width="290" height="290" fetchpriority="high" loading="eager" decoding="sync" />
-          </div>
-          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
-          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
-        </section>
-        
-        <!-- Search & Filter Controls Panel -->
-        <div class="search-filter-section fantasy-panel">
-          <div class="search-bar-wrap">
-            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
-          </div>
-
-          <div class="filters-grid">
-            <div class="filter-group">
-              <label for="filter-mythology">Mitología / Origen:</label>
-              <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-element">Elemento Principal:</label>
-              <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-type">Tipo de Cuerpo:</label>
-              <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-danger">Nivel de Peligro:</label>
-              <select id="filter-danger" class="filter-select">
-                <option value="Todos">Todos los Niveles</option>
-                <option value="1">🔥 (Peligro 1)</option>
-                <option value="2">🔥🔥 (Peligro 2)</option>
-                <option value="3">🔥🔥🔥 (Peligro 3)</option>
-                <option value="4">🔥🔥🔥🔥 (Peligro 4)</option>
-                <option value="5">🔥🔥🔥🔥🔥 (Peligro 5)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-sort">Ordenar Por:</label>
-              <select id="filter-sort" class="filter-select">
-                <option value="name-asc">Nombre (A-Z)</option>
-                <option value="name-desc">Nombre (Z-A)</option>
-                <option value="danger-desc">Peligro (Mayor a Menor)</option>
-                <option value="danger-asc">Peligro (Menor a Mayor)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
-            </div>
-          </div>
-
-          <div class="results-bar">
-            <span class="results-badge" id="results-count">Cargando 100 Dragones...</span>
-          </div>
-        </div>
-
-        <!-- Dragons Grid -->
-        <div id="dragons-grid" class="dragons-grid"></div>
-
-        <!-- Pagination Bar -->
-        <div id="pagination-box" class="pagination-box"></div>
-      </section>
-
-      <!-- 2. ARENA DE DRAGONES SECTION -->
-      <section id="section-arena" class="view-section " style="display: none;">
-        <div id="arena-container"></div>
-      </section>
-
-      <!-- 3. FORJA DE SIGILOS DRACONIANOS SECTION -->
-      <section id="section-sigils" class="view-section " style="display: none;">
-        <div id="sigil-container"></div>
-      </section>
 
       <!-- 4. MAGIA DRACONIANA SECTION -->
-      <section id="section-magic" class="view-section active" style="display: block;">
-        <div id="magic-container"></div>
-      </section>
+      <section id="section-magic" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div id="magic-container">
+          
+    <div class="magic-section-wrapper" style="display: flex; flex-direction: column; gap: 2rem;">
+      
+      <!-- HERO BANNER DE MAGIA -->
+      <div class="magic-hero fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(200,85,61,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
+        <div class="quiz-step-tag" style="font-size: 0.95rem;">✨ El Sendero Ancestral ✨</div>
+        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">El Altar Draconiano y Herramientas Mágicas</h2>
+        <p style="color: var(--text-main); font-size: 1.1rem; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6;">
+          Te damos la bienvenida al camino de la sabiduría secreta. La Magia Draconiana es una tradición milenaria basada en el respeto, la amistad con seres antiguos y el uso responsable de la energía universal.
+        </p>
+        
+        <!-- SUB-NAV SWITCHER -->
+        ${renderMagicSubNavHtml("fundamentos")}
+      </div>
 
-      <!-- 5. QUIZ SECTION ("TEST DRACONIANO") -->
-      <section id="section-quiz" class="view-section " style="display: none;">
-        <div id="quiz-container"></div>
-      </section>
-
-      <!-- 6. FAVORITES SECTION -->
-      <section id="section-favorites" class="view-section " style="display: none;">
-        <div class="fantasy-panel margin-bottom-lg">
-          <h2>❤️ Tu Guarida de Dragones Favoritos</h2>
-          <p class="text-muted">Acá están guardados los dragones que elegiste durante tu recorrido por la enciclopedia.</p>
+      <!-- GRILLA DE LEYES Y FUNDAMENTOS DRACONIANOS -->
+      <div class="magic-laws-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO CON ILUSTRACIÓN) -->
+        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #ff4757; background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.06));">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <span style="font-size: 2.2rem;">🌟</span>
+            <h3 style="color: #ff4757; margin: 0; font-size: 1.6rem;">La Regla de Oro del Mago: ¡Si no te divertís, no es magia!</h3>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px;">
+              <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin: 0; font-weight: 500;">
+                ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
+              </p>
+              <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 12px;">
+                En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
+              </p>
+            </div>
+            <div style="width: 100%; max-width: 280px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+              <img src="/assets/patriarch_dragon_laws.webp" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
+          </div>
         </div>
-        <div id="favorites-grid" class="dragons-grid"></div>
+
+        <!-- FILA 1: COMPAÑERISMO & 24H SILENCIO -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
+          
+          <!-- 🤝 2. La Regla del Compañerismo -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-teal); background: rgba(42,157,143,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🤝</span>
+                <h3 style="color: var(--color-teal); margin: 0; font-size: 1.45rem;">La Regla del Compañerismo</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡Los dragones no son mascotas!</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Los dragones son seres antiguos, muy sabios e independientes. La magia draconiana se basa en la cooperación y la amistad, jamás en dominar. Nunca intentes ordenarles o tratarlos como sirvientes. Tratalos como a tus iguales: con respeto, confianza, cariño y como verdaderos compañeros de equipo.
+              </p>
+            </div>
+          </div>
+
+          <!-- 💬 3. Las 24 Horas de Silencio -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #9b5de5; background: rgba(155,93,229,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">💬</span>
+                <h3 style="color: #9b5de5; margin: 0; font-size: 1.45rem;">Las 24 Horas de Silencio</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡No dejes escapar tu energía!</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Cuando hagas un hechizo, dibujes un sigilo o hagas una petición a tu dragón, guardá el secreto absoluto por al menos un día entero. Hablar de tus trabajos mágicos antes de tiempo disipa tu energía. Los dragones actúan en silencio: dejá que tu deseo se concentre con toda su fuerza.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FILA 2: PALABRA DE ACERO & LEY DEL ECO -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
+
+          <!-- 🔐 4. Tu Palabra es de Acero -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--gold-main); background: rgba(233,196,106,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🔐</span>
+                <h3 style="color: var(--gold-main); margin: 0; font-size: 1.45rem;">Tu Palabra es de Acero</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">La ley de la confianza sagrada</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Las palabras actúan como contratos invisibles con el universo. Por eso, tu palabra es tu promesa sagrada. Si le prometés a tu dragón (o a vos mismo) ordenar tu cuarto, estudiar o cuidar tu altar, ¡cumplilo! La constancia mantiene tu energía fuerte y la confianza intacta.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🕸️ 5. La Ley del Eco y la Red Tripartita -->
+          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-rust); background: rgba(200,85,61,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 2rem;">🕸️</span>
+                <h3 style="color: var(--color-rust); margin: 0; font-size: 1.45rem;">La Ley del Eco y la Red Cósmica</h3>
+              </div>
+              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">"Lo que le pasa a una piedra, se refleja en todas"</p>
+              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
+                Todo en el Multiverso está conectado en una gran telaraña de energía. Rige la <strong>Ley Tripartita</strong>: lo que envíes (amabilidad o mala vibra) volverá a vos multiplicado por tres. Si cuidás la naturaleza y sos amable, el universo te devolverá felicidad y buena suerte.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 📜 6. El Código de Honor del Mago (PIE DE PÁGINA ANCHO COMPLETO) -->
+        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #4cc9f0; background: rgba(76,201,240,0.08);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 2rem;">📜</span>
+            <h3 style="color: #4cc9f0; margin: 0; font-size: 1.5rem;">El Código de Honor del Mago Draconiano</h3>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 14px;">
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #4cc9f0;">
+              <strong style="color: #4cc9f0;">🛡️ Intención Pura:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Nunca uses la magia para manipular, asustar o dañar a otras personas o animales.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid var(--gold-main);">
+              <strong style="color: var(--gold-main);">🌿 Respeto Elemental:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Protegé siempre a la naturaleza, a los árboles y a todos los seres vivos del planeta.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #9b5de5;">
+              <strong style="color: #9b5de5;">🔮 Sigilo y Discreción:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Guardá en secreto tus herramientas, tu altar y tu Nombre Mágico para conservar tu fuerza.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BANNER DE NAVEGACIÓN A HERRAMIENTAS -->
+      <div class="fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.1), rgba(42,157,143,0.1)); border: 2px solid var(--gold-main); border-radius: 20px;">
+        <div style="font-size: 3rem;">⚒️</div>
+        <h3 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 1.9rem;">Próximo Paso: Confeccioná tus Herramientas</h3>
+        <p style="color: var(--text-main); max-width: 700px; margin: 8px auto 0 auto; font-size: 1.05rem; line-height: 1.6;">
+          Descubrí cómo preparar tu varita o bastón, tu pentáculo y tu espejo mágico en la sección de Herramientas.
+        </p>
+        <button type="button" class="btn btn-gold btn-lg margin-top-md" onclick="switchMagicSubPage('altar')" style="padding: 12px 28px; font-weight: 700; cursor: pointer;">
+          ⚒️ Ir a El Altar y Herramientas
+        </button>
+      </div>
+
+    </div>
+  
+        </div>
       </section>
+
     </main>
 
 
@@ -254,5 +305,7 @@
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="js/bundle.min.js?v=8.2.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
