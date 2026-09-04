@@ -167,8 +167,8 @@ for d in dragons:
     page_html = html_template
     
     # Absolute root paths
-    page_html = page_html.replace('href="styles.css', 'href="/styles.css')
-    page_html = page_html.replace('src="js/bundle.js', 'src="/js/bundle.js')
+    page_html = page_html.replace('href="styles.min.css?v=8.2.0"', 'href="/styles.min.css?v=8.2.0"')
+    page_html = page_html.replace('src="js/bundle.min.js?v=8.2.0"', 'src="/js/bundle.min.js?v=8.2.0"')
     
     # Inject OG meta tags
     page_html = page_html.replace('</head>', f'{og_meta}\n</head>')

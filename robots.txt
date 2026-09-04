@@ -1,0 +1,35 @@
+# Santuario Secreto de Dragones - Official Robots.txt
+# Domain: https://santuario-dragones.vercel.app
+
+User-agent: *
+Allow: /
+
+# Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /dragon/
+
+User-agent: Googlebot-Image
+Allow: /assets/dragons/
+Allow: /assets/ui/
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
+
+# Social Media & OpenGraph Crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Official XML Sitemap
+Sitemap: https://santuario-dragones.vercel.app/sitemap.xml

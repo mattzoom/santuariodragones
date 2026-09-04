@@ -1538,7 +1538,7 @@ function renderSigilSVG(state, consonants, width = 600, height = 600) {
 function getDragonArtworkSrc(dragon) {
   if (dragon && dragon.id <= 200) {
     const v = (dragon.id === 13) ? '?v=13_v2' : (dragon.id === 45) ? '?v=45_v2' : (dragon.id === 18) ? '?v=18_v2' : (dragon.id === 11) ? '?v=11_v2' : (dragon.id === 3) ? '?v=3_v2' : (dragon.id === 20) ? '?v=20_v2' : (dragon.id === 10) ? '?v=10_v2' : (dragon.id === 2) ? '?v=2_v2' : (dragon.id === 46) ? '?v=46_v2' : (dragon.id === 65) ? '?v=65_v2' : (dragon.id === 67) ? '?v=67_v2' : (dragon.id === 75) ? '?v=75_v2' : '';
-    return `/assets/dragons/dragon_${dragon.id}.jpg${v}`;
+    return `/assets/dragons/dragon_${dragon.id}.webp${v}`;
   }
   return null;
 }
@@ -1724,7 +1724,7 @@ function renderDragonCardHTML(dragon) {
   const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" loading="lazy" decoding="async" class="dragon-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" width="400" height="300" loading="lazy" decoding="async" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `
@@ -1764,7 +1764,7 @@ function openDragonModal(dragon, onFavToggleCallback = null) {
   const artSrc = getDragonArtworkSrc(dragon);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" class="modal-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" width="600" height="450" decoding="async" class="modal-artwork-img" />`
     : renderDragonSVG(dragon, 340, 240);
 
   modalContent.innerHTML = `
@@ -2896,7 +2896,7 @@ function renderFundamentosView(container) {
               </p>
             </div>
             <div style="width: 100%; max-width: 280px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-              <img src="/assets/patriarch_dragon_laws.jpg" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              <img src="/assets/patriarch_dragon_laws.webp" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             </div>
           </div>
         </div>
@@ -3034,7 +3034,7 @@ function renderAltarSubPage(container) {
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">1. La Búsqueda de tu Material Mágico</h4>
             <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-              <img src="/assets/magic_wand_material.jpg" alt="Búsqueda de rama mística en la playa" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              <img src="/assets/magic_wand_material.webp" alt="Búsqueda de rama mística en la playa" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">¡No necesitás gastar tus ahorros ni buscar maderas súper raras! Las herramientas más poderosas son las que vos mismo fabricás o encontrás de formas inusuales:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
@@ -3046,7 +3046,7 @@ function renderAltarSubPage(container) {
           <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">2. La Medida del Mago</h4>
             <div style="width: 100%; max-width: 380px; margin: 0 auto 1rem auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-              <img src="/assets/magic_wand_measurement.jpg" alt="Joven mago sintonizando la medida de su varita en su cuarto" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+              <img src="/assets/magic_wand_measurement.webp" alt="Joven mago sintonizando la medida de su varita en su cuarto" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             </div>
             <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">En la magia draconiana, la dimensión de tus herramientas depende de tu propio cuerpo:</p>
             <ul style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; padding-left: 1.2rem;">
@@ -3131,7 +3131,7 @@ function renderAltarSubPage(container) {
             </p>
           </div>
           <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-            <img src="/assets/clay_pentacle_altar.jpg" alt="El Pentáculo del Dragón hecho de arcilla en el altar" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <img src="/assets/clay_pentacle_altar.webp" alt="El Pentáculo del Dragón hecho de arcilla en el altar" style="width: 100%; height: auto; display: block; object-fit: cover;" />
           </div>
         </div>
 
@@ -3255,7 +3255,7 @@ function renderAltarSubPage(container) {
             </p>
           </div>
           <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-            <img src="/assets/magic_mirror_wooden.jpg" alt="El Espejo Mágico con marco de madera místico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <img src="/assets/magic_mirror_wooden.webp" alt="El Espejo Mágico con marco de madera místico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
           </div>
         </div>
 
@@ -3377,7 +3377,7 @@ function renderAltarSubPage(container) {
             </p>
           </div>
           <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-            <img src="/assets/scholar_dragon_script.jpg" alt="Dragón erudito escribiendo manuscrito en Dragon Script en salón gótico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <img src="/assets/scholar_dragon_script.webp" alt="Dragón erudito escribiendo manuscrito en Dragon Script en salón gótico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
           </div>
         </div>
 
@@ -4895,7 +4895,7 @@ function renderTournamentViewHtml() {
         <!-- ILUSTRACIÓN DE LA COPA Y CAMPEÓN -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.8rem;">
           <div style="width: 100%; max-width: 480px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
-            <img src="/assets/ui/trophy_champion.jpg" alt="Copa de Campeón del Santuario" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón del Santuario" style="width: 100%; height: auto; display: block;" />
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 20px rgba(233,196,106,0.6);">
