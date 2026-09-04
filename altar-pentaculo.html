@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -70,147 +70,168 @@
         <div id="magic-container">
           
     <div class="magic-section-wrapper" style="display: flex; flex-direction: column; gap: 2rem;">
-      
-      <!-- HERO BANNER DE MAGIA -->
-      <div class="magic-hero fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(200,85,61,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
-        <div class="quiz-step-tag" style="font-size: 0.95rem;">✨ El Sendero Ancestral ✨</div>
-        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">El Pentáculo de los 5 Elementos</h2>
+      <div class="magic-hero fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(200,85,61,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
+        <div class="quiz-step-tag" style="font-size: 0.95rem;">⚒️ El Taller del Mago ⚒️</div>
+        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">El Altar y las Herramientas del Mago</h2>
         <p style="color: var(--text-main); font-size: 1.1rem; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6;">
-          Te damos la bienvenida al camino de la sabiduría secreta. La Magia Draconiana es una tradición milenaria basada en el respeto, la amistad con seres antiguos y el uso responsable de la energía universal.
+          Elegí una de las 4 subsecciones de artefactos y saberes para aprender su confección, alfabetos y reglas mágicas:
         </p>
         
-        <!-- SUB-NAV SWITCHER -->
-        ${renderMagicSubNavHtml("fundamentos")}
-      </div>
-
-      <!-- GRILLA DE LEYES Y FUNDAMENTOS DRACONIANOS -->
-      <div class="magic-laws-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        
-        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO CON ILUSTRACIÓN) -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #ff4757; background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.06));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 2.2rem;">🌟</span>
-            <h3 style="color: #ff4757; margin: 0; font-size: 1.6rem;">La Regla de Oro del Mago: ¡Si no te divertís, no es magia!</h3>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 280px;">
-              <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin: 0; font-weight: 500;">
-                ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
-              </p>
-              <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 12px;">
-                En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
-              </p>
-            </div>
-            <div style="width: 100%; max-width: 280px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-              <img src="/assets/patriarch_dragon_laws.webp" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
-            </div>
-          </div>
-        </div>
-
-        <!-- FILA 1: COMPAÑERISMO & 24H SILENCIO -->
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
-          
-          <!-- 🤝 2. La Regla del Compañerismo -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-teal); background: rgba(42,157,143,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🤝</span>
-                <h3 style="color: var(--color-teal); margin: 0; font-size: 1.45rem;">La Regla del Compañerismo</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡Los dragones no son mascotas!</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Los dragones son seres antiguos, muy sabios e independientes. La magia draconiana se basa en la cooperación y la amistad, jamás en dominar. Nunca intentes ordenarles o tratarlos como sirvientes. Tratalos como a tus iguales: con respeto, confianza, cariño y como verdaderos compañeros de equipo.
-              </p>
-            </div>
-          </div>
-
-          <!-- 💬 3. Las 24 Horas de Silencio -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #9b5de5; background: rgba(155,93,229,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">💬</span>
-                <h3 style="color: #9b5de5; margin: 0; font-size: 1.45rem;">Las 24 Horas de Silencio</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡No dejes escapar tu energía!</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Cuando hagas un hechizo, dibujes un sigilo o hagas una petición a tu dragón, guardá el secreto absoluto por al menos un día entero. Hablar de tus trabajos mágicos antes de tiempo disipa tu energía. Los dragones actúan en silencio: dejá que tu deseo se concentre con toda su fuerza.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- FILA 2: PALABRA DE ACERO & LEY DEL ECO -->
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
-
-          <!-- 🔐 4. Tu Palabra es de Acero -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--gold-main); background: rgba(233,196,106,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🔐</span>
-                <h3 style="color: var(--gold-main); margin: 0; font-size: 1.45rem;">Tu Palabra es de Acero</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">La ley de la confianza sagrada</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Las palabras actúan como contratos invisibles con el universo. Por eso, tu palabra es tu promesa sagrada. Si le prometés a tu dragón (o a vos mismo) ordenar tu cuarto, estudiar o cuidar tu altar, ¡cumplilo! La constancia mantiene tu energía fuerte y la confianza intacta.
-              </p>
-            </div>
-          </div>
-
-          <!-- 🕸️ 5. La Ley del Eco y la Red Tripartita -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-rust); background: rgba(200,85,61,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🕸️</span>
-                <h3 style="color: var(--color-rust); margin: 0; font-size: 1.45rem;">La Ley del Eco y la Red Cósmica</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">"Lo que le pasa a una piedra, se refleja en todas"</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Todo en el Multiverso está conectado en una gran telaraña de energía. Rige la <strong>Ley Tripartita</strong>: lo que envíes (amabilidad o mala vibra) volverá a vos multiplicado por tres. Si cuidás la naturaleza y sos amable, el universo te devolverá felicidad y buena suerte.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 📜 6. El Código de Honor del Mago (PIE DE PÁGINA ANCHO COMPLETO) -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #4cc9f0; background: rgba(76,201,240,0.08);">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 2rem;">📜</span>
-            <h3 style="color: #4cc9f0; margin: 0; font-size: 1.5rem;">El Código de Honor del Mago Draconiano</h3>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 14px;">
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #4cc9f0;">
-              <strong style="color: #4cc9f0;">🛡️ Intención Pura:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Nunca uses la magia para manipular, asustar o dañar a otras personas o animales.</p>
-            </div>
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid var(--gold-main);">
-              <strong style="color: var(--gold-main);">🌿 Respeto Elemental:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Protegé siempre a la naturaleza, a los árboles y a todos los seres vivos del planeta.</p>
-            </div>
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #9b5de5;">
-              <strong style="color: #9b5de5;">🔮 Sigilo y Discreción:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Guardá en secreto tus herramientas, tu altar y tu Nombre Mágico para conservar tu fuerza.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- BANNER DE NAVEGACIÓN A HERRAMIENTAS -->
-      <div class="fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.1), rgba(42,157,143,0.1)); border: 2px solid var(--gold-main); border-radius: 20px;">
-        <div style="font-size: 3rem;">⚒️</div>
-        <h3 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 1.9rem;">Próximo Paso: Confeccioná tus Herramientas</h3>
-        <p style="color: var(--text-main); max-width: 700px; margin: 8px auto 0 auto; font-size: 1.05rem; line-height: 1.6;">
-          Descubrí cómo preparar tu varita o bastón, tu pentáculo y tu espejo mágico en la sección de Herramientas.
-        </p>
-        <button type="button" class="btn btn-gold btn-lg margin-top-md" onclick="switchMagicSubPage('altar')" style="padding: 12px 28px; font-weight: 700; cursor: pointer;">
-          ⚒️ Ir a El Altar y Herramientas
-        </button>
-      </div>
-
+    <div class="margin-top-md magic-sub-nav">
+      <a href="/magia-draconiana.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">📜 1. Fundamentos</a>
+      <a href="/altar-draconiano.html" class="chip active" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ">⚒️ 2. El Altar</a>
+      <a href="/academia-draconiana.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">🎓 3. Academia (5 Anillos)</a>
+      <a href="/forja-de-sigilos.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">🔮 4. Forja de Sigilos</a>
     </div>
-  
+
+        
+      <div style="display: flex; justify-content: center; gap: 10px; margin: 1.5rem 0; flex-wrap: wrap;">
+        <a href="/altar-varita.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          ✨ Varita / Bastón
+        </a>
+        <a href="/altar-pentaculo.html" class="btn btn-gold" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          ⭐ Pentáculo 5 Elementos
+        </a>
+        <a href="/altar-espejo.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          👁️ Espejo Mágico
+        </a>
+        <a href="/altar-dragonscript.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          📜 Dragon Script
+        </a>
+      </div>
+    
+      </div>
+
+      <!-- CONTENIDO DE LA HERRAMIENTA SELECCIONADA -->
+      <div id="altar-tool-display">
+        
+      <div class="fantasy-panel" style="padding: 2rem; background: rgba(15, 23, 42, 0.7); border: 2px solid var(--color-teal); border-radius: 18px;">
+
+        <!-- ENCABEZADO -->
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
+          <div style="font-size: 2.5rem;">⭐</div>
+          <div>
+            <h3 style="color: var(--color-teal); margin: 0; font-size: 1.8rem;">El Pentáculo del Dragón</h3>
+            <p style="color: var(--text-muted); margin: 4px 0 0 0; font-size: 0.95rem;">Tu escudo mágico y medalla de autoridad ante los dragones</p>
+          </div>
+        </div>
+
+        <!-- INTRODUCCIÓN CON ILUSTRACIÓN -->
+        <div style="background: rgba(42,157,143,0.1); border-left: 4px solid var(--color-teal); padding: 16px 20px; border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
+              ¡Todo gran equipo de laboratorio mágico necesita una base segura! En la Magia Draconiana, esa base es el <strong>Pentáculo del Dragón</strong>. No es un arma para atacar, sino que funciona como un <strong>escudo de energía</strong>, un equilibrador y tu "medalla de autoridad" mágica. Cuando los dragones ven tu Pentáculo, saben de inmediato que sos un mago serio, amigable y digno de respeto.
+            </p>
+          </div>
+          <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+            <img src="/assets/clay_pentacle_altar.webp" alt="El Pentáculo del Dragón hecho de arcilla en el altar" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+          </div>
+        </div>
+
+        <!-- PASO 1: FABRICAR -->
+        <div style="background: rgba(255,255,255,0.03); padding: 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem;">
+          <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">1. ¡Fabrica tu propio Pentáculo!</h4>
+          <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">
+            El Pentáculo suele ser un disco plano con el dibujo de una estrella de cinco puntas (un pentagrama). A los dragones no les importa si está hecho de oro o de papel, ¡lo que les importa es que <strong>lo hagas vos mismo</strong>!
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+            <div style="background: rgba(233,196,106,0.07); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--gold-main);">
+              <strong style="color: var(--gold-main);">🪵 Materiales:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 6px 0 0 0; line-height: 1.5;">Buscá un círculo de madera plano en una tienda de manualidades, usá un disco de arcilla que modeles vos mismo, o recortá un círculo perfecto en cartón grueso y resistente.</p>
+            </div>
+            <div style="background: rgba(233,196,106,0.07); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--gold-main);">
+              <strong style="color: var(--gold-main);">🎨 El Dibujo:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 6px 0 0 0; line-height: 1.5;">Dibujá una estrella de cinco puntas en el centro con tus mejores marcadores. ¡Es muy poderoso dibujar un dragón abrazando la estrella o sosteniéndola con sus garras! Usá los colores que más te gusten.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 2: LAS CINCO PUNTAS -->
+        <div style="background: rgba(255,255,255,0.03); padding: 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem;">
+          <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">2. El Secreto de las Cinco Puntas</h4>
+          <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+            ¿Por qué una estrella? En la magia antigua, el universo está formado por grandes fuerzas. Cada punta de tu estrella representa un elemento:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; text-align: center; margin-bottom: 1rem;">
+            <div style="background: rgba(139,90,43,0.2); padding: 10px 8px; border-radius: 10px; border: 1px solid rgba(139,90,43,0.4);">
+              <div style="font-size: 1.6rem;">🌍</div>
+              <strong style="color: #c4a35a; font-size: 0.85rem;">Tierra</strong>
+            </div>
+            <div style="background: rgba(100,180,255,0.15); padding: 10px 8px; border-radius: 10px; border: 1px solid rgba(100,180,255,0.4);">
+              <div style="font-size: 1.6rem;">💨</div>
+              <strong style="color: #7ecef4; font-size: 0.85rem;">Aire</strong>
+            </div>
+            <div style="background: rgba(230,57,70,0.15); padding: 10px 8px; border-radius: 10px; border: 1px solid rgba(230,57,70,0.4);">
+              <div style="font-size: 1.6rem;">🔥</div>
+              <strong style="color: #ff6b6b; font-size: 0.85rem;">Fuego</strong>
+            </div>
+            <div style="background: rgba(30,100,200,0.15); padding: 10px 8px; border-radius: 10px; border: 1px solid rgba(30,100,200,0.4);">
+              <div style="font-size: 1.6rem;">💧</div>
+              <strong style="color: #74c0fc; font-size: 0.85rem;">Agua</strong>
+            </div>
+            <div style="background: rgba(138,43,226,0.2); padding: 10px 8px; border-radius: 10px; border: 2px solid rgba(138,43,226,0.6);">
+              <div style="font-size: 1.6rem;">✨</div>
+              <strong style="color: #c77dff; font-size: 0.85rem;">Espíritu ↑</strong>
+              <p style="color: var(--text-muted); font-size: 0.75rem; margin: 3px 0 0 0;">¡Tu magia!</p>
+            </div>
+          </div>
+          <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+            Tener tu Pentáculo en el altar ayuda a que todas estas energías se mantengan tranquilas y en perfecto equilibrio, funcionando como una "aspiradora" que atrapa las malas vibras y mantiene tu cuarto seguro.
+          </p>
+        </div>
+
+        <!-- PASO 3: REGLA DE SEGURIDAD + DIAGRAMA SÍ/NO -->
+        <div style="background: rgba(230, 57, 70, 0.12); border: 2px solid #e63946; padding: 1.4rem; border-radius: 12px; margin-bottom: 1.5rem;">
+          <h4 style="color: #ff4d6d; margin-top: 0; font-size: 1.2rem;">⚠️ La Gran Regla de Seguridad (¡Muy Importante!)</h4>
+          <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.2rem;">
+            El Pentáculo es un símbolo de armonía, salud y poderes místicos, pero tiene una <strong>regla de oro</strong> que nunca debés olvidar:
+          </p>
+
+          <!-- DIAGRAMA SÍ / NO -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 500px; margin: 0 auto;">
+            <!-- SÍ -->
+            <div style="background: rgba(42,157,143,0.15); border: 2px solid var(--color-teal); border-radius: 12px; padding: 1rem; text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 4px;">✅</div>
+              <div style="font-size: 2.5rem; line-height: 1; margin-bottom: 6px; filter: drop-shadow(0 0 6px rgba(42,200,150,0.8));">⭐</div>
+              <strong style="color: var(--color-teal); font-size: 1rem;">¡SÍ!</strong>
+              <p style="color: var(--text-main); font-size: 0.8rem; margin: 6px 0 0 0; line-height: 1.4;">Una sola punta <strong>apuntando hacia arriba</strong> (al cielo). Atrae buena magia y dragones amigables. ✨🐉</p>
+            </div>
+            <!-- NO -->
+            <div style="background: rgba(230,57,70,0.12); border: 2px solid #e63946; border-radius: 12px; padding: 1rem; text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 4px;">❌</div>
+              <div style="font-size: 2.5rem; line-height: 1; margin-bottom: 6px; transform: rotate(180deg); display: inline-block; filter: drop-shadow(0 0 6px rgba(230,57,70,0.7));">⭐</div>
+              <strong style="color: #ff4d6d; font-size: 1rem;">¡NO!</strong>
+              <p style="color: var(--text-main); font-size: 0.8rem; margin: 6px 0 0 0; line-height: 1.4;">Invertida con <strong>dos puntas hacia arriba</strong>. Atrae confusiones, mal humor y magia caótica. 😵🌀</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 4: CONSAGRACIÓN -->
+        <div style="background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(138,43,226,0.15)); border: 1px solid var(--color-teal); padding: 1.4rem; border-radius: 12px;">
+          <h4 style="color: var(--color-teal); margin-top: 0; font-size: 1.25rem;">4. El Hechizo de Despertar (Consagración)</h4>
+          <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">
+            Una vez terminado de pintar y decorar tu disco, tienes que purificarlo para llenarlo de magia:
+          </p>
+          <ol style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; padding-left: 1.2rem; margin-bottom: 1rem;">
+            <li style="margin-bottom: 10px;">Pedile a un adulto que te ayude a encender una varita de incienso que huela muy rico (el de <strong>manzana, sándalo o lavanda</strong> les encanta a los dragones). Toma tu Pentáculo con tu <strong>mano de poder</strong> (la mano con la que escribes) y pasalo lentamente a través del humo mientras dices:
+              <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; margin: 8px 0; border-left: 4px solid var(--color-teal); color: #a8dadc; font-style: italic; line-height: 1.6;">
+                "Elemento del Espíritu, por el poder del Dragón, ¡te llamo purificado!"
+              </div>
+            </li>
+            <li style="margin-bottom: 10px;">Levanta tu Pentáculo frente a vos, mirando hacia el <strong>Este</strong>, y presentalo a tus guardianes diciendo:
+              <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; margin: 8px 0; border-left: 4px solid var(--gold-main); color: var(--text-gold); font-style: italic; line-height: 1.6;">
+                "Dragones de la magia, contemplen mi símbolo y sean mis aliados"
+              </div>
+            </li>
+            <li>¡Listo! Pon tu Pentáculo en el <strong>centro de tu altar</strong>. Ahora podés poner encima de él tus amuletos, tus piedras o tu Varita para recargarlos de energía limpia y equilibrada. 🐉⭐</li>
+          </ol>
+        </div>
+
+      </div>
+    
+      </div>
+    </div>
+    
         </div>
       </section>
 

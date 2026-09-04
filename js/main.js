@@ -1,6 +1,6 @@
 import { DRAGONS_DATA } from "./data/dragons.js?v=6.1.0";
 import { initParticlesCanvas } from "./utils/particles.js?v=6.1.0";
-import { playSound, toggleSound } from "./utils/audio.js?v=6.1.0";
+import { playSound, toggleSound, updateAudioButtonUI } from "./utils/audio.js?v=6.1.0";
 import { initEncyclopediaFilters, renderEncyclopedia } from "./views/encyclopedia.js?v=6.1.0";
 import { initSigilForge } from "./views/sigilForge.js?v=6.1.0";
 import { initMagicModule } from "./views/magic.js?v=6.1.0";
@@ -78,6 +78,7 @@ export function initApp() {
 
   const btnAudio = document.getElementById("btn-audio-toggle");
   if (btnAudio) {
+    updateAudioButtonUI();
     btnAudio.addEventListener("click", toggleSound);
   }
 

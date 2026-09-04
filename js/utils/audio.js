@@ -1,4 +1,10 @@
-let isMuted = false;
+let isMuted = (function() {
+  try {
+    return localStorage.getItem("santuario_sound_muted") === "true";
+  } catch (e) {
+    return false;
+  }
+})();
 let audioCtx = null;
 
 function getAudioContext() {
@@ -137,12 +143,21 @@ export function playSound(type) {
   }
 }
 
-export function toggleSound() {
-  isMuted = !isMuted;
+export function updateAudioButtonUI() {
   const btn = document.getElementById("btn-audio-toggle");
   if (btn) {
     btn.textContent = isMuted ? "🔇 Sonido: OFF" : "🔊 Sonido: ON";
   }
+}
+
+export function toggleSound() {
+  isMuted = !isMuted;
+  try {
+    localStorage.setItem("santuario_sound_muted", isMuted ? "true" : "false");
+  } catch (e) {
+    console.warn("Could not save sound setting to localStorage:", e);
+  }
+  updateAudioButtonUI();
   if (!isMuted) {
     playSound("click");
   }

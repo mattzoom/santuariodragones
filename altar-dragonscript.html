@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -70,147 +70,189 @@
         <div id="magic-container">
           
     <div class="magic-section-wrapper" style="display: flex; flex-direction: column; gap: 2rem;">
-      
-      <!-- HERO BANNER DE MAGIA -->
-      <div class="magic-hero fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(200,85,61,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
-        <div class="quiz-step-tag" style="font-size: 0.95rem;">✨ El Sendero Ancestral ✨</div>
-        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">Dragon Script: El Alfabeto Sagrado</h2>
+      <div class="magic-hero fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(200,85,61,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
+        <div class="quiz-step-tag" style="font-size: 0.95rem;">⚒️ El Taller del Mago ⚒️</div>
+        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">El Altar y las Herramientas del Mago</h2>
         <p style="color: var(--text-main); font-size: 1.1rem; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6;">
-          Te damos la bienvenida al camino de la sabiduría secreta. La Magia Draconiana es una tradición milenaria basada en el respeto, la amistad con seres antiguos y el uso responsable de la energía universal.
+          Elegí una de las 4 subsecciones de artefactos y saberes para aprender su confección, alfabetos y reglas mágicas:
         </p>
         
-        <!-- SUB-NAV SWITCHER -->
-        ${renderMagicSubNavHtml("fundamentos")}
-      </div>
-
-      <!-- GRILLA DE LEYES Y FUNDAMENTOS DRACONIANOS -->
-      <div class="magic-laws-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        
-        <!-- 🌟 1. La Regla de Oro del Mago (HEADER ANCHO COMPLETO CON ILUSTRACIÓN) -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #ff4757; background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.06));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 2.2rem;">🌟</span>
-            <h3 style="color: #ff4757; margin: 0; font-size: 1.6rem;">La Regla de Oro del Mago: ¡Si no te divertís, no es magia!</h3>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 280px;">
-              <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin: 0; font-weight: 500;">
-                ¡Escuchá con atención, joven mago! Hay un secreto que muchos libros olvidan contar, pero que los verdaderos sabios y los dragones conocen muy bien: <strong>la magia se inventó para disfrutarse y ser feliz</strong>.
-              </p>
-              <p style="color: var(--text-main); font-size: 0.98rem; line-height: 1.7; margin-top: 12px;">
-                En la Magia Draconiana, la diversión no es solo un extra, ¡es el motor que hace que tus hechizos funcionen! Si alguna vez estás practicando un ejercicio, haciendo una meditación o dibujando un sigilo y empezás a sentirte aburrido, asustado, triste o muy estresado, la regla de oro te dice que debés detenerte de inmediato. <strong>Si la estás pasando mal, ¡eso no es verdadera magia!</strong>
-              </p>
-            </div>
-            <div style="width: 100%; max-width: 280px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
-              <img src="/assets/patriarch_dragon_laws.webp" alt="Dragón patriarca sabio con las tablas de los mandamientos draconianos" style="width: 100%; height: auto; display: block; object-fit: cover;" />
-            </div>
-          </div>
-        </div>
-
-        <!-- FILA 1: COMPAÑERISMO & 24H SILENCIO -->
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
-          
-          <!-- 🤝 2. La Regla del Compañerismo -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-teal); background: rgba(42,157,143,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🤝</span>
-                <h3 style="color: var(--color-teal); margin: 0; font-size: 1.45rem;">La Regla del Compañerismo</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡Los dragones no son mascotas!</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Los dragones son seres antiguos, muy sabios e independientes. La magia draconiana se basa en la cooperación y la amistad, jamás en dominar. Nunca intentes ordenarles o tratarlos como sirvientes. Tratalos como a tus iguales: con respeto, confianza, cariño y como verdaderos compañeros de equipo.
-              </p>
-            </div>
-          </div>
-
-          <!-- 💬 3. Las 24 Horas de Silencio -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #9b5de5; background: rgba(155,93,229,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">💬</span>
-                <h3 style="color: #9b5de5; margin: 0; font-size: 1.45rem;">Las 24 Horas de Silencio</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">¡No dejes escapar tu energía!</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Cuando hagas un hechizo, dibujes un sigilo o hagas una petición a tu dragón, guardá el secreto absoluto por al menos un día entero. Hablar de tus trabajos mágicos antes de tiempo disipa tu energía. Los dragones actúan en silencio: dejá que tu deseo se concentre con toda su fuerza.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- FILA 2: PALABRA DE ACERO & LEY DEL ECO -->
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" class="display-grid">
-
-          <!-- 🔐 4. Tu Palabra es de Acero -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--gold-main); background: rgba(233,196,106,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🔐</span>
-                <h3 style="color: var(--gold-main); margin: 0; font-size: 1.45rem;">Tu Palabra es de Acero</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">La ley de la confianza sagrada</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Las palabras actúan como contratos invisibles con el universo. Por eso, tu palabra es tu promesa sagrada. Si le prometés a tu dragón (o a vos mismo) ordenar tu cuarto, estudiar o cuidar tu altar, ¡cumplilo! La constancia mantiene tu energía fuerte y la confianza intacta.
-              </p>
-            </div>
-          </div>
-
-          <!-- 🕸️ 5. La Ley del Eco y la Red Tripartita -->
-          <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid var(--color-rust); background: rgba(200,85,61,0.08); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 2rem;">🕸️</span>
-                <h3 style="color: var(--color-rust); margin: 0; font-size: 1.45rem;">La Ley del Eco y la Red Cósmica</h3>
-              </div>
-              <p style="color: var(--text-gold); font-size: 0.95rem; font-weight: 700; margin-top: 8px;">"Lo que le pasa a una piedra, se refleja en todas"</p>
-              <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-top: 8px;">
-                Todo en el Multiverso está conectado en una gran telaraña de energía. Rige la <strong>Ley Tripartita</strong>: lo que envíes (amabilidad o mala vibra) volverá a vos multiplicado por tres. Si cuidás la naturaleza y sos amable, el universo te devolverá felicidad y buena suerte.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 📜 6. El Código de Honor del Mago (PIE DE PÁGINA ANCHO COMPLETO) -->
-        <div class="fantasy-panel" style="padding: 1.8rem; border-left: 6px solid #4cc9f0; background: rgba(76,201,240,0.08);">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 2rem;">📜</span>
-            <h3 style="color: #4cc9f0; margin: 0; font-size: 1.5rem;">El Código de Honor del Mago Draconiano</h3>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 14px;">
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #4cc9f0;">
-              <strong style="color: #4cc9f0;">🛡️ Intención Pura:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Nunca uses la magia para manipular, asustar o dañar a otras personas o animales.</p>
-            </div>
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid var(--gold-main);">
-              <strong style="color: var(--gold-main);">🌿 Respeto Elemental:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Protegé siempre a la naturaleza, a los árboles y a todos los seres vivos del planeta.</p>
-            </div>
-            <div style="background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; border-left: 3px solid #9b5de5;">
-              <strong style="color: #9b5de5;">🔮 Sigilo y Discreción:</strong>
-              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Guardá en secreto tus herramientas, tu altar y tu Nombre Mágico para conservar tu fuerza.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- BANNER DE NAVEGACIÓN A HERRAMIENTAS -->
-      <div class="fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.1), rgba(42,157,143,0.1)); border: 2px solid var(--gold-main); border-radius: 20px;">
-        <div style="font-size: 3rem;">⚒️</div>
-        <h3 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 1.9rem;">Próximo Paso: Confeccioná tus Herramientas</h3>
-        <p style="color: var(--text-main); max-width: 700px; margin: 8px auto 0 auto; font-size: 1.05rem; line-height: 1.6;">
-          Descubrí cómo preparar tu varita o bastón, tu pentáculo y tu espejo mágico en la sección de Herramientas.
-        </p>
-        <button type="button" class="btn btn-gold btn-lg margin-top-md" onclick="switchMagicSubPage('altar')" style="padding: 12px 28px; font-weight: 700; cursor: pointer;">
-          ⚒️ Ir a El Altar y Herramientas
-        </button>
-      </div>
-
+    <div class="margin-top-md magic-sub-nav">
+      <a href="/magia-draconiana.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">📜 1. Fundamentos</a>
+      <a href="/altar-draconiano.html" class="chip active" style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; ">⚒️ 2. El Altar</a>
+      <a href="/academia-draconiana.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">🎓 3. Academia (5 Anillos)</a>
+      <a href="/forja-de-sigilos.html" class="chip " style="font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(233,196,106,0.15);">🔮 4. Forja de Sigilos</a>
     </div>
-  
+
+        
+      <div style="display: flex; justify-content: center; gap: 10px; margin: 1.5rem 0; flex-wrap: wrap;">
+        <a href="/altar-varita.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          ✨ Varita / Bastón
+        </a>
+        <a href="/altar-pentaculo.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          ⭐ Pentáculo 5 Elementos
+        </a>
+        <a href="/altar-espejo.html" class="btn btn-secondary" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          👁️ Espejo Mágico
+        </a>
+        <a href="/altar-dragonscript.html" class="btn btn-gold" style="text-decoration: none; padding: 8px 18px; font-weight: 700; font-size: 0.9rem;">
+          📜 Dragon Script
+        </a>
+      </div>
+    
+      </div>
+
+      <!-- CONTENIDO DE LA HERRAMIENTA SELECCIONADA -->
+      <div id="altar-tool-display">
+        
+      <div class="fantasy-panel" style="padding: 2rem; background: rgba(15, 23, 42, 0.75); border: 2px solid var(--gold-main); border-radius: 18px;">
+        
+        <!-- ENCABEZADO -->
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
+          <div style="font-size: 2.5rem;">📜</div>
+          <div>
+            <h3 style="color: var(--gold-main); margin: 0; font-size: 1.8rem;">El Alfabeto de los Dragones: Dragon Script</h3>
+            <p style="color: var(--text-muted); margin: 4px 0 0 0; font-size: 0.95rem;">El cifrado místico antiguo para comunicarte con los seres draconianos</p>
+          </div>
+        </div>
+
+        <!-- INTRODUCCIÓN CON ILUSTRACIÓN -->
+        <div style="background: rgba(233,196,106,0.1); border-left: 4px solid var(--gold-main); padding: 16px 20px; border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <p style="color: var(--text-main); margin: 0; font-size: 1rem; line-height: 1.7;">
+              ¿Te imaginás tener un alfabeto secreto que solo vos y los dragones puedan leer? ¡Pues existe! En el maravilloso mundo de la magia draconiana, este sistema de escritura se conoce como <strong>Dragon Script</strong> (o el Escrito del Dragón). Los dragones son seres sumamente inteligentes y conocen todos los idiomas humanos, pero las fuentes nos revelan que <strong>ellos prestan muchísima más atención a las cosas que escribís usando este alfabeto especial</strong>. ¡Es como enviarles un mensaje con un sello de "¡Súper Importante!"!
+            </p>
+          </div>
+          <div style="width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 6px 18px rgba(0,0,0,0.6); flex-shrink: 0; margin: 0 auto;">
+            <img src="/assets/scholar_dragon_script.webp" alt="Dragón erudito escribiendo manuscrito en Dragon Script en salón gótico" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+          </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL: TEXTOS E HISTORIA -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+          
+          <!-- 🌟 HISTORIA -->
+          <div style="background: rgba(255,255,255,0.03); padding: 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">🌟 La Historia del Alfabeto Misterioso</h4>
+            <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+              Nadie sabe con certeza científica quién inventó originalmente este alfabeto o hace cuántos miles de años se creó, pues su origen es un gran misterio. Lo que sí sabemos es que fue enseñado a los humanos por una sabia entidad espiritual de origen irlandés-celta que se comunicaba con los magos a través de sueños y profundas meditaciones. Si mirás con atención sus letras, notarás que se parecen a otros alfabetos legendarios como las <strong>Runas vikingas</strong>, el <strong>Ogham celta</strong> y los códigos de los alquimistas medievales.
+            </p>
+          </div>
+
+          <!-- ⚡ POR QUÉ HACE TU MAGIA MÁS FUERTE -->
+          <div style="background: rgba(255,255,255,0.03); padding: 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">⚡ ¿Por qué escribir en Dragon Script hace tu magia más fuerte?</h4>
+            <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+              Seguramente te preguntarás: <em>"¿Por qué no escribir simplemente con mis letras normales?"</em> ¡La respuesta es un secreto de los sabios encantadores! Cuando escribís una petición o tu nombre usando este alfabeto, tenés que ir despacio, letra por letra, mirando la tabla de símbolos para no equivocarte. Ese esfuerzo extra requiere de toda tu <strong>Concentración</strong>. Al dibujar cada curva y cada línea misteriosa con paciencia, estás enfocando tu mente y <strong>traspasando tu propia energía personal y tu fuerza de voluntad al objeto</strong>. ¡Es por eso que las herramientas y los deseos escritos en Dragon Script se llenan de un poder mágico increíble!
+            </p>
+          </div>
+
+          <!-- 🧩 TRADUCTOR INTERACTIVO ÚNICO Y OFICIAL -->
+          <div style="background: linear-gradient(135deg, rgba(138,43,226,0.15), rgba(42,157,143,0.15)); border: 2px solid var(--color-teal); padding: 1.6rem; border-radius: 16px;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+              <span style="font-size: 2.2rem;">🧩</span>
+              <h4 style="color: var(--color-teal); margin: 6px 0 0 0; font-size: 1.4rem;">Traductor Mágico al Dragon Script</h4>
+              <p style="color: var(--text-main); font-size: 0.95rem; margin-top: 4px;">Escribí tu nombre real, apodo o deseo para traducir automáticamente cada letra al pergamino digital:</p>
+            </div>
+
+            <div style="max-width: 500px; margin: 0 auto 1.2rem auto;">
+              <input type="text" id="ds-translator-input" oninput="updateDragonScriptTranslator()" placeholder="Escribí tu nombre o deseo acá (ej: MATIAS)..." style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--gold-main); background: rgba(10,9,17,0.95); color: var(--text-main); font-size: 1.1rem; outline: none; font-weight: 700; text-align: center;" />
+            </div>
+
+            <!-- PERGAMINO OUTPUT -->
+            <div style="background: rgba(0,0,0,0.5); padding: 4px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.5);">
+              <div style="background: rgba(15, 12, 25, 0.92); backdrop-filter: blur(4px); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--gold-main); min-height: 90px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;" id="ds-translator-output">
+                <span style="color: var(--text-muted); font-style: italic;">Escribí tu nombre o deseo arriba para verlo convertido al Escrito del Dragón...</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 0.85rem; color: var(--text-muted);">
+                ✨ <em>Mirá la equivalencia de cada letra o descargá la composición completa en alta resolución:</em>
+              </span>
+              <div>
+                <button id="ds-download-all-btn" type="button" class="btn btn-gold btn-sm" style="display: none; padding: 8px 18px; font-weight: 700;" onclick="downloadDragonScriptImage()">
+                  📥 Descargar Imagen Dragon Script
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TABLA INTERACTIVA DE SÍMBOLOS CON SONIDO -->
+        <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-gold); padding: 1.5rem; border-radius: 14px; margin-bottom: 2rem;">
+          <h4 style="color: var(--gold-main); margin-top: 0; font-size: 1.25rem; text-align: center;">
+            🔊 Teclado Interactivo de Resonancia (Hacé clic en cualquier letra)
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 1.2rem;">
+            Tocá cualquier letra para escuchar su resonancia armónica de runa y ver su significado espiritual:
+          </p>
+
+          <!-- PREVIEW BADGE -->
+          <div id="ds-rune-preview" style="min-height: 65px; background: rgba(233,196,106,0.08); border: 1px dashed var(--gold-main); border-radius: 10px; padding: 10px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <span style="color: var(--text-muted); font-style: italic;">Hacé clic en una letra del teclado mágico inferior...</span>
+          </div>
+
+          <!-- GRID DE LETRAS CON VECTORES SVG OFICIALES -->
+          <div id="ds-rune-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(54px, 1fr)); gap: 10px;">
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('A');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">᚛</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">A</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('B');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">᚜</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">B</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('C');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚠ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">C</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('D');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚡ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">D</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('E');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚢ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">E</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('F');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚣ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">F</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('G');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚤ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">G</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('H');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚥ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">H</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('I');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚦ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">I</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('J');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚧ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">J</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('K');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚨ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">K</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('L');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚩ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">L</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('M');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚪ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">M</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('N');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚫ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">N</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('O');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚬ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">O</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('P');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚭ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">P</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('Q');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚮ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">Q</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('R');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚯ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">R</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('S');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚰ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">S</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('T');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚱ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">T</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('U');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚲ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">U</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('V');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚳ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">V</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('W');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚴ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">W</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('X');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚵ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">X</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('Y');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚶ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">Y</span></button>
+            <button type="button" class="btn btn-secondary" onclick="if(window.playRuneSound) playRuneSound('Z');" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 4px; font-weight: 700; border-radius: 10px; color: var(--gold-main);"><span style="font-size: 1.3rem;">ᚷ</span><span style="font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">Z</span></button>
+          </div>
+        </div>
+
+        <!-- 🛠️ ¿CÓMO PUEDES USAR EL DRAGON SCRIPT? -->
+        <div style="background: rgba(255,255,255,0.03); padding: 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <h4 style="color: #4cc9f0; margin-top: 0; font-size: 1.2rem;">🛠️ ¿Cómo podés usar el Dragon Script en tu día a día?</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="background: rgba(233,196,106,0.07); padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--gold-main);">
+              <strong style="color: var(--gold-main);">1. Protegé tu Varita o Bastón:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Pintá tu "Nombre Mágico" a lo largo de la madera de tu varita con marcador dorado o negro usando estos caracteres. Así la varita sabrá que te pertenece solo a vos.</p>
+            </div>
+            <div style="background: rgba(42,157,143,0.07); padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--color-teal);">
+              <strong style="color: var(--color-teal);">2. Hechizo de tu Espejo Mágico:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Para activar tu "Ojo de Dragón", escribí en su marco la frase: <em>"Por el poder del ojo del dragón, atrapo los pensamientos mágicos"</em> en Dragon Script.</p>
+            </div>
+            <div style="background: rgba(138,43,226,0.07); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #9b5de5;">
+              <strong style="color: #c77dff;">3. Tus Cartas de Deseos:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Si necesitás pedirle un consejo de sabiduría, valentía o calma a tu dragón guardián, escribí tu petición en un pergamino en Dragon Script y guardalo en tu diario secreto.</p>
+            </div>
+            <div style="background: rgba(200,85,61,0.07); padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--color-rust);">
+              <strong style="color: var(--color-rust);">4. Velas de Deseos:</strong>
+              <p style="color: var(--text-main); font-size: 0.9rem; margin: 4px 0 0 0; line-height: 1.5;">Con la ayuda de un adulto, podés usar un objeto puntiagudo para tallar tus metas o deseos en la cera de una vela de color antes de encenderla para tu ritual.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    
+      </div>
+    </div>
+    
         </div>
       </section>
 

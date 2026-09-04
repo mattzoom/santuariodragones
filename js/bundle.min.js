@@ -80,7 +80,13 @@ function initParticlesCanvas(canvasId = "particle-canvas") {
 
 
 
-let isMuted = false;
+let isMuted = (function() {
+  try {
+    return localStorage.getItem("santuario_sound_muted") === "true";
+  } catch (e) {
+    return false;
+  }
+})();
 let audioCtx = null;
 
 function getAudioContext() {
@@ -219,12 +225,21 @@ function playSound(type) {
   }
 }
 
-function toggleSound() {
-  isMuted = !isMuted;
+function updateAudioButtonUI() {
   const btn = document.getElementById("btn-audio-toggle");
   if (btn) {
     btn.textContent = isMuted ? "🔇 Sonido: OFF" : "🔊 Sonido: ON";
   }
+}
+
+function toggleSound() {
+  isMuted = !isMuted;
+  try {
+    localStorage.setItem("santuario_sound_muted", isMuted ? "true" : "false");
+  } catch (e) {
+    console.warn("Could not save sound setting to localStorage:", e);
+  }
+  updateAudioButtonUI();
   if (!isMuted) {
     playSound("click");
   }
@@ -5998,6 +6013,7 @@ function initApp() {
 
   const btnAudio = document.getElementById("btn-audio-toggle");
   if (btnAudio) {
+    updateAudioButtonUI();
     btnAudio.addEventListener("click", toggleSound);
   }
 
