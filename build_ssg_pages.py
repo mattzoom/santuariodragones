@@ -55,7 +55,7 @@ base_url = "https://santuario-dragones.vercel.app"
 
 for d in dragons:
     slug = d['slug']
-    img_url = f"{base_url}/assets/dragons/dragon_{d['id']}.jpg"
+    img_url = f"{base_url}/assets/dragons/dragon_{d['id']}.webp"
     page_url = f"{base_url}/dragon/{slug}.html"
     
     page_title = f"{d['name']} ({d['title']}) | Santuario de Dragones"
@@ -123,7 +123,7 @@ for d in dragons:
           <!-- Column 1: Image & Badges -->
           <div style="text-align: center;">
             <div style="aspect-ratio: 4 / 3; width: 100%; border-radius: 14px; overflow: hidden; border: 2px solid var(--gold-main); box-shadow: 0 8px 25px rgba(0,0,0,0.7); background: #0c0b14;">
-              <img src="/assets/dragons/dragon_{d['id']}.jpg" alt="{d['name']}" style="width: 100%; height: 100%; object-fit: contain;" />
+              <img src="/assets/dragons/dragon_{d['id']}.webp" alt="{d['name']}" width="600" height="450" loading="eager" fetchpriority="high" style="width: 100%; height: 100%; object-fit: contain;" />
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 1rem;">

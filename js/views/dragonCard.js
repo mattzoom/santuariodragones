@@ -20,7 +20,7 @@ export function renderDragonCardHTML(dragon) {
   const slug = slugify(dragon.name);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" loading="lazy" decoding="async" class="dragon-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" width="400" height="300" loading="lazy" decoding="async" class="dragon-artwork-img" />`
     : renderDragonSVG(dragon, 300, 200);
 
   return `
@@ -60,7 +60,7 @@ export function openDragonModal(dragon, onFavToggleCallback = null) {
   const artSrc = getDragonArtworkSrc(dragon);
 
   const mediaHtml = artSrc
-    ? `<img src="${artSrc}" alt="${dragon.name}" class="modal-artwork-img" />`
+    ? `<img src="${artSrc}" alt="${dragon.name}" width="600" height="450" decoding="async" class="modal-artwork-img" />`
     : renderDragonSVG(dragon, 340, 240);
 
   modalContent.innerHTML = `
