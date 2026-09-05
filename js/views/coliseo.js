@@ -17,12 +17,13 @@ let dragonA = null;
 let dragonB = null;
 let isBattling = false;
 let battleInterval = null;
+let duelWinner = null; // { winner, loser }
 
 // ==========================================
 // ESTADO: MODO TORNEO ROGUELITE
 // ==========================================
 let playerDragon = null;
-let tournamentStage = 0; // 0 = selección, 1 = Octavos/Cuartos, 2 = Semis, 3 = Final, 5 = Campeón
+let tournamentStage = 0; // 0 = selección, 1 = Cuartos, 2 = Semis, 3 = Final, 5 = Campeón, -1 = Derrota
 let playerHp = 130;
 let playerMaxHp = 130;
 let playerAttackBonus = 0;
@@ -50,6 +51,7 @@ let activeIndexB = 0; // 0 a 4
 let isSquadBattling = false;
 let squadInterval = null;
 let squadBattleEnded = false;
+let squadWinnerTeam = null; // "A" | "B"
 
 // ==========================================
 // ESTADO: MODAL DE BÚSQUEDA RÁPIDA DE DRAGONES
@@ -169,6 +171,45 @@ function renderArenaContainer(container) {
    ========================================================================== */
 
 function renderDuelViewHtml() {
+  if (duelWinner) {
+    const { winner, loser } = duelWinner;
+    return `
+      <!-- PANTALLA DE VICTORIA DUELO 1 VS 1 CON COPA -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.22) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆✨</div>
+        <h2 style="color: var(--gold-main); font-size: 2.2rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAMPEÓN DEL DUELO SINGULAR!</h2>
+        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.8rem;">
+          ¡<strong>${winner.name}</strong> ha triunfado en la arena ante <strong>${loser.name}</strong> y alza la Copa Legendaria!
+        </p>
+
+        <!-- ILUSTRACIÓN DE LA COPA Y DRAGÓN GANADOR -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+          <div style="width: 100%; max-width: 440px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
+            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón de la Arena" style="width: 100%; height: auto; display: block;" />
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 25px rgba(233,196,106,0.6);">
+              <img src="${getDragonArtworkSrc(winner)}" alt="${winner.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <span style="color: var(--gold-main); font-weight: 800; font-size: 1.3rem;">${winner.name}</span>
+            <span style="color: var(--color-teal); font-style: italic; font-size: 0.95rem;">"${winner.title}"</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
+              <span class="badge badge-element badge-${winner.element.toLowerCase()}">${winner.element}</span>
+              <span class="badge badge-type">${winner.type}</span>
+              <span class="badge badge-danger">🔥 Peligro ${winner.danger}/5</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <button type="button" class="btn btn-gold btn-lg" onclick="resetDragonDuel()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
+            ⚔️ Disputar Otro Duelo
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
   return `
     <!-- HERO BANNER ARENA DUELO -->
     <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 1.8rem; background: linear-gradient(135deg, rgba(230,57,70,0.18), rgba(233,196,106,0.12)); border: 2px solid #e63946; border-radius: 20px;">
@@ -340,6 +381,7 @@ window.randomizeFighter = function(fighterKey) {
 window.resetDragonDuel = function() {
   if (battleInterval) clearInterval(battleInterval);
   isBattling = false;
+  duelWinner = null;
   const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
   if (container) renderArenaContainer(container);
 };
@@ -351,6 +393,7 @@ window.startDragonDuel = function() {
     return;
   }
 
+  duelWinner = null;
   isBattling = true;
   playSound("roar");
 
@@ -487,6 +530,12 @@ function endBattle(winner, loser) {
 
   const btnReset = document.getElementById("btn-reset-duel");
   if (btnReset) btnReset.style.display = "inline-block";
+
+  setTimeout(() => {
+    duelWinner = { winner, loser };
+    const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+    if (container) renderArenaContainer(container);
+  }, 1400);
 }
 
 
@@ -557,7 +606,7 @@ function renderTournamentViewHtml() {
         <!-- ILUSTRACIÓN DE LA COPA Y CAMPEÓN -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.8rem;">
           <div style="width: 100%; max-width: 480px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
-            <img src="/assets/ui/trophy_champion.jpg" alt="Copa de Campeón del Santuario" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón del Santuario" style="width: 100%; height: auto; display: block;" />
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 20px rgba(233,196,106,0.6);">
@@ -577,6 +626,71 @@ function renderTournamentViewHtml() {
 
         <button type="button" class="btn btn-gold btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 32px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
           🔄 Jugar Otro Torneo
+        </button>
+      </div>
+    `;
+  }
+
+  if (tournamentStage === -1) {
+    const roundIndex = (currentOpponent && tournamentOpponents.indexOf(currentOpponent) !== -1)
+      ? tournamentOpponents.indexOf(currentOpponent) + 1
+      : 1;
+    const roundFailedName = STAGE_NAMES[roundIndex] || "Combate del Torneo";
+
+    return `
+      <!-- PANTALLA DE DERROTA EN EL TORNEO -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.2) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.25);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px;">💀⚔️💔</div>
+        <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAÍDO EN COMBATE!</h1>
+        <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 1.8rem;">
+          Tu dragón <strong>${playerDragon.name}</strong> ha caído en la arena ante <strong>${currentOpponent ? currentOpponent.name : 'el rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
+        </p>
+
+        <!-- CONTENEDOR DESIGNADO PARA LA ILUSTRACIÓN DE DERROTA -->
+        <div id="tournament-defeat-banner" style="width: 100%; max-width: 520px; min-height: 220px; border-radius: 16px; border: 2px dashed rgba(255,71,87,0.6); background: rgba(10,9,17,0.85); box-shadow: inset 0 0 30px rgba(255,71,87,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1.8rem auto; padding: 2rem 1.5rem; position: relative; overflow: hidden;">
+          <div style="font-size: 3.8rem; margin-bottom: 10px; filter: drop-shadow(0 0 12px rgba(255,71,87,0.5));">⚔️🥀🛡️</div>
+          <h3 style="color: #ff6b6b; font-size: 1.25rem; font-family: var(--font-heading); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 1px;">
+            Santuario de los Dragones Caídos
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 400px; margin: 0; line-height: 1.5;">
+            El fuego de tu guardián se ha extinguido momentáneamente en la arena. La gloria aguarda a quienes se levantan de las cenizas.
+          </p>
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+          <!-- Tu Dragón Caído -->
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; opacity: 0.7; position: relative;">
+              <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 2rem;">💀</div>
+            </div>
+            <span style="color: #ff6b6b; font-weight: 700; font-size: 1rem;">${playerDragon.name}</span>
+            <span class="badge badge-danger">Derrotado</span>
+          </div>
+
+          <div style="font-size: 1.8rem; color: var(--text-muted); font-weight: bold;">VS</div>
+
+          <!-- Rival Vencedor -->
+          ${currentOpponent ? `
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+              <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 15px rgba(233,196,106,0.4);">
+                <img src="${getDragonArtworkSrc(currentOpponent)}" alt="${currentOpponent.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <span style="color: var(--gold-main); font-weight: 700; font-size: 1rem;">${currentOpponent.name}</span>
+              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f;">Vencedor</span>
+            </div>
+          ` : ''}
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px; font-size: 1rem;">Reliquias reunidas antes de caer:</h4>
+          <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+            ${playerRelics.map(r => `<span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); font-size: 0.9rem;">⭐ ${r}</span>`).join("") || "<span style='color: var(--text-muted);'>Ninguna reliquia obtenida.</span>"}
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-gold btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
+          🔄 Intentar Nuevamente el Torneo
         </button>
       </div>
     `;
@@ -958,6 +1072,12 @@ function handleTournamentDefeat() {
     btnFight.style.display = "inline-block";
     btnFight.onclick = resetTournamentToStart;
   }
+
+  setTimeout(() => {
+    tournamentStage = -1;
+    const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+    if (container) renderArenaContainer(container);
+  }, 1300);
 }
 
 
@@ -966,6 +1086,52 @@ function handleTournamentDefeat() {
    ========================================================================== */
 
 function renderSquadViewHtml() {
+  if (squadWinnerTeam) {
+    const winnerName = squadWinnerTeam === "A" ? squadNameA : squadNameB;
+    const winningSquad = squadWinnerTeam === "A" ? squadA : squadB;
+    const winningHps = squadWinnerTeam === "A" ? squadHpA : squadHpB;
+    const survivingCount = winningHps.filter(h => h > 0).length;
+
+    return `
+      <!-- PANTALLA DE VICTORIA GUERRA 5v5 CON COPA -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.22) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆⚔️</div>
+        <h2 style="color: var(--gold-main); font-size: 2.2rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CLAN CAMPEÓN DE LA ARENA 5v5!</h2>
+        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.8rem;">
+          ¡El escuadrón <strong>[${winnerName}]</strong> ha triunfado en la batalla campal con <strong>${survivingCount}</strong> dragones en pie y alza la Copa Legendaria!
+        </p>
+
+        <!-- ILUSTRACIÓN DE LA COPA Y CLAN GANADOR -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+          <div style="width: 100%; max-width: 440px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
+            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón de la Arena" style="width: 100%; height: auto; display: block;" />
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">Guerreros del Clan Triunfante</h3>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 380px;">
+              ${winningSquad.map((d, idx) => {
+                const isAlive = winningHps[idx] > 0;
+                return `
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 68px;">
+                    <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; border: 2px solid ${isAlive ? 'var(--gold-main)' : '#ff4757'}; position: relative;">
+                      <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: ${isAlive ? 1 : 0.35};" />
+                      ${!isAlive ? '<div style="position: absolute; inset:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); color: #ff4757; font-size: 0.85rem;">💀</div>' : ''}
+                    </div>
+                    <span style="font-size: 0.75rem; color: ${isAlive ? '#80ed99' : 'var(--text-muted)'}; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 68px;">${d.name}</span>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-gold btn-lg" onclick="resetSquadWar()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
+          🔄 Disputar Otra Guerra de Clanes
+        </button>
+      </div>
+    `;
+  }
+
   const activeDragonA = squadA[activeIndexA] || squadA[0];
   const activeDragonB = squadB[activeIndexB] || squadB[0];
   const currentHpA = squadHpA[activeIndexA] !== undefined ? squadHpA[activeIndexA] : 100;
@@ -1226,6 +1392,7 @@ window.resetSquadWar = function() {
   if (squadInterval) clearInterval(squadInterval);
   isSquadBattling = false;
   squadBattleEnded = false;
+  squadWinnerTeam = null;
   squadHpA = [100, 100, 100, 100, 100];
   squadHpB = [100, 100, 100, 100, 100];
   activeIndexA = 0;
@@ -1236,6 +1403,8 @@ window.resetSquadWar = function() {
 
 window.startSquadWar = function() {
   if (isSquadBattling) return;
+
+  squadWinnerTeam = null;
 
   if (squadBattleEnded || squadHpA.every(h => h <= 0) || squadHpB.every(h => h <= 0)) {
     squadHpA = [100, 100, 100, 100, 100];
@@ -1413,6 +1582,12 @@ function endSquadWar(winningTeam) {
 
   const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
   if (container) renderArenaContainer(container);
+
+  setTimeout(() => {
+    squadWinnerTeam = winningTeam;
+    const target = document.getElementById("arena-container") || document.getElementById("coliseo-container");
+    if (target) renderArenaContainer(target);
+  }, 1300);
 }
 
 
@@ -1543,3 +1718,10 @@ window.selectPickerDragon = function(dragonId) {
   const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
   if (container) renderArenaContainer(container);
 };
+
+window.endBattle = endBattle;
+window.handleTournamentDefeat = handleTournamentDefeat;
+window.handleTournamentRoundWin = handleTournamentRoundWin;
+window.endSquadWar = endSquadWar;
+
+
