@@ -4527,30 +4527,42 @@ function renderDuelViewHtml() {
   if (duelWinner) {
     const { winner, loser } = duelWinner;
     return `
-      <!-- PANTALLA DE VICTORIA DUELO 1 VS 1 CON COPA -->
-      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.22) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
-        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆✨</div>
-        <h2 style="color: var(--gold-main); font-size: 2.2rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAMPEÓN DEL DUELO SINGULAR!</h2>
-        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.8rem;">
-          ¡<strong>${winner.name}</strong> ha triunfado en la arena ante <strong>${loser.name}</strong> y alza la Copa Legendaria!
+      <!-- PANTALLA DE VICTORIA DUELO 1 VS 1 (SIN COPA) -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.2) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑⚔️✨</div>
+        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡VICTORIA EN EL DUELO SINGULAR!</h2>
+        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">
+          ¡<strong>${winner.name}</strong> ha superado a <strong>${loser.name}</strong> demostrando la supremacía de su linaje ancestral!
         </p>
 
-        <!-- ILUSTRACIÓN DE LA COPA Y DRAGÓN GANADOR -->
+        <!-- DUELO DE RETRATOS: VENCEDOR Y DERROTADO -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
-          <div style="width: 100%; max-width: 440px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
-            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón de la Arena" style="width: 100%; height: auto; display: block;" />
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 25px rgba(233,196,106,0.6);">
+          <!-- DRAGÓN GANADOR -->
+          <div class="fantasy-panel" style="max-width: 320px; width: 100%; padding: 1.5rem 1rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(10,9,17,0.9); box-shadow: 0 0 25px rgba(233,196,106,0.4);">
+            <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; margin-bottom: 10px; display: inline-block;">👑 Vencedor del Duelo</span>
+            <div style="aspect-ratio: 4/3; width: 100%; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); margin-bottom: 12px; background: #0a0911;">
               <img src="${getDragonArtworkSrc(winner)}" alt="${winner.name}" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
-            <span style="color: var(--gold-main); font-weight: 800; font-size: 1.3rem;">${winner.name}</span>
-            <span style="color: var(--color-teal); font-style: italic; font-size: 0.95rem;">"${winner.title}"</span>
+            <h3 style="color: var(--gold-main); font-size: 1.35rem; margin: 0 0 4px 0;">${winner.name}</h3>
+            <p style="color: var(--color-teal); font-style: italic; font-size: 0.95rem; margin: 0 0 10px 0;">"${winner.title}"</p>
             <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
               <span class="badge badge-element badge-${winner.element.toLowerCase()}">${winner.element}</span>
               <span class="badge badge-type">${winner.type}</span>
               <span class="badge badge-danger">🔥 Peligro ${winner.danger}/5</span>
             </div>
+          </div>
+
+          <div style="font-size: 2rem; color: var(--text-muted); font-weight: 800;">VS</div>
+
+          <!-- DRAGÓN DERROTADO -->
+          <div class="fantasy-panel" style="max-width: 240px; width: 100%; padding: 1.2rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; background: rgba(10,9,17,0.6); opacity: 0.75;">
+            <span class="badge badge-danger" style="margin-bottom: 10px; display: inline-block;">💀 Derrotado</span>
+            <div style="aspect-ratio: 4/3; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 10px; background: #0a0911; position: relative;">
+              <img src="${getDragonArtworkSrc(loser)}" alt="${loser.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" />
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 2.2rem;">💀</div>
+            </div>
+            <h4 style="color: var(--text-main); font-size: 1.1rem; margin: 0 0 4px 0;">${loser.name}</h4>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">${loser.element} · ${loser.type}</span>
           </div>
         </div>
 
@@ -4879,7 +4891,7 @@ function endBattle(winner, loser) {
   isBattling = false;
   playSound("victory");
 
-  appendBattleLog(`🏆👑 <strong>¡VICTORIA ÉPICA! ${winner.name} ha vencido en la Arena demostrando la supremacía de su linaje!</strong>`, "gold");
+  appendBattleLog(`⚔️👑 <strong>¡VICTORIA ÉPICA! ¡${winner.name} ha vencido en el duelo singular demostrando la supremacía de su linaje!</strong>`, "gold");
 
   const btnReset = document.getElementById("btn-reset-duel");
   if (btnReset) btnReset.style.display = "inline-block";
@@ -5441,41 +5453,69 @@ function handleTournamentDefeat() {
 function renderSquadViewHtml() {
   if (squadWinnerTeam) {
     const winnerName = squadWinnerTeam === "A" ? squadNameA : squadNameB;
+    const loserName = squadWinnerTeam === "A" ? squadNameB : squadNameA;
     const winningSquad = squadWinnerTeam === "A" ? squadA : squadB;
+    const losingSquad = squadWinnerTeam === "A" ? squadB : squadA;
     const winningHps = squadWinnerTeam === "A" ? squadHpA : squadHpB;
     const survivingCount = winningHps.filter(h => h > 0).length;
 
     return `
-      <!-- PANTALLA DE VICTORIA GUERRA 5v5 CON COPA -->
-      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.22) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
-        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆⚔️</div>
-        <h2 style="color: var(--gold-main); font-size: 2.2rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CLAN CAMPEÓN DE LA ARENA 5v5!</h2>
-        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.8rem;">
-          ¡El escuadrón <strong>[${winnerName}]</strong> ha triunfado en la batalla campal con <strong>${survivingCount}</strong> dragones en pie y alza la Copa Legendaria!
+      <!-- PANTALLA DE VICTORIA GUERRA 5v5 (SIN COPA) -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.2) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑⚔️🛡️</div>
+        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CLAN VENCEDOR DE LA ARENA 5v5!</h2>
+        <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">
+          ¡El escuadrón <strong>[${winnerName}]</strong> ha triunfado en la batalla campal con <strong>${survivingCount}</strong> dragones en pie demostrando la supremacía de su bando!
         </p>
 
-        <!-- ILUSTRACIÓN DE LA COPA Y CLAN GANADOR -->
-        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
-          <div style="width: 100%; max-width: 440px; border-radius: 16px; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 8px 30px rgba(233,196,106,0.45); background: #0a0911;">
-            <img src="/assets/ui/trophy_champion.webp" alt="Copa de Campeón de la Arena" style="width: 100%; height: auto; display: block;" />
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-            <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">Guerreros del Clan Triunfante</h3>
-            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 380px;">
+        <!-- CONFRONTACIÓN DE CLANES: VENCEDORES VS RIVALES -->
+        <div style="display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+          
+          <!-- CLAN GANADOR -->
+          <div class="fantasy-panel" style="flex: 1; min-width: 290px; max-width: 440px; padding: 1.5rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(10,9,17,0.9); box-shadow: 0 0 25px rgba(233,196,106,0.35);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-panel); padding-bottom: 8px;">
+              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800;">👑 Clan Triunfador</span>
+              <span style="color: var(--gold-main); font-weight: 700; font-size: 1.1rem;">[${winnerName}]</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">Sobrevivientes: <strong style="color: #80ed99;">${survivingCount} / 5</strong></p>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
               ${winningSquad.map((d, idx) => {
                 const isAlive = winningHps[idx] > 0;
                 return `
-                  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 68px;">
-                    <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; border: 2px solid ${isAlive ? 'var(--gold-main)' : '#ff4757'}; position: relative;">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <div style="width: 54px; height: 54px; border-radius: 50%; overflow: hidden; border: 2px solid ${isAlive ? 'var(--gold-main)' : '#ff4757'}; position: relative; background: #0a0911;">
                       <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: ${isAlive ? 1 : 0.35};" />
-                      ${!isAlive ? '<div style="position: absolute; inset:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); color: #ff4757; font-size: 0.85rem;">💀</div>' : ''}
+                      ${!isAlive ? '<div style="position: absolute; inset:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); color: #ff4757; font-size: 0.85rem;">💀</div>' : ''}
                     </div>
-                    <span style="font-size: 0.75rem; color: ${isAlive ? '#80ed99' : 'var(--text-muted)'}; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 68px;">${d.name}</span>
+                    <span style="font-size: 0.72rem; color: ${isAlive ? '#80ed99' : 'var(--text-muted)'}; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60px;">${d.name}</span>
                   </div>
                 `;
               }).join("")}
             </div>
           </div>
+
+          <div style="display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--text-muted); font-weight: 800;">VS</div>
+
+          <!-- CLAN DERROTADO -->
+          <div class="fantasy-panel" style="flex: 1; min-width: 280px; max-width: 400px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; background: rgba(10,9,17,0.6); opacity: 0.75;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+              <span class="badge badge-danger">💀 Clan Derrotado</span>
+              <span style="color: var(--text-muted); font-weight: 700; font-size: 1.05rem;">[${loserName}]</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">Sobrevivientes: <strong style="color: #ff6b6b;">0 / 5</strong></p>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+              ${losingSquad.map((d) => `
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                  <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); position: relative; background: #0a0911;">
+                    <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.35;" />
+                    <div style="position: absolute; inset:0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); color: #ff4757; font-size: 0.8rem;">💀</div>
+                  </div>
+                  <span style="font-size: 0.72rem; color: var(--text-muted); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 56px;">${d.name}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
         </div>
 
         <button type="button" class="btn btn-gold btn-lg" onclick="resetSquadWar()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
@@ -5931,7 +5971,7 @@ function endSquadWar(winningTeam) {
   playSound("victory");
 
   const winnerName = winningTeam === "A" ? squadNameA : squadNameB;
-  appendSquadLog(`🏆👑 <strong>¡GLORIA Y SUPREMACÍA TOTAL! ¡El escuadrón [${winnerName}] ha aniquilado al clan rival y conquistado la Arena 5v5!</strong>`, "gold");
+  appendSquadLog(`🛡️👑 <strong>¡GLORIA Y SUPREMACÍA TOTAL! ¡El escuadrón [${winnerName}] ha aniquilado al clan rival y conquistado la Arena 5v5!</strong>`, "gold");
 
   const container = document.getElementById("arena-container") || document.getElementById("coliseo-container");
   if (container) renderArenaContainer(container);
