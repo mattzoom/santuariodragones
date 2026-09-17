@@ -1,0 +1,1242 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "1"
+        }
+      ],
+      "destination": "/dragon/ni-h-ggr.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "2"
+        }
+      ],
+      "destination": "/dragon/fafnir.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "3"
+        }
+      ],
+      "destination": "/dragon/j-rmungandr.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "4"
+        }
+      ],
+      "destination": "/dragon/goinn.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "5"
+        }
+      ],
+      "destination": "/dragon/moinn.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "6"
+        }
+      ],
+      "destination": "/dragon/grabakr.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "7"
+        }
+      ],
+      "destination": "/dragon/grafvolludr.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "8"
+        }
+      ],
+      "destination": "/dragon/svafnir.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "9"
+        }
+      ],
+      "destination": "/dragon/ofnir.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "10"
+        }
+      ],
+      "destination": "/dragon/lindwyrm-de-g-taland.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "11"
+        }
+      ],
+      "destination": "/dragon/ladon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "12"
+        }
+      ],
+      "destination": "/dragon/hidra-de-lerna.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "13"
+        }
+      ],
+      "destination": "/dragon/piton-de-delfos.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "14"
+        }
+      ],
+      "destination": "/dragon/dragon-de-colquide.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "15"
+        }
+      ],
+      "destination": "/dragon/dragon-de-ismene.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "16"
+        }
+      ],
+      "destination": "/dragon/ceto.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "17"
+        }
+      ],
+      "destination": "/dragon/campe.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "18"
+        }
+      ],
+      "destination": "/dragon/tifon-dragon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "19"
+        }
+      ],
+      "destination": "/dragon/drakon-nemeios.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "20"
+        }
+      ],
+      "destination": "/dragon/leviatan.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "21"
+        }
+      ],
+      "destination": "/dragon/shen-lung.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "22"
+        }
+      ],
+      "destination": "/dragon/t-ien-lung.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "23"
+        }
+      ],
+      "destination": "/dragon/ti-lung.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "24"
+        }
+      ],
+      "destination": "/dragon/fu-ts-an-lung.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "25"
+        }
+      ],
+      "destination": "/dragon/ying-lung.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "26"
+        }
+      ],
+      "destination": "/dragon/lung-wang.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "27"
+        }
+      ],
+      "destination": "/dragon/yamata-no-orochi.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "28"
+        }
+      ],
+      "destination": "/dragon/ryujin.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "29"
+        }
+      ],
+      "destination": "/dragon/kiyohime.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "30"
+        }
+      ],
+      "destination": "/dragon/mizuchi.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "31"
+        }
+      ],
+      "destination": "/dragon/imoogi.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "32"
+        }
+      ],
+      "destination": "/dragon/yong.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "33"
+        }
+      ],
+      "destination": "/dragon/zhulong.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "34"
+        }
+      ],
+      "destination": "/dragon/druk-del-bhutan.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "35"
+        }
+      ],
+      "destination": "/dragon/yulong.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "36"
+        }
+      ],
+      "destination": "/dragon/quetzalcoatl.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "37"
+        }
+      ],
+      "destination": "/dragon/xiuhcoatl.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "38"
+        }
+      ],
+      "destination": "/dragon/kukulkan.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "39"
+        }
+      ],
+      "destination": "/dragon/amaru.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "40"
+        }
+      ],
+      "destination": "/dragon/trentren-vilu.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "41"
+        }
+      ],
+      "destination": "/dragon/caicai-vilu.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "42"
+        }
+      ],
+      "destination": "/dragon/alicanto-dorado.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "43"
+        }
+      ],
+      "destination": "/dragon/bohitu.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "44"
+        }
+      ],
+      "destination": "/dragon/q-uq-umatz.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "45"
+        }
+      ],
+      "destination": "/dragon/coatlicue-serpiente.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "46"
+        }
+      ],
+      "destination": "/dragon/y-ddraig-goch.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "47"
+        }
+      ],
+      "destination": "/dragon/wyvern-de-wessex.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "48"
+        }
+      ],
+      "destination": "/dragon/knucker-de-sussex.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "49"
+        }
+      ],
+      "destination": "/dragon/dragon-blanco-sajon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "50"
+        }
+      ],
+      "destination": "/dragon/linton-worm.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "51"
+        }
+      ],
+      "destination": "/dragon/lambton-worm.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "52"
+        }
+      ],
+      "destination": "/dragon/gurvelen.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "53"
+        }
+      ],
+      "destination": "/dragon/tarasque-de-provenza.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "54"
+        }
+      ],
+      "destination": "/dragon/longwitton-dragon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "55"
+        }
+      ],
+      "destination": "/dragon/cuelebre-de-asturias.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "56"
+        }
+      ],
+      "destination": "/dragon/zmey-gorynych.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "57"
+        }
+      ],
+      "destination": "/dragon/balaur.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "58"
+        }
+      ],
+      "destination": "/dragon/zirnitra.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "59"
+        }
+      ],
+      "destination": "/dragon/smok-wawelski.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "60"
+        }
+      ],
+      "destination": "/dragon/zilant.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "61"
+        }
+      ],
+      "destination": "/dragon/kulshedra.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "62"
+        }
+      ],
+      "destination": "/dragon/illuyanka.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "63"
+        }
+      ],
+      "destination": "/dragon/yilbeg-n.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "64"
+        }
+      ],
+      "destination": "/dragon/chuvash-yish.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "65"
+        }
+      ],
+      "destination": "/dragon/huracan.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "66"
+        }
+      ],
+      "destination": "/dragon/tiamat.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "67"
+        }
+      ],
+      "destination": "/dragon/kur.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "68"
+        }
+      ],
+      "destination": "/dragon/apep-apofis.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "69"
+        }
+      ],
+      "destination": "/dragon/azhi-dahaka.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "70"
+        }
+      ],
+      "destination": "/dragon/mu-o-u-sirrush.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "71"
+        }
+      ],
+      "destination": "/dragon/gandarewa.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "72"
+        }
+      ],
+      "destination": "/dragon/labbu.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "73"
+        }
+      ],
+      "destination": "/dragon/illuyanka-hatti.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "74"
+        }
+      ],
+      "destination": "/dragon/shedu-serpiente.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "75"
+        }
+      ],
+      "destination": "/dragon/skrimsl.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "76"
+        }
+      ],
+      "destination": "/dragon/vritra.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "77"
+        }
+      ],
+      "destination": "/dragon/kaliya.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "78"
+        }
+      ],
+      "destination": "/dragon/phaya-naga.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "79"
+        }
+      ],
+      "destination": "/dragon/bakunawa.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "80"
+        }
+      ],
+      "destination": "/dragon/makara-dragon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "81"
+        }
+      ],
+      "destination": "/dragon/naga-vasuki.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "82"
+        }
+      ],
+      "destination": "/dragon/antaboga.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "83"
+        }
+      ],
+      "destination": "/dragon/taxaka.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "84"
+        }
+      ],
+      "destination": "/dragon/dragon-de-san-jorge.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "85"
+        }
+      ],
+      "destination": "/dragon/peluda-de-maine.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "86"
+        }
+      ],
+      "destination": "/dragon/basilisco-de-vilna.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "87"
+        }
+      ],
+      "destination": "/dragon/cocatriz-de-hampshire.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "88"
+        }
+      ],
+      "destination": "/dragon/gargola-de-ruan.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "89"
+        }
+      ],
+      "destination": "/dragon/herensuge-vasco.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "90"
+        }
+      ],
+      "destination": "/dragon/bisu-de-cerdena.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "91"
+        }
+      ],
+      "destination": "/dragon/guivre-de-borgona.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "92"
+        }
+      ],
+      "destination": "/dragon/vouivre-de-los-alpes.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "93"
+        }
+      ],
+      "destination": "/dragon/dragon-de-la-cueva-de-drachenfels.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "94"
+        }
+      ],
+      "destination": "/dragon/dragon-astral-del-cosmos.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "95"
+        }
+      ],
+      "destination": "/dragon/dragon-de-magma-ancestral.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "96"
+        }
+      ],
+      "destination": "/dragon/dragon-de-cristal-de-aurora.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "97"
+        }
+      ],
+      "destination": "/dragon/dragon-del-abismo-de-sombras.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "98"
+        }
+      ],
+      "destination": "/dragon/dragon-de-la-tormenta-solar.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "99"
+        }
+      ],
+      "destination": "/dragon/dragon-fenix-de-esmeralda.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "100"
+        }
+      ],
+      "destination": "/dragon/dragon-de-runas-antiguas.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "101"
+        }
+      ],
+      "destination": "/dragon/ignitharyon.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "102"
+        }
+      ],
+      "destination": "/dragon/zenith.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dragon",
+          "value": "103"
+        }
+      ],
+      "destination": "/dragon/traxes.html",
+      "permanent": true
+    }
+  ]
+}

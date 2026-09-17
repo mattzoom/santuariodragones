@@ -34,7 +34,7 @@ subpages = [
 
 for sp in subpages:
     html = template
-    url = f"https://santuario-dragones.vercel.app/{sp['file']}"
+    url = f"https://santuariodragones.vercel.app/{sp['file']}"
     html = re.sub(r'<title>.*?</title>', f'<title>{sp["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{sp["desc"]}">', html)
     html = re.sub(r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{url}">', html)

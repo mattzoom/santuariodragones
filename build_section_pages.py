@@ -12,21 +12,21 @@ sections = [
         'tab': 'magic',
         'title': 'Magia Draconiana | Santuario Secreto de Dragones',
         'desc': 'Explorá las leyes ancestrales de la magia draconiana, el ritual del bastón de equilibrio y la forja de sigilos sagrados.',
-        'url': 'https://santuario-dragones.vercel.app/magia-draconiana.html'
+        'url': 'https://santuariodragones.vercel.app/magia-draconiana.html'
     },
     {
         'file': 'test-draconiano.html',
         'tab': 'quiz',
         'title': 'Test Draconiano de Afinidad | Santuario Secreto de Dragones',
         'desc': 'Descubrí cuál de los 100 dragones legendarios es tu guardián y compañero espiritual según tus decisiones.',
-        'url': 'https://santuario-dragones.vercel.app/test-draconiano.html'
+        'url': 'https://santuariodragones.vercel.app/test-draconiano.html'
     },
     {
         'file': 'favoritos.html',
         'tab': 'favorites',
         'title': 'Mis Dragones Favoritos | Santuario Secreto de Dragones',
         'desc': 'Tu guarida personal con los dragones que elegiste durante tu recorrido por el Santuario.',
-        'url': 'https://santuario-dragones.vercel.app/favoritos.html'
+        'url': 'https://santuariodragones.vercel.app/favoritos.html'
     }
 ]
 

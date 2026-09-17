@@ -27,7 +27,7 @@ for b in blocks:
 
 # Generate sitemap.xml
 sitemap_path = os.path.join(root_dir, 'sitemap.xml')
-baseUrl = "https://santuario-dragones.vercel.app"
+baseUrl = "https://santuariodragones.vercel.app"
 
 mythologies = [
     "Nórdica y Germánica", "Griega y Romana", "Oriental (Asia)", 

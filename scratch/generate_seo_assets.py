@@ -12,7 +12,7 @@ print(f"Extracted {len(dragon_blocks)} dragon blocks")
 
 # Generate sitemap.xml
 sitemap_path = os.path.join(root_dir, 'sitemap.xml')
-baseUrl = "https://santuario-dragones.vercel.app"
+baseUrl = "https://santuariodragones.vercel.app"
 
 mythologies = ["Nórdica y Germánica", "Griega y Romana", "Oriental (Asia)", "Celta y Británica", "Eslava y Este de Europa", "América Precolombina", "Mesopotámica y Medio Oriente", "Hindú y Sudeste Asiático", "Europea Continental", "Leyenda del Santuario"]
 elements = ["Fuego", "Agua", "Tierra", "Viento", "Rayo", "Hielo", "Veneno", "Sombra", "Luz", "Magma", "Tormenta", "Cristal", "Naturaleza"]
