@@ -89,18 +89,19 @@
       <div class="header-container">
         <div class="brand-title">
           <span class="brand-icon">🐉</span>
-          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
-                        <nav class="nav-tabs">
-          <a class="nav-tab active" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
-          <a class="nav-tab" data-tab="arena" href="/arena.html">⚔️ Arena</a>
-          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
-          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
-          <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
+        <nav class="nav-tabs">
+          <a class="nav-tab active" data-tab="encyclopedia" href="/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab" data-tab="arena" href="/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab" data-tab="favorites" href="/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
           <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
         </div>
       </div>
@@ -111,18 +112,18 @@
     <section class="dragon-detail-standalone-section" style="max-width: 900px; margin: 0.5rem auto; padding: 0 0.3rem;">
       <div style="margin-bottom: 0.8rem;">
         <a href="/" onclick="if (document.referrer &amp;&amp; document.referrer.includes(window.location.host)) { history.back(); return false; }" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 8px 14px; font-size: 0.9rem;">
-          ⬅️ Volver a la Enciclopedia
+          <span data-i18n="btn_back_encyclopedia">⬅️ Volver a la Enciclopedia</span>
         </a>
       </div>
 
       <article class="fantasy-panel dragon-standalone-card" style="padding: 1rem; border-radius: 14px; border: 2px solid var(--gold-main); background: rgba(12, 11, 20, 0.95); box-shadow: 0 10px 35px rgba(0,0,0,0.8);">
         
         <header style="text-align: center; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-panel); padding-bottom: 1rem;">
-          <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
+          <span class="badge" data-dragon-id-badge="25" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
             📜 Dragón #25
           </span>
           <h1 class="hero-title" style="font-size: 2.8rem; color: var(--gold-main); margin: 0.8rem 0 0.4rem 0; font-family: var(--font-heading); text-align: center;">Ying-lung</h1>
-          <p class="dragon-standalone-subtitle" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0 auto; text-align: center; width: 100%; display: block;">"El Dragón Alado con Caimán"</p>
+          <p class="dragon-standalone-subtitle trans-lore-title" data-es="El Dragón Alado con Caimán" data-en="The Winged Dragon with Alligator" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0 auto; text-align: center; width: 100%; display: block;">"El Dragón Alado con Caimán"</p>
         </header>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; align-items: start;">
@@ -134,27 +135,37 @@
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 1rem;">
-              <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🏛️ Mitología: Oriental (Asia)</span>
-              <span class="badge" style="background: rgba(42,157,143,0.15); border: 1px solid var(--color-teal); color: var(--color-teal); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🐉 Tipo: Shen</span>
-              <span class="badge" style="background: rgba(231,111,81,0.15); border: 1px solid #e76f51; color: #e76f51; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🔥 Elemento: Agua</span>
-              <span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">⚠️ Peligrosidad: 4/5 (⭐⭐⭐⭐)</span>
+              <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🏛️ <span data-i18n="stat_mythology">Mitología</span>: <span class="trans-myth" data-raw="Oriental (Asia)">Oriental (Asia)</span>
+              </span>
+              <span class="badge" style="background: rgba(42,157,143,0.15); border: 1px solid var(--color-teal); color: var(--color-teal); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🐉 <span data-i18n="stat_type">Tipo</span>: <span class="trans-type" data-raw="Shen">Shen</span>
+              </span>
+              <span class="badge" style="background: rgba(231,111,81,0.15); border: 1px solid #e76f51; color: #e76f51; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🔥 <span data-i18n="stat_element">Elemento</span>: <span class="trans-elem" data-raw="Agua">Agua</span>
+              </span>
+              <span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                ⚠️ <span data-i18n="stat_danger">Peligrosidad</span>: 4/5 (⭐⭐⭐⭐)
+              </span>
             </div>
           </div>
 
           <!-- Column 2: Data & Scroll -->
           <div>
             <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-panel); margin-bottom: 1rem;">
-              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.4rem;">📊 Datos de Combate & Hábitat</h3>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🏡 Hábitat:</strong> <span style="color: var(--text-main);">Lagos Ancestrales de Hubei</span></p>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>⚡ Habilidad Especial:</strong> <span style="color: var(--text-main);">Canalización de Riadas y Control de Vientos</span></p>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🛡️ Debilidad:</strong> <span style="color: var(--text-main);">Flechas de Bambú Sagrado</span></p>
+              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.4rem;">
+                📊 <span data-i18n="combat_data_title">Datos de Combate & Hábitat</span>
+              </h3>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🏡 <span data-i18n="stat_habitat">Hábitat</span>:</strong> <span class="trans-lore-habitat" data-es="Lagos Ancestrales de Hubei" data-en="Hubei Ancestral Lakes" style="color: var(--text-main);">Lagos Ancestrales de Hubei</span></p>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>⚡ <span data-i18n="stat_ability">Habilidad Especial</span>:</strong> <span class="trans-lore-ability" data-es="Canalización de Riadas y Control de Vientos" data-en="Flood Channeling and Wind Control" style="color: var(--text-main);">Canalización de Riadas y Control de Vientos</span></p>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🛡️ <span data-i18n="stat_weakness">Punto Débil</span>:</strong> <span class="trans-lore-weakness" data-es="Flechas de Bambú Sagrado" data-en="Sacred Bamboo Arrows" style="color: var(--text-main);">Flechas de Bambú Sagrado</span></p>
             </div>
 
             <div class="fantasy-panel" style="background: rgba(10,9,17,0.9); padding: 1rem; border-radius: 12px; border: 1px solid var(--gold-main);">
               <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-                📜 Pergamino de la Antigüedad
+                📜 <span data-i18n="ancient_scroll_title">Pergamino de la Antigüedad</span>
               </h3>
-              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); font-style: italic; margin-bottom: 0;">"El único dragón oriental tradicional con grandes alas de pluma de águila. Ayudó al mítico emperador Yu a detener las grandes inundaciones dibujando canales en la tierra con su larga cola."</p>
+              <p class="trans-lore-scroll" data-es="El único dragón oriental tradicional con grandes alas de pluma de águila. Ayudó al mítico emperador Yu a detener las grandes inundaciones dibujando canales en la tierra con su larga cola." data-en="The only traditional oriental dragon with large eagle feather wings. He helped the mythical Emperor Yu stop great floods by drawing channels in the ground with his long tail." style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); font-style: italic; margin-bottom: 0;">"El único dragón oriental tradicional con grandes alas de pluma de águila. Ayudó al mítico emperador Yu a detener las grandes inundaciones dibujando canales en la tierra con su larga cola."</p>
             </div>
           </div>
 
@@ -162,7 +173,7 @@
 
         <footer style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-panel); padding-top: 1rem;">
           <a href="/" class="btn btn-gold btn-lg" style="text-decoration: none; display: inline-block; font-size: 1rem; padding: 10px 22px;">
-            📚 Volver al Catálogo de Dragones
+            <span data-i18n="btn_back_catalog">📚 Volver al Catálogo de Dragones</span>
           </a>
         </footer>
 
@@ -1483,6 +1494,10 @@
 
   </div>
 
+  <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="/js/bundle.min.js?v=8.2.0"></script>
   <!-- Vercel Web Analytics -->

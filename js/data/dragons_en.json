@@ -1,0 +1,723 @@
+{
+  "1": {
+    "title": "The Rodent at the Roots of the World",
+    "habitat": "Niflheim (The Frozen Underworld)",
+    "ability": "Breath of Corruption and Ancestral Bite",
+    "weakness": "Light of the Northern Lights",
+    "scroll": "In ancient Viking tales, Níðhöggr lives beneath the roots of the great tree Yggdrasil. It spends eternity gnawing at its frozen roots to destabilize the nine worlds. The wise men of the north said that when he flies down from the mountains with corpses on his wings, the world will change forever."
+  },
+  "2": {
+    "title": "The Keeper of the Cursed Treasure",
+    "habitat": "Breiðablik (Mountain Cave)",
+    "ability": "Impenetrable Skin and Golden Fire Breath",
+    "weakness": "Hidden weak spot under his left shoulder",
+    "scroll": "Fafnir was originally a dwarf prince so greedy that he transformed into a colossal dragon to protect his gold treasure and the cursed Andvaranaut ring. Its poison burned the grass where it walked and its roar made the fjords tremble."
+  },
+  "3": {
+    "title": "The Midgard Serpent",
+    "habitat": "Midgard Global Ocean",
+    "ability": "Gigantic Tidal Waves and Deadly Poison Eitr",
+    "weakness": "Thor's Hammer (Mjölnir)",
+    "scroll": "Son of Loki, this sea dragon grew so large that it managed to surround the entire Earth and bite its own tail. If it releases its tail, colossal waves will cover the continents. Viking sailors avoided dark waters for fear of awakening their turquoise scales."
+  },
+  "4": {
+    "title": "The Fog Digger",
+    "habitat": "Jotunheim Frozen Forests",
+    "ability": "Moss Camouflage and Lightning Digging",
+    "weakness": "Volcanic Fire",
+    "scroll": "An underground dragon covered in lichen and fossilized roots. It spent centuries sleeping under the Viking soil, feeding on rare minerals. They say that the cracks in the rocks of Norway are traces of their ancient excavations."
+  },
+  "5": {
+    "title": "The Peat Dweller",
+    "habitat": "Skáney Marshes",
+    "ability": "Thick Mud and Stone Flake Traps",
+    "weakness": "Strong Winds",
+    "scroll": "Brother of Goinn, Moinn dwells in the swamps where the fog never dissipates. Its scales are thick like granite tiles and it crawls through the mud without making a single sound."
+  },
+  "6": {
+    "title": "The Gray Flame of the Cavern",
+    "habitat": "Muspelheim Ash Caverns",
+    "ability": "Burning Ash Breath and Thermal Vision",
+    "weakness": "Glacier Water",
+    "scroll": "Whose name means 'Gray Back', this dragon has charcoal-colored scales that light up when enraged. It is said that he slept near the lava rivers and used the hot rocks as a pillow."
+  },
+  "7": {
+    "title": "The Lord of the Ancestral Graves",
+    "habitat": "Hvergelmir Pits",
+    "ability": "Sulfurous Acid Cloud",
+    "weakness": "Pure Air from the Heights",
+    "scroll": "Inhabitant of the depths where sulfurous geysers emanate. Grafvolludr emits toxic smoke that disorients anyone attempting to explore its underground lair."
+  },
+  "8": {
+    "title": "The Winter Sleeper",
+    "habitat": "Snow-Cap Summits",
+    "ability": "Chant of Instant Freezing",
+    "weakness": "Solar Torch Flame",
+    "scroll": "A frosty dragon whose soft roar sounds like the winter wind bringing deep sleep to travelers. Its scales look like polished crystals of ancient ice."
+  },
+  "9": {
+    "title": "The Coiling of the Mist",
+    "habitat": "Skies of Asgard",
+    "ability": "Silent Flight and Fog Cyclone",
+    "weakness": "Lightning",
+    "scroll": "It sailed through the Scandinavian skies camouflaged in dense clouds. Its thin and flexible body allowed it to slide through the air currents like a golden ribbon of diffused light."
+  },
+  "10": {
+    "title": "The Terror of the Roads of Sweden",
+    "habitat": "Götaland Valleys",
+    "ability": "Crushing Onslaught and Sharp Scales",
+    "weakness": "Sweet Milk and Mirrors",
+    "scroll": "A giant wingless lindwyrm, with a serpentine body and two powerful front legs that terrorized the ancient roads of Sweden. Folk tales said that if you offered him a bowl of freshly milked milk, he would fall asleep peacefully."
+  },
+  "11": {
+    "title": "The Guardian of the Golden Apples",
+    "habitat": "The Garden of the Hesperides",
+    "ability": "100 Talking Heads and Nonexistent Dream",
+    "weakness": "Hydra Poison Arrows",
+    "scroll": "This mythical hundred-headed dragon never slept. Each head spoke in a different language or tone to confuse intruders trying to steal the sacred golden apples of the goddess Hera. He was faced by the legendary Hercules."
+  },
+  "12": {
+    "title": "The Beast of the Infinite Swamp",
+    "habitat": "Lake Lerna",
+    "ability": "Head-for-Head Regeneration and Acidic Blood",
+    "weakness": "Cauterizing Fire",
+    "scroll": "Aquatic creature with multiple snake heads. If you cut off one head, two more would grow immediately. Its breath was so poisonous that it was enough to breathe near its lair to fall into a deep trance."
+  },
+  "13": {
+    "title": "The Oracle Serpent",
+    "habitat": "Mount Parnassus",
+    "ability": "Local Earthquakes and Shocking Earth Blow",
+    "weakness": "Golden Arrows of the God Apollo",
+    "scroll": "Daughter of the goddess Gaia, this serpent-dragon guarded the center of the Earth in Delphi. Its scales imitated the colors of rocks and mud, and its body was as wide as an ancient oak tree."
+  },
+  "14": {
+    "title": "The Insomniac of the Golden Fleece",
+    "habitat": "Sacred Forest of Ares (Colchis)",
+    "ability": "Deafening Whistle and Hypnotic Gaze",
+    "weakness": "Lulaby Potions of the Sorceress Medea",
+    "scroll": "Curled into the tree where the mythical Golden Fleece hung. He never closed his eyes and his whistle could be heard miles away. Jason and the Argonauts only managed to defeat him thanks to a magical sleep filter that Medea prepared."
+  },
+  "15": {
+    "title": "The Guardian of the Fountain of Ares",
+    "habitat": "Thebes Spring Fountain",
+    "ability": "High Pressure Water Jets and Warrior Teeth",
+    "weakness": "Tempered Bronze Spears",
+    "scroll": "Son of Ares, this dragon protected the sacred waters of Thebes. When the hero Cadmus defeated him, he planted his teeth in the ground and from them were born armed warriors complete with bronze shields."
+  },
+  "16": {
+    "title": "The Monster of the Abyssal Depths",
+    "habitat": "Aegean Sea",
+    "ability": "Tsunamis Ambassadors and Reef Scales",
+    "weakness": "Reflection of the Shield of Athena",
+    "scroll": "A voracious sea dragon sent by Poseidon. It had gigantic fins that looked like underwater bat wings and teeth like volcanic rock stalactites."
+  },
+  "17": {
+    "title": "The Jailer of Tartarus",
+    "habitat": "Tartarus Abyss",
+    "ability": "Venom Scorpion Tail and 50 Beast Heads",
+    "weakness": "The Primal Lightning of Zeus",
+    "scroll": "Monstrous guardian who guarded the Cyclops in the underworld. His body combined dragon parts, snakes on his feet, and dark wings that covered the stars."
+  },
+  "18": {
+    "title": "The Titan of a Hundred Hurricanes",
+    "habitat": "Mount Etna",
+    "ability": "Sulfur Flares and Cyclonic Winds",
+    "weakness": "The Master Lightning of Olympus",
+    "scroll": "Considered the father of all Greek monsters. Their heads touched the stars and a violent fire came out of their eyes capable of melting entire mountains."
+  },
+  "19": {
+    "title": "The Dragon of the Vineyards",
+    "habitat": "Peloponnese Valleys",
+    "ability": "Camouflage among Vines and Rapid Growth",
+    "weakness": "Extreme Cold",
+    "scroll": "A small dragon from the Greek hills that used to protect vineyards from pests by eating rodents and expelling a soft vapor that smelled like sweet grapes."
+  },
+  "20": {
+    "title": "The Ultimate Titan of the Deep",
+    "habitat": "Primordial Ocean Abyss",
+    "ability": "Boil of the Ocean and Sparks of Burning Fire",
+    "weakness": "The Celestial Chains of Time",
+    "scroll": "A water dragon of almost 500 kilometers. Leviathan is the ultimate titan of the deep: when he is hungry, the heat from his jaws makes the ocean boil. Your anatomy is a war machine. Back armored by rows of very hard scales and teeth like razors. The eyes shine, red and gold, like the first glimpse of dawn. Sparks fly from his mouth; from the nose, a thick smoke. If it wakes up, it brings lightning and gales that split the sky."
+  },
+  "21": {
+    "title": "The Weather Spirit Dragon",
+    "habitat": "Heavenly Sky Clouds",
+    "ability": "Control of Rain, Wind and Blessed Lightning",
+    "weakness": "Lack of Respect for Nature",
+    "scroll": "Bright blue dragon that flies without needing wings. In ancient China, farmers offered songs and tea to bring gentle rain to the rice crops. It is considered a symbol of wisdom and prosperity."
+  },
+  "22": {
+    "title": "The Celestial Dragon of the Gods",
+    "habitat": "Star Palaces",
+    "ability": "Shield of Divine Light and Comic Flight",
+    "weakness": "Fog of Deception",
+    "scroll": "The one in charge of pulling the chariots of the celestial gods and protecting the palaces of heaven. Its scales shine as if embedded with thousands of star gems."
+  },
+  "23": {
+    "title": "The Dragon of the Earth and the Rivers",
+    "habitat": "Depths of the Yellow River",
+    "ability": "Molding of Water Channels and Soft Earthquakes",
+    "weakness": "Extreme Drought",
+    "scroll": "Land dragon that lives under the beds of the great rivers of Asia. It was said that when Ti Lung swam beneath the earth, he created fertile valleys and crystalline springs."
+  },
+  "24": {
+    "title": "The Dragon of Hidden Treasures",
+    "habitat": "Volcanoes and Jade Mines",
+    "ability": "Lava Geysers and Diamond Creation",
+    "weakness": "Holy Spring Water",
+    "scroll": "This dragon lives in the depths of the volcano guarding the precious metals and gems of the planet. When he surfaces to greet the sun, he creates a volcano with his white-hot breath."
+  },
+  "25": {
+    "title": "The Winged Dragon with Alligator",
+    "habitat": "Hubei Ancestral Lakes",
+    "ability": "Flood Channeling and Wind Control",
+    "weakness": "Sacred Bamboo Arrows",
+    "scroll": "The only traditional oriental dragon with large eagle feather wings. He helped the mythical Emperor Yu stop great floods by drawing channels in the ground with his long tail."
+  },
+  "26": {
+    "title": "The Dragon King of the Four Seas",
+    "habitat": "Crystal Palace under the Sea",
+    "ability": "Human Transformation and Mastery of the Tides",
+    "weakness": "Stolen Wonderful Pearl",
+    "scroll": "Supreme governor of the four oceans (North, South, East and West). He lives in a palace built of coral and crystalline pearls, surrounded by an army of magical fish and shellfish generals."
+  },
+  "27": {
+    "title": "The Serpent with Eight Heads and Eight Tails",
+    "habitat": "Izumo Province (Japan)",
+    "ability": "Roar of Chaos and Eyes like Fire Lanterns",
+    "weakness": "Sake de Ocho Veces Refinado",
+    "scroll": "Gigantic Japanese dragon with 8 heads and 8 tails, whose body occupied eight valleys and eight hills. Moss, cypresses and ancient cedars grew on their backs. He was defeated by the cunning god Susanoo."
+  },
+  "28": {
+    "title": "The Dragon God of the Shinto Ocean",
+    "habitat": "Ryūgū-jō (Dragon Palace)",
+    "ability": "Tidal Jewels (Low Tide and High Tide Control)",
+    "weakness": "The Medicine of the Sea Jellyfish",
+    "scroll": "He has the power to manipulate the tides of the Sea of ​​Japan through two magical jewels: Kanju (low tide) and Manju (high tide). He is known for his generosity to kind-hearted sailors."
+  },
+  "29": {
+    "title": "The Flame of Passion Transformed",
+    "habitat": "Hidaka River",
+    "ability": "Vengeful Fire Breath and Ultra Fast Swim",
+    "weakness": "Temple Bronze Bell",
+    "scroll": "Legend has it that she was a young woman who, dominated by intense emotion, transformed into a meandering dragon capable of crossing raging rivers releasing sparks of fire from her mouth."
+  },
+  "30": {
+    "title": "The Freshwater Dragon",
+    "habitat": "Rivers and Lagoons of Nara",
+    "ability": "River Poison and Fog Hideout",
+    "weakness": "Wild Pumpkin Flowers",
+    "scroll": "A dragon with straight horns and the body of a water snake. It exhaled a poison that put the fish in the river to sleep until a local hero learned to neutralize it with healing plants."
+  },
+  "31": {
+    "title": "The Dragon in Power",
+    "habitat": "Seoraksan Mountains Caves",
+    "ability": "Millennial Patience and Blessing of the Sun",
+    "weakness": "Interruption of your Mystical Trance",
+    "scroll": "In Korean mythology, a giant snake must live a thousand years in peace to obtain a celestial jewel (Yeouiju) and transform its body into a majestic Sky Dragon."
+  },
+  "32": {
+    "title": "The Dragon of the Four Climates",
+    "habitat": "Summits of the Korean Peninsula",
+    "ability": "Summon of Winds of Spring",
+    "weakness": "Shrilling Metallic Noises",
+    "scroll": "Carrier of the shining jewel Yeouiju in its claws. It symbolizes harmony between natural elements and respect for ancestors."
+  },
+  "33": {
+    "title": "El Guardián del Fuego Estival",
+    "habitat": "Southern Hunan Mountains",
+    "ability": "Solar Heat and Vital Spark",
+    "weakness": "Freezing Rain",
+    "scroll": "It represents summer and the fire element within the traditional eastern cardinal points. Its fiery feathers illuminate the dark nights."
+  },
+  "34": {
+    "title": "The Thunder Dragon of the Heights",
+    "habitat": "Himalayan Mountains",
+    "ability": "High Mountain Thunder Roar",
+    "weakness": "Low Altitude",
+    "scroll": "The Thunder Dragon that adorns the national flag of Bhutan. Fly among the snow-capped peaks of the Himalayas holding pearls that represent wealth and peace."
+  },
+  "35": {
+    "title": "The Third Jade Prince",
+    "habitat": "Western Ocean and Jade Mountains",
+    "ability": "Equine Metamorphosis and Healing Jade Skin",
+    "weakness": "Burning Pearl of the Father",
+    "scroll": "Yulong (the Jade Dragon) is the third prince of the Western Sea Dragon King (Ao Lie). Immortalized in the immortal novel 'Journey to the West', after committing a youthful mistake he was forgiven by the goddess Guanyin and transformed into the majestic white horse that faithfully transported the monk Xuanzang on his pilgrimage to India."
+  },
+  "36": {
+    "title": "The Feathered Serpent of the Morning",
+    "habitat": "Tenochtitlan / Mesoamerican Skies",
+    "ability": "Wind Control, Divine Wisdom and Flight of Quetzal Feathers",
+    "weakness": "Dark Obsidian Mirrors",
+    "scroll": "One of the most revered deities of ancient Mexico. Mix the majesty of green snakes with the iridescent plumage of the quetzal bird. It brought knowledge of the stars, agriculture and the gentle evening wind."
+  },
+  "37": {
+    "title": "The Turquoise Fire Serpent",
+    "habitat": "Mount Coatepec",
+    "ability": "Ray of Solar Rays and Volcanic Heat",
+    "weakness": "Cold Cenote Water",
+    "scroll": "Utilizada como arma sagrada por el dios Huitzilopochtli. Its body was made up of turquoise tiles that burned with a bright blue flame capable of piercing any shield."
+  },
+  "38": {
+    "title": "The Serpent Vision of the Pyramid",
+    "habitat": "Chichen Itza",
+    "ability": "Dancing Shadow at the Solstices and Echo of Quetzal",
+    "weakness": "Total Solar Eclipses",
+    "scroll": "At the great pyramid of Chichén Itzá, each equinox the sunlight casts the serpentine shadow of Kukulkan descending the stairs to the great stone head at the base."
+  },
+  "39": {
+    "title": "The Winged Serpent of the Andes",
+    "habitat": "Summits of Cusco / Lake Titicaca",
+    "ability": "Destructive Hail and Call for Mountain Rain",
+    "weakness": "Dry Midday Sun",
+    "scroll": "Mythical snake dragon with flame head, condor wings and fish tail. The ancient Incas believed that the Amaru emerged from the peaks or lakes to announce transcendental changes in nature."
+  },
+  "40": {
+    "title": "The Protective Serpent of the Earth",
+    "habitat": "Hills and Mountain Ranges of the South",
+    "ability": "Mountain Uplift and Protective Earthquakes",
+    "weakness": "Caicai Vilu Tsunamis",
+    "scroll": "In Mapuche cosmology, Trentren Vilu is the benign earth serpent that raised the hills to save humanity from a giant flood caused by the sea serpent."
+  },
+  "41": {
+    "title": "The Tidal Serpent",
+    "habitat": "South Pacific Ocean",
+    "ability": "Sea Level Rise and Giant Waves",
+    "weakness": "The Song of Trentren Vilu",
+    "scroll": "Legendary sea serpent that rules over fish and oceans. Their fierce battle against Trentren gave rise to the Chiloé archipelago and its many picturesque islands."
+  },
+  "42": {
+    "title": "The Flying Dragon of Atacama",
+    "habitat": "Atacama Desert",
+    "ability": "Gold and Radiance Feeding Guide",
+    "weakness": "The Greed of Men",
+    "scroll": "Mysterious winged creature that feeds on veins of pure gold and silver in the desert. It emits a brilliant golden light that guides kind-hearted miners to hidden deposits."
+  },
+  "43": {
+    "title": "The Amazon River Dragon",
+    "habitat": "Amazon Rainforest River",
+    "ability": "Liana Camouflage and Jungle Song",
+    "weakness": "Iron Axes",
+    "scroll": "It protected the dense vegetation of the Amazon basin. It glided between the flakes of the giant trees as if it were a living vine that gave off a fluorescent green glow at night."
+  },
+  "44": {
+    "title": "The Resplendent Serpent of the Popol Vuh",
+    "habitat": "Green Skies of Guatemala",
+    "ability": "Creation of Crystalline Waters and Feathered Flight",
+    "weakness": "Coal Fire",
+    "scroll": "Cited in the sacred book Popol Vuh as one of the creator gods who meditated surrounded by green and blue feathers in the primordial waters."
+  },
+  "45": {
+    "title": "The Dragon Mother of the Stone Skirts",
+    "habitat": "Main Temple of Tenochtitlan",
+    "ability": "Instant Petrification of Invaders",
+    "weakness": "Full Moon Light",
+    "scroll": "Represented with two snake heads instead of a face that symbolize the balance between life and the earth that is reborn."
+  },
+  "46": {
+    "title": "The Red Dragon of Wales",
+    "habitat": "Snowdonia Mountains (Wales)",
+    "ability": "Roar of Freedom and Burning Breath",
+    "weakness": "Sweet Sweet Heather Wine",
+    "scroll": "The famous Red Dragon that appears proudly on the flag of Wales. He fought for centuries against the invading white dragon under the hill of Dinas Emrys until emerging victorious."
+  },
+  "47": {
+    "title": "The Lord of the Perilous Wings",
+    "habitat": "Hampshire woods",
+    "ability": "Venomous Tail Stinger and Diving Flight",
+    "weakness": "Rejecting Shields with Mirror",
+    "scroll": "A two-legged, membranous-winged dragon feared by Anglo-Saxon knights. It had a stinger at the tip of its tail similar to that of a gigantic scorpion."
+  },
+  "48": {
+    "title": "The Dragon of the Deep Well",
+    "habitat": "Knuckerhole (Lyminster)",
+    "ability": "Numbing Bite and Aquatic Ambush",
+    "weakness": "Magic Salt Pudding Cake",
+    "scroll": "It lived in underground water sources called 'Knuckerholes' which the villagers said were bottomless. He went out at night to feed on cattle until a cunning young man defeated him by offering him a giant cake."
+  },
+  "49": {
+    "title": "The Rival of the Mists",
+    "habitat": "Chalk Cliffs of Dover",
+    "ability": "Glacial Breath and Night Flight",
+    "weakness": "The Fire of the Red Dragon",
+    "scroll": "In the prophecies of the wizard Merlin, the White Dragon fought the Red Dragon in an underground duel that shook the foundations of Great Britain."
+  },
+  "50": {
+    "title": "The Twisting of the Scottish Hills",
+    "habitat": "Linton Hill (Scotland)",
+    "ability": "Oak Constriction and Breath Plague",
+    "weakness": "Spears tipped with burning peat",
+    "scroll": "A serpent dragon that coiled around a Scottish hill, destroying crops with its poisonous breath. He was defeated by the hero Laird of Lariston using a glowing spear."
+  },
+  "51": {
+    "title": "The Wear River Serpent",
+    "habitat": "County Durham",
+    "ability": "Severed Body Regeneration and Smothering Embrace",
+    "weakness": "Armor with Thorns of Steel",
+    "scroll": "The story goes that this dragon could put its parts back together if it was cut in half. Lord Lambton had to wear armor full of sharp blades and fight inside the river to defeat him."
+  },
+  "52": {
+    "title": "The Dragon of the Celtic Lake",
+    "habitat": "Lough Gur (Ireland)",
+    "ability": "Golden Mist Incantation",
+    "weakness": "Four Leaf Clover",
+    "scroll": "A peaceful dragon that came to the surface of the lake during full moon nights to sing magical melodies to the creatures of the forest."
+  },
+  "53": {
+    "title": "The Thornshell Monster",
+    "habitat": "Rhône River",
+    "ability": "Spiny Turtle Shell and Scorpion Tail",
+    "weakness": "Songs of Peace and Holy Water",
+    "scroll": "It had six short but powerful legs, a body protected by a shell of turtle spines and a lion's head with horse ears. He was tamed by Saint Martha with a gentle prayer."
+  },
+  "54": {
+    "title": "The Invisible Dragon of Northumberland",
+    "habitat": "Longwitton Wells",
+    "ability": "Total Invisibility and Freezing Breath",
+    "weakness": "See your own shadow reflected",
+    "scroll": "This dragon had the strange ability to turn completely invisible at will. You could only tell where it was by the trails of crushed grass it left behind as it walked."
+  },
+  "55": {
+    "title": "The Keeper of Hidden Treasures",
+    "habitat": "Caves of the Cantabrian Sea",
+    "ability": "Unstoppable Diamond Scales and Fire Eyes",
+    "weakness": "Bread with Pins or Lighted Mace",
+    "scroll": "Dragon with bat wings and scales so hard that no steel sword could pierce them. He only grew old when he retired to the bottom of the sea to take care of his riches."
+  },
+  "56": {
+    "title": "The Three-Headed Dragon of the kyiv Mountains",
+    "habitat": "Ash Mountains of Ukraine and Russia",
+    "ability": "Tripartite Fire and Copper Claws",
+    "weakness": "Hero Dobrynya's Magic Whip",
+    "scroll": "The most famous dragon in Slavic folklore. It has three heads that spit fire independently, black leather wings and walks on two powerful legs, clicking its copper claws."
+  },
+  "57": {
+    "title": "The Dragon with Seven Heads and Fine Fins",
+    "habitat": "Danube Valleys",
+    "ability": "Creation of Hail and Hurricanes",
+    "weakness": "The Enchanted Sword of Făt-Frumos",
+    "scroll": "A gigantic dragon from Romanian mythology with seven heads. When he opened all seven mouths at once, he created a toxic rainbow that attracted storms and fog towards the towns."
+  },
+  "58": {
+    "title": "The Magic Dragon of Sorcery",
+    "habitat": "Bosques Negros de Pomerania",
+    "ability": "Spark of Dark Magic and Illusion",
+    "weakness": "Pure Silver Amulets",
+    "scroll": "Revered by ancient sorcerers as the dragon god of magic. His midnight blue scales glowed with ancient runic symbols as he cast his spells."
+  },
+  "59": {
+    "title": "The Dragon of the Vistula Cave",
+    "habitat": "Wawel Hill (Krakow)",
+    "ability": "Llamaradas Devoradoras y Terremoto de Paso",
+    "weakness": "Sulfur Stuffed Sheep",
+    "scroll": "He lived in a cave beneath Wawel Castle in Krakow. He demanded weekly tributes of livestock until the ingenious shoemaker Skuba offered him a sheepskin laden with sulfur."
+  },
+  "60": {
+    "title": "The Crowned Dragon of Kazan",
+    "habitat": "Kaban Lake (Russia)",
+    "ability": "Crown of the Dragon King and Agile Flight",
+    "weakness": "Sacred Wormwood Herbs",
+    "scroll": "A beautiful wyvern that boasts a golden crown on its head and magical crow's feet. It is the official symbol of the city of Kazan today."
+  },
+  "61": {
+    "title": "The Incarnate Storm",
+    "habitat": "Albanian Underground Caverns",
+    "ability": "Drying of Springs and River Earthquakes",
+    "weakness": "The Benign Dragon (Drangue)",
+    "scroll": "A nine-headed female dragon snake that caused terrible droughts by swallowing water from rivers. Their natural enemy were the Drangue, legendary heroes with hidden wings."
+  },
+  "62": {
+    "title": "The Dragon of the Hittite Empire",
+    "habitat": "Anatolian Mountains",
+    "ability": "Life Force Theft and Ground Ambush",
+    "weakness": "Honey and Beer Banquets",
+    "scroll": "A fearsome dragon that managed to defeat the god of thunder in its first confrontation. He could only be caught when he was invited to a great banquet where he ate so much that he could not return to his cave."
+  },
+  "63": {
+    "title": "The Siberian Multi-Headed Dragon",
+    "habitat": "Siberian Frozen Steppes",
+    "ability": "Snowstorm Cavalcade and 6 or 9 Heads",
+    "weakness": "Intense Forging Heat",
+    "scroll": "Legendary monster of Turkish-Siberian folklore, hybrid of giant ogre and seven-headed dragon with glowing yellow eyes and serrated teeth. Rides a massive black ox crowned with ninety-nine intertwined horns across the frozen steppes."
+  },
+  "64": {
+    "title": "The Flying Fire Dragon",
+    "habitat": "Volga forests",
+    "ability": "Transformation into Meteriorite and Rain of Sparks",
+    "weakness": "Prayers of Grandmothers of the People",
+    "scroll": "It was believed that this dragon fell from the sky like a fiery meteorite and transformed upon landing into a peaceful person who helped the farms."
+  },
+  "65": {
+    "title": "Mr. Heart of Heaven",
+    "habitat": "Stormy Skies and Ruins of El Mirador",
+    "ability": "Spiral Jade Cyclone, Single Tail Earthquakes and Breath of Fertile Rain",
+    "weakness": "The Absolute Calm of the Solar Eye",
+    "scroll": "The colossal Hurricane (the great dragon of Mayan and Caribbean mythology) is the absolute lord of rotating winds, earthquakes and tropical storms. The word 'hurricane' comes directly from its name! It has a unique, rotating anatomy with two asymmetrical arms and a single spiral leg. His face is a stone mask carved from basalt with a mystical 'X' shaped eye and eyebrows of turquoise fire, exhaling the sacred jade rain."
+  },
+  "66": {
+    "title": "The Primordial Goddess of Chaotic Chaos",
+    "habitat": "The Primordial Ocean of Salt",
+    "ability": "Creation of Monster Legions and Cosmic Waves",
+    "weakness": "Marduk's Four Wind Arrows",
+    "scroll": "In the Babylonian myth Enūma Eliš, Tiamat is the dragon mother of the salt ocean. He embodied chaos before the creation of heaven and earth. Its scales contained all the storms in the universe."
+  },
+  "67": {
+    "title": "The Dragon of the Underworld of Sumeria",
+    "habitat": "The Void Abyss of Kur",
+    "ability": "Primordial Earthquakes and Light Absorption",
+    "weakness": "The Golden Boat of the God Enki",
+    "scroll": "Considered the first dragon recorded on cuneiform clay tablets from Sumeria. He lived between the world of the living and the shadowy abyss."
+  },
+  "68": {
+    "title": "The Sun-Devouring Serpent",
+    "habitat": "Duat (The Egyptian Underworld)",
+    "ability": "Solar Eclipses and Paralyzing Gaze",
+    "weakness": "The Spear of the God Ra and the Sacred Cat of Heliopolis",
+    "scroll": "Every night, the sun god Ra traveled in his solar boat through the underworld. Apep tried to swallow the boat to plunge the world into eternal darkness, but Ra and Seth defended it at dawn."
+  },
+  "69": {
+    "title": "The Three-Headed Dragon of Persia",
+    "habitat": "Mount Damavand",
+    "ability": "Blood Flooded by Poisonous Lizards",
+    "weakness": "Bound with Magical Chains by Fereydun",
+    "scroll": "A Persian dragon demon with three mouths, six eyes and three snake heads. It was said that if his neck was cut, poisonous spiders and scorpions would emerge from his blood."
+  },
+  "70": {
+    "title": "The Raging Dragon of the Ishtar Gate",
+    "habitat": "Babylon (Mesopotamia)",
+    "ability": "Body of a Lion, Horn of a Viper and Legs of an Eagle",
+    "weakness": "Respect to the Priests of Marduk",
+    "scroll": "The beautiful dragon carved into bright blue ceramic tiles at the Ishtar Gate in Babylon. It has the front legs of a lion, the hind legs of an eagle and a long snake's neck."
+  },
+  "71": {
+    "title": "The Dragon of the Golden Seas",
+    "habitat": "Vourukasha Ocean",
+    "ability": "Ship Eater and Iron Heel",
+    "weakness": "The Hero Garshasp",
+    "scroll": "A sea monster with gigantic claws that tried to devour the magical treasures of the Persian Ocean. Its golden scales reflected the light of the stars."
+  },
+  "72": {
+    "title": "The Dragon of a Hundred Leagues",
+    "habitat": "Mesopotamian Skies",
+    "ability": "Length of 60 Leagues and Devastating Breath",
+    "weakness": "The Lightning of the God Tishpak",
+    "scroll": "Created by the god of heaven to punish the excesses of humanity. It was more than 300 kilometers long and its breath could dry entire crops in a single day."
+  },
+  "73": {
+    "title": "The Anatolian Rock Dragon",
+    "habitat": "Cappadocia Canyons",
+    "ability": "Limestone Camouflage and Low Flying",
+    "weakness": "Fresh Rain Water",
+    "scroll": "A serpent dragon that lived in the fada chimneys of Cappadocia. It blended in with the porous rocks until it completely blended with the landscape."
+  },
+  "74": {
+    "title": "The Winged Guardian of the Palace",
+    "habitat": "Nineveh Palace",
+    "ability": "Divine Protection against Evil",
+    "weakness": "Destruction of the Runes of the Entrance",
+    "scroll": "A protective dragon carved at the entrance to Assyrian royal palaces to scare away evil spirits with its stern gaze alone."
+  },
+  "75": {
+    "title": "The Astral Dragon of Iceland",
+    "habitat": "Frozen Lakes and Fjords of Iceland",
+    "ability": "Astral Materialization, Mist Camouflage and Telluric Swimming",
+    "weakness": "Direct Sunlight without Fog",
+    "scroll": "The secret tomes reveal that Skrimsl is an astral water dragon living in a parallel energy dimension, capable of physically materializing in our world. It was sighted by sailors in the icy waters of Iceland in 1860! Its serpentine body without legs or wings has silvery and blue-green scales with a crest of soft feathery beards that float like dreams in the icy mist."
+  },
+  "76": {
+    "title": "The River Blocking Dragon",
+    "habitat": "Indus Mountains",
+    "ability": "Absorption of All the Waters of the World and Drought",
+    "weakness": "The Vajra Ray of God Indra",
+    "scroll": "In the Rigveda texts, Vritra was the Asura dragon who enclosed the 99 rivers of the world within his womb causing humanity's first great drought."
+  },
+  "77": {
+    "title": "The Five-Headed Poison Dragon",
+    "habitat": "Yamuna River (Vrindavan)",
+    "ability": "Water Boils with Poison and Five Cobra Hoods",
+    "weakness": "The Divine Dance of Young Krishna",
+    "scroll": "A five-headed dragon serpent that poisoned the waters of the Yamuna River. Krishna climbed onto their heads and performed a cosmic dance until he tamed her and asked her to swim peacefully towards the ocean."
+  },
+  "78": {
+    "title": "The Mekong River Dragon",
+    "habitat": "Mekong River",
+    "ability": "Mekong Fireballs and River Blessing",
+    "weakness": "Lack of Respect for the River",
+    "scroll": "It is believed to live in the depths of the Mekong River. Every year at the end of October the phenomenon of the 'Naga Fireballs' is observed, incandescent lights that rise from the water towards the sky."
+  },
+  "79": {
+    "title": "The Moon Eater of the Philippines",
+    "habitat": "Visayan Skies",
+    "ability": "Causes Lunar Eclipses by Swallowing the Moon",
+    "weakness": "Noise of Drums and Metal Pots being hit",
+    "scroll": "A gigantic sea dragon from the Philippines with a mouth as wide as the horizon. He fell in love with the seven moons in the sky and began to eat them one by one until the villagers learned to make so much noise with pots that he spat them out in fright."
+  },
+  "80": {
+    "title": "The Aquatic Monster Vehicle of the Goddesses",
+    "habitat": "Sacred Rivers of India",
+    "ability": "Crocodile Body, Elephant Trunk and Dragon Tail",
+    "weakness": "Sacred Silk Nets",
+    "scroll": "Mythical creature that combines the head of a crocodile or dragon with the body of a fish and an elephant's trunk. It is the sacred mount of the river goddess Ganga."
+  },
+  "81": {
+    "title": "The Dragon King of the Cosmic Rope",
+    "habitat": "Neck of God Shiva",
+    "ability": "Churning of the Ocean of Milk and Divine Resistance",
+    "weakness": "Garuḍa the Heavenly Bird",
+    "scroll": "Used by the devas and asuras as a gigantic rope around Mount Mandara to churn the ocean of milk and extract the elixir of immortality."
+  },
+  "82": {
+    "title": "The Bali Earth Dragon",
+    "habitat": "Depths of Mount Agung",
+    "ability": "Cosmic Meditation and Creation of the Bedawang Turtle",
+    "weakness": "Loud Noises",
+    "scroll": "In Balinese mythology, Antaboga created the giant tortoise Bedawang on which the entire island of Bali rests."
+  },
+  "83": {
+    "title": "The Dragon King of the Serpents of Takshashila",
+    "habitat": "Khandava forest",
+    "ability": "Poison Flight and Human Transformation",
+    "weakness": "The Serpent Sacrifice of Janamejaya",
+    "scroll": "Mentioned in the Mahabharata as the cunning dragon snake king who could change shape at will to protect his people."
+  },
+  "84": {
+    "title": "The Terror of the Villa of Silene",
+    "habitat": "Silene Lagoon (Libya / Medieval Europe)",
+    "ability": "Breath of Pestilence and Sharp Scales",
+    "weakness": "The Asalon Spear of Saint George and the Blessed Cross",
+    "scroll": "The most famous dragon in medieval tales of chivalry. He terrorized a kingdom by asking for daily rations until the knight Saint George confronted him to save the princess."
+  },
+  "85": {
+    "title": "The Beast of the Huisne River",
+    "habitat": "Huisne River (France)",
+    "ability": "Launch of Poisonous Spikes and River Tidal Wave",
+    "weakness": "Precise Cut in the Tail",
+    "scroll": "A strange dragon covered in green fur filled with poisonous spikes the size of javelins. It took refuge in the river and could shoot its spikes as if they were arrows."
+  },
+  "86": {
+    "title": "The King of Deadly Gaze",
+    "habitat": "Vilnius Catacombs",
+    "ability": "Petrification with Gaze and Drying Breath",
+    "weakness": "A Mirror that Reflects Your Own Look",
+    "scroll": "Born from a chicken egg hatched by a toad under an ominous star. He could petrify any living creature just by looking into its eyes."
+  },
+  "87": {
+    "title": "The Dragon with the Head of a Rooster",
+    "habitat": "Wherwell Village",
+    "ability": "Paralyzing Chant and Agile Flight",
+    "weakness": "The Crowing of a Royal Rooster",
+    "scroll": "A mythical being with the body of a wyvern and the head of a rooster with incandescent feathers. His very breath withered the flowers and caused the knights' horses to stumble."
+  },
+  "88": {
+    "title": "The Legendary Origin of the Cathedral Myth",
+    "habitat": "Marshes of the Left Bank of the Seine River (Normandy, France)",
+    "ability": "Scorching Fire Flares, Cyclonic Gusts and Floods",
+    "weakness": "The Prayers of Saint Roman (Bishop of Rouen)",
+    "scroll": "The Gargoyle of Rouen (known in French as La Gargouille) is the legendary creature that gave rise to the term and architectural myth of medieval gargoyles. According to 7th century Normandy tradition, this ferocious aquatic dragon with a long neck, bat-like wings and sharp claws inhabited the swamps of the Seine River. He devastated the shores, breathing out flames of fire, causing destructive floods, sinking boats and demanding annual human sacrifices from the inhabitants, until he was confronted by Bishop San Román."
+  },
+  "89": {
+    "title": "The Seven-Headed Dragon of the Pyrenees",
+    "habitat": "Caves of the Pyrenees",
+    "ability": "Starflight and Devouring Fire",
+    "weakness": "St. Michael's Bell rings",
+    "scroll": "Legendary Basque dragon that flew breathing flames from its seven mouths. He attracted travelers by singing with a hypnotic tone among the mountain gorges."
+  },
+  "90": {
+    "title": "The Sleepy Dragon of the Towers",
+    "habitat": "Nuragic Ruins of Sardinia",
+    "ability": "Song of Sweet Dreams",
+    "weakness": "Loud Bell Noises",
+    "scroll": "A small peaceful dragon that lives in the ancient Nuraghes towers of Sardinia. He spends the day sleeping in the sun and dreaming of colored stars."
+  },
+  "91": {
+    "title": "The Dragon of the French Vineyards",
+    "habitat": "Burgundy forests",
+    "ability": "Acid Sting and Gliding Flight",
+    "weakness": "See a Person Without Fear",
+    "scroll": "It had a long snake-like body with bat wings and deer horns. He would flee at full speed if someone looked him straight in the eyes without showing a drop of fear."
+  },
+  "92": {
+    "title": "The Dragon Lady of the Red Carbuncle",
+    "habitat": "Alpine lakes",
+    "ability": "The Carbuncle Gem of the Forehead (Sun Radiance)",
+    "weakness": "Steal the Gem when Bathing in the Lake",
+    "scroll": "He wears a bright red gemstone called 'Carbuncle' on his forehead that illuminates the mountains on cold nights. When he bathes in the crystal clear water of the lake, he leaves the gem on the shore."
+  },
+  "93": {
+    "title": "The Rhine River Dragon",
+    "habitat": "Drachenfels Rock (Germany)",
+    "ability": "Volcanic Fire Breath and Iron Scales",
+    "weakness": "The Balmung Sword of the Hero Siegfried",
+    "scroll": "He lived in a cave above the Rhine River demanding offerings. The hero Siegfried defeated him and by bathing in the dragon's blood he obtained impenetrable skin."
+  },
+  "94": {
+    "title": "The Constellation Weaver",
+    "habitat": "Shooting Star Orbit",
+    "ability": "Galaxy Dust and Cosmic Ray",
+    "weakness": "None known to mortals",
+    "scroll": "A mystical dragon whose transparent wings contain maps of distant galaxies. Fly in deep space lighting the shooting stars that the kids ask for at night."
+  },
+  "95": {
+    "title": "The Guardian of the Earth's Core",
+    "habitat": "Molten Core of the Planet",
+    "ability": "Lava Tsunami and Hot Obsidian Skin",
+    "weakness": "Stellar Ice",
+    "scroll": "Sleep peacefully near the center of the Earth. When you yawn, the world's volcanoes expel sparks of golden light and shining stones."
+  },
+  "96": {
+    "title": "The Reflection of the Polar Lights",
+    "habitat": "Eternal Ice Poles",
+    "ability": "Color Prism and Mirror Ray",
+    "weakness": "Absolute Darkness",
+    "scroll": "Its scales are pure quartz crystals that break down sunlight into the beautiful violet, green and pink colors of the northern lights."
+  },
+  "97": {
+    "title": "The Walker of Secret Dreams",
+    "habitat": "Twilight Dimension",
+    "ability": "Disembodied Passage and Smoke Vanishing",
+    "weakness": "Golden Lantern Light",
+    "scroll": "It glides smoothly through the shadows without making a sound. He likes to protect children's dreams by chasing away nightmares with his silver horns."
+  },
+  "98": {
+    "title": "The Spark of the Radiant Sun",
+    "habitat": "Solar Crown",
+    "ability": "Solar Flare and Light Speed Flight",
+    "weakness": "Frozen Comet Fog",
+    "scroll": "A majestic dragon composed of pure helium and hydrogen energy. Fly around the sun playing with solar flares."
+  },
+  "99": {
+    "title": "The Revenant of the Ancient Blades",
+    "habitat": "Unexplored Magical Forest",
+    "ability": "Giant Plant Sprouting and Seed Rebirth",
+    "weakness": "Coal Fire",
+    "scroll": "When it ages, it becomes a bright green shoot of a tree from which a vibrant young dragon is born full of energy to renew the forests."
+  },
+  "100": {
+    "title": "The Eternal Sage of the Sanctuary",
+    "habitat": "Secret Library of the Sanctuary",
+    "ability": "Knowledge of All Languages and Breath of Wisdom",
+    "weakness": "Oblivion",
+    "scroll": "The supreme guardian dragon of this encyclopedia. Inscribed on its scales are the stories of the world's more than 100 dragons and welcomes all young guardians who wish to learn about the greatness of dragons."
+  },
+  "101": {
+    "title": "The Heir of the Poisonous Fire",
+    "habitat": "Sacred Summits of the Sanctuary",
+    "ability": "Poisonous Green Flare, Healing Fire, and Agile Flight",
+    "weakness": "None",
+    "scroll": "Son of Magus Dragus and faithful adventure companion. Ignitharyon is an invincible wyvern with scarlet and gold scales capable of breathing green fire blasts of searing venom upon his rivals, as well as powerful healing fire that restores life and heals any wound. He possesses legendary strength so colossal that he is capable of defeating Leviathan himself in combat."
+  },
+  "102": {
+    "title": "The Impenetrable Twin of the Summits",
+    "habitat": "Meadows and Mystical Hills of the Sanctuary",
+    "ability": "Coordinated Double Vision, Dual Breath of Violet Fire and Impenetrable Scales",
+    "weakness": "Lack of coordination between heads due to distraction",
+    "scroll": "Younger son of Magus Dragus and brother of Ignitharyon and Traxes. Zenith is a unique two-headed Drake-type dragon, covered in armor of completely impenetrable violet scales. Its two independent heads allow it to look in all directions simultaneously and unleash synchronized bursts of mystical fire while running at full speed through the hills."
+  },
+  "103": {
+    "title": "The Lord of the Igneous Spirals",
+    "habitat": "Volcanic Craters of the Sanctuary",
+    "ability": "Cyclonic Vortex of Spiral Fire and Dominant Flight",
+    "weakness": "Arrow Shots Direct to the Wings and Sacred Obsidian Ax Strikes",
+    "scroll": "Son of Magus Dragus and brother of Ignitharyon and Zenith. Traxes is a majestic and ferocious European Dragon with imposing slate gray scales and wide membranous wings. It dominates the volcanic skies by deploying its legendary attack: cyclonic blasts of boiling fire that descend in a destructive spiral over the crater of the summits."
+  }
+}

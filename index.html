@@ -803,18 +803,19 @@
       <div class="header-container">
         <div class="brand-title">
           <span class="brand-icon">🐉</span>
-          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
-                        <nav class="nav-tabs">
-          <a class="nav-tab active" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
-          <a class="nav-tab" data-tab="arena" href="/arena.html">⚔️ Arena</a>
-          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
-          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
-          <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
+        <nav class="nav-tabs">
+          <a class="nav-tab active" data-tab="encyclopedia" href="/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab" data-tab="arena" href="/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab" data-tab="favorites" href="/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
           <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
         </div>
       </div>
@@ -829,36 +830,36 @@
           <div class="hero-emblem-wrap">
             <img src="/assets/ui/hero_emblem.webp?v=8.0.0" alt="Emblema del Santuario Secreto de Dragones" class="hero-emblem-img" width="290" height="290" fetchpriority="high" loading="eager" decoding="sync" />
           </div>
-          <h1 class="hero-title">El Códice Secreto de los Dragones</h1>
-          <p class="hero-subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
+          <h1 class="hero-title" data-i18n="hero_title">El Códice Secreto de los Dragones</h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">Te damos la bienvenida al Santuario Ancestral. Descubrí más de 100 criaturas de la historia y las mitologías del mundo.</p>
         </section>
         
         <!-- Search & Filter Controls Panel -->
         <div class="search-filter-section fantasy-panel">
           <div class="search-bar-wrap">
-            <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
+            <input type="text" id="search-input" class="search-input" data-i18n="search_placeholder" placeholder="🔍 Buscá por nombre, mitología, habilidad o pergamino histórico..." />
           </div>
 
           <div class="filters-grid">
             <div class="filter-group">
-              <label for="filter-mythology">Mitología / Origen:</label>
+              <label for="filter-mythology" data-i18n="filter_mythology_label">Mitología / Origen:</label>
               <select id="filter-mythology" class="filter-select"><option value="Todas">Todas las Mitologías</option></select>
             </div>
 
             <div class="filter-group">
-              <label for="filter-element">Elemento Principal:</label>
+              <label for="filter-element" data-i18n="filter_element_label">Elemento Principal:</label>
               <select id="filter-element" class="filter-select"><option value="Todos">Todos los Elementos</option></select>
             </div>
 
             <div class="filter-group">
-              <label for="filter-type">Tipo de Cuerpo:</label>
+              <label for="filter-type" data-i18n="filter_type_label">Tipo de Cuerpo:</label>
               <select id="filter-type" class="filter-select"><option value="Todos">Todos los Tipos de Cuerpo</option></select>
             </div>
 
             <div class="filter-group">
-              <label for="filter-danger">Nivel de Peligro:</label>
+              <label for="filter-danger" data-i18n="filter_danger_label">Nivel de Peligro:</label>
               <select id="filter-danger" class="filter-select">
-                <option value="Todos">Todos los Niveles</option>
+                <option value="Todos" data-i18n="opt_all_danger">Todos los Niveles</option>
                 <option value="1">🔥 (Peligro 1)</option>
                 <option value="2">🔥🔥 (Peligro 2)</option>
                 <option value="3">🔥🔥🔥 (Peligro 3)</option>
@@ -868,17 +869,17 @@
             </div>
 
             <div class="filter-group">
-              <label for="filter-sort">Ordenar Por:</label>
+              <label for="filter-sort" data-i18n="filter_sort_label">Ordenar Por:</label>
               <select id="filter-sort" class="filter-select">
-                <option value="name-asc">Nombre (A-Z)</option>
-                <option value="name-desc">Nombre (Z-A)</option>
-                <option value="danger-desc">Peligro (Mayor a Menor)</option>
-                <option value="danger-asc">Peligro (Menor a Mayor)</option>
+                <option value="name-asc" data-i18n="sort_name_asc">Nombre (A-Z)</option>
+                <option value="name-desc" data-i18n="sort_name_desc">Nombre (Z-A)</option>
+                <option value="danger-desc" data-i18n="sort_danger_desc">Peligro (Mayor a Menor)</option>
+                <option value="danger-asc" data-i18n="sort_danger_asc">Peligro (Menor a Mayor)</option>
               </select>
             </div>
 
             <div class="filter-group">
-              <button class="btn btn-secondary" id="btn-reset-filters">🔄 Reiniciar Filtros</button>
+              <button class="btn btn-secondary" id="btn-reset-filters" data-i18n="btn_reset_filters">🔄 Reiniciar Filtros</button>
             </div>
           </div>
 
@@ -2538,6 +2539,9 @@
 
   </div>
 
+  <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
   <script src="js/bundle.min.js?v=8.2.0"></script>
   <!-- Vercel Web Analytics -->

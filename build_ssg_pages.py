@@ -1,9 +1,18 @@
-import os, re, shutil
+import os, re, shutil, json, html
 
 root_dir = r'c:\Users\matia\Documents\proyectos antigravity\dragones'
 dragons_file = os.path.join(root_dir, 'js', 'data', 'dragons.js')
+dragons_en_file = os.path.join(root_dir, 'js', 'data', 'dragons_en.json')
 template_file = os.path.join(root_dir, 'index.html')
 output_dir = os.path.join(root_dir, 'dragon')
+
+dragons_en = {}
+if os.path.exists(dragons_en_file):
+    with open(dragons_en_file, 'r', encoding='utf-8') as f:
+        dragons_en = json.load(f)
+
+def escape_attr(val):
+    return html.escape(str(val), quote=True)
 
 if os.path.exists(output_dir):
     shutil.rmtree(output_dir)
@@ -128,6 +137,13 @@ for d in dragons:
   </script>
 '''
 
+    d_en = dragons_en.get(str(d['id']), {})
+    title_en = d_en.get('title', d['title'])
+    habitat_en = d_en.get('habitat', d['habitat'])
+    ability_en = d_en.get('ability', d['ability'])
+    weakness_en = d_en.get('weakness', d['weakness'])
+    scroll_en = d_en.get('scroll', d['scroll'])
+
     stars = '⭐' * d['danger']
     
     # Epic Standalone Dragon Detail Page Layout
@@ -135,18 +151,18 @@ for d in dragons:
     <section class="dragon-detail-standalone-section" style="max-width: 900px; margin: 0.5rem auto; padding: 0 0.3rem;">
       <div style="margin-bottom: 0.8rem;">
         <a href="/" onclick="if (document.referrer &amp;&amp; document.referrer.includes(window.location.host)) {{ history.back(); return false; }}" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 8px 14px; font-size: 0.9rem;">
-          ⬅️ Volver a la Enciclopedia
+          <span data-i18n="btn_back_encyclopedia">⬅️ Volver a la Enciclopedia</span>
         </a>
       </div>
 
       <article class="fantasy-panel dragon-standalone-card" style="padding: 1rem; border-radius: 14px; border: 2px solid var(--gold-main); background: rgba(12, 11, 20, 0.95); box-shadow: 0 10px 35px rgba(0,0,0,0.8);">
         
         <header style="text-align: center; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-panel); padding-bottom: 1rem;">
-          <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
+          <span class="badge" data-dragon-id-badge="{d['id']}" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
             📜 Dragón #{d['id']}
           </span>
           <h1 class="hero-title" style="font-size: 2.8rem; color: var(--gold-main); margin: 0.8rem 0 0.4rem 0; font-family: var(--font-heading); text-align: center;">{d['name']}</h1>
-          <p class="dragon-standalone-subtitle" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0 auto; text-align: center; width: 100%; display: block;">"{d['title']}"</p>
+          <p class="dragon-standalone-subtitle trans-lore-title" data-es="{escape_attr(d['title'])}" data-en="{escape_attr(title_en)}" style="font-size: 1.3rem; font-style: italic; color: var(--color-teal); margin: 0 auto; text-align: center; width: 100%; display: block;">"{d['title']}"</p>
         </header>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; align-items: start;">
@@ -158,27 +174,37 @@ for d in dragons:
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 1rem;">
-              <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🏛️ Mitología: {d['mythology']}</span>
-              <span class="badge" style="background: rgba(42,157,143,0.15); border: 1px solid var(--color-teal); color: var(--color-teal); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🐉 Tipo: {d['type']}</span>
-              <span class="badge" style="background: rgba(231,111,81,0.15); border: 1px solid #e76f51; color: #e76f51; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">🔥 Elemento: {d['element']}</span>
-              <span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">⚠️ Peligrosidad: {d['danger']}/5 ({stars})</span>
+              <span class="badge" style="background: rgba(233,196,106,0.15); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🏛️ <span data-i18n="stat_mythology">Mitología</span>: <span class="trans-myth" data-raw="{d['mythology']}">{d['mythology']}</span>
+              </span>
+              <span class="badge" style="background: rgba(42,157,143,0.15); border: 1px solid var(--color-teal); color: var(--color-teal); padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🐉 <span data-i18n="stat_type">Tipo</span>: <span class="trans-type" data-raw="{d['type']}">{d['type']}</span>
+              </span>
+              <span class="badge" style="background: rgba(231,111,81,0.15); border: 1px solid #e76f51; color: #e76f51; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                🔥 <span data-i18n="stat_element">Elemento</span>: <span class="trans-elem" data-raw="{d['element']}">{d['element']}</span>
+              </span>
+              <span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 8px; font-weight: 700; text-align: left; font-size: 0.9rem;">
+                ⚠️ <span data-i18n="stat_danger">Peligrosidad</span>: {d['danger']}/5 ({stars})
+              </span>
             </div>
           </div>
 
           <!-- Column 2: Data & Scroll -->
           <div>
             <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-panel); margin-bottom: 1rem;">
-              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.4rem;">📊 Datos de Combate & Hábitat</h3>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🏡 Hábitat:</strong> <span style="color: var(--text-main);">{d['habitat']}</span></p>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>⚡ Habilidad Especial:</strong> <span style="color: var(--text-main);">{d['ability']}</span></p>
-              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🛡️ Debilidad:</strong> <span style="color: var(--text-main);">{d['weakness']}</span></p>
+              <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.4rem;">
+                📊 <span data-i18n="combat_data_title">Datos de Combate & Hábitat</span>
+              </h3>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🏡 <span data-i18n="stat_habitat">Hábitat</span>:</strong> <span class="trans-lore-habitat" data-es="{escape_attr(d['habitat'])}" data-en="{escape_attr(habitat_en)}" style="color: var(--text-main);">{d['habitat']}</span></p>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>⚡ <span data-i18n="stat_ability">Habilidad Especial</span>:</strong> <span class="trans-lore-ability" data-es="{escape_attr(d['ability'])}" data-en="{escape_attr(ability_en)}" style="color: var(--text-main);">{d['ability']}</span></p>
+              <p style="margin: 0.5rem 0; font-size: 0.95rem;"><strong>🛡️ <span data-i18n="stat_weakness">Punto Débil</span>:</strong> <span class="trans-lore-weakness" data-es="{escape_attr(d['weakness'])}" data-en="{escape_attr(weakness_en)}" style="color: var(--text-main);">{d['weakness']}</span></p>
             </div>
 
             <div class="fantasy-panel" style="background: rgba(10,9,17,0.9); padding: 1rem; border-radius: 12px; border: 1px solid var(--gold-main);">
               <h3 style="color: var(--gold-main); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-                📜 Pergamino de la Antigüedad
+                📜 <span data-i18n="ancient_scroll_title">Pergamino de la Antigüedad</span>
               </h3>
-              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); font-style: italic; margin-bottom: 0;">"{d['scroll']}"</p>
+              <p class="trans-lore-scroll" data-es="{escape_attr(d['scroll'])}" data-en="{escape_attr(scroll_en)}" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); font-style: italic; margin-bottom: 0;">"{d['scroll']}"</p>
             </div>
           </div>
 
@@ -186,7 +212,7 @@ for d in dragons:
 
         <footer style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-panel); padding-top: 1rem;">
           <a href="/" class="btn btn-gold btn-lg" style="text-decoration: none; display: inline-block; font-size: 1rem; padding: 10px 22px;">
-            📚 Volver al Catálogo de Dragones
+            <span data-i18n="btn_back_catalog">📚 Volver al Catálogo de Dragones</span>
           </a>
         </footer>
 
@@ -203,6 +229,8 @@ for d in dragons:
     
     # Inject OG meta tags
     page_html = page_html.replace('</head>', f'{og_meta}\n</head>')
+    page_html = page_html.replace('<script src="/js/i18n.js"></script>', '<script src="/js/data/dragons_en.js"></script>\n  <script src="/js/i18n.js"></script>')
+
     
     # Replace entire <main class="main-content"> ... </main> with the standalone detail page layout!
     main_regex = r'<main class="main-content">.*?</main>'
