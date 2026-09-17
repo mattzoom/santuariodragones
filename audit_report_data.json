@@ -1,0 +1,255 @@
+{
+  "dragons_data": {
+    "count": 0,
+    "missing_images": [],
+    "incomplete_records": []
+  },
+  "assets_audio": {
+    "found_files": [],
+    "missing_sound_files": []
+  },
+  "html_pages": {
+    "academia-anillo-1.html": {
+      "title": "Academia: Anillo 1: Código de Honor y Ética | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "academia-anillo-2.html": {
+      "title": "Academia: Anillo 2: Elementos y Guardianes Cardinales | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "academia-anillo-3.html": {
+      "title": "Academia: Anillo 3: El Chamán Draconiano y Medicina Sagrada | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "academia-anillo-4.html": {
+      "title": "Academia: Anillo 4: Meditación y Comunicación Mental | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "academia-anillo-5.html": {
+      "title": "Academia: Anillo 5: Consagración y Graduación | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "academia-draconiana.html": {
+      "title": "Academia Draconiana: Los 5 Anillos del Conocimiento | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "altar-draconiano.html": {
+      "title": "El Altar Draconiano y Herramientas Mágicas | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "altar-dragonscript.html": {
+      "title": "Dragon Script: El Alfabeto Sagrado | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "altar-espejo.html": {
+      "title": "El Espejo Mágico u Ojo de Dragón | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "altar-pentaculo.html": {
+      "title": "El Pentáculo de los 5 Elementos | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "altar-varita.html": {
+      "title": "La Varita o Bastón de Equilibrio | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "arena.html": {
+      "title": "Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "coliseo.html": {
+      "title": "Coliseo Draconiano: Torneo y Combates Legendarios | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "favoritos.html": {
+      "title": "Mis Dragones Favoritos | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "forja-de-sigilos.html": {
+      "title": "Forja de Sigilos Draconianos: Creá tu Glifo Sagrado | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "google228411ffdf33c5d6.html": {
+      "title": "",
+      "has_desc": false,
+      "has_viewport": false,
+      "has_favicon": false,
+      "has_canonical": false,
+      "has_manifest": false,
+      "has_bundle": false,
+      "has_css": false
+    },
+    "index.html": {
+      "title": "Santuario Secreto de Dragones | Enciclopedia Épica & Forja Interactiva",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "magia-draconiana.html": {
+      "title": "Magia Draconiana Ancestral: Fundamentos, Las 4 Leyes y Filosofía | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    },
+    "test-draconiano.html": {
+      "title": "Test Draconiano: ¿Qué Dragón Sos Vos? | Santuario de Dragones",
+      "has_desc": true,
+      "has_viewport": true,
+      "has_favicon": true,
+      "has_canonical": true,
+      "has_manifest": true,
+      "has_bundle": true,
+      "has_css": true
+    }
+  },
+  "pwa_manifest": {
+    "manifest_valid": true,
+    "manifest_details": {
+      "name": "Santuario Secreto de Dragones",
+      "short_name": "Santuario",
+      "start_url": "/",
+      "display": "standalone",
+      "theme_color": "#e9c46a",
+      "icons_count": 4,
+      "missing_icons": []
+    },
+    "sw_exists": true
+  },
+  "broken_links": [],
+  "missing_images": [],
+  "runtime_edge_tests": {
+    "index.html": {
+      "status": "OK",
+      "dom_length": 28060,
+      "has_app_root": true,
+      "has_footer": true,
+      "has_error_in_dom": false
+    },
+    "arena.html": {
+      "status": "OK",
+      "dom_length": 19372,
+      "has_app_root": true,
+      "has_footer": true,
+      "has_error_in_dom": false
+    },
+    "magia-draconiana.html": {
+      "status": "OK",
+      "dom_length": 22530,
+      "has_app_root": true,
+      "has_footer": true,
+      "has_error_in_dom": false
+    },
+    "test-draconiano.html": {
+      "status": "OK",
+      "dom_length": 13057,
+      "has_app_root": true,
+      "has_footer": true,
+      "has_error_in_dom": false
+    },
+    "favoritos.html": {
+      "status": "OK",
+      "dom_length": 12439,
+      "has_app_root": true,
+      "has_footer": true,
+      "has_error_in_dom": false
+    }
+  }
+}

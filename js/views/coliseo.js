@@ -648,62 +648,109 @@ function renderTournamentViewHtml() {
       ? tournamentOpponents.indexOf(currentOpponent) + 1
       : 1;
     const roundFailedName = STAGE_NAMES[roundIndex] || "Combate del Torneo";
+    const roundsWon = Math.max(0, roundIndex - 1);
 
     return `
-      <!-- PANTALLA DE DERROTA EN EL TORNEO -->
-      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.2) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.25);">
-        <div style="font-size: 3.5rem; margin-bottom: 6px;">💀⚔️💔</div>
-        <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAÍDO EN COMBATE!</h1>
-        <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 1.8rem;">
-          Tu dragón <strong>${playerDragon.name}</strong> ha caído en la arena ante <strong>${currentOpponent ? currentOpponent.name : 'el rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
+      <!-- PANTALLA DE DERROTA EN EL TORNEO ROGUELITE -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.18) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.3);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.8s infinite;">💀⚔️🥀</div>
+        <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 8px 0; text-shadow: 0 0 20px rgba(255,71,87,0.5);">
+          ¡CAÍDO EN LA ARENA ANCESTRAL!
+        </h1>
+        <p style="color: #f1faee; font-size: 1.15rem; max-width: 680px; margin: 0 auto 1.8rem auto; line-height: 1.5;">
+          Tu dragón <strong>${playerDragon.name}</strong> libró una batalla feroz pero fue superado por <strong>${currentOpponent ? currentOpponent.name : 'su rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
         </p>
 
-        <!-- CONTENEDOR DESIGNADO PARA LA ILUSTRACIÓN DE DERROTA -->
-        <div id="tournament-defeat-banner" style="width: 100%; max-width: 520px; min-height: 220px; border-radius: 16px; border: 2px dashed rgba(255,71,87,0.6); background: rgba(10,9,17,0.85); box-shadow: inset 0 0 30px rgba(255,71,87,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1.8rem auto; padding: 2rem 1.5rem; position: relative; overflow: hidden;">
-          <div style="font-size: 3.8rem; margin-bottom: 10px; filter: drop-shadow(0 0 12px rgba(255,71,87,0.5));">⚔️🥀🛡️</div>
-          <h3 style="color: #ff6b6b; font-size: 1.25rem; font-family: var(--font-heading); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 1px;">
-            Santuario de los Dragones Caídos
-          </h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 400px; margin: 0; line-height: 1.5;">
-            El fuego de tu guardián se ha extinguido momentáneamente en la arena. La gloria aguarda a quienes se levantan de las cenizas.
-          </p>
+        <!-- ILUSTRACIÓN OFICIAL DE LA DERROTA -->
+        <div style="max-width: 580px; margin: 0 auto 1.8rem auto; border-radius: 18px; overflow: hidden; border: 3px solid rgba(230,57,70,0.85); box-shadow: 0 10px 35px rgba(230,57,70,0.4); background: #0a0911;">
+          <picture>
+            <source srcset="/assets/ui/tournament_defeat.webp" type="image/webp">
+            <img src="/assets/ui/tournament_defeat.jpg" alt="El descanso del dragón caído en el Coliseo" style="width: 100%; height: auto; display: block;" />
+          </picture>
+          <div style="padding: 12px 18px; background: rgba(10, 9, 17, 0.95); border-top: 1px solid rgba(230,57,70,0.4); text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.88rem; font-style: italic; margin: 0; line-height: 1.45;">
+              "El descanso del guerrero: incluso los titanes más legendarios deben tomar aliento entre las cenizas. El fuego volverá a encenderse."
+            </p>
+          </div>
         </div>
 
-        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <!-- CONFRONTACIÓN DEL COMBATE FATAL -->
+        <div style="display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; max-width: 820px; margin-left: auto; margin-right: auto;">
           <!-- Tu Dragón Caído -->
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; opacity: 0.7; position: relative;">
-              <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover;" />
-              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 2rem;">💀</div>
+          <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid #ff4757; border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(255,71,87,0.25);">
+            <div style="margin-bottom: 10px;">
+              <span class="badge badge-danger" style="font-weight: 800; padding: 4px 10px;">💀 Héroe Caído</span>
             </div>
-            <span style="color: #ff6b6b; font-weight: 700; font-size: 1rem;">${playerDragon.name}</span>
-            <span class="badge badge-danger">Derrotado</span>
+            <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; position: relative; background: #0a0911;">
+              <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.45; filter: grayscale(40%);" />
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); color: #ff4757; font-size: 2rem;">💀</div>
+            </div>
+            <h3 style="color: #ff6b6b; font-size: 1.2rem; margin: 0 0 4px 0;">${playerDragon.name}</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${playerDragon.title}"</p>
+            <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+              <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
+              <span class="badge badge-type">${playerDragon.type}</span>
+            </div>
           </div>
 
-          <div style="font-size: 1.8rem; color: var(--text-muted); font-weight: bold;">VS</div>
+          <div style="display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--text-muted); font-weight: 800;">VS</div>
 
           <!-- Rival Vencedor -->
           ${currentOpponent ? `
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-              <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 15px rgba(233,196,106,0.4);">
+            <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(233,196,106,0.3);">
+              <div style="margin-bottom: 10px;">
+                <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; padding: 4px 10px;">👑 Rival Victorioso</span>
+              </div>
+              <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 16px rgba(233,196,106,0.4); background: #0a0911;">
                 <img src="${getDragonArtworkSrc(currentOpponent)}" alt="${currentOpponent.name}" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <span style="color: var(--gold-main); font-weight: 700; font-size: 1rem;">${currentOpponent.name}</span>
-              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f;">Vencedor</span>
+              <h3 style="color: var(--gold-main); font-size: 1.2rem; margin: 0 0 4px 0;">${currentOpponent.name}</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${currentOpponent.title}"</p>
+              <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                <span class="badge badge-element badge-${currentOpponent.element.toLowerCase()}">${currentOpponent.element}</span>
+                <span class="badge badge-type">${currentOpponent.type}</span>
+              </div>
             </div>
           ` : ''}
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <h4 style="color: var(--text-muted); margin-bottom: 8px; font-size: 1rem;">Reliquias reunidas antes de caer:</h4>
-          <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-            ${playerRelics.map(r => `<span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); font-size: 0.9rem;">⭐ ${r}</span>`).join("") || "<span style='color: var(--text-muted);'>Ninguna reliquia obtenida.</span>"}
+        <!-- RESUMEN ROGUELITE DEL INTENTO -->
+        <div class="fantasy-panel" style="max-width: 640px; margin: 0 auto 2rem auto; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; background: rgba(10,9,17,0.75);">
+          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 12px;">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Rondas Superadas</span>
+              <strong style="color: ${roundsWon > 0 ? '#80ed99' : 'var(--text-muted)'}; font-size: 1.3rem;">${roundsWon} de 3</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Instancia Alcanzada</span>
+              <strong style="color: var(--gold-main); font-size: 1.15rem;">${roundFailedName}</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Bendiciones Activas</span>
+              <strong style="color: #9d4edd; font-size: 1.3rem;">${playerRelics.length}</strong>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="color: var(--text-muted); margin: 0 0 8px 0; font-size: 0.9rem; text-align: left;">Reliquias Ancestrales reunidas en el intento:</h4>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+              ${playerRelics.length > 0
+                ? playerRelics.map(r => `<span class="badge" style="background: rgba(157,78,221,0.2); border: 1px solid #9d4edd; color: #e0aaff; font-size: 0.85rem; padding: 5px 10px;">✨ ${r}</span>`).join("")
+                : `<span style="color: var(--text-muted); font-style: italic; font-size: 0.88rem;">Caíste en la primera ronda antes de poder invocar bendiciones ancestrales.</span>`
+              }
+            </div>
           </div>
         </div>
 
-        <button type="button" class="btn btn-gold btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-          🔄 Intentar Nuevamente el Torneo
-        </button>
+        <!-- BOTONES DE ACCIÓN INMEDIATA -->
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <button type="button" class="btn btn-gold btn-lg" onclick="startTournamentRun()" style="padding: 14px 28px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
+            🔄 Reintentar con ${playerDragon.name}
+          </button>
+          <button type="button" class="btn btn-secondary btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 28px; font-weight: 700; font-size: 1.1rem;">
+            🐲 Elegir Otro Dragón
+          </button>
+        </div>
       </div>
     `;
   }

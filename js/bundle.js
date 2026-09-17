@@ -5001,62 +5001,109 @@ function renderTournamentViewHtml() {
       ? tournamentOpponents.indexOf(currentOpponent) + 1
       : 1;
     const roundFailedName = STAGE_NAMES[roundIndex] || "Combate del Torneo";
+    const roundsWon = Math.max(0, roundIndex - 1);
 
     return `
-      <!-- PANTALLA DE DERROTA EN EL TORNEO -->
-      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.2) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.25);">
-        <div style="font-size: 3.5rem; margin-bottom: 6px;">💀⚔️💔</div>
-        <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAÍDO EN COMBATE!</h1>
-        <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 1.8rem;">
-          Tu dragón <strong>${playerDragon.name}</strong> ha caído en la arena ante <strong>${currentOpponent ? currentOpponent.name : 'el rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
+      <!-- PANTALLA DE DERROTA EN EL TORNEO ROGUELITE -->
+      <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.18) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.3);">
+        <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.8s infinite;">💀⚔️🥀</div>
+        <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 8px 0; text-shadow: 0 0 20px rgba(255,71,87,0.5);">
+          ¡CAÍDO EN LA ARENA ANCESTRAL!
+        </h1>
+        <p style="color: #f1faee; font-size: 1.15rem; max-width: 680px; margin: 0 auto 1.8rem auto; line-height: 1.5;">
+          Tu dragón <strong>${playerDragon.name}</strong> libró una batalla feroz pero fue superado por <strong>${currentOpponent ? currentOpponent.name : 'su rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
         </p>
 
-        <!-- CONTENEDOR DESIGNADO PARA LA ILUSTRACIÓN DE DERROTA -->
-        <div id="tournament-defeat-banner" style="width: 100%; max-width: 520px; min-height: 220px; border-radius: 16px; border: 2px dashed rgba(255,71,87,0.6); background: rgba(10,9,17,0.85); box-shadow: inset 0 0 30px rgba(255,71,87,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1.8rem auto; padding: 2rem 1.5rem; position: relative; overflow: hidden;">
-          <div style="font-size: 3.8rem; margin-bottom: 10px; filter: drop-shadow(0 0 12px rgba(255,71,87,0.5));">⚔️🥀🛡️</div>
-          <h3 style="color: #ff6b6b; font-size: 1.25rem; font-family: var(--font-heading); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 1px;">
-            Santuario de los Dragones Caídos
-          </h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 400px; margin: 0; line-height: 1.5;">
-            El fuego de tu guardián se ha extinguido momentáneamente en la arena. La gloria aguarda a quienes se levantan de las cenizas.
-          </p>
+        <!-- ILUSTRACIÓN OFICIAL DE LA DERROTA -->
+        <div style="max-width: 580px; margin: 0 auto 1.8rem auto; border-radius: 18px; overflow: hidden; border: 3px solid rgba(230,57,70,0.85); box-shadow: 0 10px 35px rgba(230,57,70,0.4); background: #0a0911;">
+          <picture>
+            <source srcset="/assets/ui/tournament_defeat.webp" type="image/webp">
+            <img src="/assets/ui/tournament_defeat.jpg" alt="El descanso del dragón caído en el Coliseo" style="width: 100%; height: auto; display: block;" />
+          </picture>
+          <div style="padding: 12px 18px; background: rgba(10, 9, 17, 0.95); border-top: 1px solid rgba(230,57,70,0.4); text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.88rem; font-style: italic; margin: 0; line-height: 1.45;">
+              "El descanso del guerrero: incluso los titanes más legendarios deben tomar aliento entre las cenizas. El fuego volverá a encenderse."
+            </p>
+          </div>
         </div>
 
-        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <!-- CONFRONTACIÓN DEL COMBATE FATAL -->
+        <div style="display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; max-width: 820px; margin-left: auto; margin-right: auto;">
           <!-- Tu Dragón Caído -->
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; opacity: 0.7; position: relative;">
-              <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover;" />
-              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 2rem;">💀</div>
+          <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid #ff4757; border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(255,71,87,0.25);">
+            <div style="margin-bottom: 10px;">
+              <span class="badge badge-danger" style="font-weight: 800; padding: 4px 10px;">💀 Héroe Caído</span>
             </div>
-            <span style="color: #ff6b6b; font-weight: 700; font-size: 1rem;">${playerDragon.name}</span>
-            <span class="badge badge-danger">Derrotado</span>
+            <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; position: relative; background: #0a0911;">
+              <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.45; filter: grayscale(40%);" />
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); color: #ff4757; font-size: 2rem;">💀</div>
+            </div>
+            <h3 style="color: #ff6b6b; font-size: 1.2rem; margin: 0 0 4px 0;">${playerDragon.name}</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${playerDragon.title}"</p>
+            <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+              <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
+              <span class="badge badge-type">${playerDragon.type}</span>
+            </div>
           </div>
 
-          <div style="font-size: 1.8rem; color: var(--text-muted); font-weight: bold;">VS</div>
+          <div style="display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--text-muted); font-weight: 800;">VS</div>
 
           <!-- Rival Vencedor -->
           ${currentOpponent ? `
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-              <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 15px rgba(233,196,106,0.4);">
+            <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(233,196,106,0.3);">
+              <div style="margin-bottom: 10px;">
+                <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; padding: 4px 10px;">👑 Rival Victorioso</span>
+              </div>
+              <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 16px rgba(233,196,106,0.4); background: #0a0911;">
                 <img src="${getDragonArtworkSrc(currentOpponent)}" alt="${currentOpponent.name}" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <span style="color: var(--gold-main); font-weight: 700; font-size: 1rem;">${currentOpponent.name}</span>
-              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f;">Vencedor</span>
+              <h3 style="color: var(--gold-main); font-size: 1.2rem; margin: 0 0 4px 0;">${currentOpponent.name}</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${currentOpponent.title}"</p>
+              <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                <span class="badge badge-element badge-${currentOpponent.element.toLowerCase()}">${currentOpponent.element}</span>
+                <span class="badge badge-type">${currentOpponent.type}</span>
+              </div>
             </div>
           ` : ''}
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <h4 style="color: var(--text-muted); margin-bottom: 8px; font-size: 1rem;">Reliquias reunidas antes de caer:</h4>
-          <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-            ${playerRelics.map(r => `<span class="badge" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); font-size: 0.9rem;">⭐ ${r}</span>`).join("") || "<span style='color: var(--text-muted);'>Ninguna reliquia obtenida.</span>"}
+        <!-- RESUMEN ROGUELITE DEL INTENTO -->
+        <div class="fantasy-panel" style="max-width: 640px; margin: 0 auto 2rem auto; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; background: rgba(10,9,17,0.75);">
+          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 12px;">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Rondas Superadas</span>
+              <strong style="color: ${roundsWon > 0 ? '#80ed99' : 'var(--text-muted)'}; font-size: 1.3rem;">${roundsWon} de 3</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Instancia Alcanzada</span>
+              <strong style="color: var(--gold-main); font-size: 1.15rem;">${roundFailedName}</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Bendiciones Activas</span>
+              <strong style="color: #9d4edd; font-size: 1.3rem;">${playerRelics.length}</strong>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="color: var(--text-muted); margin: 0 0 8px 0; font-size: 0.9rem; text-align: left;">Reliquias Ancestrales reunidas en el intento:</h4>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+              ${playerRelics.length > 0
+                ? playerRelics.map(r => `<span class="badge" style="background: rgba(157,78,221,0.2); border: 1px solid #9d4edd; color: #e0aaff; font-size: 0.85rem; padding: 5px 10px;">✨ ${r}</span>`).join("")
+                : `<span style="color: var(--text-muted); font-style: italic; font-size: 0.88rem;">Caíste en la primera ronda antes de poder invocar bendiciones ancestrales.</span>`
+              }
+            </div>
           </div>
         </div>
 
-        <button type="button" class="btn btn-gold btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-          🔄 Intentar Nuevamente el Torneo
-        </button>
+        <!-- BOTONES DE ACCIÓN INMEDIATA -->
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <button type="button" class="btn btn-gold btn-lg" onclick="startTournamentRun()" style="padding: 14px 28px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
+            🔄 Reintentar con ${playerDragon.name}
+          </button>
+          <button type="button" class="btn btn-secondary btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 28px; font-weight: 700; font-size: 1.1rem;">
+            🐲 Elegir Otro Dragón
+          </button>
+        </div>
       </div>
     `;
   }
@@ -6319,6 +6366,229 @@ function initApp() {
 
   window.initApp = initApp;
 }
+
+// ==========================================================================
+// SISTEMA DE REPORTE DE ERRORES Y SUGERENCIAS (ESTILO LIBER 777 ENGINE)
+// ==========================================================================
+window.FEEDBACK_WEBHOOK_URL = window.FEEDBACK_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbwbHMfLxLqgcTvcQ6q-B_LjEusWXV27VQL51w6Y186McFCuwSmqpzQewU9AZKUk9Ljy/exec";
+
+window.ensureFeedbackModalInDOM = function() {
+  if (document.getElementById("feedback-modal-backdrop")) return;
+
+  const modalHtml = `
+  <div id="feedback-modal-backdrop" class="feedback-modal-backdrop" style="display:none;" onclick="if(event.target===this) closeFeedbackModal();">
+    <div class="feedback-modal-box">
+      <div class="feedback-modal-header">
+        <h3><span>🝯</span> <span>Reportar Error o Sugerencia</span></h3>
+        <button type="button" class="feedback-close-btn" onclick="closeFeedbackModal()" aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="feedback-form" onsubmit="submitFeedback(event)">
+        <div class="form-group">
+          <label for="fb-type">Tipo de Reporte:</label>
+          <select id="fb-type" required>
+            <option value="errata">Errata o corrección de lore / mitología</option>
+            <option value="bug">Falla técnica o bug (Arena, Combate, Test, Magia)</option>
+            <option value="sugerencia">Sugerencia o propuesta para el Santuario</option>
+            <option value="visual">Problema visual o de pantalla en celular</option>
+            <option value="otro">Otro asunto</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fb-context">Página / Sección de origen:</label>
+          <input type="text" id="fb-context" readonly>
+        </div>
+        <div class="form-group">
+          <label for="fb-key-cat">Dragón, modo o elemento afectado (opcional):</label>
+          <input type="text" id="fb-key-cat" placeholder="Ej: Dragón #15, Arena 5v5, Test Draconiano...">
+        </div>
+        <div class="form-group">
+          <label for="fb-message">Descripción del error o sugerencia:</label>
+          <textarea id="fb-message" rows="4" required placeholder="Describí qué ocurrió, qué viste mal o qué sugerís para mejorar el Santuario..."></textarea>
+        </div>
+        <!-- Campo Honeypot invisible Anti-Spam para atrapar bots -->
+        <div style="display:none !important; visibility:hidden; opacity:0; position:absolute; left:-9999px;">
+          <input type="text" id="fb-hp-website" name="website_verification_code" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="fb-email">Tu correo de contacto (opcional):</label>
+          <input type="email" id="fb-email" placeholder="Por si querés que te avisemos cuando lo resolvamos">
+        </div>
+        <div id="fb-status-msg" style="display:none; padding:0.6rem 0.8rem; border-radius:8px; margin-bottom:1rem; font-size:0.88rem;"></div>
+        <div class="feedback-modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeFeedbackModal()">Cancelar</button>
+          <button type="submit" id="fb-submit-btn" class="btn-submit">
+            <span id="fb-btn-text">Enviar Reporte</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML("beforeend", modalHtml);
+};
+
+window.openFeedbackModal = function(keyOrCat) {
+  window.ensureFeedbackModalInDOM();
+  const backdrop = document.getElementById("feedback-modal-backdrop");
+  if (!backdrop) return;
+  window._fbOpenTime = Date.now();
+  const ctxInput = document.getElementById("fb-context");
+  if (ctxInput) {
+    const currentPath = window.location.pathname.split('/').filter(Boolean).slice(-2).join('/') || window.location.pathname;
+    ctxInput.value = currentPath || document.title;
+  }
+  const keyCatInput = document.getElementById("fb-key-cat");
+  if (keyCatInput && keyOrCat) {
+    keyCatInput.value = keyOrCat;
+  }
+  const statusMsg = document.getElementById("fb-status-msg");
+  if (statusMsg) statusMsg.style.display = "none";
+  backdrop.style.display = "flex";
+  document.body.style.overflow = "hidden";
+};
+
+window.closeFeedbackModal = function() {
+  const backdrop = document.getElementById("feedback-modal-backdrop");
+  if (backdrop) backdrop.style.display = "none";
+  document.body.style.overflow = "";
+};
+
+window.submitFeedback = async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById("fb-submit-btn");
+  const btnText = document.getElementById("fb-btn-text");
+  const statusMsg = document.getElementById("fb-status-msg");
+
+  // 1. Blindaje Honeypot: si el bot completó el campo trampa
+  const hpVal = document.getElementById("fb-hp-website") ? document.getElementById("fb-hp-website").value : "";
+  if (hpVal) {
+    if (statusMsg) {
+      statusMsg.style.display = "block";
+      statusMsg.style.color = "#10b981";
+      statusMsg.textContent = "✦ Reporte registrado con éxito.";
+    }
+    setTimeout(() => { window.closeFeedbackModal(); }, 1000);
+    return;
+  }
+
+  // 2. Blindaje Time-Gate: si se envió en menos de 1.5s desde abrir el modal
+  const timeSpent = (Date.now() - (window._fbOpenTime || 0)) / 1000;
+  if (timeSpent < 1.5) {
+    if (statusMsg) {
+      statusMsg.style.display = "block";
+      statusMsg.style.color = "#10b981";
+      statusMsg.textContent = "✦ Reporte registrado con éxito.";
+    }
+    setTimeout(() => { window.closeFeedbackModal(); }, 800);
+    return;
+  }
+
+  // 3. Blindaje Rate-Limiting: Cooldown de 20s por navegador
+  const lastSub = parseInt(localStorage.getItem("santuario_fb_last") || "0", 10);
+  if (Date.now() - lastSub < 20000) {
+    if (statusMsg) {
+      statusMsg.style.display = "block";
+      statusMsg.style.background = "rgba(233, 196, 106, 0.15)";
+      statusMsg.style.border = "1px solid var(--gold-main)";
+      statusMsg.style.color = "var(--gold-main)";
+      statusMsg.textContent = "✦ Por favor esperá unos segundos antes de enviar otro reporte.";
+    }
+    return;
+  }
+
+  const payload = {
+    type: document.getElementById("fb-type").value,
+    url: window.location.href,
+    page: document.title,
+    context: document.getElementById("fb-context").value,
+    dragon_o_modo: document.getElementById("fb-key-cat").value,
+    message: document.getElementById("fb-message").value,
+    email: document.getElementById("fb-email").value,
+    timestamp: new Date().toISOString(),
+    userAgent: navigator.userAgent
+  };
+
+  if (btn) btn.disabled = true;
+  if (btnText) btnText.textContent = "Enviando...";
+
+  try {
+    const webhookUrl = window.FEEDBACK_WEBHOOK_URL || localStorage.getItem("santuario_feedback_webhook");
+
+    if (!webhookUrl) {
+      const stored = JSON.parse(localStorage.getItem("santuario_offline_feedback") || "[]");
+      stored.push(payload);
+      localStorage.setItem("santuario_offline_feedback", JSON.stringify(stored));
+      localStorage.setItem("santuario_fb_last", Date.now().toString());
+
+      if (statusMsg) {
+        statusMsg.style.display = "block";
+        statusMsg.style.background = "rgba(233, 196, 106, 0.18)";
+        statusMsg.style.border = "1px solid var(--gold-main)";
+        statusMsg.style.color = "var(--gold-main)";
+        statusMsg.textContent = "✦ ¡Reporte guardado! Muchas gracias por colaborar con la sabiduría del Santuario.";
+      }
+      setTimeout(() => {
+        const form = document.getElementById("feedback-form");
+        if (form) form.reset();
+        if (btn) btn.disabled = false;
+        if (btnText) btnText.textContent = "Enviar Reporte";
+        window.closeFeedbackModal();
+      }, 2000);
+      return;
+    }
+
+    await fetch(webhookUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    localStorage.setItem("santuario_fb_last", Date.now().toString());
+
+    if (statusMsg) {
+      statusMsg.style.display = "block";
+      statusMsg.style.background = "rgba(42, 157, 143, 0.2)";
+      statusMsg.style.border = "1px solid #2a9d8f";
+      statusMsg.style.color = "#80ed99";
+      statusMsg.textContent = "✦ ¡Reporte enviado con éxito! El conocimiento ha sido transmitido a los guardianes.";
+    }
+
+    setTimeout(() => {
+      const form = document.getElementById("feedback-form");
+      if (form) form.reset();
+      if (btn) btn.disabled = false;
+      if (btnText) btnText.textContent = "Enviar Reporte";
+      window.closeFeedbackModal();
+    }, 2000);
+
+  } catch (err) {
+    console.error("[Feedback] Error al enviar reporte:", err);
+    if (statusMsg) {
+      statusMsg.style.display = "block";
+      statusMsg.style.background = "rgba(230, 57, 70, 0.2)";
+      statusMsg.style.border = "1px solid #e63946";
+      statusMsg.style.color = "#ff6b6b";
+      statusMsg.textContent = "Hubo un error al enviar. El reporte quedó respaldado en tu navegador.";
+    }
+    if (btn) btn.disabled = false;
+  }
+};
+
+window.getFeedbackReports = function() {
+  const reports = JSON.parse(localStorage.getItem("santuario_offline_feedback") || "[]");
+  if (reports.length === 0) {
+    console.log("ℹ️ No hay reportes de errores guardados aún en este navegador.");
+  } else {
+    console.log(`📋 Total de reportes almacenados: ${reports.length}`);
+    console.table(reports);
+  }
+  return reports;
+};
+
+window.clearFeedbackReports = function() {
+  localStorage.removeItem("santuario_offline_feedback");
+  console.log("🧹 Todos los reportes locales fueron eliminados.");
+};
 
 // Auto-boot app on DOMContentLoaded
 if (document.readyState === "loading") {

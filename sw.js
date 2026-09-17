@@ -1,5 +1,5 @@
 // Santuario de Dragones - Service Worker
-const CACHE_NAME = 'santuario-dragones-v1.0';
+const CACHE_NAME = 'santuario-dragones-v1.1';
 
 const CORE_ASSETS = [
   '/',
@@ -13,6 +13,8 @@ const CORE_ASSETS = [
   '/assets/icons/icon-512.png',
   '/assets/icons/icon-maskable-512.png',
   '/assets/ui/hero_emblem.webp',
+  '/assets/ui/tournament_defeat.webp',
+  '/assets/ui/trophy_champion.webp',
   '/arena.html',
   '/favoritos.html',
   '/magia-draconiana.html',

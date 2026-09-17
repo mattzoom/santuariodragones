@@ -2089,4 +2089,199 @@ h1, h2, h3, h4 {
   transform: translateY(-1px);
 }
 
+/* ==========================================================================
+   MODAL DE FEEDBACK Y REPORTE DE ERRORES (ESTILO LIBER 777 ENGINE)
+   ========================================================================== */
+.feedback-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 4, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  animation: fbFadeIn 0.2s ease forwards;
+}
+
+@keyframes fbFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feedback-modal-box {
+  background: #120f20;
+  border: 2px solid var(--gold-main);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 1.8rem;
+  box-sizing: border-box;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(233, 196, 106, 0.25);
+  animation: fbScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+
+@keyframes fbScaleUp {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.feedback-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-panel);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.feedback-modal-header h3 {
+  color: var(--gold-main);
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: var(--font-epic);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.feedback-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.feedback-close-btn:hover {
+  color: #ff4757;
+  transform: scale(1.1);
+}
+
+.feedback-modal-box .form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.feedback-modal-box label {
+  display: block;
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.3px;
+}
+
+.feedback-modal-box input,
+.feedback-modal-box select,
+.feedback-modal-box textarea {
+  width: 100%;
+  background: #08070d;
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-modal-box input:focus,
+.feedback-modal-box select:focus,
+.feedback-modal-box textarea:focus {
+  outline: none;
+  border-color: var(--gold-main);
+  box-shadow: 0 0 12px rgba(233, 196, 106, 0.35);
+}
+
+.feedback-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+  border-top: 1px solid var(--border-panel);
+  padding-top: 1rem;
+}
+
+.feedback-modal-actions .btn-cancel {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feedback-modal-actions .btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.feedback-modal-actions .btn-submit {
+  background: var(--gold-gradient);
+  border: none;
+  color: #0c0b14;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(233, 196, 106, 0.35);
+}
+
+.feedback-modal-actions .btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 196, 106, 0.55);
+}
+
+.feedback-modal-actions .btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footer-feedback-btn {
+  background: rgba(233, 196, 106, 0.08);
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  color: var(--gold-main);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-feedback-btn:hover {
+  background: var(--gold-main);
+  color: #0c0b14;
+  border-color: var(--gold-main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(233, 196, 106, 0.35);
+}
+
+
 
