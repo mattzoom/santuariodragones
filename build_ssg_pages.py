@@ -94,13 +94,35 @@ for d in dragons:
     "headline": "{d['name']} - {d['title']}",
     "description": "{meta_desc}",
     "image": "{img_url}",
+    "url": "{page_url}",
     "author": {{
       "@type": "Person",
       "name": "Magus Dragus"
     }},
     "publisher": {{
       "@type": "Organization",
-      "name": "Santuario Secreto de Dragones"
+      "name": "Santuario Secreto de Dragones",
+      "url": "{base_url}/",
+      "logo": {{
+        "@type": "ImageObject",
+        "url": "{base_url}/assets/ui/hero_emblem.webp"
+      }}
+    }},
+    "mainEntity": {{
+      "@type": "Thing",
+      "name": "{d['name']}",
+      "alternateName": "{d['title']}",
+      "description": "{meta_desc}",
+      "image": "{img_url}",
+      "additionalProperty": [
+        {{ "@type": "PropertyValue", "name": "Mitología", "value": "{d['mythology']}" }},
+        {{ "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "{d['type']}" }},
+        {{ "@type": "PropertyValue", "name": "Elemento", "value": "{d['element']}" }},
+        {{ "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "{d['danger']}/5" }},
+        {{ "@type": "PropertyValue", "name": "Hábitat", "value": "{d['habitat']}" }},
+        {{ "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "{d['ability']}" }},
+        {{ "@type": "PropertyValue", "name": "Debilidad", "value": "{d['weakness']}" }}
+      ]
     }}
   }}
   </script>
