@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Labbu -->
   <title>Labbu (El Dragón de Cien Leguas) | Santuario de Dragones</title>
   <meta name="description" content="Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/labbu.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/labbu.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/labbu.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/labbu.html">
   <meta property="og:title" content="Labbu - El Dragón de Cien Leguas">
   <meta property="og:description" content="Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_72.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Labbu - El Dragón de Cien Leguas",
-    "description": "Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_72.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/labbu.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/labbu.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mesopotámica y Medio Oriente",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Mesopotámica%20y%20Medio%20Oriente"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Labbu",
+            "item": "https://santuariodragones.vercel.app/dragon/labbu.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/labbu.html#article",
+        "headline": "Labbu - El Dragón de Cien Leguas",
+        "description": "Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_72.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/labbu.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Labbu",
+          "alternateName": "El Dragón de Cien Leguas",
+          "description": "Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_72.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Mesopotámica y Medio Oriente" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Cielos Mesopotámicos" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Longitud de 60 Leguas y Aliento Devastador" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "El Rayo del Dios Tishpak" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Labbu",
-      "alternateName": "El Dragón de Cien Leguas",
-      "description": "Labbu es un dragón Wyrm de Tormenta de la mitología Mesopotámica y Medio Oriente. Hábitat: Cielos Mesopotámicos. Creado por el dios del cielo para castigar los excesos de la humanidad. Medía más de 300 kilómetros de largo y su aliento podía secar cosech...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_72.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Mesopotámica y Medio Oriente" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Cielos Mesopotámicos" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Longitud de 60 Leguas y Aliento Devastador" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "El Rayo del Dios Tishpak" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -60,6 +60,66 @@ let activePickerContext = null; // { type: "duel", key: "A" } | { type: "tourney
 let pickerSearchQuery = "";
 let pickerElementFilter = "Todos";
 
+
+// Helpers de Internacionalización para la Arena
+const t = (k, fallback = "") => (window.I18N ? window.I18N.t(k) : fallback || k);
+const isEn = () => (window.I18N && window.I18N.currentLang === "en");
+
+const getDragonTitle = (d) => {
+  if (!d) return "";
+  if (isEn() && window.DRAGONS_EN && window.DRAGONS_EN[d.id] && window.DRAGONS_EN[d.id].title) {
+    return window.DRAGONS_EN[d.id].title;
+  }
+  return d.title;
+};
+
+const getDragonAbility = (d) => {
+  if (!d) return "";
+  if (isEn() && window.DRAGONS_EN && window.DRAGONS_EN[d.id] && window.DRAGONS_EN[d.id].ability) {
+    return window.DRAGONS_EN[d.id].ability;
+  }
+  return d.ability;
+};
+
+const getDragonWeakness = (d) => {
+  if (!d) return "";
+  if (isEn() && window.DRAGONS_EN && window.DRAGONS_EN[d.id] && window.DRAGONS_EN[d.id].weakness) {
+    return window.DRAGONS_EN[d.id].weakness;
+  }
+  return d.weakness;
+};
+
+const getDragonElement = (d) => {
+  if (!d) return "";
+  return window.I18N ? window.I18N.translateElement(d.element) : d.element;
+};
+
+const getDragonType = (d) => {
+  if (!d) return "";
+  return window.I18N ? window.I18N.translateType(d.type) : d.type;
+};
+
+const STAGE_NAMES_ES = [
+  "Selección de Guardián",
+  "Ronda 1: Cuartos de Final",
+  "Ronda 2: Semifinal Épica",
+  "Ronda 3: La Gran Final Ancestral",
+  "🏆 ¡CAMPEÓN ABSOLUTO DEL SANTUARIO!"
+];
+
+const STAGE_NAMES_EN = [
+  "Guardian Selection",
+  "Round 1: Quarterfinals",
+  "Round 2: Epic Semifinal",
+  "Round 3: Grand Ancestral Final",
+  "🏆 ABSOLUTE SANCTUARY CHAMPION!"
+];
+
+function getStageName(stageIndex) {
+  const list = isEn() ? STAGE_NAMES_EN : STAGE_NAMES_ES;
+  return list[stageIndex] || (isEn() ? "Tournament Battle" : "Combate del Torneo");
+}
+
 // Rueda de Ventajas Elementales
 const ELEMENTAL_ADVANTAGE = {
   "Fuego": ["Hielo", "Naturaleza"],
@@ -79,22 +139,29 @@ const ELEMENTAL_ADVANTAGE = {
 
 // Reliquias Ancestrales (Mejoras Roguelite)
 const BLESSINGS_POOL = [
-  { id: "ruby", name: "Rubí del Corazón de Dragón", icon: "❤️‍🔥", desc: "+35 de Salud Máxima y cura 50 HP", apply: () => { playerMaxHp += 35; playerHp = Math.min(playerMaxHp, playerHp + 50); } },
-  { id: "claw", name: "Garra de Titanita Ígnea", icon: "🗡️", desc: "+6 de Daño Físico y Mágico permanente", apply: () => { playerAttackBonus += 6; } },
-  { id: "scale", name: "Escama de Diamante Astral", icon: "🛡️", desc: "-4 de Daño recibido en cada golpe enemigo", apply: () => { playerDefenseBonus += 4; } },
-  { id: "breath", name: "Elixir del Aliento Infinito", icon: "🧪", desc: "Aumenta la probabilidad de Golpe Crítico", apply: () => { playerRelics.push("crit_boost"); } },
-  { id: "fountain", name: "Fuente de Rocío Draconiano", icon: "💧", desc: "Restaura el 100% de la Salud actual", apply: () => { playerHp = playerMaxHp; } }
+  { id: "ruby", name: "Rubí del Corazón de Dragón", name_en: "Dragon Heart Ruby", icon: "❤️‍🔥", desc: "+35 de Salud Máxima y cura 50 HP", desc_en: "+35 Max Health and heals 50 HP", apply: () => { playerMaxHp += 35; playerHp = Math.min(playerMaxHp, playerHp + 50); } },
+  { id: "claw", name: "Garra de Titanita Ígnea", name_en: "Fire Titanite Claw", icon: "🗡️", desc: "+6 de Daño Físico y Mágico permanente", desc_en: "+6 Permanent Physical & Magic Damage", apply: () => { playerAttackBonus += 6; } },
+  { id: "scale", name: "Escama de Diamante Astral", name_en: "Astral Diamond Scale", icon: "🛡️", desc: "-4 de Daño recibido en cada golpe enemigo", desc_en: "-4 Damage taken from each enemy strike", apply: () => { playerDefenseBonus += 4; } },
+  { id: "breath", name: "Elixir del Aliento Infinito", name_en: "Infinite Breath Elixir", icon: "🧪", desc: "Aumenta la probabilidad de Golpe Crítico", desc_en: "Increases Critical Hit chance", apply: () => { playerRelics.push("crit_boost"); } },
+  { id: "fountain", name: "Fuente de Rocío Draconiano", name_en: "Draconian Dew Fountain", icon: "💧", desc: "Restaura el 100% de la Salud actual", desc_en: "Restores 100% current Health", apply: () => { playerHp = playerMaxHp; } }
 ];
+
+function ensureArenaInitialized() {
+  if (typeof DRAGONS_DATA === "undefined" || !DRAGONS_DATA || !DRAGONS_DATA.length) return;
+  if (!dragonA) dragonA = DRAGONS_DATA.find(d => d.id === 2) || DRAGONS_DATA[0];
+  if (!dragonB) pickRandomRival();
+  if (!playerDragon) playerDragon = DRAGONS_DATA.find(d => d.id === 1) || DRAGONS_DATA[0];
+  if (!squadA || squadA.length !== 5 || !squadB || squadB.length !== 5) {
+    initDefaultSquads();
+  }
+}
 
 export function initColiseoModule(containerId = "arena-container") {
   const container = document.getElementById("arena-container") || document.getElementById(containerId);
   if (!container) return;
 
-  if (!dragonA) dragonA = DRAGONS_DATA.find(d => d.id === 2) || DRAGONS_DATA[0];
-  if (!dragonB) pickRandomRival();
-  if (!playerDragon) playerDragon = DRAGONS_DATA.find(d => d.id === 1) || DRAGONS_DATA[0];
-
-  initDefaultSquads();
+  ensureArenaInitialized();
+  window.isArenaMounted = true;
 
   renderArenaContainer(container);
 }
@@ -138,19 +205,21 @@ window.switchArenaMode = function(mode) {
 };
 
 function renderArenaContainer(container) {
+  ensureArenaInitialized();
+  window.isArenaMounted = true;
   container.innerHTML = `
     <div style="max-width: 1100px; margin: 0 auto;">
       
       <!-- SELECTOR DE MODO DE JUEGO (TABS DE LA ARENA) -->
       <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;">
         <button type="button" class="btn ${currentMode === 'duel' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('duel')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
-          ⚔️ Duelo 1 vs 1
+          ${t("arena_tab_duel", "⚔️ Duelo 1 vs 1")}
         </button>
         <button type="button" class="btn ${currentMode === 'tournament' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('tournament')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
-          🏆 El Torneo (Modo Copa)
+          ${t("arena_tab_tourney", "🏆 El Torneo (Modo Copa)")}
         </button>
         <button type="button" class="btn ${currentMode === 'squad' ? 'btn-gold' : 'btn-secondary'}" onclick="switchArenaMode('squad')" style="padding: 9px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 20px;">
-          🛡️ Batalla 5 vs 5 (Escuadrones)
+          ${t("arena_tab_squad", "🛡️ Batalla 5 vs 5 (Escuadrones)")}
         </button>
       </div>
 
@@ -171,13 +240,16 @@ function renderArenaContainer(container) {
    ========================================================================== */
 
 function renderDuelViewHtml() {
+  ensureArenaInitialized();
+  if (!dragonA) dragonA = (typeof DRAGONS_DATA !== "undefined" && DRAGONS_DATA.length) ? DRAGONS_DATA[0] : null;
+  if (!dragonB) pickRandomRival();
   if (duelWinner) {
     const { winner, loser } = duelWinner;
     return `
       <!-- PANTALLA DE VICTORIA DUELO 1 VS 1 (SIN COPA) -->
       <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.2) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
         <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑⚔️✨</div>
-        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡VICTORIA EN EL DUELO SINGULAR!</h2>
+        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">${t("arena_duel_victory_title", "¡VICTORIA EN EL DUELO SINGULAR!")}</h2>
         <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">
           ¡<strong>${winner.name}</strong> ha superado a <strong>${loser.name}</strong> demostrando la supremacía de su linaje ancestral!
         </p>
@@ -186,16 +258,16 @@ function renderDuelViewHtml() {
         <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
           <!-- DRAGÓN GANADOR -->
           <div class="fantasy-panel" style="max-width: 320px; width: 100%; padding: 1.5rem 1rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(10,9,17,0.9); box-shadow: 0 0 25px rgba(233,196,106,0.4);">
-            <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; margin-bottom: 10px; display: inline-block;">👑 Vencedor del Duelo</span>
+            <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; margin-bottom: 10px; display: inline-block;">${t("arena_duel_winner_badge", "👑 Vencedor del Duelo")}</span>
             <div style="aspect-ratio: 4/3; width: 100%; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold-main); margin-bottom: 12px; background: #0a0911;">
               <img src="${getDragonArtworkSrc(winner)}" alt="${winner.name}" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <h3 style="color: var(--gold-main); font-size: 1.35rem; margin: 0 0 4px 0;">${winner.name}</h3>
-            <p style="color: var(--color-teal); font-style: italic; font-size: 0.95rem; margin: 0 0 10px 0;">"${winner.title}"</p>
+            <p style="color: var(--color-teal); font-style: italic; font-size: 0.95rem; margin: 0 0 10px 0;">"${getDragonTitle(winner)}"</p>
             <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
-              <span class="badge badge-element badge-${winner.element.toLowerCase()}">${winner.element}</span>
-              <span class="badge badge-type">${winner.type}</span>
-              <span class="badge badge-danger">🔥 Peligro ${winner.danger}/5</span>
+              <span class="badge badge-element badge-${winner.element.toLowerCase()}">${getDragonElement(winner)}</span>
+              <span class="badge badge-type">${getDragonType(winner)}</span>
+              <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${winner.danger}/5</span>
             </div>
           </div>
 
@@ -203,19 +275,19 @@ function renderDuelViewHtml() {
 
           <!-- DRAGÓN DERROTADO -->
           <div class="fantasy-panel" style="max-width: 240px; width: 100%; padding: 1.2rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; background: rgba(10,9,17,0.6); opacity: 0.75;">
-            <span class="badge badge-danger" style="margin-bottom: 10px; display: inline-block;">💀 Derrotado</span>
+            <span class="badge badge-danger" style="margin-bottom: 10px; display: inline-block;">${t("arena_duel_defeated_badge", "💀 Derrotado")}</span>
             <div style="aspect-ratio: 4/3; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 10px; background: #0a0911; position: relative;">
               <img src="${getDragonArtworkSrc(loser)}" alt="${loser.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" />
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 2.2rem;">💀</div>
             </div>
             <h4 style="color: var(--text-main); font-size: 1.1rem; margin: 0 0 4px 0;">${loser.name}</h4>
-            <span style="color: var(--text-muted); font-size: 0.85rem;">${loser.element} · ${loser.type}</span>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">${getDragonElement(loser)} · ${getDragonType(loser)}</span>
           </div>
         </div>
 
         <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
           <button type="button" class="btn btn-gold btn-lg" onclick="resetDragonDuel()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-            ⚔️ Disputar Otro Duelo
+            ${t("arena_duel_again_btn", "⚔️ Disputar Otro Duelo")}
           </button>
         </div>
       </div>
@@ -226,9 +298,9 @@ function renderDuelViewHtml() {
     <!-- HERO BANNER ARENA DUELO -->
     <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 1.8rem; background: linear-gradient(135deg, rgba(230,57,70,0.18), rgba(233,196,106,0.12)); border: 2px solid #e63946; border-radius: 20px;">
       <div style="font-size: 2.5rem; margin-bottom: 4px;">⚔️🔥</div>
-      <h2 style="color: var(--gold-main); font-size: 1.9rem; margin: 0; font-family: var(--font-heading);">La Arena Ancestral: Duelo 1 vs 1</h2>
+      <h2 style="color: var(--gold-main); font-size: 1.9rem; margin: 0; font-family: var(--font-heading);">${t("arena_duel_banner_title", "La Arena Ancestral: Duelo 1 vs 1")}</h2>
       <p style="color: var(--text-main); font-size: 1rem; max-width: 700px; margin: 6px auto 0 auto; line-height: 1.5;">
-        ¡Elegí a dos titanes del Santuario y presenciá un combate legendario por turnos con ventajas elementales y cálculo de daño épico!
+        ${t("arena_duel_banner_desc", "¡Elegí a dos titanes del Santuario y presenciá un combate legendario por turnos con ventajas elementales y cálculo de daño épico!")}
       </p>
     </div>
 
@@ -239,15 +311,15 @@ function renderDuelViewHtml() {
       <div id="fighter-card-A" class="fantasy-panel fighter-card fighter-card-a">
         <div>
           <div class="fighter-card-header">
-            <span class="fighter-title fighter-title-a">🐲 Campeón 1</span>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('A')" ${isBattling ? "disabled" : ""}>🎲 Al Azar</button>
+            <span class="fighter-title fighter-title-a">${t("arena_champion1", "🐲 Campeón 1")}</span>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('A')" ${isBattling ? "disabled" : ""}>${t("arena_random", "🎲 Al Azar")}</button>
           </div>
 
           <!-- BOTÓN SELECTOR RÁPIDO CON BÚSQUEDA -->
           <div style="margin-bottom: 12px;">
             <button type="button" class="arena-picker-btn" onclick="openDragonPicker('duel_A')" ${isBattling ? "disabled" : ""}>
-              <span>🔍 ${dragonA ? dragonA.name + ' (' + dragonA.element + ')' : 'Elegir Dragón'}</span>
-              <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+              <span>🔍 ${dragonA ? dragonA.name + ' (' + getDragonElement(dragonA) + ')' : t("arena_choose_dragon", "Elegir Dragón")}</span>
+              <span style="color: var(--gold-main); font-size: 0.8rem;">${t("arena_search_btn", "Buscar ▾")}</span>
             </button>
           </div>
 
@@ -256,26 +328,26 @@ function renderDuelViewHtml() {
           </div>
 
           <h3 class="fighter-name">${dragonA.name}</h3>
-          <p class="fighter-subtitle">${dragonA.title}</p>
+          <p class="fighter-subtitle">"${getDragonTitle(dragonA)}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${dragonA.element.toLowerCase()}">${dragonA.element}</span>
-            <span class="badge badge-type">${dragonA.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${dragonA.danger}/5</span>
+            <span class="badge badge-element badge-${dragonA.element.toLowerCase()}">${getDragonElement(dragonA)}</span>
+            <span class="badge badge-type">${getDragonType(dragonA)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${dragonA.danger}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${dragonA.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(dragonA)}
           </p>
           <p class="fighter-stat-text">
-            <strong style="color: #ff6b6b);">Debilidad:</strong> ${dragonA.weakness}
+            <strong style="color: #ff6b6b);">${t("stat_weakness", "Debilidad")}:</strong> ${getDragonWeakness(dragonA)}
           </p>
         </div>
 
         <!-- BARRA DE VIDA LUCHADOR 1 -->
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: var(--color-teal);">Puntos de Salud (HP)</span>
+            <span style="color: var(--color-teal);">${t("arena_hp_label", "Puntos de Salud (HP)")}</span>
             <span id="hp-text-A" style="color: var(--color-teal);">100 / 100</span>
           </div>
           <div class="fighter-hp-track" style="border-color: var(--color-teal);">
@@ -289,11 +361,11 @@ function renderDuelViewHtml() {
         <div class="arena-vs-badge">VS</div>
         
         <button id="btn-start-duel" type="button" class="btn btn-gold btn-lg arena-btn-fight" onclick="startDragonDuel()" ${isBattling ? "disabled" : ""}>
-          ⚔️ ¡COMBATIR!
+          ${t("arena_fight_btn", "⚔️ ¡COMBATIR!")}
         </button>
         
         <button id="btn-reset-duel" type="button" class="btn btn-secondary btn-sm margin-top-sm" onclick="resetDragonDuel()" style="display: none;">
-          🔄 Nuevo Combate
+          ${t("arena_new_battle", "🔄 Nuevo Combate")}
         </button>
       </div>
 
@@ -301,15 +373,15 @@ function renderDuelViewHtml() {
       <div id="fighter-card-B" class="fantasy-panel fighter-card fighter-card-b">
         <div>
           <div class="fighter-card-header">
-            <span class="fighter-title fighter-title-b">🐲 Campeón 2</span>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('B')" ${isBattling ? "disabled" : ""}>🎲 Al Azar</button>
+            <span class="fighter-title fighter-title-b">${t("arena_champion2", "🐲 Campeón 2")}</span>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeFighter('B')" ${isBattling ? "disabled" : ""}>${t("arena_random", "🎲 Al Azar")}</button>
           </div>
 
           <!-- BOTÓN SELECTOR RÁPIDO CON BÚSQUEDA -->
           <div style="margin-bottom: 12px;">
             <button type="button" class="arena-picker-btn" onclick="openDragonPicker('duel_B')" ${isBattling ? "disabled" : ""}>
-              <span>🔍 ${dragonB ? dragonB.name + ' (' + dragonB.element + ')' : 'Elegir Dragón'}</span>
-              <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+              <span>🔍 ${dragonB ? dragonB.name + ' (' + getDragonElement(dragonB) + ')' : t("arena_choose_dragon", "Elegir Dragón")}</span>
+              <span style="color: var(--gold-main); font-size: 0.8rem;">${t("arena_search_btn", "Buscar ▾")}</span>
             </button>
           </div>
 
@@ -318,26 +390,26 @@ function renderDuelViewHtml() {
           </div>
 
           <h3 class="fighter-name">${dragonB.name}</h3>
-          <p class="fighter-subtitle">${dragonB.title}</p>
+          <p class="fighter-subtitle">"${getDragonTitle(dragonB)}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${dragonB.element.toLowerCase()}">${dragonB.element}</span>
-            <span class="badge badge-type">${dragonB.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${dragonB.danger}/5</span>
+            <span class="badge badge-element badge-${dragonB.element.toLowerCase()}">${getDragonElement(dragonB)}</span>
+            <span class="badge badge-type">${getDragonType(dragonB)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${dragonB.danger}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${dragonB.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(dragonB)}
           </p>
           <p class="fighter-stat-text">
-            <strong style="color: #ff6b6b;">Debilidad:</strong> ${dragonB.weakness}
+            <strong style="color: #ff6b6b);">${t("stat_weakness", "Debilidad")}:</strong> ${getDragonWeakness(dragonB)}
           </p>
         </div>
 
         <!-- BARRA DE VIDA LUCHADOR 2 -->
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: #ff6b6b;">Puntos de Salud (HP)</span>
+            <span style="color: #ff6b6b;">${t("arena_hp_label", "Puntos de Salud (HP)")}</span>
             <span id="hp-text-B" style="color: #ff6b6b;">100 / 100</span>
           </div>
           <div class="fighter-hp-track" style="border-color: #ff4757;">
@@ -352,14 +424,14 @@ function renderDuelViewHtml() {
     <div class="fantasy-panel" style="padding: 1.5rem; border: 2px solid var(--border-gold); background: rgba(10, 9, 17, 0.95); border-radius: 16px;">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--border-panel); padding-bottom: 8px;">
         <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
-          📜 Crónica Épica de la Batalla
+          ${t("arena_log_title", "📜 Crónica Épica de la Batalla")}
         </h3>
-        <span id="round-indicator" style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">Listo para el combate</span>
+        <span id="round-indicator" style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">${t("arena_ready_combat", "Listo para el combate")}</span>
       </div>
 
       <div id="battle-log-box" style="height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 8px; font-size: 0.95rem; line-height: 1.5; color: var(--text-main);">
         <div style="color: var(--text-muted); font-style: italic; text-align: center; padding-top: 50px;">
-          Presioná "¡COMBATIR!" para dar inicio a los rugidos en la Arena...
+          ${t("arena_press_fight", "Presioná \"¡COMBATIR!\" para dar inicio a los rugidos en la Arena...")}
         </div>
       </div>
     </div>
@@ -425,12 +497,22 @@ window.startDragonDuel = function() {
   const advA = (ELEMENTAL_ADVANTAGE[dragonA.element] || []).includes(dragonB.element);
   const advB = (ELEMENTAL_ADVANTAGE[dragonB.element] || []).includes(dragonA.element);
 
-  appendBattleLog(`⚔️ <strong>¡Comienza el duelo épico entre ${dragonA.name} y ${dragonB.name}!</strong>`, "gold");
-
-  if (advA) {
-    appendBattleLog(`🔥 ¡Ventaja Elemental! El elemento <strong>${dragonA.element}</strong> de ${dragonA.name} domina al <strong>${dragonB.element}</strong> de ${dragonB.name}.`, "teal");
-  } else if (advB) {
-    appendBattleLog(`⚡ ¡Ventaja Elemental! El elemento <strong>${dragonB.element}</strong> de ${dragonB.name} domina al <strong>${dragonA.element}</strong> de ${dragonA.name}.`, "rust");
+  const elemA = getDragonElement(dragonA);
+  const elemB = getDragonElement(dragonB);
+  if (isEn()) {
+    appendBattleLog(`⚔️ <strong>The epic duel between ${dragonA.name} and ${dragonB.name} begins!</strong>`, "gold");
+    if (advA) {
+      appendBattleLog(`🔥 Elemental Advantage! ${dragonA.name}'s <strong>${elemA}</strong> element dominates ${dragonB.name}'s <strong>${elemB}</strong> element.`, "teal");
+    } else if (advB) {
+      appendBattleLog(`⚡ Elemental Advantage! ${dragonB.name}'s <strong>${elemB}</strong> element dominates ${dragonA.name}'s <strong>${elemA}</strong> element.`, "rust");
+    }
+  } else {
+    appendBattleLog(`⚔️ <strong>¡Comienza el duelo épico entre ${dragonA.name} y ${dragonB.name}!</strong>`, "gold");
+    if (advA) {
+      appendBattleLog(`🔥 ¡Ventaja Elemental! El elemento <strong>${elemA}</strong> de ${dragonA.name} domina al <strong>${elemB}</strong> de ${dragonB.name}.`, "teal");
+    } else if (advB) {
+      appendBattleLog(`⚡ ¡Ventaja Elemental! El elemento <strong>${elemB}</strong> de ${dragonB.name} domina al <strong>${elemA}</strong> de ${dragonA.name}.`, "rust");
+    }
   }
 
   battleInterval = setInterval(() => {
@@ -478,14 +560,25 @@ function calculateAttack(attacker, defender, hasAdvantage) {
   const critMultiplier = isCrit ? 1.4 : 1.0;
   const totalDamage = Math.round((basePower + elementBonus) * critMultiplier);
 
-  const attackNarratives = [
-    `¡<strong>${attacker.name}</strong> desata su <em>${attacker.ability}</em> causando <strong>${totalDamage}</strong> de daño!`,
-    `¡<strong>${attacker.name}</strong> embiste con toda la fuerza de su cuerpo tipo <em>${attacker.type}</em> propinando <strong>${totalDamage}</strong> de daño a ${defender.name}!`,
-    `¡<strong>${attacker.name}</strong> invoca una ráfaga de poder <em>${attacker.element}</em> impactando con <strong>${totalDamage}</strong> de daño!`
+  const en = isEn();
+  const aName = attacker.name;
+  const dName = defender.name;
+  const aAbility = getDragonAbility(attacker);
+  const aType = getDragonType(attacker);
+  const aElement = getDragonElement(attacker);
+
+  const attackNarratives = en ? [
+    `<strong>${aName}</strong> unleashes <em>${aAbility}</em> dealing <strong>${totalDamage}</strong> damage!`,
+    `<strong>${aName}</strong> strikes with the full force of its <em>${aType}</em> body, dealing <strong>${totalDamage}</strong> damage to ${dName}!`,
+    `<strong>${aName}</strong> invokes a burst of <em>${aElement}</em> power, striking for <strong>${totalDamage}</strong> damage!`
+  ] : [
+    `¡<strong>${aName}</strong> desata su <em>${aAbility}</em> causando <strong>${totalDamage}</strong> de daño!`,
+    `¡<strong>${aName}</strong> embiste con toda la fuerza de su cuerpo tipo <em>${aType}</em> propinando <strong>${totalDamage}</strong> de daño a ${dName}!`,
+    `¡<strong>${aName}</strong> invoca una ráfaga de poder <em>${aElement}</em> impactando con <strong>${totalDamage}</strong> de daño!`
   ];
 
   let chosenNarrative = attackNarratives[Math.floor(Math.random() * attackNarratives.length)];
-  if (isCrit) chosenNarrative = `💥 ¡GOLPE CRÍTICO! ` + chosenNarrative;
+  if (isCrit) chosenNarrative = (en ? `💥 CRITICAL HIT! ` : `💥 ¡GOLPE CRÍTICO! `) + chosenNarrative;
 
   return { damage: totalDamage, isCrit, log: chosenNarrative };
 }
@@ -564,24 +657,33 @@ const STAGE_NAMES = [
 ];
 
 function renderTournamentViewHtml() {
+  ensureArenaInitialized();
+  if (!playerDragon) playerDragon = (typeof DRAGONS_DATA !== "undefined" && DRAGONS_DATA.length) ? DRAGONS_DATA[0] : null;
+  if (tournamentStage > 0 && !currentOpponent) {
+    if (tournamentOpponents.length >= tournamentStage) {
+      currentOpponent = tournamentOpponents[tournamentStage - 1];
+    } else if (typeof DRAGONS_DATA !== "undefined" && DRAGONS_DATA.length) {
+      currentOpponent = DRAGONS_DATA.find(d => !playerDragon || d.id !== playerDragon.id) || DRAGONS_DATA[1];
+    }
+  }
   if (tournamentStage === 0) {
     return `
       <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 2rem; background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(42,157,143,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
         <div style="font-size: 3rem; margin-bottom: 6px;">🏆🔥</div>
-        <h2 style="color: var(--gold-main); font-size: 2rem; margin: 0; font-family: var(--font-heading);">El Torneo del Santuario</h2>
+        <h2 style="color: var(--gold-main); font-size: 2rem; margin: 0; font-family: var(--font-heading);">${t("arena_tourney_title", "El Torneo del Santuario")}</h2>
         <p style="color: var(--text-main); font-size: 1.05rem; max-width: 750px; margin: 8px auto 0 auto; line-height: 1.6;">
-          ¡Elegí a tu dragón guardián y avanzá a través de 3 rondas eliminatorias consecutivas! Entre victoria y victoria podrás elegir <strong>Reliquias y Bendiciones Ancestrales</strong> para curarte y potenciar tus ataques.
+          ${t("arena_tourney_desc", "¡Elegí a tu dragón guardián y avanzá a través de 3 rondas eliminatorias consecutivas! Entre victoria y victoria podrás elegir Reliquias y Bendiciones Ancestrales para curarte y potenciar tus ataques.")}
         </p>
       </div>
 
       <div class="fantasy-panel" style="max-width: 600px; margin: 0 auto 2rem auto; padding: 2rem; border: 2px solid var(--border-gold); text-align: center; border-radius: 16px;">
-        <h3 style="color: var(--gold-light); margin-top: 0; margin-bottom: 12px;">Elegí a tu Campeón:</h3>
+        <h3 style="color: var(--gold-light); margin-top: 0; margin-bottom: 12px;">${t("arena_choose_champ", "Elegí a tu Campeón:")}</h3>
 
         <!-- BOTÓN SELECTOR RÁPIDO TORNEO -->
         <div style="margin-bottom: 15px;">
           <button type="button" class="arena-picker-btn" onclick="openDragonPicker('tourney')">
-            <span>🔍 ${playerDragon ? playerDragon.name + ' (' + playerDragon.element + ') - Peligro ' + playerDragon.danger + '/5' : 'Elegir Campeón'}</span>
-            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+            <span>🔍 ${playerDragon ? playerDragon.name + ' (' + getDragonElement(playerDragon) + ') - ' + t("danger_prefix", "Peligro") + ' ' + playerDragon.danger + '/5' : t("arena_choose_champ_btn", "Elegir Campeón")}</span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">${t("arena_search_btn", "Buscar ▾")}</span>
           </button>
         </div>
 
@@ -590,17 +692,17 @@ function renderTournamentViewHtml() {
         </div>
 
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-          <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
-          <span class="badge badge-type">${playerDragon.type}</span>
-          <span class="badge badge-danger">🔥 Peligro ${playerDragon.danger}/5</span>
+          <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${getDragonElement(playerDragon)}</span>
+          <span class="badge badge-type">${getDragonType(playerDragon)}</span>
+          <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${playerDragon.danger}/5</span>
         </div>
 
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-          <strong style="color: var(--gold-main);">Habilidad Especial:</strong> ${playerDragon.ability}
+          <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad Especial")}:</strong> ${getDragonAbility(playerDragon)}
         </p>
 
         <button type="button" class="btn btn-gold btn-lg" onclick="startTournamentRun()" style="width: 100%; padding: 14px; font-size: 1.2rem; font-weight: 800; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-          🏆 ¡INICIAR EL TORNEO!
+          ${t("arena_start_tourney", "🏆 ¡INICIAR EL TORNEO!")}
         </button>
       </div>
     `;
@@ -610,7 +712,7 @@ function renderTournamentViewHtml() {
     return `
       <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.25) 0%, rgba(15,23,42,0.95) 100%);">
         <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑🏆✨</div>
-        <h1 style="color: var(--gold-main); font-size: 2.4rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CAMPEÓN SUPREMO DEL SANTUARIO!</h1>
+        <h1 style="color: var(--gold-main); font-size: 2.4rem; font-family: var(--font-heading); margin: 0 0 10px 0;">${t("arena_champ_supreme", "¡CAMPEÓN SUPREMO DEL SANTUARIO!")}</h1>
         <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
           ¡Tu dragón <strong>${playerDragon.name}</strong> ha triunfado en la arena y alzado la legendaria Copa Draconiana ante la multitud!
         </p>
@@ -625,19 +727,19 @@ function renderTournamentViewHtml() {
               <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <span style="color: var(--gold-main); font-weight: 800; font-size: 1.1rem;">${playerDragon.name}</span>
-            <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
+            <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${getDragonElement(playerDragon)}</span>
           </div>
         </div>
 
         <div style="margin-bottom: 2rem;">
-          <h4 style="color: var(--gold-light); margin-bottom: 8px; font-size: 1.05rem;">Reliquias Coleccionadas en esta hazaña:</h4>
+          <h4 style="color: var(--gold-light); margin-bottom: 8px; font-size: 1.05rem;">${t("arena_relics_collected", "Reliquias Coleccionadas en esta hazaña:")}</h4>
           <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
             ${playerRelics.map(r => `<span class="badge" style="background: rgba(233,196,106,0.2); border: 1px solid var(--gold-main); color: var(--gold-main); font-size: 0.95rem;">✨ ${r}</span>`).join("") || "<span style='color: var(--text-muted);'>Victoria en estado puro sin reliquias.</span>"}
           </div>
         </div>
 
         <button type="button" class="btn btn-gold btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 32px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-          🔄 Jugar Otro Torneo
+          ${t("arena_another_tourney", "🔄 Jugar Otro Torneo")}
         </button>
       </div>
     `;
@@ -647,7 +749,7 @@ function renderTournamentViewHtml() {
     const roundIndex = (currentOpponent && tournamentOpponents.indexOf(currentOpponent) !== -1)
       ? tournamentOpponents.indexOf(currentOpponent) + 1
       : 1;
-    const roundFailedName = STAGE_NAMES[roundIndex] || "Combate del Torneo";
+    const roundFailedName = getStageName(roundIndex);
     const roundsWon = Math.max(0, roundIndex - 1);
 
     return `
@@ -655,7 +757,7 @@ function renderTournamentViewHtml() {
       <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid #ff4757; border-radius: 20px; background: radial-gradient(circle, rgba(230,57,70,0.18) 0%, rgba(15,23,42,0.98) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(255,71,87,0.3);">
         <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.8s infinite;">💀⚔️🥀</div>
         <h1 style="color: #ff6b6b; font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 8px 0; text-shadow: 0 0 20px rgba(255,71,87,0.5);">
-          ¡CAÍDO EN LA ARENA ANCESTRAL!
+          ${t("arena_fallen_title", "¡CAÍDO EN LA ARENA ANCESTRAL!")}
         </h1>
         <p style="color: #f1faee; font-size: 1.15rem; max-width: 680px; margin: 0 auto 1.8rem auto; line-height: 1.5;">
           Tu dragón <strong>${playerDragon.name}</strong> libró una batalla feroz pero fue superado por <strong>${currentOpponent ? currentOpponent.name : 'su rival'}</strong> en <span style="color: var(--gold-main); font-weight: 700;">${roundFailedName}</span>.
@@ -679,17 +781,17 @@ function renderTournamentViewHtml() {
           <!-- Tu Dragón Caído -->
           <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid #ff4757; border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(255,71,87,0.25);">
             <div style="margin-bottom: 10px;">
-              <span class="badge badge-danger" style="font-weight: 800; padding: 4px 10px;">💀 Héroe Caído</span>
+              <span class="badge badge-danger" style="font-weight: 800; padding: 4px 10px;">${t("arena_fallen_hero", "💀 Héroe Caído")}</span>
             </div>
             <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid #ff4757; position: relative; background: #0a0911;">
               <img src="${getDragonArtworkSrc(playerDragon)}" alt="${playerDragon.name}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.45; filter: grayscale(40%);" />
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); color: #ff4757; font-size: 2rem;">💀</div>
             </div>
             <h3 style="color: #ff6b6b; font-size: 1.2rem; margin: 0 0 4px 0;">${playerDragon.name}</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${playerDragon.title}"</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${getDragonTitle(playerDragon)}"</p>
             <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
-              <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
-              <span class="badge badge-type">${playerDragon.type}</span>
+              <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${getDragonElement(playerDragon)}</span>
+              <span class="badge badge-type">${getDragonType(playerDragon)}</span>
             </div>
           </div>
 
@@ -699,16 +801,16 @@ function renderTournamentViewHtml() {
           ${currentOpponent ? `
             <div class="fantasy-panel" style="flex: 1; min-width: 260px; max-width: 360px; padding: 1.4rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 20px rgba(233,196,106,0.3);">
               <div style="margin-bottom: 10px;">
-                <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; padding: 4px 10px;">👑 Rival Victorioso</span>
+                <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800; padding: 4px 10px;">${t("arena_victorious_rival", "👑 Rival Victorioso")}</span>
               </div>
               <div style="width: 96px; height: 96px; margin: 0 auto 10px auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-main); box-shadow: 0 0 16px rgba(233,196,106,0.4); background: #0a0911;">
                 <img src="${getDragonArtworkSrc(currentOpponent)}" alt="${currentOpponent.name}" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
               <h3 style="color: var(--gold-main); font-size: 1.2rem; margin: 0 0 4px 0;">${currentOpponent.name}</h3>
-              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${currentOpponent.title}"</p>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 8px 0; font-style: italic;">"${getDragonTitle(currentOpponent)}"</p>
               <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
-                <span class="badge badge-element badge-${currentOpponent.element.toLowerCase()}">${currentOpponent.element}</span>
-                <span class="badge badge-type">${currentOpponent.type}</span>
+                <span class="badge badge-element badge-${currentOpponent.element.toLowerCase()}">${getDragonElement(currentOpponent)}</span>
+                <span class="badge badge-type">${getDragonType(currentOpponent)}</span>
               </div>
             </div>
           ` : ''}
@@ -718,15 +820,15 @@ function renderTournamentViewHtml() {
         <div class="fantasy-panel" style="max-width: 640px; margin: 0 auto 2rem auto; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; background: rgba(10,9,17,0.75);">
           <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 12px;">
             <div>
-              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Rondas Superadas</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">${t("arena_rounds_cleared", "Rondas Superadas")}</span>
               <strong style="color: ${roundsWon > 0 ? '#80ed99' : 'var(--text-muted)'}; font-size: 1.3rem;">${roundsWon} de 3</strong>
             </div>
             <div>
-              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Instancia Alcanzada</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">${t("arena_instance_reached", "Instancia Alcanzada")}</span>
               <strong style="color: var(--gold-main); font-size: 1.15rem;">${roundFailedName}</strong>
             </div>
             <div>
-              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">Bendiciones Activas</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem; display: block;">${t("arena_active_blessings", "Bendiciones Activas")}</span>
               <strong style="color: #9d4edd; font-size: 1.3rem;">${playerRelics.length}</strong>
             </div>
           </div>
@@ -745,10 +847,10 @@ function renderTournamentViewHtml() {
         <!-- BOTONES DE ACCIÓN INMEDIATA -->
         <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
           <button type="button" class="btn btn-gold btn-lg" onclick="startTournamentRun()" style="padding: 14px 28px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-            🔄 Reintentar con ${playerDragon.name}
+            ${t("arena_retry_btn", "🔄 Reintentar con")} ${playerDragon.name}
           </button>
           <button type="button" class="btn btn-secondary btn-lg" onclick="resetTournamentToStart()" style="padding: 14px 28px; font-weight: 700; font-size: 1.1rem;">
-            🐲 Elegir Otro Dragón
+            ${t("arena_pick_other_btn", "🐲 Elegir Otro Dragón")}
           </button>
         </div>
       </div>
@@ -756,7 +858,7 @@ function renderTournamentViewHtml() {
   }
 
   const isFinal = tournamentStage === 3;
-  const stageTitle = STAGE_NAMES[tournamentStage];
+  const stageTitle = getStageName(tournamentStage);
 
   return `
     <!-- HEADER DE ETAPA DEL TORNEO -->
@@ -770,7 +872,7 @@ function renderTournamentViewHtml() {
           ${playerRelics.map(r => `<span title="${r}" style="font-size: 1.2rem;">⭐</span>`).join("") || "<span style='color: var(--text-muted); font-size: 0.85rem;'>Ninguna</span>"}
         </div>
         <button type="button" class="btn btn-secondary btn-sm" onclick="resetTournamentToStart()" ${isTournamentBattling ? "disabled" : ""}>
-          🏳️ Abandonar Torneo
+          ${t("arena_abandon_tourney", "🏳️ Abandonar Torneo")}
         </button>
       </div>
     </div>
@@ -782,7 +884,7 @@ function renderTournamentViewHtml() {
       <div class="fantasy-panel fighter-card fighter-card-a">
         <div>
           <div class="fighter-card-header">
-            <span class="fighter-title fighter-title-a">🐲 Tu Guardián (Tú)</span>
+            <span class="fighter-title fighter-title-a">${t("arena_your_guardian", "🐲 Tu Guardián (Tú)")}</span>
             <span class="badge" style="background: rgba(42,157,143,0.2); color: #80ed99; border: 1px solid #2a9d8f;">+${playerAttackBonus} ATK / +${playerDefenseBonus} DEF</span>
           </div>
 
@@ -791,22 +893,22 @@ function renderTournamentViewHtml() {
           </div>
 
           <h3 class="fighter-name">${playerDragon.name}</h3>
-          <p class="fighter-subtitle">${playerDragon.title}</p>
+          <p class="fighter-subtitle">"${getDragonTitle(playerDragon)}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${playerDragon.element}</span>
-            <span class="badge badge-type">${playerDragon.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${playerDragon.danger}/5</span>
+            <span class="badge badge-element badge-${playerDragon.element.toLowerCase()}">${getDragonElement(playerDragon)}</span>
+            <span class="badge badge-type">${getDragonType(playerDragon)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${playerDragon.danger}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${playerDragon.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(playerDragon)}
           </p>
         </div>
 
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: var(--color-teal);">Tu Salud (HP)</span>
+            <span style="color: var(--color-teal);">${t("arena_your_hp", "Tu Salud (HP)")}</span>
             <span id="player-hp-text" style="color: var(--color-teal);">${playerHp} / ${playerMaxHp}</span>
           </div>
           <div class="fighter-hp-track" style="border-color: var(--color-teal);">
@@ -820,7 +922,7 @@ function renderTournamentViewHtml() {
         <div class="arena-vs-badge" style="color: ${isFinal ? '#ff4757' : 'var(--gold-main)'};">VS</div>
         
         <button id="btn-start-tourney-battle" type="button" class="btn btn-gold btn-lg arena-btn-fight" onclick="startTournamentBattle()" ${isTournamentBattling ? "disabled" : ""}>
-          ⚔️ ¡LUCHAR!
+          ${t("arena_tourney_fight_btn", "⚔️ ¡LUCHAR!")}
         </button>
       </div>
 
@@ -836,26 +938,26 @@ function renderTournamentViewHtml() {
             <img src="${getDragonArtworkSrc(currentOpponent)}" alt="${currentOpponent.name}" />
           </div>
 
-          <h3 class="fighter-name">${currentOpponent.name}</h3>
-          <p class="fighter-subtitle">${currentOpponent.title}</p>
+          <h3 class="fighter-name">${currentOpponent ? currentOpponent.name : ''}</h3>
+          <p class="fighter-subtitle">"${currentOpponent ? getDragonTitle(currentOpponent) : ''}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${currentOpponent.element.toLowerCase()}">${currentOpponent.element}</span>
-            <span class="badge badge-type">${currentOpponent.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${currentOpponent.danger}/5</span>
+            <span class="badge badge-element badge-${currentOpponent ? currentOpponent.element.toLowerCase() : 'fuego'}">${getDragonElement(currentOpponent)}</span>
+            <span class="badge badge-type">${getDragonType(currentOpponent)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${currentOpponent ? currentOpponent.danger : 3}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${currentOpponent.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(currentOpponent)}
           </p>
           <p class="fighter-stat-text">
-            <strong style="color: #ff6b6b;">Debilidad:</strong> ${currentOpponent.weakness}
+            <strong style="color: #ff6b6b;">${t("stat_weakness", "Debilidad")}:</strong> ${getDragonWeakness(currentOpponent)}
           </p>
         </div>
 
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: #ff6b6b;">Salud Rival (HP)</span>
+            <span style="color: #ff6b6b;">${t("arena_opp_hp", "Salud Rival (HP)")}</span>
             <span id="opp-hp-text" style="color: #ff6b6b;">${opponentHp} / ${opponentMaxHp}</span>
           </div>
           <div class="fighter-hp-track" style="border-color: #ff4757;">
@@ -868,9 +970,9 @@ function renderTournamentViewHtml() {
 
     <!-- MODAL / PANEL DE BENDICIONES ROGUELITE -->
     <div id="relic-reward-modal" style="display: none; margin-bottom: 2rem;" class="fantasy-panel">
-      <h3 style="color: var(--gold-main); text-align: center; margin-top: 0;">✨ ¡VICTORIA DE RONDA! Elegí tu Bendición Ancestral:</h3>
+      <h3 style="color: var(--gold-main); text-align: center; margin-top: 0;">${t("arena_relic_victory_title", "✨ ¡VICTORIA DE RONDA! Elegí tu Bendición Ancestral:")}</h3>
       <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem;">
-        Los espíritus draconianos recompensan tu coraje. Escogé 1 bendición para fortalecerte antes de la siguiente batalla:
+        ${t("arena_relic_victory_desc", "Los espíritus draconianos recompensan tu coraje. Escogé 1 bendición para fortalecerte antes de la siguiente batalla:")}
       </p>
       <div id="relic-options-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
     </div>
@@ -879,14 +981,14 @@ function renderTournamentViewHtml() {
     <div class="fantasy-panel" style="padding: 1.5rem; border: 2px solid var(--border-gold); background: rgba(10, 9, 17, 0.95); border-radius: 16px;">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--border-panel); padding-bottom: 8px;">
         <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">
-          📜 Crónica del Torneo
+          ${t("arena_tourney_log_title", "📜 Crónica del Torneo")}
         </h3>
-        <span id="tourney-round-indicator" style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">Esperando orden de combate</span>
+        <span id="tourney-round-indicator" style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">${t("arena_tourney_waiting", "Esperando orden de combate")}</span>
       </div>
 
       <div id="tourney-log-box" style="height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 8px; font-size: 0.92rem; line-height: 1.5; color: var(--text-main);">
         <div style="color: var(--text-muted); font-style: italic; text-align: center; padding-top: 40px;">
-          Presioná "¡LUCHAR!" para disputar la ronda...
+          ${t("arena_tourney_press", "Presioná \"¡LUCHAR!\" para disputar la ronda...")}
         </div>
       </div>
     </div>
@@ -968,12 +1070,12 @@ window.startTournamentBattle = function() {
   const advPlayer = (ELEMENTAL_ADVANTAGE[playerDragon.element] || []).includes(currentOpponent.element);
   const advOpp = (ELEMENTAL_ADVANTAGE[currentOpponent.element] || []).includes(playerDragon.element);
 
-  appendTourneyLog(`⚔️ <strong>¡Comienza el combate de ${STAGE_NAMES[tournamentStage]}!</strong>`, "gold");
+  appendTourneyLog(isEn() ? `⚔️ <strong>Combat begins for ${getStageName(tournamentStage)}!</strong>` : `⚔️ <strong>¡Comienza el combate de ${getStageName(tournamentStage)}!</strong>`, "gold");
 
   if (advPlayer) {
-    appendTourneyLog(`🔥 ¡Ventaja Elemental! Tu elemento <strong>${playerDragon.element}</strong> domina al <strong>${currentOpponent.element}</strong> rival.`, "teal");
+    appendTourneyLog(isEn() ? `🔥 Elemental Advantage! Your <strong>${getDragonElement(playerDragon)}</strong> element dominates the rival's <strong>${getDragonElement(currentOpponent)}</strong>.` : `🔥 ¡Ventaja Elemental! Tu elemento <strong>${getDragonElement(playerDragon)}</strong> domina al <strong>${getDragonElement(currentOpponent)}</strong> rival.`, "teal");
   } else if (advOpp) {
-    appendTourneyLog(`⚡ ¡Cuidado! El elemento <strong>${currentOpponent.element}</strong> rival domina a tu <strong>${playerDragon.element}</strong>.`, "rust");
+    appendTourneyLog(isEn() ? `⚡ Beware! Rival's <strong>${getDragonElement(currentOpponent)}</strong> element dominates your <strong>${getDragonElement(playerDragon)}</strong>.` : `⚡ ¡Cuidado! El elemento <strong>${getDragonElement(currentOpponent)}</strong> rival domina a tu <strong>${getDragonElement(playerDragon)}</strong>.`, "rust");
   }
 
   tournamentInterval = setInterval(() => {
@@ -998,7 +1100,7 @@ window.startTournamentBattle = function() {
     updateTourneyHpBars();
 
     playSound("hit");
-    appendTourneyLog(`${isCrit ? '💥 ¡CRÍTICO! ' : ''}¡Tu dragón ataca con <em>${playerDragon.ability}</em> causando <strong>${dmgToOpp}</strong> de daño!`, isCrit ? "gold" : "teal");
+    appendTourneyLog(isEn() ? `${isCrit ? '💥 CRITICAL HIT! ' : ''}Your dragon strikes with <em>${getDragonAbility(playerDragon)}</em> dealing <strong>${dmgToOpp}</strong> damage!` : `${isCrit ? '💥 ¡CRÍTICO! ' : ''}¡Tu dragón ataca con <em>${getDragonAbility(playerDragon)}</em> causando <strong>${dmgToOpp}</strong> de daño!`, isCrit ? "gold" : "teal");
 
     if (opponentHp <= 0) {
       handleTournamentRoundWin();
@@ -1016,7 +1118,7 @@ window.startTournamentBattle = function() {
       updateTourneyHpBars();
 
       playSound("hit");
-      appendTourneyLog(`¡${currentOpponent.name} contrataca infligiendo <strong>${finalDmg}</strong> de daño!`, "rust");
+      appendTourneyLog(isEn() ? `${currentOpponent.name} counterattacks dealing <strong>${finalDmg}</strong> damage!` : `¡${currentOpponent.name} contrataca infligiendo <strong>${finalDmg}</strong> de daño!`, "rust");
 
       if (playerHp <= 0) {
         handleTournamentDefeat();
@@ -1157,7 +1259,7 @@ function renderSquadViewHtml() {
       <!-- PANTALLA DE VICTORIA GUERRA 5v5 (SIN COPA) -->
       <div class="fantasy-panel text-center" style="padding: 2.5rem 1.5rem; border: 3px solid var(--gold-main); border-radius: 20px; background: radial-gradient(circle, rgba(233,196,106,0.2) 0%, rgba(15,23,42,0.96) 100%); margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(233,196,106,0.25);">
         <div style="font-size: 3.5rem; margin-bottom: 6px; animation: pulse 1.5s infinite;">👑⚔️🛡️</div>
-        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">¡CLAN VENCEDOR DE LA ARENA 5v5!</h2>
+        <h2 style="color: var(--gold-main); font-size: 2.3rem; font-family: var(--font-heading); margin: 0 0 10px 0;">${t("arena_squad_victory_title", "¡CLAN VENCEDOR DE LA ARENA 5v5!")}</h2>
         <p style="color: #80ed99; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">
           ¡El escuadrón <strong>[${winnerName}]</strong> ha triunfado en la batalla campal con <strong>${survivingCount}</strong> dragones en pie demostrando la supremacía de su bando!
         </p>
@@ -1168,10 +1270,10 @@ function renderSquadViewHtml() {
           <!-- CLAN GANADOR -->
           <div class="fantasy-panel" style="flex: 1; min-width: 290px; max-width: 440px; padding: 1.5rem; border: 2px solid var(--gold-main); border-radius: 16px; background: rgba(10,9,17,0.9); box-shadow: 0 0 25px rgba(233,196,106,0.35);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-panel); padding-bottom: 8px;">
-              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800;">👑 Clan Triunfador</span>
+              <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; border: 1px solid #2a9d8f; font-weight: 800;">${t("arena_squad_triumphant_clan", "👑 Clan Triunfador")}</span>
               <span style="color: var(--gold-main); font-weight: 700; font-size: 1.1rem;">[${winnerName}]</span>
             </div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">Sobrevivientes: <strong style="color: #80ed99;">${survivingCount} / 5</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">${t("arena_squad_survivors", "Sobrevivientes:")} <strong style="color: #80ed99;">${survivingCount} / 5</strong></p>
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
               ${winningSquad.map((d, idx) => {
                 const isAlive = winningHps[idx] > 0;
@@ -1193,10 +1295,10 @@ function renderSquadViewHtml() {
           <!-- CLAN DERROTADO -->
           <div class="fantasy-panel" style="flex: 1; min-width: 280px; max-width: 400px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; background: rgba(10,9,17,0.6); opacity: 0.75;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-              <span class="badge badge-danger">💀 Clan Derrotado</span>
+              <span class="badge badge-danger">${t("arena_squad_defeated_clan", "💀 Clan Derrotado")}</span>
               <span style="color: var(--text-muted); font-weight: 700; font-size: 1.05rem;">[${loserName}]</span>
             </div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">Sobrevivientes: <strong style="color: #ff6b6b;">0 / 5</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 12px 0; text-align: left;">${t("arena_squad_survivors", "Sobrevivientes:")} <strong style="color: #ff6b6b;">0 / 5</strong></p>
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
               ${losingSquad.map((d) => `
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
@@ -1213,27 +1315,28 @@ function renderSquadViewHtml() {
         </div>
 
         <button type="button" class="btn btn-gold btn-lg" onclick="resetSquadWar()" style="padding: 14px 34px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 20px rgba(233,196,106,0.4);">
-          🔄 Disputar Otra Guerra de Clanes
+          ${t("arena_squad_another_war", "🔄 Disputar Otra Guerra de Clanes")}
         </button>
       </div>
     `;
   }
 
-  const activeDragonA = squadA[activeIndexA] || squadA[0];
-  const activeDragonB = squadB[activeIndexB] || squadB[0];
-  const currentHpA = squadHpA[activeIndexA] !== undefined ? squadHpA[activeIndexA] : 100;
-  const currentHpB = squadHpB[activeIndexB] !== undefined ? squadHpB[activeIndexB] : 100;
+  ensureArenaInitialized();
+  const activeDragonA = (squadA && squadA[activeIndexA]) || (squadA && squadA[0]) || DRAGONS_DATA[0];
+  const activeDragonB = (squadB && squadB[activeIndexB]) || (squadB && squadB[0]) || DRAGONS_DATA[1];
+  const currentHpA = (squadHpA && squadHpA[activeIndexA] !== undefined) ? squadHpA[activeIndexA] : 100;
+  const currentHpB = (squadHpB && squadHpB[activeIndexB] !== undefined) ? squadHpB[activeIndexB] : 100;
 
-  const aliveA = squadHpA.filter(h => h > 0).length;
-  const aliveB = squadHpB.filter(h => h > 0).length;
+  const aliveA = (squadHpA || []).filter(h => h > 0).length;
+  const aliveB = (squadHpB || []).filter(h => h > 0).length;
 
   return `
     <!-- HERO BANNER ARENA ESCUADRONES -->
     <div class="fantasy-panel text-center margin-bottom-lg" style="padding: 1.6rem; background: linear-gradient(135deg, rgba(42,157,143,0.2), rgba(233,196,106,0.15)); border: 2px solid var(--color-teal); border-radius: 20px;">
       <div style="font-size: 2.5rem; margin-bottom: 4px;">🛡️🐉⚔️</div>
-      <h2 style="color: var(--gold-main); font-size: 1.85rem; margin: 0; font-family: var(--font-heading);">Guerra de Escuadrones 5 vs 5</h2>
+      <h2 style="color: var(--gold-main); font-size: 1.85rem; margin: 0; font-family: var(--font-heading);">${t("arena_squad_banner_title", "Guerra de Clanes: 5 vs 5")}</h2>
       <p style="color: var(--text-main); font-size: 0.95rem; max-width: 760px; margin: 6px auto 0 auto; line-height: 1.5;">
-        ¡Formá tu clan de 5 dragones con nombre personalizado y enfrentá al escuadrón rival en una batalla campal por relevos hasta la última garra!
+        ${t("arena_squad_banner_desc", "¡Formá tu clan de 5 dragones con nombre personalizado y enfrentá al escuadrón rival en una batalla campal por relevos hasta la última garra!")}
       </p>
     </div>
 
@@ -1245,14 +1348,14 @@ function renderSquadViewHtml() {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
           <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
             <span style="font-size: 1.3rem;">🛡️</span>
-            <input type="text" id="squad-name-input-a" class="search-input" value="${squadNameA}" placeholder="Nombre de tu Clan..." onchange="updateSquadName('A', this.value)" style="font-weight: 700; color: var(--gold-main); padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
+            <input type="text" id="squad-name-input-a" class="search-input" value="${squadNameA}" placeholder="${t('arena_squad_name_a', 'Nombre de tu Clan...')}" onchange="updateSquadName('A', this.value)" style="font-weight: 700; color: var(--gold-main); padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
           </div>
-          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('A')" ${isSquadBattling ? "disabled" : ""}>🎲 Al Azar</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('A')" ${isSquadBattling ? "disabled" : ""}>${t("arena_random", "🎲 Al Azar")}</button>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <span style="font-size: 0.85rem; color: var(--text-muted);">Sobrevivientes:</span>
-          <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; font-weight: 800; border: 1px solid #2a9d8f;">${aliveA} / 5 Dragones</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">${t("arena_squad_survivors", "Sobrevivientes:")}</span>
+          <span class="badge" style="background: rgba(42,157,143,0.25); color: #80ed99; font-weight: 800; border: 1px solid #2a9d8f;">${aliveA} / 5 ${t('arena_dragons_count', 'Dragones')}</span>
         </div>
 
         <!-- LISTA DE MINIATURAS 5 DRAGONES A -->
@@ -1274,8 +1377,8 @@ function renderSquadViewHtml() {
         <!-- BOTÓN SELECTOR RÁPIDO PARA CAMBIAR INTEGRANTE A -->
         <div style="margin-top: 12px;">
           <button type="button" class="arena-picker-btn" onclick="openDragonPicker('squad_A_${activeIndexA}')" ${isSquadBattling ? "disabled" : ""}>
-            <span>🔍 Cambiar pos. ${activeIndexA + 1}: <strong>${activeDragonA.name}</strong></span>
-            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+            <span>🔍 ${t('arena_squad_change_pos', 'Cambiar pos.')} ${activeIndexA + 1}: <strong>${activeDragonA.name}</strong></span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">${t("arena_search_btn", "Buscar ▾")}</span>
           </button>
         </div>
       </div>
@@ -1285,14 +1388,14 @@ function renderSquadViewHtml() {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
           <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
             <span style="font-size: 1.3rem;">⚔️</span>
-            <input type="text" id="squad-name-input-b" class="search-input" value="${squadNameB}" placeholder="Nombre del Clan Rival..." onchange="updateSquadName('B', this.value)" style="font-weight: 700; color: #ff6b6b; padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
+            <input type="text" id="squad-name-input-b" class="search-input" value="${squadNameB}" placeholder="${t('arena_squad_name_b', 'Nombre del Clan Rival...')}" onchange="updateSquadName('B', this.value)" style="font-weight: 700; color: #ff6b6b; padding: 6px 10px; font-size: 1rem; width: 100%; max-width: 240px;" ${isSquadBattling ? "disabled" : ""} />
           </div>
-          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('B')" ${isSquadBattling ? "disabled" : ""}>🎲 Al Azar</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="randomizeSquad('B')" ${isSquadBattling ? "disabled" : ""}>${t("arena_random", "🎲 Al Azar")}</button>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <span style="font-size: 0.85rem; color: var(--text-muted);">Sobrevivientes:</span>
-          <span class="badge" style="background: rgba(230,57,70,0.25); color: #ff6b6b; font-weight: 800; border: 1px solid #e63946;">${aliveB} / 5 Dragones</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">${t("arena_squad_survivors", "Sobrevivientes:")}</span>
+          <span class="badge" style="background: rgba(230,57,70,0.25); color: #ff6b6b; font-weight: 800; border: 1px solid #e63946;">${aliveB} / 5 ${t('arena_dragons_count', 'Dragones')}</span>
         </div>
 
         <!-- LISTA DE MINIATURAS 5 DRAGONES B -->
@@ -1314,8 +1417,8 @@ function renderSquadViewHtml() {
         <!-- BOTÓN SELECTOR RÁPIDO PARA CAMBIAR INTEGRANTE B -->
         <div style="margin-top: 12px;">
           <button type="button" class="arena-picker-btn" onclick="openDragonPicker('squad_B_${activeIndexB}')" ${isSquadBattling ? "disabled" : ""}>
-            <span>🔍 Cambiar pos. ${activeIndexB + 1}: <strong>${activeDragonB.name}</strong></span>
-            <span style="color: var(--gold-main); font-size: 0.8rem;">Buscar ▾</span>
+            <span>🔍 ${t('arena_squad_change_pos', 'Cambiar pos.')} ${activeIndexB + 1}: <strong>${activeDragonB.name}</strong></span>
+            <span style="color: var(--gold-main); font-size: 0.8rem;">${t("arena_search_btn", "Buscar ▾")}</span>
           </button>
         </div>
       </div>
@@ -1337,22 +1440,22 @@ function renderSquadViewHtml() {
           </div>
 
           <h3 class="fighter-name">${activeDragonA.name}</h3>
-          <p class="fighter-subtitle">${activeDragonA.title}</p>
+          <p class="fighter-subtitle">"${getDragonTitle(activeDragonA)}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${activeDragonA.element.toLowerCase()}">${activeDragonA.element}</span>
-            <span class="badge badge-type">${activeDragonA.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${activeDragonA.danger}/5</span>
+            <span class="badge badge-element badge-${activeDragonA.element.toLowerCase()}">${getDragonElement(activeDragonA)}</span>
+            <span class="badge badge-type">${getDragonType(activeDragonA)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${activeDragonA.danger}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${activeDragonA.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(activeDragonA)}
           </p>
         </div>
 
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: var(--color-teal);">Salud del Combatiente</span>
+            <span style="color: var(--color-teal);">${t("arena_squad_fighter_hp", "Salud del Combatiente")}</span>
             <span id="squad-hp-text-A" style="color: var(--color-teal);">${currentHpA} / 100</span>
           </div>
           <div class="fighter-hp-track" style="border-color: var(--color-teal);">
@@ -1366,11 +1469,11 @@ function renderSquadViewHtml() {
         <div class="arena-vs-badge" style="font-size: 1.8rem; line-height: 1.1;">5v5<br><span style="font-size: 1.1rem; color: var(--text-muted);">WAR</span></div>
         
         <button id="btn-start-squad-war" type="button" class="btn btn-gold btn-lg arena-btn-fight" onclick="startSquadWar()" ${isSquadBattling ? "disabled" : ""}>
-          ⚔️ ¡BATALLA CAMPAL!
+          ${t("arena_squad_start_btn", "⚔️ ¡INICIAR GUERRA DE CLANES!")}
         </button>
 
         <button id="btn-reset-squad-war" type="button" class="btn btn-secondary btn-sm margin-top-sm" onclick="resetSquadWar()" style="display: ${squadBattleEnded ? 'inline-block' : 'none'};">
-          🔄 Reiniciar Guerra
+          ${t("arena_squad_another_war", "🔄 Reiniciar Guerra")}
         </button>
       </div>
 
@@ -1386,22 +1489,22 @@ function renderSquadViewHtml() {
           </div>
 
           <h3 class="fighter-name">${activeDragonB.name}</h3>
-          <p class="fighter-subtitle">${activeDragonB.title}</p>
+          <p class="fighter-subtitle">"${getDragonTitle(activeDragonB)}"</p>
 
           <div class="fighter-badges">
-            <span class="badge badge-element badge-${activeDragonB.element.toLowerCase()}">${activeDragonB.element}</span>
-            <span class="badge badge-type">${activeDragonB.type}</span>
-            <span class="badge badge-danger">🔥 Peligro ${activeDragonB.danger}/5</span>
+            <span class="badge badge-element badge-${activeDragonB.element.toLowerCase()}">${getDragonElement(activeDragonB)}</span>
+            <span class="badge badge-type">${getDragonType(activeDragonB)}</span>
+            <span class="badge badge-danger">🔥 ${t("danger_prefix", "Peligro")} ${activeDragonB.danger}/5</span>
           </div>
 
           <p class="fighter-stat-text">
-            <strong style="color: var(--gold-main);">Habilidad:</strong> ${activeDragonB.ability}
+            <strong style="color: var(--gold-main);">${t("stat_ability", "Habilidad")}:</strong> ${getDragonAbility(activeDragonB)}
           </p>
         </div>
 
         <div class="fighter-hp-wrap">
           <div class="fighter-hp-info">
-            <span style="color: #ff6b6b;">Salud del Combatiente</span>
+            <span style="color: #ff6b6b;">${t("arena_squad_fighter_hp", "Salud del Combatiente")}</span>
             <span id="squad-hp-text-B" style="color: #ff6b6b;">${currentHpB} / 100</span>
           </div>
           <div class="fighter-hp-track" style="border-color: #ff4757;">
@@ -1683,6 +1786,7 @@ function endSquadWar(winningTeam) {
    ========================================================================== */
 
 window.openDragonPicker = function(contextKey) {
+  ensureArenaInitialized();
   activePickerContext = contextKey;
   pickerSearchQuery = "";
   pickerElementFilter = "Todos";
@@ -1716,14 +1820,14 @@ function renderDragonPickerModal() {
         
         <div class="arena-picker-header">
           <h3 style="color: var(--gold-main); margin: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
-            🔍 Seleccionar Dragón para el Combate
+            ${t("arena_picker_title", "🔍 Seleccionar Dragón para el Combate")}
           </h3>
-          <button type="button" class="btn btn-secondary btn-sm" onclick="closeDragonPicker()">✕ Cerrar</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeDragonPicker()">${t("arena_picker_close", "✕ Cerrar")}</button>
         </div>
 
         <div class="arena-picker-filters">
           <div style="flex: 2; min-width: 180px;">
-            <input type="text" id="picker-search-input" class="search-input" placeholder="🔍 Escribí un nombre o mitología..." oninput="filterDragonPicker()" style="padding: 8px 12px; font-size: 0.95rem;" autofocus />
+            <input type="text" id="picker-search-input" class="search-input" placeholder="${t('arena_picker_placeholder', '🔍 Escribí un nombre o mitología...')}" oninput="filterDragonPicker()" style="padding: 8px 12px; font-size: 0.95rem;" autofocus />
           </div>
           <div style="flex: 1; min-width: 140px;">
             <select id="picker-elem-filter" class="filter-select" onchange="filterDragonPicker()" style="padding: 8px; font-size: 0.9rem;">
@@ -1759,7 +1863,7 @@ function renderDragonPickerList() {
   if (filtered.length === 0) {
     container.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem;">
-        No se encontraron dragones con esos criterios de búsqueda.
+        ${t("arena_picker_no_results", "No se encontraron dragones con esos criterios")} de búsqueda.
       </div>
     `;
     return;
@@ -1769,7 +1873,7 @@ function renderDragonPickerList() {
     <div class="arena-picker-card" onclick="selectPickerDragon(${d.id})">
       <img src="${getDragonArtworkSrc(d)}" alt="${d.name}" loading="lazy" />
       <div class="picker-name">${d.name}</div>
-      <div class="picker-meta">${d.element} • Peligro ${d.danger}/5</div>
+      <div class="picker-meta">${getDragonElement(d)} • ${t("danger_prefix", "Peligro")} ${d.danger}/5</div>
     </div>
   `).join("");
 }
@@ -1812,3 +1916,9 @@ window.handleTournamentRoundWin = handleTournamentRoundWin;
 window.endSquadWar = endSquadWar;
 
 
+
+window.isBattling = isBattling;
+window.isTournamentBattling = isTournamentBattling;
+window.isSquadBattling = isSquadBattling;
+window.renderArenaContainer = renderArenaContainer;
+window.initColiseoModule = initColiseoModule;

@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Jörmungandr -->
   <title>Jörmungandr (La Serpiente de Midgard) | Santuario de Dragones</title>
   <meta name="description" content="Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/j-rmungandr.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/j-rmungandr.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/j-rmungandr.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/j-rmungandr.html">
   <meta property="og:title" content="Jörmungandr - La Serpiente de Midgard">
   <meta property="og:description" content="Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_3.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Jörmungandr - La Serpiente de Midgard",
-    "description": "Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_3.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/j-rmungandr.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/j-rmungandr.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nórdica y Germánica",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Nórdica%20y%20Germánica"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Jörmungandr",
+            "item": "https://santuariodragones.vercel.app/dragon/j-rmungandr.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/j-rmungandr.html#article",
+        "headline": "Jörmungandr - La Serpiente de Midgard",
+        "description": "Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_3.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/j-rmungandr.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Jörmungandr",
+          "alternateName": "La Serpiente de Midgard",
+          "description": "Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_3.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Nórdica y Germánica" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Océano Global de Midgard" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Maremotos Gigantescos y Veneno Letal Eitr" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "El Martillo de Thor (Mjölnir)" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Jörmungandr",
-      "alternateName": "La Serpiente de Midgard",
-      "description": "Jörmungandr es un dragón Wyrm de Agua de la mitología Nórdica y Germánica. Hábitat: Océano Global de Midgard. Hijo de Loki, este dragón marino creció tanto que logró rodear toda la Tierra y morderse su propia cola. Si llega a soltar su cola, las olas...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_3.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Nórdica y Germánica" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Océano Global de Midgard" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Maremotos Gigantescos y Veneno Letal Eitr" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "El Martillo de Thor (Mjölnir)" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

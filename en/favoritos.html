@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+    <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#e9c46a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
+
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
+  <title>My Favorite Dragons: Personal Grimoire & Sanctuary Roster | Dragon Sanctuary</title>
+  <meta name="description" content="Manage your personal collection of favorite dragons, export grimoires and compare mythical champions.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/en/favoritos.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/en/favoritos.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/favoritos.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/en/favoritos.html">
+  <meta property="og:title" content="My Favorite Dragons: Personal Grimoire & Sanctuary Roster | Dragon Sanctuary">
+  <meta property="og:description" content="Manage your personal collection of favorite dragons, export grimoires and compare mythical champions.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/en/favoritos.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Favorite Dragons: Personal Grimoire & Sanctuary Roster | Dragon Sanctuary">
+  <meta name="twitter:description" content="Manage your personal collection of favorite dragons, export grimoires and compare mythical champions.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mis Dragones Favoritos | Santuario de Dragones",
+    "url": "https://santuariodragones.vercel.app/en/favoritos.html",
+    "description": "Tu guarida personal en el Santuario Secreto: consultá y gestioná los dragones legendarios guardados en tu sesión."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+        </div>
+
+        <nav class="nav-tabs">
+          <a class="nav-tab" data-tab="encyclopedia" href="/en/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab" data-tab="arena" href="/en/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/en/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab" data-tab="quiz" href="/en/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab active" data-tab="favorites" href="/en/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
+        </nav>
+
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- 6. FAVORITES SECTION -->
+      <section id="section-favorites" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div class="fantasy-panel margin-bottom-lg" style="text-align: center; padding: 2rem;">
+          <h1 data-i18n="fav_hero_title" style="color: var(--gold-main); font-size: 2.2rem; margin-top: 0;">❤️ Tu Guarida de Dragones Favoritos</h1>
+          <p data-i18n="fav_hero_desc" class="text-muted" style="font-size: 1.1rem; max-width: 700px; margin: 10px auto 0 auto;">
+            Acá están custodiados los dragones que marcaste con el corazón durante tu travesía por la enciclopedia. Podés consultar sus fichas o eliminarlos cuando lo desees.
+          </p>
+        </div>
+        <div id="favorites-grid" class="dragons-grid">
+          <div class="fantasy-panel text-center" style="grid-column: 1 / -1; padding: 2.5rem; text-align: center;">
+            <p data-i18n="fav_loading" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">Cargando tu guarida personal...</p>
+            <a href="/en/" class="btn btn-gold" style="text-decoration: none; padding: 10px 22px; font-weight: 700;"><span data-i18n="fav_explore_btn">📚 Explorar la Enciclopedia</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+
+        <!-- Site Footer & SEO Crawl Index -->
+    <footer class="site-footer">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🏛️ Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=N%C3%B3rdica%20y%20Germ%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Nórdica y Germánica</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Griega y Romana</a></li>
+            <li><a href="/?mitologia=Oriental%20%28Asia%29" style="color: var(--text-muted); text-decoration: none;">Oriental (Asia)</a></li>
+            <li><a href="/?mitologia=Mesoamericana%20y%20Sudamericana" style="color: var(--text-muted); text-decoration: none;">Mesoamericana y Sudamericana</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Brit%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Celta y Británica</a></li>
+            <li><a href="/?mitologia=Europea%20Continental" style="color: var(--text-muted); text-decoration: none;">Europea Continental</a></li>
+            <li><a href="/?mitologia=Eslava%20y%20Este%20de%20Europa" style="color: var(--text-muted); text-decoration: none;">Eslava y Este de Europa</a></li>
+            <li><a href="/?mitologia=Mesopot%C3%A1mica%20y%20Medio%20Oriente" style="color: var(--text-muted); text-decoration: none;">Mesopotámica y Medio Oriente</a></li>
+            <li><a href="/?mitologia=Hind%C3%BA%20y%20Sudeste%20Asi%C3%A1tico" style="color: var(--text-muted); text-decoration: none;">Hindú y Sudeste Asiático</a></li>
+            <li><a href="/?mitologia=Leyenda%20del%20Santuario" style="color: var(--text-muted); text-decoration: none;">Leyenda del Santuario</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Agua</a></li>
+            <li><a href="/?elemento=Tierra" style="color: var(--text-muted); text-decoration: none;">Tierra</a></li>
+            <li><a href="/?elemento=Viento" style="color: var(--text-muted); text-decoration: none;">Viento</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Tormenta</a></li>
+            <li><a href="/?elemento=Hielo" style="color: var(--text-muted); text-decoration: none;">Hielo</a></li>
+            <li><a href="/?elemento=Magma" style="color: var(--text-muted); text-decoration: none;">Magma</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Luz</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Sombra</a></li>
+            <li><a href="/?elemento=Veneno" style="color: var(--text-muted); text-decoration: none;">Veneno</a></li>
+            <li><a href="/?elemento=Naturaleza" style="color: var(--text-muted); text-decoration: none;">Naturaleza</a></li>
+            <li><a href="/?elemento=Cristal" style="color: var(--text-muted); text-decoration: none;">Cristal</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Tipo de Cuerpo:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?tipo=Drag%C3%B3n%20Europeo" style="color: var(--text-muted); text-decoration: none;">Dragón Europeo</a></li>
+            <li><a href="/?tipo=Wyvern" style="color: var(--text-muted); text-decoration: none;">Wyvern</a></li>
+            <li><a href="/?tipo=Wyrm" style="color: var(--text-muted); text-decoration: none;">Wyrm</a></li>
+            <li><a href="/?tipo=Drake" style="color: var(--text-muted); text-decoration: none;">Drake</a></li>
+            <li><a href="/?tipo=Shen" style="color: var(--text-muted); text-decoration: none;">Shen</a></li>
+            <li><a href="/?tipo=Ampithere" style="color: var(--text-muted); text-decoration: none;">Ampithere</a></li>
+            <li><a href="/?tipo=Hidra" style="color: var(--text-muted); text-decoration: none;">Hidra</a></li>
+            <li><a href="/?tipo=Drak%C3%B3n" style="color: var(--text-muted); text-decoration: none;">Drakón</a></li>
+            <li><a href="/?tipo=Basilisco" style="color: var(--text-muted); text-decoration: none;">Basilisco</a></li>
+            <li><a href="/?tipo=Otros" style="color: var(--text-muted); text-decoration: none;">Otros</a></li>
+          </ul>
+        </div>
+      </div>
+            <div style="margin-top: 1.2rem; display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+        <button type="button" onclick="openFeedbackModal()" class="footer-feedback-btn">
+          <span style="font-size: 1.05rem;">🝯</span>
+          <span>Reportar Error o Sugerencia</span>
+        </button>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+    <!-- Noscript Crawl Fallback for Search Engine Crawlers without JS -->
+        <noscript>
+      <section style="max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #0c0b14; border: 1px solid var(--border-panel); border-radius: 12px; color: #fff;">
+        <h2 style="color: var(--gold-main); font-size: 1.5rem;">❤️ Guarida de Dragones Favoritos</h2>
+        <p>Tu santuario personal donde descansan los dragones que seleccionaste durante tus exploraciones en el Códice. Esta sección almacena tus favoritos de forma privada en tu navegador.</p>
+        <p><a href="/en/" style="color: var(--gold-main); font-weight: bold;">Explorar el Códice y sumar nuevos dragones</a></p>
+      </section>
+    </noscript>
+
+  </div>
+
+  <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.I18N) window.I18N.setLanguage('en', false);
+    });
+  </script>
+</body>
+</html>

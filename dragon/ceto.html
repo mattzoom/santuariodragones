@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Ceto -->
   <title>Ceto (El Monstruo de las Profundidades Abisales) | Santuario de Dragones</title>
   <meta name="description" content="Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/ceto.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/ceto.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/ceto.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/ceto.html">
   <meta property="og:title" content="Ceto - El Monstruo de las Profundidades Abisales">
   <meta property="og:description" content="Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_16.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Ceto - El Monstruo de las Profundidades Abisales",
-    "description": "Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_16.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/ceto.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/ceto.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Griega y Romana",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Griega%20y%20Romana"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Ceto",
+            "item": "https://santuariodragones.vercel.app/dragon/ceto.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/ceto.html#article",
+        "headline": "Ceto - El Monstruo de las Profundidades Abisales",
+        "description": "Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_16.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/ceto.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Ceto",
+          "alternateName": "El Monstruo de las Profundidades Abisales",
+          "description": "Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_16.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Griega y Romana" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Drakón" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Mar Egeo" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Tsunamis Embajadores y Escamas de Arrecife" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Reflejo del Escudo de Atenea" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Ceto",
-      "alternateName": "El Monstruo de las Profundidades Abisales",
-      "description": "Ceto es un dragón Drakón de Agua de la mitología Griega y Romana. Hábitat: Mar Egeo. Un voraz dragón marino enviado por Poseidón. Poseía aletas gigantescas que parecían alas de murciélago submarinas y dientes como estalactita...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_16.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Griega y Romana" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Drakón" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Mar Egeo" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Tsunamis Embajadores y Escamas de Arrecife" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Reflejo del Escudo de Atenea" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

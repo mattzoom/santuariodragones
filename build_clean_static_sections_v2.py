@@ -71,8 +71,61 @@ def extract_between(text, start_marker, end_marker):
     if e == -1: return ""
     return text[s + len(start_marker):e]
 
+def resolve_is_en_to_spanish(text):
+    result = []
+    i = 0
+    n = len(text)
+    while i < n:
+        if text[i:i+6] == "${isEn":
+            depth = 1
+            j = i + 2
+            while j < n and depth > 0:
+                if text[j] == '{':
+                    depth += 1
+                elif text[j] == '}':
+                    depth -= 1
+                j += 1
+            expr = text[i:j]
+            q_idx = expr.find('?')
+            if q_idx != -1:
+                in_quote = None
+                colon_idx = -1
+                k = q_idx + 1
+                while k < len(expr) - 1:
+                    ch = expr[k]
+                    if in_quote:
+                        if ch == '\\':
+                            k += 1
+                        elif ch == in_quote:
+                            in_quote = None
+                    else:
+                        if ch in ('"', "'", '`'):
+                            in_quote = ch
+                        elif ch == ':':
+                            colon_idx = k
+                            break
+                    k += 1
+                if colon_idx != -1:
+                    b_branch = expr[colon_idx+1:-1].strip()
+                    if (b_branch.startswith('"') and b_branch.endswith('"')) or \
+                       (b_branch.startswith("'") and b_branch.endswith("'")) or \
+                       (b_branch.startswith('`') and b_branch.endswith('`')):
+                        b_val = b_branch[1:-1]
+                        b_val = b_val.replace('\\"', '"').replace("\\'", "'")
+                        result.append(b_val)
+                    else:
+                        result.append(b_branch)
+                    i = j
+                    continue
+        result.append(text[i])
+        i += 1
+    return "".join(result)
+
 # 1. Fundamentos HTML
-raw_fundamentos = extract_between(magic_js, 'function renderFundamentosView(container) {\n  container.innerHTML = `', '`;\n}')
+raw_fundamentos = extract_between(magic_js, 'function renderFundamentosView(container) {', '`;\n}')
+if 'container.innerHTML = `' in raw_fundamentos:
+    raw_fundamentos = raw_fundamentos.split('container.innerHTML = `', 1)[1]
+raw_fundamentos = resolve_is_en_to_spanish(raw_fundamentos)
 fundamentos_clean_html = raw_fundamentos.replace('${renderMagicSubNavHtml("fundamentos")}', get_magic_sub_nav_html("fundamentos"))
 
 # 2. Altar Tools HTML Extraction
@@ -82,7 +135,7 @@ for t in ['varita', 'pentaculo', 'espejo', 'dragonscript']:
     if s_marker not in magic_js:
         s_marker = f'else if (currentAltarTool === "{t}") {{\n    toolContentHtml = `'
     t_content = extract_between(magic_js, s_marker, '`;\n  }')
-    tools_html[t] = t_content
+    tools_html[t] = resolve_is_en_to_spanish(t_content)
 
 # Clean dragonscript template literal
 alphabet_buttons = "".join([
@@ -137,30 +190,35 @@ def make_altar_page_html(active_tool="varita"):
 # 3. Rings HTML Extraction
 rings_html = {}
 for r in range(1, 6):
-    s_marker = f'case {r}:\n      return `'
-    r_content = extract_between(magic_js, s_marker, '`;\n    case')
-    if not r_content:
-        r_content = extract_between(magic_js, s_marker, '`;\n    default:')
-    rings_html[r] = r_content
+    if r == 5:
+        s_marker = 'case 5:\n    default:\n      return `'
+        end_marker = '`;\n  }\n}'
+    else:
+        s_marker = f'case {r}:\n      return `'
+        end_marker = f'case {r+1}:'
+    content = extract_between(magic_js, s_marker, end_marker).strip()
+    if content.endswith('`;'):
+        content = content[:-2].strip()
+    rings_html[r] = resolve_is_en_to_spanish(content)
 
 def make_academia_page_html(active_ring=1):
     subnav = get_magic_sub_nav_html("academia")
     ring_selector = f'''
       <div style="display: flex; justify-content: center; gap: 8px; margin: 1.5rem 0; flex-wrap: wrap;">
         <a href="/academia-anillo-1.html" class="btn {'btn-gold' if active_ring == 1 else 'btn-secondary'}" style="text-decoration: none; padding: 8px 16px; font-weight: 700; font-size: 0.9rem;">
-          🌱 Anillo 1: Ética
+          🌱 Anillo 1: El Aprendiz
         </a>
         <a href="/academia-anillo-2.html" class="btn {'btn-gold' if active_ring == 2 else 'btn-secondary'}" style="text-decoration: none; padding: 8px 16px; font-weight: 700; font-size: 0.9rem;">
-          🌪️ Anillo 2: Elementos
+          📜 Anillo 2: El Encantador
         </a>
         <a href="/academia-anillo-3.html" class="btn {'btn-gold' if active_ring == 3 else 'btn-secondary'}" style="text-decoration: none; padding: 8px 16px; font-weight: 700; font-size: 0.9rem;">
-          🌿 Anillo 3: Chamán
+          🌿 Anillo 3: El Chamán
         </a>
         <a href="/academia-anillo-4.html" class="btn {'btn-gold' if active_ring == 4 else 'btn-secondary'}" style="text-decoration: none; padding: 8px 16px; font-weight: 700; font-size: 0.9rem;">
-          🧘 Anillo 4: Meditación
+          🛡️ Anillo 4: El Guerrero
         </a>
         <a href="/academia-anillo-5.html" class="btn {'btn-gold' if active_ring == 5 else 'btn-secondary'}" style="text-decoration: none; padding: 8px 16px; font-weight: 700; font-size: 0.9rem;">
-          🎓 Anillo 5: Graduación
+          🔮 Anillo 5: El Místico
         </a>
       </div>
     '''
@@ -232,20 +290,20 @@ for tool_id, tool_name, tool_desc in [
 
 # Build Academia Hub and Rings
 build_page('academia-draconiana.html',
-           'Academia Draconiana: Los 5 Anillos del Conocimiento | Santuario de Dragones',
-           'El camino de iniciación en la magia draconiana a través de los 5 Anillos del Conocimiento y la Sabiduría.',
+           'La Academia Draconiana: Los 5 Anillos del Saber | Santuario de Dragones',
+           'Avanzá paso a paso a través de los 5 Anillos Internos del Saber para dominar la concentración, los encantamientos, la sanación, la protección y el misticismo.',
            make_magic_page(make_academia_page_html(1)), active_tab="magic")
 
 ring_info = [
-    (1, 'Anillo 1: Código de Honor y Ética', 'Primer Anillo de la Academia Draconiana: El Código de Ética y Responsabilidad Mágica para jóvenes guardianes.'),
-    (2, 'Anillo 2: Elementos y Guardianes Cardinales', 'Segundo Anillo de la Academia Draconiana: Sintonía con los 4 Elementos y los Dragones Guardianes de los Puntos Cardinales.'),
-    (3, 'Anillo 3: El Chamán Draconiano y Medicina Sagrada', 'Tercer Anillo de la Academia Draconiana: Sabiduría chamánica y plantas medicinales draconianas.'),
-    (4, 'Anillo 4: Meditación y Comunicación Mental', 'Cuarto Anillo de la Academia Draconiana: Técnicas de relajación y comunicación mental con tu dragón guardián.'),
-    (5, 'Anillo 5: Consagración y Graduación', 'Quinto Anillo de la Academia Draconiana: Ritual final de graduación y consagración de herramientas sagradas.')
+    (1, 'El Aprendiz (Despertar y Paciencia)', 'Lección del Primer Anillo de la Academia Draconiana: respiración, concentración, el código del aprendiz y conexión inicial.'),
+    (2, 'El Encantador (Sonidos y Palabras de Poder)', 'Lección del Segundo Anillo de la Academia Draconiana: rimas, sonidos armónicos, campana y palabras de poder.'),
+    (3, 'El Chamán (Naturaleza y Sanación)', 'Lección del Tercer Anillo de la Academia Draconiana: amistad con los animales, plantas sagradas y sanación de la naturaleza.'),
+    (4, 'El Guerrero (Escudo de Valentía)', 'Lección del Cuarto Anillo de la Academia Draconiana: meditación, el escudo dorado, respeto y protección mágica.'),
+    (5, 'El Místico (Graduación y Sabiduría Cósmica)', 'Lección del Quinto Anillo de la Academia Draconiana: la red de la vida, el elemento tormenta, juramento y graduación.')
 ]
 
 for r_num, r_title, r_desc in ring_info:
-    build_page(f'academia-anillo-{r_num}.html', f'Academia: {r_title} | Santuario de Dragones', r_desc,
+    build_page(f'academia-anillo-{r_num}.html', f'Anillo {r_num}: {r_title} | Santuario de Dragones', r_desc,
                make_magic_page(make_academia_page_html(r_num)), active_tab="magic")
 
 print("¡Todas las páginas de Magia, Altar y Academia actualizadas limpiamente!")

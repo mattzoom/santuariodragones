@@ -18,10 +18,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="styles.min.css?v=8.4.0">
   <title>Forja de Sigilos Draconianos: Creá tu Glifo Sagrado | Santuario de Dragones</title>
   <meta name="description" content="Diseñá y forjá tu propio sigilo protector draconiano en SVG vectorial: combiná tu nombre con tu dragón guardián, elegí cuernos y auras elementales.">
   <link rel="canonical" href="https://santuariodragones.vercel.app/forja-de-sigilos.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/forja-de-sigilos.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/forja-de-sigilos.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/forja-de-sigilos.html">
   <meta property="og:title" content="Forja de Sigilos Draconianos: Creá tu Glifo Sagrado | Santuario de Dragones">
   <meta property="og:description" content="Diseñá y forjá tu propio sigilo protector draconiano en SVG vectorial: combiná tu nombre con tu dragón guardián, elegí cuernos y auras elementales.">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
@@ -67,7 +70,8 @@
           <a class="nav-tab" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
           <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
         </div>
       </div>
@@ -78,24 +82,24 @@
 
       <!-- 4. MAGIA DRACONIANA / SIGILOS SECTION -->
       <section id="section-magic" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
-        <div id="magic-container">
-          <div class="fantasy-panel" style="padding: 2rem; margin-bottom: 1.5rem;">
-            <h2 style="color: var(--gold-main); font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid var(--border-panel); padding-bottom: 0.5rem;">
-              🔮 Cómo Funciona la Forja de Sigilos
-            </h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.2rem;">
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
-                <h4 style="color: var(--gold-main); margin: 0 0 6px 0;">1. Extracción de Consonantes</h4>
-                <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;">El sistema toma tu nombre y el de tu dragón, elimina vocales y letras repetidas, dejando la esencia fonética pura.</p>
-              </div>
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
-                <h4 style="color: var(--gold-main); margin: 0 0 6px 0;">2. Coordenadas Radiales</h4>
-                <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;">Cada consonante se mapea en un círculo alquímico de 360 grados, trazando curvas Bézier de energía concentrada.</p>
-              </div>
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
-                <h4 style="color: var(--gold-main); margin: 0 0 6px 0;">3. Anatomía y Cuernos</h4>
-                <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;">Podés elegir entre cuernos clásicos, de carnero, corona o cuerno espiral, y auras elementales en SVG puro.</p>
-              </div>
+        <div id="magic-container"></div>
+
+        <div class="fantasy-panel" style="padding: 2rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+          <h2 style="color: var(--gold-main); font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid var(--border-panel); padding-bottom: 0.5rem;" data-i18n="sigil_static_title">
+            🔮 Cómo Funciona la Forja de Sigilos
+          </h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.2rem;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+              <h4 style="color: var(--gold-main); margin: 0 0 6px 0;" data-i18n="sigil_static_step1_title">1. Extracción de Consonantes</h4>
+              <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;" data-i18n="sigil_static_step1_desc">El sistema toma tu nombre y el de tu dragón, elimina vocales y letras repetidas, dejando la esencia fonética pura.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+              <h4 style="color: var(--gold-main); margin: 0 0 6px 0;" data-i18n="sigil_static_step2_title">2. Coordenadas Radiales</h4>
+              <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;" data-i18n="sigil_static_step2_desc">Cada consonante se mapea en un círculo alquímico de 360 grados, trazando curvas Bézier de energía concentrada.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+              <h4 style="color: var(--gold-main); margin: 0 0 6px 0;" data-i18n="sigil_static_step3_title">3. Anatomía y Cuernos</h4>
+              <p style="font-size: 0.9rem; margin: 0; color: var(--text-main); line-height: 1.5;" data-i18n="sigil_static_step3_desc">Podés elegir entre cuernos clásicos, de carnero, corona o cuerno espiral, y auras elementales en SVG puro.</p>
             </div>
           </div>
         </div>
@@ -177,7 +181,9 @@
   </div>
 
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
+  <script src="js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

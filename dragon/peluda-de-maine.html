@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Peluda de Maine -->
   <title>Peluda de Maine (La Bestia del Río Huisne) | Santuario de Dragones</title>
   <meta name="description" content="Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/peluda-de-maine.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/peluda-de-maine.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/peluda-de-maine.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/peluda-de-maine.html">
   <meta property="og:title" content="Peluda de Maine - La Bestia del Río Huisne">
   <meta property="og:description" content="Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_85.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Peluda de Maine - La Bestia del Río Huisne",
-    "description": "Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_85.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/peluda-de-maine.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/peluda-de-maine.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Europea Continental",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Europea%20Continental"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Peluda de Maine",
+            "item": "https://santuariodragones.vercel.app/dragon/peluda-de-maine.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/peluda-de-maine.html#article",
+        "headline": "Peluda de Maine - La Bestia del Río Huisne",
+        "description": "Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_85.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/peluda-de-maine.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Peluda de Maine",
+          "alternateName": "La Bestia del Río Huisne",
+          "description": "Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_85.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Europea Continental" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Drake" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Río Huisne (Francia)" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Lanzamiento de Púas Venenosas y Maremoto de Río" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Corte Preciso en la Cola" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Peluda de Maine",
-      "alternateName": "La Bestia del Río Huisne",
-      "description": "Peluda de Maine es un dragón Drake de Agua de la mitología Europea Continental. Hábitat: Río Huisne (Francia). Un extraño dragón cubierto de pelaje verde lleno de púas venenosas del tamaño de jabalinas. Se refugiaba en el río y podía disparar sus púas...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_85.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Europea Continental" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Drake" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Agua" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Río Huisne (Francia)" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Lanzamiento de Púas Venenosas y Maremoto de Río" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Corte Preciso en la Cola" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

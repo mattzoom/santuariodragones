@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Tifón Dragón -->
   <title>Tifón Dragón (El Titán de los Cien Huracanes) | Santuario de Dragones</title>
   <meta name="description" content="Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/tifon-dragon.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/tifon-dragon.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/tifon-dragon.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/tifon-dragon.html">
   <meta property="og:title" content="Tifón Dragón - El Titán de los Cien Huracanes">
   <meta property="og:description" content="Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_18.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Tifón Dragón - El Titán de los Cien Huracanes",
-    "description": "Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_18.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/tifon-dragon.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/tifon-dragon.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Griega y Romana",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Griega%20y%20Romana"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Tifón Dragón",
+            "item": "https://santuariodragones.vercel.app/dragon/tifon-dragon.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/tifon-dragon.html#article",
+        "headline": "Tifón Dragón - El Titán de los Cien Huracanes",
+        "description": "Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_18.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/tifon-dragon.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Tifón Dragón",
+          "alternateName": "El Titán de los Cien Huracanes",
+          "description": "Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_18.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Griega y Romana" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Otros" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Monte Etna" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Llamaradas de Azufre y Vientos Ciclónicos" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "El Rayo Maestro del Olimpo" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Tifón Dragón",
-      "alternateName": "El Titán de los Cien Huracanes",
-      "description": "Tifón Dragón es un dragón Otros de Tormenta de la mitología Griega y Romana. Hábitat: Monte Etna. Considerado el padre de todos los monstruos griegos. Sus cabezas tocaban las estrellas y de sus ojos salía un fuego violento capaz de derret...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_18.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Griega y Romana" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Otros" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Monte Etna" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Llamaradas de Azufre y Vientos Ciclónicos" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "El Rayo Maestro del Olimpo" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+    <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#e9c46a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
+
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
+  <title>The Great Dragon Arena: 1v1 Duels, Tournaments and Squad Battles | Dragon Sanctuary</title>
+  <meta name="description" content="Pit legendary dragons against mythical beasts in tactical turn-based combat with elemental advantages.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/en/arena.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/en/arena.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/arena.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/en/arena.html">
+  <meta property="og:title" content="The Great Dragon Arena: 1v1 Duels, Tournaments and Squad Battles | Dragon Sanctuary">
+  <meta property="og:description" content="Pit legendary dragons against mythical beasts in tactical turn-based combat with elemental advantages.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/en/arena.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Great Dragon Arena: 1v1 Duels, Tournaments and Squad Battles | Dragon Sanctuary">
+  <meta name="twitter:description" content="Pit legendary dragons against mythical beasts in tactical turn-based combat with elemental advantages.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://santuariodragones.vercel.app/arena.html#webpage",
+      "url": "https://santuariodragones.vercel.app/en/arena.html",
+      "name": "Arena de Dragones: Combates 1 vs 1, Torneo Roguelite y Guerra 5 vs 5 | Santuario de Dragones",
+      "description": "Entrá a la Arena de Dragones del Santuario: desafiá a las bestias legendarias en combate 1 vs 1, disputá el Torneo Roguelite o liderá clanes en guerra 5 vs 5.",
+      "inLanguage": [
+        "es",
+        "en"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://santuariodragones.vercel.app/arena.html#arenagame",
+      "name": "Arena y Coliseo de Dragones",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript and HTML5 Canvas",
+      "description": "Simulador interactivo de combates tácticos por turnos, sistema de torneo roguelite con bendiciones y batallas de escuadrones 5 vs 5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+        </div>
+
+                        <nav class="nav-tabs">
+          <a class="nav-tab" data-tab="encyclopedia" href="/en/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab active" data-tab="arena" href="/en/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/en/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab" data-tab="quiz" href="/en/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab" data-tab="favorites" href="/en/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
+        </nav>
+
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- 2. ARENA DE DRAGONES SECTION -->
+      <section id="section-arena" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div class="hero-banner" style="margin-bottom: 1.5rem; text-align: center;">
+          <div class="hero-emblem-wrap">
+            <img src="/assets/ui/hero_emblem.webp" alt="Santuario Secreto de Dragones - Arena de Combate" class="hero-emblem-img" width="180" height="180" fetchpriority="high" loading="eager" />
+          </div>
+          <h1 class="hero-title" data-i18n="arena_hero_title" style="font-size: 2.4rem; color: var(--gold-main); margin-top: 0.5rem;">La Gran Arena de Dragones</h1>
+          <p class="hero-subtitle" data-i18n="arena_hero_subtitle" style="max-width: 760px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+            El campo sagrado de combate donde se miden el poder elemental, las estrategias míticas y el honor de las bestias más poderosas del Santuario.
+          </p>
+        </div>
+
+        <div id="arena-container">
+          <!-- Static Crawler-Friendly Content & Initial Mount UI -->
+          <div class="fantasy-panel" style="margin-bottom: 1.5rem;">
+            <h2 data-i18n="arena_modes_title" style="color: var(--gold-main); font-size: 1.6rem; border-bottom: 1px solid var(--border-panel); padding-bottom: 0.5rem; margin-top: 0;">⚔️ Modos de Combate Disponibles</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 data-i18n="arena_mode1_title" style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">1. Duelo Rápido 1 vs 1</h3>
+                <p data-i18n="arena_mode1_desc" style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Elegí tu campeón entre los 100 dragones del códice y enfréntate en combate singular por turnos contra un rival mítico. El cálculo de daño considera ataque, defensa y ventajas elementales.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 data-i18n="arena_mode2_title" style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">2. El Torneo del Santuario (Roguelite)</h3>
+                <p data-i18n="arena_mode2_desc" style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Elegí tu dragón y avanzá por 4 rondas eliminatorias (Octavos, Cuartos, Semifinal y Gran Final). Tras cada victoria elegís bendiciones draconianas y mejoras permanentes de atributos.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h3 data-i18n="arena_mode3_title" style="color: var(--gold-main); margin-top: 0; font-size: 1.2rem;">3. Guerra de Clanes 5 vs 5</h3>
+                <p data-i18n="arena_mode3_desc" style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">Armá tu escuadrón de 5 dragones y disputá combates por relevos por equipos hasta que caiga el último campeón del bando rival.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fantasy-panel" style="margin-bottom: 1.5rem;">
+            <h3 data-i18n="arena_affinity_title" style="color: var(--gold-main); margin-top: 0; font-size: 1.3rem;">🔮 Tabla de Afinidades y Ventajas Elementales</h3>
+            <p data-i18n="arena_affinity_desc" style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">En la Arena, cada elemento tiene afinidades naturales que potencian el daño infligido:</p>
+            <ul style="line-height: 1.8; font-size: 0.95rem; color: var(--text-main);">
+              <li><strong>Fuego:</strong> Fuerte contra Naturaleza y Hielo (+30% daño adicional).</li>
+              <li><strong>Agua:</strong> Fuerte contra Fuego y Magma (+30% daño adicional).</li>
+              <li><strong>Naturaleza:</strong> Fuerte contra Tierra y Agua (+30% daño adicional).</li>
+              <li><strong>Tormenta / Viento:</strong> Fuerte contra Agua y Vuelo (+30% daño adicional).</li>
+              <li><strong>Luz y Sombra:</strong> Infligen daño crítico mutuo (+40% daño adicional).</li>
+            </ul>
+            <div style="text-align: center; margin-top: 1.5rem;">
+              <button class="btn btn-gold btn-lg" data-i18n="arena_load_btn" onclick="if(window.initColiseoModule) window.initColiseoModule();" style="padding: 12px 28px; font-size: 1.1rem; font-weight: 700;">⚔️ Cargar Arena Interactiva</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+
+        <!-- Site Footer & SEO Crawl Index -->
+    <footer class="site-footer">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🏛️ Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=N%C3%B3rdica%20y%20Germ%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Nórdica y Germánica</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Griega y Romana</a></li>
+            <li><a href="/?mitologia=Oriental%20%28Asia%29" style="color: var(--text-muted); text-decoration: none;">Oriental (Asia)</a></li>
+            <li><a href="/?mitologia=Mesoamericana%20y%20Sudamericana" style="color: var(--text-muted); text-decoration: none;">Mesoamericana y Sudamericana</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Brit%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Celta y Británica</a></li>
+            <li><a href="/?mitologia=Europea%20Continental" style="color: var(--text-muted); text-decoration: none;">Europea Continental</a></li>
+            <li><a href="/?mitologia=Eslava%20y%20Este%20de%20Europa" style="color: var(--text-muted); text-decoration: none;">Eslava y Este de Europa</a></li>
+            <li><a href="/?mitologia=Mesopot%C3%A1mica%20y%20Medio%20Oriente" style="color: var(--text-muted); text-decoration: none;">Mesopotámica y Medio Oriente</a></li>
+            <li><a href="/?mitologia=Hind%C3%BA%20y%20Sudeste%20Asi%C3%A1tico" style="color: var(--text-muted); text-decoration: none;">Hindú y Sudeste Asiático</a></li>
+            <li><a href="/?mitologia=Leyenda%20del%20Santuario" style="color: var(--text-muted); text-decoration: none;">Leyenda del Santuario</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Agua</a></li>
+            <li><a href="/?elemento=Tierra" style="color: var(--text-muted); text-decoration: none;">Tierra</a></li>
+            <li><a href="/?elemento=Viento" style="color: var(--text-muted); text-decoration: none;">Viento</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Tormenta</a></li>
+            <li><a href="/?elemento=Hielo" style="color: var(--text-muted); text-decoration: none;">Hielo</a></li>
+            <li><a href="/?elemento=Magma" style="color: var(--text-muted); text-decoration: none;">Magma</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Luz</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Sombra</a></li>
+            <li><a href="/?elemento=Veneno" style="color: var(--text-muted); text-decoration: none;">Veneno</a></li>
+            <li><a href="/?elemento=Naturaleza" style="color: var(--text-muted); text-decoration: none;">Naturaleza</a></li>
+            <li><a href="/?elemento=Cristal" style="color: var(--text-muted); text-decoration: none;">Cristal</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Tipo de Cuerpo:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?tipo=Drag%C3%B3n%20Europeo" style="color: var(--text-muted); text-decoration: none;">Dragón Europeo</a></li>
+            <li><a href="/?tipo=Wyvern" style="color: var(--text-muted); text-decoration: none;">Wyvern</a></li>
+            <li><a href="/?tipo=Wyrm" style="color: var(--text-muted); text-decoration: none;">Wyrm</a></li>
+            <li><a href="/?tipo=Drake" style="color: var(--text-muted); text-decoration: none;">Drake</a></li>
+            <li><a href="/?tipo=Shen" style="color: var(--text-muted); text-decoration: none;">Shen</a></li>
+            <li><a href="/?tipo=Ampithere" style="color: var(--text-muted); text-decoration: none;">Ampithere</a></li>
+            <li><a href="/?tipo=Hidra" style="color: var(--text-muted); text-decoration: none;">Hidra</a></li>
+            <li><a href="/?tipo=Drak%C3%B3n" style="color: var(--text-muted); text-decoration: none;">Drakón</a></li>
+            <li><a href="/?tipo=Basilisco" style="color: var(--text-muted); text-decoration: none;">Basilisco</a></li>
+            <li><a href="/?tipo=Otros" style="color: var(--text-muted); text-decoration: none;">Otros</a></li>
+          </ul>
+        </div>
+      </div>
+            <div style="margin-top: 1.2rem; display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+        <button type="button" onclick="openFeedbackModal()" class="footer-feedback-btn">
+          <span style="font-size: 1.05rem;">🝯</span>
+          <span>Reportar Error o Sugerencia</span>
+        </button>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+    <!-- Noscript Crawl Fallback for Search Engine Crawlers without JS -->
+        <noscript>
+      <section style="max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #0c0b14; border: 1px solid var(--border-panel); border-radius: 12px; color: #fff;">
+        <h2 style="color: var(--gold-main); font-size: 1.5rem;">⚔️ La Gran Arena de Dragones - Modos de Combate</h2>
+        <p>La Arena del Santuario permite simular combates estratégicos por turnos entre los 100 dragones del Códice:</p>
+        <ul style="line-height: 1.8;">
+          <li><strong>Duelo 1 vs 1:</strong> Enfrentamiento táctico individual donde influyen poder de ataque, defensa escamada, velocidad de vuelo y afinidad elemental.</li>
+          <li><strong>Torneo Roguelite:</strong> Superá 5 rondas consecutivas contra dragones de dificultad ascendente, adquiriendo bendiciones arcanas y reliquias de poder.</li>
+          <li><strong>Guerra de Escuadrones 5 vs 5:</strong> Batalla táctica por equipos donde la sinergia de elementos y habilidades define la supremacía en el campo de batalla.</li>
+        </ul>
+        <h3 style="color: var(--gold-main); font-size: 1.2rem; margin-top: 1rem;">⚖️ Rueda Elemental de Supremacía</h3>
+        <p>El Fuego calcina al Viento y al Hielo; el Agua sofoca al Fuego y al Magma; la Tierra resiste a la Tormenta y el Rayo; la Luz disipa las Sombras; y la Sombra corrompe a la Luz.</p>
+        <p><a href="/en/" style="color: var(--gold-main); font-weight: bold;">Explorar el Códice de Dragones para elegir a tus contendientes</a></p>
+      </section>
+    </noscript>
+
+  </div>
+
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+    <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.I18N) window.I18N.setLanguage('en', false);
+    });
+  </script>
+</body>
+</html>

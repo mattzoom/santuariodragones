@@ -1,11 +1,15 @@
 // Santuario de Dragones - Service Worker
-const CACHE_NAME = 'santuario-dragones-v1.1';
+const CACHE_NAME = 'santuario-dragones-v8.4.1';
 
 const CORE_ASSETS = [
   '/',
   '/index.html',
-  '/styles.min.css?v=8.2.0',
-  '/js/bundle.min.js?v=8.2.0',
+  '/en/',
+  '/en/index.html',
+  '/styles.min.css?v=8.4.0',
+  '/js/bundle.min.js?v=8.4.0',
+  '/js/i18n.js?v=8.4.0',
+  '/js/data/dragons_en.js',
   '/favicon.svg',
   '/favicon.ico',
   '/apple-touch-icon.png',
@@ -16,9 +20,39 @@ const CORE_ASSETS = [
   '/assets/ui/tournament_defeat.webp',
   '/assets/ui/trophy_champion.webp',
   '/arena.html',
+  '/en/arena.html',
+  '/coliseo.html',
+  '/en/coliseo.html',
   '/favoritos.html',
+  '/en/favoritos.html',
   '/magia-draconiana.html',
-  '/test-draconiano.html'
+  '/en/magia-draconiana.html',
+  '/altar-draconiano.html',
+  '/en/altar-draconiano.html',
+  '/altar-varita.html',
+  '/en/altar-varita.html',
+  '/altar-pentaculo.html',
+  '/en/altar-pentaculo.html',
+  '/altar-espejo.html',
+  '/en/altar-espejo.html',
+  '/altar-dragonscript.html',
+  '/en/altar-dragonscript.html',
+  '/academia-draconiana.html',
+  '/en/academia-draconiana.html',
+  '/academia-anillo-1.html',
+  '/en/academia-anillo-1.html',
+  '/academia-anillo-2.html',
+  '/en/academia-anillo-2.html',
+  '/academia-anillo-3.html',
+  '/en/academia-anillo-3.html',
+  '/academia-anillo-4.html',
+  '/en/academia-anillo-4.html',
+  '/academia-anillo-5.html',
+  '/en/academia-anillo-5.html',
+  '/forja-de-sigilos.html',
+  '/en/forja-de-sigilos.html',
+  '/test-draconiano.html',
+  '/en/test-draconiano.html'
 ];
 
 self.addEventListener('install', (event) => {

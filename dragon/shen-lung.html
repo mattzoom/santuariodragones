@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Shen Lung -->
   <title>Shen Lung (El Dragón Espíritu del Clima) | Santuario de Dragones</title>
   <meta name="description" content="Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/shen-lung.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/shen-lung.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/shen-lung.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/shen-lung.html">
   <meta property="og:title" content="Shen Lung - El Dragón Espíritu del Clima">
   <meta property="og:description" content="Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_21.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Shen Lung - El Dragón Espíritu del Clima",
-    "description": "Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_21.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/shen-lung.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/shen-lung.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Oriental (Asia)",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Oriental%20(Asia)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Shen Lung",
+            "item": "https://santuariodragones.vercel.app/dragon/shen-lung.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/shen-lung.html#article",
+        "headline": "Shen Lung - El Dragón Espíritu del Clima",
+        "description": "Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_21.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/shen-lung.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Shen Lung",
+          "alternateName": "El Dragón Espíritu del Clima",
+          "description": "Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_21.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Oriental (Asia)" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Shen" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "3/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Nubes del Cielo Celestial" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Control del Lluvia, Viento y Rayos Benditos" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Falta de Respeto a la Naturaleza" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Shen Lung",
-      "alternateName": "El Dragón Espíritu del Clima",
-      "description": "Shen Lung es un dragón Shen de Tormenta de la mitología Oriental (Asia). Hábitat: Nubes del Cielo Celestial. Dragón azul brillante que vuela sin necesidad de alas. En la antigua China, los agricultores le ofrecían cantos y té para que trajera lluvia...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_21.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Oriental (Asia)" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Shen" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Tormenta" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "3/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Nubes del Cielo Celestial" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Control del Lluvia, Viento y Rayos Benditos" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Falta de Respeto a la Naturaleza" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

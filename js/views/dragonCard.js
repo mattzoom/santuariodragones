@@ -123,7 +123,7 @@ export function openDragonModal(dragon, onFavToggleCallback = null) {
         </div>
 
         <div class="historical-scroll-box margin-top-md fantasy-panel">
-          <h4>${t("ancient_scroll_title")}:</h4>
+          <h4>📜 ${t("ancient_scroll_title")}:</h4>
           <p>${modalScroll}</p>
         </div>
       </div>

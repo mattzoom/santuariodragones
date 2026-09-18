@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Structured Data JSON-LD for Googlebot Crawling -->
+    <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#e9c46a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
+
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
+  <title>Draconian Soul Affinity Test: Find Your Dragon Guardian | Dragon Sanctuary</title>
+  <meta name="description" content="Answer 10 mystical questions to reveal which legendary dragon matches your soul, element and traits.">
+  <link rel="canonical" href="https://santuariodragones.vercel.app/en/test-draconiano.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/en/test-draconiano.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/test-draconiano.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/en/test-draconiano.html">
+  <meta property="og:title" content="Draconian Soul Affinity Test: Find Your Dragon Guardian | Dragon Sanctuary">
+  <meta property="og:description" content="Answer 10 mystical questions to reveal which legendary dragon matches your soul, element and traits.">
+  <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santuariodragones.vercel.app/en/test-draconiano.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Draconian Soul Affinity Test: Find Your Dragon Guardian | Dragon Sanctuary">
+  <meta name="twitter:description" content="Answer 10 mystical questions to reveal which legendary dragon matches your soul, element and traits.">
+  <meta name="twitter:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
+  <!-- Structured Data JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://santuariodragones.vercel.app/test-draconiano.html#webpage",
+      "url": "https://santuariodragones.vercel.app/en/test-draconiano.html",
+      "name": "Test Draconiano: ¿Qué Dragón Sos Vos? | Santuario de Dragones",
+      "description": "Hacé el test místico de 5 preguntas y descubrí cuál de los 100 dragones legendarios resuena con tu personalidad, elemento y temperamento espiritual.",
+      "inLanguage": [
+        "es",
+        "en"
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://santuariodragones.vercel.app/test-draconiano.html#quizapp",
+      "name": "Test Draconiano Interactivo",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Oráculo interactivo de 5 dilemas para descubrir tu dragón guardián entre más de 100 criaturas mitológicas del Códice.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- Background Particle Engine -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="app-root">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="brand-title">
+          <span class="brand-icon">🐉</span>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+        </div>
+
+                        <nav class="nav-tabs">
+          <a class="nav-tab" data-tab="encyclopedia" href="/en/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab" data-tab="arena" href="/en/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/en/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab active" data-tab="quiz" href="/en/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab" data-tab="favorites" href="/en/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
+        </nav>
+
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
+          <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- 5. QUIZ SECTION ("TEST DRACONIANO") -->
+      <section id="section-quiz" class="view-section active" style="display: block; max-width: 900px; margin: 0 auto; padding: 1rem 0.5rem;">
+        <div class="hero-banner" style="margin-bottom: 1.5rem; text-align: center;">
+          <div class="hero-emblem-wrap">
+            <img src="/assets/ui/hero_emblem.webp" alt="Test Draconiano de Afinidad" class="hero-emblem-img" width="180" height="180" fetchpriority="high" loading="eager" />
+          </div>
+          <h1 class="hero-title" data-i18n="quiz_hero_title" style="font-size: 2.4rem; color: var(--gold-main); margin-top: 0.5rem;">Test Draconiano: ¿Qué Dragón Sos Vos?</h1>
+          <p class="hero-subtitle" data-i18n="quiz_hero_subtitle" style="max-width: 720px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+            Descubrí qué criatura legendaria de los 100 dragones del Códice resuena con tu espíritu, tu temperamento y tu elemento protector.
+          </p>
+        </div>
+
+        <div id="quiz-container">
+          <div class="quiz-wrapper fantasy-panel" style="padding: 2rem;">
+            <h2 class="panel-title" data-i18n="quiz_intro_title" style="color: var(--gold-main); font-size: 1.6rem; margin-top: 0;">⭐ Descubrí tu Guardián Espiritual Draconiano</h2>
+            <p data-i18n="quiz_intro_desc" style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main);">A lo largo de 5 dilemas sagrados, el Oráculo del Santuario evalúa tus instintos frente al peligro, tu hábitat predilecto, tu método de resolución de conflictos y tu afinidad elemental primordial (Fuego, Agua, Tierra, Viento, Luz o Sombra).</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h4 data-i18n="quiz_col1_title" style="color: var(--gold-main); margin: 0 0 6px 0; font-size: 1.1rem;">1. Tu Elemento Guía</h4>
+                <p data-i18n="quiz_col1_desc" style="font-size: 0.9rem; margin: 0; color: var(--text-muted); line-height: 1.5;">Sintonía con el calor del fuego, la fluidez del agua, la solidez de la tierra o el abismo de las sombras.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h4 data-i18n="quiz_col2_title" style="color: var(--gold-main); margin: 0 0 6px 0; font-size: 1.1rem;">2. Hábitat Sagrado</h4>
+                <p data-i18n="quiz_col2_desc" style="font-size: 0.9rem; margin: 0; color: var(--text-muted); line-height: 1.5;">Cavernas con gemas ancestrales, volcanes ardientes, cielos tempestuosos o fosas abisales.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-panel); border-radius: 10px; padding: 1.2rem;">
+                <h4 data-i18n="quiz_col3_title" style="color: var(--gold-main); margin: 0 0 6px 0; font-size: 1.1rem;">3. Vínculo del Códice</h4>
+                <p data-i18n="quiz_col3_desc" style="font-size: 0.9rem; margin: 0; color: var(--text-muted); line-height: 1.5;">Conexión directa con uno de los 100 dragones registrados, su pergamino histórico y sus habilidades únicas.</p>
+              </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem; text-align: center;">
+              <button class="btn btn-gold btn-lg" id="btn-start-quiz" data-i18n="quiz_btn_start" onclick="if(window.initQuizModule) window.initQuizModule();" style="padding: 12px 32px; font-size: 1.15rem; font-weight: 700;">🔥 Comenzar el Test Draconiano</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+
+        <!-- Site Footer & SEO Crawl Index -->
+    <footer class="site-footer">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-panel); font-size: 0.85rem;">
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🏛️ Explorá por Mitología:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="/?mitologia=N%C3%B3rdica%20y%20Germ%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Nórdica y Germánica</a></li>
+            <li><a href="/?mitologia=Griega%20y%20Romana" style="color: var(--text-muted); text-decoration: none;">Griega y Romana</a></li>
+            <li><a href="/?mitologia=Oriental%20%28Asia%29" style="color: var(--text-muted); text-decoration: none;">Oriental (Asia)</a></li>
+            <li><a href="/?mitologia=Mesoamericana%20y%20Sudamericana" style="color: var(--text-muted); text-decoration: none;">Mesoamericana y Sudamericana</a></li>
+            <li><a href="/?mitologia=Celta%20y%20Brit%C3%A1nica" style="color: var(--text-muted); text-decoration: none;">Celta y Británica</a></li>
+            <li><a href="/?mitologia=Europea%20Continental" style="color: var(--text-muted); text-decoration: none;">Europea Continental</a></li>
+            <li><a href="/?mitologia=Eslava%20y%20Este%20de%20Europa" style="color: var(--text-muted); text-decoration: none;">Eslava y Este de Europa</a></li>
+            <li><a href="/?mitologia=Mesopot%C3%A1mica%20y%20Medio%20Oriente" style="color: var(--text-muted); text-decoration: none;">Mesopotámica y Medio Oriente</a></li>
+            <li><a href="/?mitologia=Hind%C3%BA%20y%20Sudeste%20Asi%C3%A1tico" style="color: var(--text-muted); text-decoration: none;">Hindú y Sudeste Asiático</a></li>
+            <li><a href="/?mitologia=Leyenda%20del%20Santuario" style="color: var(--text-muted); text-decoration: none;">Leyenda del Santuario</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🔥 Explorá por Elemento:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?elemento=Fuego" style="color: var(--text-muted); text-decoration: none;">Fuego</a></li>
+            <li><a href="/?elemento=Agua" style="color: var(--text-muted); text-decoration: none;">Agua</a></li>
+            <li><a href="/?elemento=Tierra" style="color: var(--text-muted); text-decoration: none;">Tierra</a></li>
+            <li><a href="/?elemento=Viento" style="color: var(--text-muted); text-decoration: none;">Viento</a></li>
+            <li><a href="/?elemento=Tormenta" style="color: var(--text-muted); text-decoration: none;">Tormenta</a></li>
+            <li><a href="/?elemento=Hielo" style="color: var(--text-muted); text-decoration: none;">Hielo</a></li>
+            <li><a href="/?elemento=Magma" style="color: var(--text-muted); text-decoration: none;">Magma</a></li>
+            <li><a href="/?elemento=Luz" style="color: var(--text-muted); text-decoration: none;">Luz</a></li>
+            <li><a href="/?elemento=Sombra" style="color: var(--text-muted); text-decoration: none;">Sombra</a></li>
+            <li><a href="/?elemento=Veneno" style="color: var(--text-muted); text-decoration: none;">Veneno</a></li>
+            <li><a href="/?elemento=Naturaleza" style="color: var(--text-muted); text-decoration: none;">Naturaleza</a></li>
+            <li><a href="/?elemento=Cristal" style="color: var(--text-muted); text-decoration: none;">Cristal</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--gold-main); display: block; margin-bottom: 8px;">🐉 Explorá por Tipo de Cuerpo:</strong>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+            <li><a href="/?tipo=Drag%C3%B3n%20Europeo" style="color: var(--text-muted); text-decoration: none;">Dragón Europeo</a></li>
+            <li><a href="/?tipo=Wyvern" style="color: var(--text-muted); text-decoration: none;">Wyvern</a></li>
+            <li><a href="/?tipo=Wyrm" style="color: var(--text-muted); text-decoration: none;">Wyrm</a></li>
+            <li><a href="/?tipo=Drake" style="color: var(--text-muted); text-decoration: none;">Drake</a></li>
+            <li><a href="/?tipo=Shen" style="color: var(--text-muted); text-decoration: none;">Shen</a></li>
+            <li><a href="/?tipo=Ampithere" style="color: var(--text-muted); text-decoration: none;">Ampithere</a></li>
+            <li><a href="/?tipo=Hidra" style="color: var(--text-muted); text-decoration: none;">Hidra</a></li>
+            <li><a href="/?tipo=Drak%C3%B3n" style="color: var(--text-muted); text-decoration: none;">Drakón</a></li>
+            <li><a href="/?tipo=Basilisco" style="color: var(--text-muted); text-decoration: none;">Basilisco</a></li>
+            <li><a href="/?tipo=Otros" style="color: var(--text-muted); text-decoration: none;">Otros</a></li>
+          </ul>
+        </div>
+      </div>
+            <div style="margin-top: 1.2rem; display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+        <button type="button" onclick="openFeedbackModal()" class="footer-feedback-btn">
+          <span style="font-size: 1.05rem;">🝯</span>
+          <span>Reportar Error o Sugerencia</span>
+        </button>
+      </div>
+      <p style="margin-top: 1rem;">🐉 Santuario Secreto de Dragones | Creado por Magus Dragus</p>
+    </footer>
+
+    <!-- Noscript Crawl Fallback for Search Engine Crawlers without JS -->
+        <noscript>
+      <section style="max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #0c0b14; border: 1px solid var(--border-panel); border-radius: 12px; color: #fff;">
+        <h2 style="color: var(--gold-main); font-size: 1.5rem;">🧪 Test Draconiano: Oráculo de Afinidad Mítica</h2>
+        <p>El Test Draconiano es una consulta oracular de 5 dilemas sagrados que evalúa tus virtudes, instintos y temperamento para determinar cuál de los 100 dragones del Códice es tu guardián protector:</p>
+        <ul style="line-height: 1.8;">
+          <li><strong>Fuego:</strong> Pasión inquebrantable, espíritu pionero, fuerza directa y liderazgo.</li>
+          <li><strong>Agua:</strong> Intuición profunda, serenidad contemplativa, fluidez y sabiduría emocional.</li>
+          <li><strong>Tierra:</strong> Resiliencia estoica, fidelidad incondicional, templanza y sentido del deber.</li>
+          <li><strong>Viento / Tormenta:</strong> Libertad radical, pensamiento ágil, dinamismo y agudeza mental.</li>
+          <li><strong>Luz:</strong> Claridad moral, búsqueda de verdad, benevolencia y nobleza de espíritu.</li>
+          <li><strong>Sombra:</strong> Misterio, introspección, astucia estratégica y comunión con lo velado.</li>
+        </ul>
+        <p><a href="/en/" style="color: var(--gold-main); font-weight: bold;">Descubrí el Códice completo de los 100 dragones míticos</a></p>
+      </section>
+    </noscript>
+
+  </div>
+
+  <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.I18N) window.I18N.setLanguage('en', false);
+    });
+  </script>
+</body>
+</html>

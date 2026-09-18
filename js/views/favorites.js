@@ -10,11 +10,17 @@ export function renderFavoritesView() {
   const favSet = getFavoritesSet();
   const favDragons = DRAGONS_DATA.filter(d => favSet.has(d.id));
 
+  const isEn = (typeof window !== "undefined" && window.I18N && window.I18N.currentLang === "en");
+  const t = (k) => (window.I18N ? window.I18N.t(k) : k);
+
   if (favDragons.length === 0) {
     container.innerHTML = `
-      <div class="empty-state fantasy-panel width-100">
-        <h3>🐉 No tenés dragones guardados todavía</h3>
-        <p>Explorá la enciclopedia y hacé clic en el corazón para guardar tus dragones preferidos en la guarida.</p>
+      <div class="empty-state fantasy-panel width-100" style="text-align: center; padding: 2.5rem 1rem;">
+        <h3 style="margin-bottom: 0.75rem; color: var(--gold-main); font-size: 1.4rem;">${t("fav_empty_title")}</h3>
+        <p style="margin-bottom: 1.5rem; opacity: 0.85; font-size: 1.05rem;">${t("fav_empty_desc")}</p>
+        <a href="/" class="btn btn-gold" style="display: inline-block; text-decoration: none; padding: 10px 22px; font-weight: 700;">
+          ${t("fav_explore_btn")}
+        </a>
       </div>
     `;
     return;
@@ -41,4 +47,8 @@ export function renderFavoritesView() {
       });
     }
   });
+}
+
+if (typeof window !== "undefined") {
+  window.renderFavoritesView = renderFavoritesView;
 }

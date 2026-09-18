@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Dragón de Runas Antiguas -->
   <title>Dragón de Runas Antiguas (El Sabio Eterno del Santuario) | Santuario de Dragones</title>
   <meta name="description" content="Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/dragon-de-runas-antiguas.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html">
   <meta property="og:title" content="Dragón de Runas Antiguas - El Sabio Eterno del Santuario">
   <meta property="og:description" content="Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_100.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Dragón de Runas Antiguas - El Sabio Eterno del Santuario",
-    "description": "Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_100.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Leyenda del Santuario",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Leyenda%20del%20Santuario"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Dragón de Runas Antiguas",
+            "item": "https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html#article",
+        "headline": "Dragón de Runas Antiguas - El Sabio Eterno del Santuario",
+        "description": "Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_100.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/dragon-de-runas-antiguas.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Dragón de Runas Antiguas",
+          "alternateName": "El Sabio Eterno del Santuario",
+          "description": "Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_100.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Leyenda del Santuario" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Otros" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Luz" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Biblioteca Secreta del Santuario" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Conocimiento de Todos los Idiomas y Aliento de Sabiduría" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "El Olvido" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Dragón de Runas Antiguas",
-      "alternateName": "El Sabio Eterno del Santuario",
-      "description": "Dragón de Runas Antiguas es un dragón Otros de Luz de la mitología Leyenda del Santuario. Hábitat: Biblioteca Secreta del Santuario. El dragón guardián supremo de esta enciclopedia. Lleva inscritas en sus escamas las historias de los más de 100 dragones del mundo y da la b...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_100.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Leyenda del Santuario" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Otros" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Luz" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "5/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Biblioteca Secreta del Santuario" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Conocimiento de Todos los Idiomas y Aliento de Sabiduría" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "El Olvido" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

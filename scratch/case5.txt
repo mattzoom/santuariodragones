@@ -1,0 +1,109 @@
+case 5:
+    default:
+      return `
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <!-- Encabezado del Anillo 5 -->
+          <div style="display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.2), rgba(233,196,106,0.15)); padding: 1.2rem; border-radius: 14px; border: 1px solid #8a2be2;">
+            <span style="font-size: 2.8rem;">🔮</span>
+            <div>
+              <h3 style="color: var(--gold-main); margin: 0; font-size: 1.7rem;">Nivel 5: El Místico Dragón (Maestro de la Red de la Vida)</h3>
+              <p style="color: var(--text-gold); font-style: italic; margin: 4px 0 0 0; font-size: 1.05rem;">
+                "¡Felicidades, joven mago! Has llegado al Quinto Anillo, el último y más alto nivel. Te conviertes en un guardián de la naturaleza y del universo."
+              </p>
+            </div>
+          </div>
+
+          <!-- Código y Símbolos de Místico -->
+          <div class="fantasy-panel" style="padding: 1.4rem; background: rgba(0,0,0,0.3);">
+            <h4 style="color: var(--gold-main); margin: 0 0 10px 0; font-size: 1.3rem;">✨ Tu Código y Símbolos de Místico</h4>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+              <div style="background: rgba(138,43,226,0.1); padding: 1rem; border-radius: 10px; border-left: 4px solid #8a2be2;">
+                <h5 style="color: var(--gold-main); margin: 0; font-size: 1.1rem;">📜 Tu Lema Mágico:</h5>
+                <p style="margin-top: 4px; font-style: italic; color: var(--text-gold); font-size: 1rem; font-weight: 600;">
+                  "Todos somos parte de la Red de la Vida. Todas las cosas, animadas e inanimadas, están conectadas"
+                </p>
+                <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                  Esto significa que todo lo que haces, dices o piensas es como lanzar una piedrita en un estanque: ¡crea ondas que viajan y tocan todo a tu alrededor!
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                <div style="background: rgba(138,43,226,0.15); padding: 1rem; border-radius: 10px; border: 1px stroke #8a2be2;">
+                  <h5 style="color: #b19ffb; margin: 0; font-size: 1.1rem;">🟣 Tu Color: El Violeta o Gris Plateado</h5>
+                  <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                    Los colores del universo, de las estrellas y de la magia más profunda. Conseguí un listón de este color para celebrar tu gran graduación.
+                  </p>
+                </div>
+
+                <div style="background: rgba(233,196,106,0.1); padding: 1rem; border-radius: 10px; border: 1px stroke var(--gold-main);">
+                  <h5 style="color: var(--gold-main); margin: 0; font-size: 1.1rem;">🌠 Tu Símbolo: La Estrella Fugaz</h5>
+                  <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                    La estrella fugaz (o estrella de 9 puntas). Representa un viaje lleno de sorpresas maravillosas, sabiduría e iluminación.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- El Secreto Supremo: El Elemento Tormenta -->
+          <div class="fantasy-panel" style="padding: 1.4rem; background: rgba(0,0,0,0.3); border: 1px solid var(--color-teal);">
+            <h4 style="color: var(--color-teal); margin: 0; font-size: 1.3rem;">⚡ El Secreto Supremo: El Elemento Tormenta</h4>
+            <p style="margin-top: 8px; color: var(--text-main); line-height: 1.6; font-size: 0.95rem;">
+              Mientras que otros niveles trabajan con el Aire, Fuego, Agua y Tierra, el Místico trabaja con el misterioso <strong>elemento de la Tormenta</strong>. Las tormentas traen cambios, y un Místico sabe que cambiar y crecer es parte de la vida. ¡Un Místico no le teme a los cambios, los usa para volar más alto!
+            </p>
+          </div>
+
+          <!-- Misión 1: Sentir la "Red de la Vida" -->
+          <div class="fantasy-panel" style="padding: 1.5rem; border: 2px solid #8a2be2; background: rgba(138,43,226,0.1);">
+            <h4 style="color: #b19ffb; margin: 0; font-size: 1.4rem;">🌱 Misión 1: Sentir la "Red de la Vida"</h4>
+            <p style="margin-top: 8px; color: var(--text-main); line-height: 1.6; font-size: 0.95rem;">
+              Para esta misión, sal a un parque, a tu jardín o siéntate junto a tu planta favorita.
+            </p>
+            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; margin-top: 10px;">
+              <strong style="color: var(--gold-main);">Tu tarea de Conexión:</strong>
+              <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                Toca suavemente la corteza de un árbol o las hojas de una planta. Cierra los ojos e imagina que un hilo de luz brillante y muy delgadito sale de tu corazón y se conecta con el árbol. Luego, imagina que ese hilo se conecta con los pajaritos, con las nubes, con tu familia y con las estrellas. Siente cómo la energía de todo el universo te abraza. ¡Nunca estás solo, porque estás conectado con todo lo que existe!
+              </p>
+            </div>
+          </div>
+
+          <!-- Misión 2: Despertar tu "Corazón de Dragón Oculto" -->
+          <div class="fantasy-panel" style="padding: 1.5rem; border: 2px solid var(--gold-main); background: rgba(233,196,106,0.08);">
+            <h4 style="color: var(--gold-main); margin: 0; font-size: 1.4rem;">💖 Misión 2: Despertar tu "Corazón de Dragón Oculto"</h4>
+            <p style="margin-top: 8px; color: var(--text-main); line-height: 1.6; font-size: 0.95rem;">
+              Los maestros draconianos enseñan que muy en el fondo de tu mente (justo detrás de tus ojos) se esconde un tesoro invaluable: tu <strong>Corazón de Dragón Oculto</strong>.
+            </p>
+            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; margin-top: 10px;">
+              <strong style="color: var(--gold-main);">Tu tarea de Iluminación:</strong>
+              <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                Siéntate en silencio, respira profundo y visualiza que dentro de tu cabeza hay un pequeño sol brillante de color violeta. Ese es tu Corazón de Dragón. Es el lugar donde guardas toda tu valentía, tu paz y tu inteligencia. Cuando te sientas triste, asustado o no sepas qué hacer, solo cierra los ojos, respira y conéctate con esta luz. ¡Te dará la respuesta correcta!
+              </p>
+            </div>
+          </div>
+
+          <!-- Misión 3: El Gran Viaje (Tu Graduación) -->
+          <div class="fantasy-panel text-center" style="padding: 1.8rem; border: 2px solid var(--gold-main); background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(138,43,226,0.2)); border-radius: 18px;">
+            <div style="font-size: 3rem;">🎓</div>
+            <h4 style="color: var(--gold-main); margin: 6px 0 0 0; font-size: 1.6rem;">🎓 Misión 3: El Gran Viaje (Tu Graduación)</h4>
+            <p style="margin-top: 8px; color: var(--text-main); line-height: 1.6; font-size: 1rem; max-width: 700px; margin: 8px auto 0 auto;">
+              El viaje de un Místico nunca termina realmente, porque siempre hay cosas nuevas y emocionantes por descubrir y aprender en el universo.
+            </p>
+            <div style="background: rgba(0,0,0,0.5); padding: 1.2rem; border-radius: 12px; margin-top: 1.2rem; text-align: left;">
+              <strong style="color: var(--gold-main);">Tu Juramento de Graduación:</strong>
+              <p style="margin-top: 6px; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                Toma tu "Diario de Secretos del Dragón" (tu cuaderno mágico) y dibuja una estrella fugaz grande en la última página. Escribí debajo:
+              </p>
+              <p style="margin: 8px 0 0 0; font-style: italic; color: var(--text-gold); background: rgba(233,196,106,0.1); padding: 10px; border-radius: 8px; font-weight: 700; text-align: center;">
+                "Prometo usar mi magia para ayudar al mundo y seguir aprendiendo todos los días."
+              </p>
+              <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+                ¡Firma con tu Nombre Mágico y celebra con tu Dragón Guardián! 🎉🐉✨
+              </p>
+            </div>
+          </div>
+
+        </div>
+      `;
+  }

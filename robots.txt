@@ -9,6 +9,8 @@ User-agent: Googlebot
 Allow: /
 Allow: /assets/
 Allow: /dragon/
+Allow: /en/
+Allow: /en/dragon/
 
 User-agent: Googlebot-Image
 Allow: /assets/dragons/

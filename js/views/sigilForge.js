@@ -11,12 +11,29 @@ const ELEMENTAL_PALETTES = {
   Luz: { primary: "#ffd700", secondary: "#f8f9fa", glow: "#ffb703" }
 };
 
+const ELEMENT_NAMES_EN = {
+  Rayo: "Lightning",
+  Fuego: "Fire",
+  Hielo: "Ice",
+  Veneno: "Poison",
+  Sombra: "Shadow",
+  Luz: "Light"
+};
+
 const BODY_LABELS_ES = {
   draco: "Draco Clásico",
   shen: "Shen Serpentino",
   wyvern: "Wyvern Ágil",
   hidra: "Hidra",
   ampithere: "Ampithere Alado"
+};
+
+const BODY_LABELS_EN = {
+  draco: "Classic Draco",
+  shen: "Serpentine Shen",
+  wyvern: "Agile Wyvern",
+  hidra: "Hydra",
+  ampithere: "Winged Ampithere"
 };
 
 const HORN_LABELS_ES = {
@@ -26,12 +43,27 @@ const HORN_LABELS_ES = {
   "horns-unicorn": "Cuerno de Cristal"
 };
 
-const RUNAL_MEANINGS = {
+const HORN_LABELS_EN = {
+  "horns-classic": "Classic Horns",
+  "horns-ram": "Ram Horns",
+  "horns-crown": "Crown of Thorns",
+  "horns-unicorn": "Crystal Horn"
+};
+
+const RUNAL_MEANINGS_ES = {
   B: "Sabiduría Ancestral", C: "Viento y Cielos", D: "Dominio Draco", F: "Fuego Inmortal",
   G: "Guardián de Protección", H: "Escarcha Eterna", J: "Justicia Solar", K: "Cristal de Poder",
   L: "Luz Estelar", M: "Magia Mística", N: "Fuerza Vital", P: "Poder Elemental",
   Q: "Alquimia Sagrada", R: "Rayo y Tormenta", S: "Sombra Abisal", T: "Poder Terrenal",
   V: "Veneno Curativo", W: "Viento Ancestral", X: "Vínculo Cósmico", Y: "Eternidad", Z: "Cúspide Dragón"
+};
+
+const RUNAL_MEANINGS_EN = {
+  B: "Ancestral Wisdom", C: "Wind & Skies", D: "Draco Dominion", F: "Immortal Fire",
+  G: "Guardian Protection", H: "Eternal Frost", J: "Solar Justice", K: "Power Crystal",
+  L: "Starlight", M: "Mystic Magic", N: "Life Force", P: "Elemental Power",
+  Q: "Sacred Alchemy", R: "Lightning & Storm", S: "Abyssal Shadow", T: "Earthen Might",
+  V: "Curative Venom", W: "Ancestral Wind", X: "Cosmic Bond", Y: "Eternity", Z: "Dragon Peak"
 };
 
 const BACKGROUND_PRESETS = {
@@ -54,6 +86,9 @@ const SIGIL_STATE = {
   isConsecrated: false
 };
 
+const sigilIsEn = () => (window.I18N && window.I18N.currentLang === "en");
+const sigilT = (k, fallback = "") => (window.I18N ? window.I18N.t(k) : fallback || k);
+
 export function initSigilForge(containerId = "sigil-container") {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -64,16 +99,19 @@ export function initSigilForge(containerId = "sigil-container") {
 export function renderSigilForgeUI(container) {
   const consonants = extractConsonants(SIGIL_STATE.userName, SIGIL_STATE.dragonName);
   const resonance = Math.min(99, 84 + consonants.length * 2);
+  const en = sigilIsEn();
 
   container.innerHTML = `
     <div class="sigil-forge-wrapper display-flex flex-direction-column gap-xl" style="display: flex; flex-direction: column; gap: 2rem;">
       
       <!-- HERO BANNER -->
       <div class="fantasy-panel text-center" style="padding: 2.2rem; background: linear-gradient(135deg, rgba(233,196,106,0.15), rgba(42,157,143,0.15)); border: 2px solid var(--gold-main); border-radius: 20px;">
-        <div class="quiz-step-tag" style="font-size: 0.95rem;">🔮 Alquimia Vectorial 🔮</div>
-        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">La Forja de Sigilos Draconianos</h2>
+        <div class="quiz-step-tag" style="font-size: 0.95rem;">${en ? "🔮 Vector Alchemy 🔮" : "🔮 Alquimia Vectorial 🔮"}</div>
+        <h2 class="panel-title margin-top-xs" style="color: var(--gold-main); font-size: 2.3rem;">${en ? "The Draconian Sigil Forge" : "La Forja de Sigilos Draconianos"}</h2>
         <p style="color: var(--text-main); font-size: 1.1rem; max-width: 820px; margin: 12px auto 0 auto; line-height: 1.6;">
-          Un <strong>Sigilo</strong> es un símbolo secreto y poderoso. Es el código mágico en geometría vectorial que une tu mente con la de tu Dragón Guardián sin usar palabras humanas.
+          ${en 
+            ? "A <strong>Sigil</strong> is a secret and powerful symbol. It is the magical code in vector geometry linking your mind to your Guardian Dragon without human words." 
+            : "Un <strong>Sigilo</strong> es un símbolo secreto y poderoso. Es el código mágico en geometría vectorial que une tu mente con la de tu Dragón Guardián sin usar palabras humanas."}
         </p>
       </div>
 
@@ -85,23 +123,33 @@ export function renderSigilForgeUI(container) {
           
           <!-- Paso 1 & 2: Palabras de Poder y Código Secreto -->
           <div style="background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 14px; border: 1px solid var(--border-panel);">
-            <h3 style="color: var(--gold-main); margin: 0 0 10px 0; font-size: 1.3rem;">📜 Paso 1 y 2: Palabras de Poder y Código</h3>
+            <h3 style="color: var(--gold-main); margin: 0 0 10px 0; font-size: 1.3rem;">
+              ${en ? "📜 Steps 1 & 2: Words of Power & Code" : "📜 Paso 1 y 2: Palabras de Poder y Código"}
+            </h3>
             
             <div style="background: rgba(233,196,106,0.08); padding: 12px; border-radius: 8px; border-left: 4px solid var(--gold-main); margin-top: 6px; line-height: 1.5;">
-              <span style="font-size: 0.9rem; color: var(--gold-main); font-weight: 700; display: block; margin-bottom: 4px;">🔮 Alquimia de tu Sigilo Secreto:</span>
+              <span style="font-size: 0.9rem; color: var(--gold-main); font-weight: 700; display: block; margin-bottom: 4px;">
+                ${en ? "🔮 Alchemy of Your Secret Sigil:" : "🔮 Alquimia de tu Sigilo Secreto:"}
+              </span>
               <p style="font-size: 0.85rem; color: var(--text-main); margin: 0;">
-                Combinamos tu Nombre y el de tu Dragón. Eliminamos las vocales y letras repetidas para obtener la matriz sagrada de consonantes.
+                ${en 
+                  ? "We combine your Name and your Dragon's. We remove vowels and repeating letters to obtain the sacred consonant matrix." 
+                  : "Combinamos tu Nombre y el de tu Dragón. Eliminamos las vocales y letras repetidas para obtener la matriz sagrada de consonantes."}
               </p>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
               <div>
-                <label style="display: block; color: var(--text-gold); font-size: 0.9rem; font-weight: 700; margin-bottom: 4px;">Tu Nombre Mágico:</label>
+                <label style="display: block; color: var(--text-gold); font-size: 0.9rem; font-weight: 700; margin-bottom: 4px;">
+                  ${en ? "Your Magical Name:" : "Tu Nombre Mágico:"}
+                </label>
                 <input type="text" id="sigil-user-name" value="${SIGIL_STATE.userName}" maxlength="15" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.6); border: 1px solid var(--gold-main); border-radius: 8px; color: var(--gold-main); font-weight: 700; font-size: 1.05rem;" />
               </div>
 
               <div>
-                <label style="display: block; color: var(--text-gold); font-size: 0.9rem; font-weight: 700; margin-bottom: 4px;">Nombre de tu Dragón Guardián:</label>
+                <label style="display: block; color: var(--text-gold); font-size: 0.9rem; font-weight: 700; margin-bottom: 4px;">
+                  ${en ? "Guardian Dragon's Name:" : "Nombre de tu Dragón Guardián:"}
+                </label>
                 <input type="text" id="sigil-dragon-name" value="${SIGIL_STATE.dragonName}" maxlength="15" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.6); border: 1px solid var(--color-teal); border-radius: 8px; color: var(--color-teal); font-weight: 700; font-size: 1.05rem;" />
               </div>
             </div>
@@ -109,65 +157,75 @@ export function renderSigilForgeUI(container) {
 
           <!-- Paso 3: Características del Dragón -->
           <div style="background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 14px; border: 1px solid var(--border-panel);">
-            <h3 style="color: var(--gold-main); margin: 0 0 10px 0; font-size: 1.3rem;">🐉 Paso 3: Poder y Paleta Mágica</h3>
+            <h3 style="color: var(--gold-main); margin: 0 0 10px 0; font-size: 1.3rem;">
+              ${en ? "🐉 Step 3: Power & Magic Palette" : "🐉 Paso 3: Poder y Paleta Mágica"}
+            </h3>
 
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <div>
-                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">Anatomía / Forma Base:</label>
+                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">
+                  ${en ? "Anatomical Base Frame:" : "Anatomía / Forma Base:"}
+                </label>
                 <select id="sigil-body-type" style="width: 100%; padding: 8px; background: rgba(0,0,0,0.6); border: 1px solid var(--border-panel); border-radius: 8px; color: var(--text-main);">
-                  <option value="draco" ${SIGIL_STATE.bodyType === "draco" ? "selected" : ""}>🛡️ Draco Clásico (Marco de Escudo Invertido)</option>
-                  <option value="shen" ${SIGIL_STATE.bodyType === "shen" ? "selected" : ""}>🐍 Shen Serpentino (Espiral Oriental)</option>
-                  <option value="wyvern" ${SIGIL_STATE.bodyType === "wyvern" ? "selected" : ""}>🦅 Wyvern Ágil (Cresta Triangular)</option>
-                  <option value="hidra" ${SIGIL_STATE.bodyType === "hidra" ? "selected" : ""}>🐲 Hidra (Círculos Intercalados)</option>
-                  <option value="ampithere" ${SIGIL_STATE.bodyType === "ampithere" ? "selected" : ""}>🕊️ Ampithere (Arcos Alados)</option>
+                  <option value="draco" ${SIGIL_STATE.bodyType === "draco" ? "selected" : ""}>${en ? "🛡️ Classic Draco (Inverted Shield Frame)" : "🛡️ Draco Clásico (Marco de Escudo Invertido)"}</option>
+                  <option value="shen" ${SIGIL_STATE.bodyType === "shen" ? "selected" : ""}>${en ? "🐍 Serpentine Shen (Oriental Spiral)" : "🐍 Shen Serpentino (Espiral Oriental)"}</option>
+                  <option value="wyvern" ${SIGIL_STATE.bodyType === "wyvern" ? "selected" : ""}>${en ? "🦅 Agile Wyvern (Triangular Crest)" : "🦅 Wyvern Ágil (Cresta Triangular)"}</option>
+                  <option value="hidra" ${SIGIL_STATE.bodyType === "hidra" ? "selected" : ""}>${en ? "🐲 Hydra (Interlocking Rings)" : "🐲 Hidra (Círculos Intercalados)"}</option>
+                  <option value="ampithere" ${SIGIL_STATE.bodyType === "ampithere" ? "selected" : ""}>${en ? "🕊️ Winged Ampithere (Winged Arches)" : "🕊️ Ampithere (Arcos Alados)"}</option>
                 </select>
               </div>
 
               <div>
-                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">Estilo de Cuernos & Puntas:</label>
+                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">
+                  ${en ? "Horns Style & Crests:" : "Estilo de Cuernos & Puntas:"}
+                </label>
                 <select id="sigil-horn-style" style="width: 100%; padding: 8px; background: rgba(0,0,0,0.6); border: 1px solid var(--border-panel); border-radius: 8px; color: var(--text-main);">
-                  <option value="horns-classic" ${SIGIL_STATE.hornStyle === "horns-classic" ? "selected" : ""}>🐂 Cuernos Clásicos Curvados</option>
-                  <option value="horns-ram" ${SIGIL_STATE.hornStyle === "horns-ram" ? "selected" : ""}>🐏 Cuernos de Carnero en Espiral</option>
-                  <option value="horns-crown" ${SIGIL_STATE.hornStyle === "horns-crown" ? "selected" : ""}>👑 Corona de Espinas</option>
-                  <option value="horns-unicorn" ${SIGIL_STATE.hornStyle === "horns-unicorn" ? "selected" : ""}>🦄 Cuerno Único de Cristal</option>
+                  <option value="horns-classic" ${SIGIL_STATE.hornStyle === "horns-classic" ? "selected" : ""}>${en ? "🐂 Curved Classic Horns" : "🐂 Cuernos Clásicos Curvados"}</option>
+                  <option value="horns-ram" ${SIGIL_STATE.hornStyle === "horns-ram" ? "selected" : ""}>${en ? "🐏 Spiral Ram Horns" : "🐏 Cuernos de Carnero en Espiral"}</option>
+                  <option value="horns-crown" ${SIGIL_STATE.hornStyle === "horns-crown" ? "selected" : ""}>${en ? "👑 Crown of Thorns" : "👑 Corona de Espinas"}</option>
+                  <option value="horns-unicorn" ${SIGIL_STATE.hornStyle === "horns-unicorn" ? "selected" : ""}>${en ? "🦄 Single Crystal Horn" : "🦄 Cuerno Único de Cristal"}</option>
                 </select>
               </div>
 
               <div>
-                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">Elemento Mágico (Paleta Automática):</label>
+                <label style="display: block; color: var(--text-muted); font-size: 0.88rem; font-weight: 700; margin-bottom: 4px;">
+                  ${en ? "Magical Element (Auto Palette):" : "Elemento Mágico (Paleta Automática):"}
+                </label>
                 <select id="sigil-element" style="width: 100%; padding: 8px; background: rgba(0,0,0,0.6); border: 1px solid var(--border-panel); border-radius: 8px; color: var(--text-main);">
-                  <option value="Rayo" ${SIGIL_STATE.element === "Rayo" ? "selected" : ""}>⚡ Rayo (Plenos Zig-zag)</option>
-                  <option value="Fuego" ${SIGIL_STATE.element === "Fuego" ? "selected" : ""}>🔥 Fuego (3 Triángulos Picudos)</option>
-                  <option value="Hielo" ${SIGIL_STATE.element === "Hielo" ? "selected" : ""}>❄️ Hielo (Cristales en Pentáculo)</option>
-                  <option value="Veneno" ${SIGIL_STATE.element === "Veneno" ? "selected" : ""}>🧪 Veneno (Onda Suave)</option>
-                  <option value="Sombra" ${SIGIL_STATE.element === "Sombra" ? "selected" : ""}>🌑 Sombra (Humo Abisal)</option>
-                  <option value="Luz" ${SIGIL_STATE.element === "Luz" ? "selected" : ""}>✨ Luz (Rayos Solares)</option>
+                  <option value="Rayo" ${SIGIL_STATE.element === "Rayo" ? "selected" : ""}>${en ? "⚡ Lightning (Full Zig-zag)" : "⚡ Rayo (Plenos Zig-zag)"}</option>
+                  <option value="Fuego" ${SIGIL_STATE.element === "Fuego" ? "selected" : ""}>${en ? "🔥 Fire (3 Spiked Triangles)" : "🔥 Fuego (3 Triángulos Picudos)"}</option>
+                  <option value="Hielo" ${SIGIL_STATE.element === "Hielo" ? "selected" : ""}>${en ? "❄️ Ice (Pentacle Crystals)" : "❄️ Hielo (Cristales en Pentáculo)"}</option>
+                  <option value="Veneno" ${SIGIL_STATE.element === "Veneno" ? "selected" : ""}>${en ? "🧪 Poison (Smooth Wave)" : "🧪 Veneno (Onda Suave)"}</option>
+                  <option value="Sombra" ${SIGIL_STATE.element === "Sombra" ? "selected" : ""}>${en ? "🌑 Shadow (Abyssal Smoke)" : "🌑 Sombra (Humo Abisal)"}</option>
+                  <option value="Luz" ${SIGIL_STATE.element === "Luz" ? "selected" : ""}>${en ? "✨ Light (Solar Rays)" : "✨ Luz (Rayos Solares)"}</option>
                 </select>
               </div>
 
               <!-- Quick Presets -->
               <div style="margin-top: 4px;">
-                <label style="display: block; font-size: 0.75rem; color: var(--text-gold); font-weight: 700; margin-bottom: 6px;">🎨 Paletas Temáticas Rápidas:</label>
+                <label style="display: block; font-size: 0.75rem; color: var(--text-gold); font-weight: 700; margin-bottom: 6px;">
+                  ${en ? "🎨 Quick Theme Palettes:" : "🎨 Paletas Temáticas Rápidas:"}
+                </label>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
-                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#ffd700" data-s="#2a9d8f" data-g="#e76f51">🌟 Oro Sagrado</button>
-                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#ffd700" data-s="#e63946" data-g="#ff5722">🔥 Llamarada</button>
-                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#90e0ef" data-s="#0077b6" data-g="#48cae4">❄️ Escarcha</button>
-                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#e0aaff" data-s="#3c096c" data-g="#9d4edd">🌑 Noche Abisal</button>
+                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#ffd700" data-s="#2a9d8f" data-g="#e76f51">${en ? "🌟 Sacred Gold" : "🌟 Oro Sagrado"}</button>
+                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#ffd700" data-s="#e63946" data-g="#ff5722">${en ? "🔥 Blaze" : "🔥 Llamarada"}</button>
+                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#90e0ef" data-s="#0077b6" data-g="#48cae4">${en ? "❄️ Frost" : "❄️ Escarcha"}</button>
+                  <button type="button" class="btn btn-secondary btn-sm sigil-preset-btn" data-p="#e0aaff" data-s="#3c096c" data-g="#9d4edd">${en ? "🌑 Abyssal Night" : "🌑 Noche Abisal"}</button>
                 </div>
               </div>
 
               <!-- Colors Controls -->
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px;">
                 <div>
-                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">Trazos / Marco:</label>
+                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">${en ? "Strokes / Frame:" : "Trazos / Marco:"}</label>
                   <input type="color" id="sigil-col-primary" value="${SIGIL_STATE.colorPrimary}" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;" />
                 </div>
                 <div>
-                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">Geometría:</label>
+                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">${en ? "Geometry:" : "Geometría:"}</label>
                   <input type="color" id="sigil-col-secondary" value="${SIGIL_STATE.colorSecondary}" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;" />
                 </div>
                 <div>
-                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">Aura / Brillo:</label>
+                  <label style="display: block; font-size: 0.75rem; color: var(--text-gold);">${en ? "Aura / Glow:" : "Aura / Brillo:"}</label>
                   <input type="color" id="sigil-col-glow" value="${SIGIL_STATE.colorGlow}" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;" />
                 </div>
               </div>
@@ -175,18 +233,18 @@ export function renderSigilForgeUI(container) {
             </div>
           </div>
 
-          <!-- SUGGESTION 2: DECODIFICADOR DE RUNAS Y RESONANCIA ALQUÍMICA -->
+          <!-- DECODIFICADOR DE RUNAS Y RESONANCIA ALQUÍMICA -->
           <div id="sigil-decoder-panel" style="background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 14px; border: 1px solid var(--gold-main);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">📜 Decodificador de Runas</h3>
+              <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">${en ? "📜 Rune Decoder" : "📜 Decodificador de Runas"}</h3>
               <span style="background: rgba(233,196,106,0.2); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.85rem;">
-                Resonancia: ${resonance}%
+                ${en ? "Resonance" : "Resonancia"}: ${resonance}%
               </span>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
               ${consonants.map(c => `
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-panel); padding: 4px 8px; border-radius: 6px; font-size: 0.82rem;">
-                  <strong style="color: var(--gold-main);">${c}:</strong> <span style="color: var(--text-muted);">${RUNAL_MEANINGS[c] || "Poder Secreto"}</span>
+                  <strong style="color: var(--gold-main);">${c}:</strong> <span style="color: var(--text-muted);">${(en ? RUNAL_MEANINGS_EN[c] : RUNAL_MEANINGS_ES[c]) || (en ? "Secret Power" : "Poder Secreto")}</span>
                 </div>
               `).join("")}
             </div>
@@ -198,18 +256,20 @@ export function renderSigilForgeUI(container) {
         <div class="fantasy-panel text-center" style="padding: 1.8rem; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 580px;">
           
           <div style="width: 100%;">
-            <div class="quiz-step-tag" style="margin-bottom: 8px;">✨ Paso 4: Hechizo de Dibujo Vectorial ✨</div>
-            <h3 style="color: var(--gold-main); font-size: 1.5rem; margin: 0;">El Espejo de Sigilos</h3>
+            <div class="quiz-step-tag" style="margin-bottom: 8px;">${en ? "✨ Step 4: Vector Drawing Spell ✨" : "✨ Paso 4: Hechizo de Dibujo Vectorial ✨"}</div>
+            <h3 style="color: var(--gold-main); font-size: 1.5rem; margin: 0;">${en ? "The Mirror of Sigils" : "El Espejo de Sigilos"}</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 4px;">
-              Geometría matemática pura: trazos suaves, infinitos y escalables que nunca se pixelan.
+              ${en 
+                ? "Pure mathematical geometry: smooth, infinite, and scalable strokes that never pixelate." 
+                : "Geometría matemática pura: trazos suaves, infinitos y escalables que nunca se pixelan."}
             </p>
 
-            <!-- SUGGESTION 3: FONDOS ASTRALES INTERCAMBIABLES -->
+            <!-- FONDOS ASTRALES INTERCAMBIABLES -->
             <div style="display: flex; justify-content: center; gap: 6px; margin-top: 10px;">
-              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="astral" style="font-size: 0.78rem; padding: 3px 8px;">🌌 Astral</button>
-              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="fuego" style="font-size: 0.78rem; padding: 3px 8px;">🔥 Fuego</button>
-              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="escarcha" style="font-size: 0.78rem; padding: 3px 8px;">❄️ Escarcha</button>
-              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="obsidiana" style="font-size: 0.78rem; padding: 3px 8px;">🌑 Obsidiana</button>
+              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="astral" style="font-size: 0.78rem; padding: 3px 8px;">🌌 ${en ? "Astral" : "Astral"}</button>
+              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="fuego" style="font-size: 0.78rem; padding: 3px 8px;">🔥 ${en ? "Fire" : "Fuego"}</button>
+              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="escarcha" style="font-size: 0.78rem; padding: 3px 8px;">❄️ ${en ? "Frost" : "Escarcha"}</button>
+              <button type="button" class="btn btn-secondary btn-sm sigil-bg-btn" data-bg="obsidiana" style="font-size: 0.78rem; padding: 3px 8px;">🌑 ${en ? "Obsidian" : "Obsidiana"}</button>
             </div>
           </div>
 
@@ -218,22 +278,22 @@ export function renderSigilForgeUI(container) {
             ${renderSigilSVG(SIGIL_STATE, consonants, 360, 360)}
           </div>
 
-          <!-- SUGGESTION 1 & 4: ACTION BUTTONS -->
+          <!-- ACTION BUTTONS -->
           <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <!-- Suggestion 1: Trace Animation -->
+              <!-- Trace Animation -->
               <button class="btn btn-secondary btn-md" id="btn-animate-sigil" style="font-weight: 700; font-size: 0.88rem;">
-                ✨ Revelación Vectorial
+                ${en ? "✨ Vector Revelation" : "✨ Revelación Vectorial"}
               </button>
-              <!-- Suggestion 4: Consecration Ritual -->
+              <!-- Consecration Ritual -->
               <button class="btn btn-gold btn-md" id="btn-consecrate-sigil" style="font-weight: 700; font-size: 0.88rem;">
-                🔥 Consagrar Sigilo
+                ${en ? "🔥 Consecrate Sigil" : "🔥 Consagrar Sigilo"}
               </button>
             </div>
 
             <!-- Download Action -->
             <button class="btn btn-gold btn-lg width-100" id="btn-export-sigil" style="padding: 14px 24px; font-weight: 700; font-size: 1.05rem;">
-              🔮 Descargar Sigilo Draconiano HD (PNG)
+              ${en ? "🔮 Download HD Draconian Sigil (PNG)" : "🔮 Descargar Sigilo Draconiano HD (PNG)"}
             </button>
           </div>
 
@@ -292,7 +352,7 @@ export function renderSigilForgeUI(container) {
     });
   });
 
-  // Suggestion 3: Background Preset Buttons
+  // Background Preset Buttons
   container.querySelectorAll(".sigil-bg-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const bg = btn.dataset.bg;
@@ -305,7 +365,7 @@ export function renderSigilForgeUI(container) {
     });
   });
 
-  // Suggestion 1: Trace Animation Button
+  // Trace Animation Button
   const btnAnimate = container.querySelector("#btn-animate-sigil");
   if (btnAnimate) {
     btnAnimate.addEventListener("click", () => {
@@ -314,7 +374,7 @@ export function renderSigilForgeUI(container) {
     });
   }
 
-  // Suggestion 4: Consecration Ritual Button
+  // Consecration Ritual Button
   const btnConsecrate = container.querySelector("#btn-consecrate-sigil");
   if (btnConsecrate) {
     btnConsecrate.addEventListener("click", () => {
@@ -347,18 +407,19 @@ function updateDecoderPanel(container) {
   if (!panel) return;
   const consonants = extractConsonants(SIGIL_STATE.userName, SIGIL_STATE.dragonName);
   const resonance = Math.min(99, 84 + consonants.length * 2);
+  const en = sigilIsEn();
 
   panel.innerHTML = `
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-      <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">📜 Decodificador de Runas</h3>
+      <h3 style="color: var(--gold-main); margin: 0; font-size: 1.2rem;">${en ? "📜 Rune Decoder" : "📜 Decodificador de Runas"}</h3>
       <span style="background: rgba(233,196,106,0.2); border: 1px solid var(--gold-main); color: var(--gold-main); padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.85rem;">
-        Resonancia: ${resonance}%
+        ${en ? "Resonance" : "Resonancia"}: ${resonance}%
       </span>
     </div>
     <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
       ${consonants.map(c => `
         <div style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-panel); padding: 4px 8px; border-radius: 6px; font-size: 0.82rem;">
-          <strong style="color: var(--gold-main);">${c}:</strong> <span style="color: var(--text-muted);">${RUNAL_MEANINGS[c] || "Poder Secreto"}</span>
+          <strong style="color: var(--gold-main);">${c}:</strong> <span style="color: var(--text-muted);">${(en ? RUNAL_MEANINGS_EN[c] : RUNAL_MEANINGS_ES[c]) || (en ? "Secret Power" : "Poder Secreto")}</span>
         </div>
       `).join("")}
     </div>
@@ -395,6 +456,7 @@ export function animateSigilTrace(container) {
 export function triggerConsecrationBanner(container) {
   const stage = container.querySelector("#sigil-svg-stage");
   if (!stage) return;
+  const en = sigilIsEn();
 
   // Flash Golden Glow Filter
   stage.style.boxShadow = "0 0 50px rgba(255,215,0,0.8)";
@@ -410,11 +472,14 @@ export function triggerConsecrationBanner(container) {
     banner.style.cssText = "background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(230,57,70,0.2)); border: 2px solid var(--gold-main); border-radius: 12px; padding: 14px; margin-top: 1rem; text-align: center; color: var(--gold-main); font-weight: 700; font-size: 0.98rem; animation: fadeIn 0.5s ease;";
     stage.parentNode.insertBefore(banner, stage.nextSibling);
   }
-  banner.innerHTML = `📜 ¡SIGILO CONSAGRADO OFICIALMENTE!<br><span style="font-size:0.85rem; color:#ffffff; font-weight:normal;">Tu pacto sagrado con <strong>${SIGIL_STATE.dragonName}</strong> ha sido sellado en la matriz alquímica.</span>`;
+  banner.innerHTML = en 
+    ? `📜 SIGIL OFFICIALLY CONSECRATED!<br><span style="font-size:0.85rem; color:#ffffff; font-weight:normal;">Your sacred pact with <strong>${SIGIL_STATE.dragonName}</strong> has been sealed into the alchemical matrix.</span>`
+    : `📜 ¡SIGILO CONSAGRADO OFICIALMENTE!<br><span style="font-size:0.85rem; color:#ffffff; font-weight:normal;">Tu pacto sagrado con <strong>${SIGIL_STATE.dragonName}</strong> ha sido sellado en la matriz alquímica.</span>`;
 }
 
 export function exportSigilCardPNG() {
   const consonants = extractConsonants(SIGIL_STATE.userName, SIGIL_STATE.dragonName);
+  const en = sigilIsEn();
   
   const canvas = document.createElement("canvas");
   canvas.width = 650;
@@ -450,15 +515,17 @@ export function exportSigilCardPNG() {
   // 4. Header Badge & Title
   ctx.fillStyle = "#e9c46a";
   ctx.font = "bold 13px sans-serif";
-  ctx.fillText("✨ EMBLEMA DE ALQUIMIA DRACONIANA • EDICIÓN OFICIAL ✨", 325, 66);
+  ctx.fillText(en ? "✨ DRACONIAN ALCHEMY EMBLEM • OFFICIAL EDITION ✨" : "✨ EMBLEMA DE ALQUIMIA DRACONIANA • EDICIÓN OFICIAL ✨", 325, 66);
 
   ctx.fillStyle = "#ffd700";
   ctx.font = "bold 28px serif";
-  ctx.fillText("SIGILO SAGRADO DRACONIANO", 325, 100);
+  ctx.fillText(en ? "SACRED DRACONIAN SIGIL" : "SIGILO SAGRADO DRACONIANO", 325, 100);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "italic 17px serif";
-  ctx.fillText(`Pacto Sagrado entre "${SIGIL_STATE.userName}" y "${SIGIL_STATE.dragonName}"`, 325, 128);
+  ctx.fillText(en 
+    ? `Sacred Pact between "${SIGIL_STATE.userName}" and "${SIGIL_STATE.dragonName}"` 
+    : `Pacto Sagrado entre "${SIGIL_STATE.userName}" y "${SIGIL_STATE.dragonName}"`, 325, 128);
 
   // 5. Render High-Res SVG onto Canvas
   const svgData = renderSigilSVG(SIGIL_STATE, consonants, 460, 460);
@@ -479,7 +546,7 @@ export function exportSigilCardPNG() {
     // Draw SVG Sigil
     ctx.drawImage(img, 95, 155, 460, 460);
 
-    // 6. Metadata Footer Box (Ajuste Perfecto sin Desbordamiento)
+    // 6. Metadata Footer Box
     ctx.fillStyle = "rgba(10, 14, 23, 0.88)";
     ctx.fillRect(38, 630, 574, 242);
     ctx.strokeStyle = SIGIL_STATE.isConsecrated ? "#ffd700" : "rgba(233,196,106,0.6)";
@@ -489,40 +556,53 @@ export function exportSigilCardPNG() {
     // Line 1: Consonantes
     ctx.fillStyle = "#ffd700";
     ctx.font = "bold 20px serif";
-    ctx.fillText(`MATRIZ SAGRADA: ${consonants.join(" • ")}`, 325, 668);
+    ctx.fillText(`${en ? "SACRED MATRIX" : "MATRIZ SAGRADA"}: ${consonants.join(" • ")}`, 325, 668);
 
-    // Line 2: Elemento y Anatomía en Español
-    const bodyLabel = BODY_LABELS_ES[SIGIL_STATE.bodyType] || "Draco Clásico";
-    const hornLabel = HORN_LABELS_ES[SIGIL_STATE.hornStyle] || "Cuernos Clásicos";
+    // Line 2: Elemento y Anatomía
+    const bodyLabel = (en ? BODY_LABELS_EN[SIGIL_STATE.bodyType] : BODY_LABELS_ES[SIGIL_STATE.bodyType]) || (en ? "Classic Draco" : "Draco Clásico");
+    const hornLabel = (en ? HORN_LABELS_EN[SIGIL_STATE.hornStyle] : HORN_LABELS_ES[SIGIL_STATE.hornStyle]) || (en ? "Classic Horns" : "Cuernos Clásicos");
+    const elemLabel = en ? (ELEMENT_NAMES_EN[SIGIL_STATE.element] || SIGIL_STATE.element) : SIGIL_STATE.element;
+
     ctx.fillStyle = "#ffffff";
     ctx.font = "15px sans-serif";
-    ctx.fillText(`Elemento: ${SIGIL_STATE.element}  |  Anatomía: ${bodyLabel}`, 325, 705);
+    ctx.fillText(en ? `Element: ${elemLabel}  |  Anatomy: ${bodyLabel}` : `Elemento: ${elemLabel}  |  Anatomía: ${bodyLabel}`, 325, 705);
 
     // Line 3: Cuernos y Resonancia
     ctx.fillStyle = "#4cc9f0";
     ctx.font = "15px sans-serif";
-    ctx.fillText(`Cuernos: ${hornLabel}  |  Resonancia: ${Math.min(99, 84 + consonants.length * 2)}%`, 325, 740);
+    const resValue = Math.min(99, 84 + consonants.length * 2);
+    ctx.fillText(en ? `Horns: ${hornLabel}  |  Resonance: ${resValue}%` : `Cuernos: ${hornLabel}  |  Resonancia: ${resValue}%`, 325, 740);
 
-    // Line 4: Sello / Registro Oficial (Sin desbordar)
+    // Line 4: Sello / Registro Oficial
     ctx.fillStyle = SIGIL_STATE.isConsecrated ? "#ffd700" : "#2a9d8f";
     ctx.font = "bold 14px sans-serif";
-    ctx.fillText("📜 REGISTRADO EN EL SANTUARIO SECRETO DE DRAGONES", 325, 782);
+    ctx.fillText(en ? "📜 REGISTERED AT THE SECRET SANCTUARY OF DRAGONS" : "📜 REGISTRADO EN EL SANTUARIO SECRETO DE DRAGONES", 325, 782);
 
     // Line 5: Estado de Consagración
     ctx.fillStyle = SIGIL_STATE.isConsecrated ? "#ffb703" : "#e9c46a";
     ctx.font = "italic 13px sans-serif";
     const subSeal = SIGIL_STATE.isConsecrated
-      ? "🔥 Consagrado con Aliento de Dragón"
-      : "Emblema Vectorial Oficial";
+      ? (en ? "🔥 Consecrated with Dragon Breath" : "🔥 Consagrado con Aliento de Dragón")
+      : (en ? "Official Vector Emblem" : "Emblema Vectorial Oficial");
     ctx.fillText(subSeal, 325, 814);
 
     // Download PNG
     const link = document.createElement("a");
-    link.download = `Sigilo_Draconiano_${SIGIL_STATE.userName}_${SIGIL_STATE.dragonName}.png`;
+    link.download = en 
+      ? `Draconian_Sigil_${SIGIL_STATE.userName}_${SIGIL_STATE.dragonName}.png`
+      : `Sigilo_Draconiano_${SIGIL_STATE.userName}_${SIGIL_STATE.dragonName}.png`;
     link.href = canvas.toDataURL("image/png");
     link.click();
     URL.revokeObjectURL(url);
   };
 
   img.src = url;
+}
+
+// Window globals for cross-module accessibility
+if (typeof window !== "undefined") {
+  window.renderSigilForgeUI = renderSigilForgeUI;
+  window.initSigilForge = initSigilForge;
+  window.exportSigilCardPNG = exportSigilCardPNG;
+  window.SIGIL_STATE = SIGIL_STATE;
 }

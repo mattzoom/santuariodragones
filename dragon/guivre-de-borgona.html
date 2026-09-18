@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Guivre de Borgoña -->
   <title>Guivre de Borgoña (El Dragón de los Viñedos Franceses) | Santuario de Dragones</title>
   <meta name="description" content="Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/guivre-de-borgona.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html">
   <meta property="og:title" content="Guivre de Borgoña - El Dragón de los Viñedos Franceses">
   <meta property="og:description" content="Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_91.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Guivre de Borgoña - El Dragón de los Viñedos Franceses",
-    "description": "Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_91.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Europea Continental",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Europea%20Continental"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Guivre de Borgoña",
+            "item": "https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html#article",
+        "headline": "Guivre de Borgoña - El Dragón de los Viñedos Franceses",
+        "description": "Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_91.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/guivre-de-borgona.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Guivre de Borgoña",
+          "alternateName": "El Dragón de los Viñedos Franceses",
+          "description": "Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_91.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Europea Continental" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Veneno" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "3/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Bosques de Borgoña" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Picadura Ácida y Vuelo Deslizado" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Ver a una Persona Sin Miedo" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Guivre de Borgoña",
-      "alternateName": "El Dragón de los Viñedos Franceses",
-      "description": "Guivre de Borgoña es un dragón Wyrm de Veneno de la mitología Europea Continental. Hábitat: Bosques de Borgoña. Tenía un cuerpo largo de serpiente con alas de murciélago y cuernos de ciervo. Huía a toda velocidad si alguien lo miraba fijamente a los oj...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_91.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Europea Continental" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Veneno" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "3/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Bosques de Borgoña" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Picadura Ácida y Vuelo Deslizado" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Ver a una Persona Sin Miedo" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

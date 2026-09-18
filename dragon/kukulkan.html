@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Kukulkán -->
   <title>Kukulkán (La Serpiente Visión de la Pirámide) | Santuario de Dragones</title>
   <meta name="description" content="Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/kukulkan.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/kukulkan.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/kukulkan.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/kukulkan.html">
   <meta property="og:title" content="Kukulkán - La Serpiente Visión de la Pirámide">
   <meta property="og:description" content="Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_38.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Kukulkán - La Serpiente Visión de la Pirámide",
-    "description": "Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_38.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/kukulkan.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/kukulkan.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mesoamericana y Sudamericana",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Mesoamericana%20y%20Sudamericana"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kukulkán",
+            "item": "https://santuariodragones.vercel.app/dragon/kukulkan.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/kukulkan.html#article",
+        "headline": "Kukulkán - La Serpiente Visión de la Pirámide",
+        "description": "Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_38.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/kukulkan.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Kukulkán",
+          "alternateName": "La Serpiente Visión de la Pirámide",
+          "description": "Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_38.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Mesoamericana y Sudamericana" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Ampithere" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Viento" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Chichén Itzá" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Sombra Danzante en los Solsticios y Eco de Quetzal" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Eclipses Solares Totales" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Kukulkán",
-      "alternateName": "La Serpiente Visión de la Pirámide",
-      "description": "Kukulkán es un dragón Ampithere de Viento de la mitología Mesoamericana y Sudamericana. Hábitat: Chichén Itzá. En la gran pirámide de Chichén Itzá, cada equinoccio la luz del sol proyecta la sombra serpenteante de Kukulkán descendiendo por las escalin...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_38.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Mesoamericana y Sudamericana" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Ampithere" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Viento" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Chichén Itzá" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Sombra Danzante en los Solsticios y Eco de Quetzal" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Eclipses Solares Totales" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

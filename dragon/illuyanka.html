@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Illuyanka -->
   <title>Illuyanka (El Dragón del Imperio Hitita) | Santuario de Dragones</title>
   <meta name="description" content="Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/illuyanka.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/illuyanka.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/illuyanka.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/illuyanka.html">
   <meta property="og:title" content="Illuyanka - El Dragón del Imperio Hitita">
   <meta property="og:description" content="Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_62.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Illuyanka - El Dragón del Imperio Hitita",
-    "description": "Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_62.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/illuyanka.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/illuyanka.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Eslava y Este de Europa",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Eslava%20y%20Este%20de%20Europa"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Illuyanka",
+            "item": "https://santuariodragones.vercel.app/dragon/illuyanka.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/illuyanka.html#article",
+        "headline": "Illuyanka - El Dragón del Imperio Hitita",
+        "description": "Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_62.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/illuyanka.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Illuyanka",
+          "alternateName": "El Dragón del Imperio Hitita",
+          "description": "Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_62.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Eslava y Este de Europa" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Tierra" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Montañas de Anatolia" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Robo de Fuerza Vital y Emboscada Terrestre" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Banquetes de Miel y Cerveza" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Illuyanka",
-      "alternateName": "El Dragón del Imperio Hitita",
-      "description": "Illuyanka es un dragón Wyrm de Tierra de la mitología Eslava y Este de Europa. Hábitat: Montañas de Anatolia. Un temible dragón que logró derrotar al dios del trueno en su primer enfrentamiento. Solo pudo ser atrapado cuando fue invitado a un gran ba...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_62.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Eslava y Este de Europa" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Wyrm" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Tierra" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Montañas de Anatolia" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Robo de Fuerza Vital y Emboscada Terrestre" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Banquetes de Miel y Cerveza" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

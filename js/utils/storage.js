@@ -19,3 +19,9 @@ export function toggleFavorite(dragonId) {
 export function getFavoritesSet() {
   return favoritesSet;
 }
+
+if (typeof window !== "undefined") {
+  window.getFavoritesSet = getFavoritesSet;
+  window.toggleFavorite = toggleFavorite;
+  window.isFavorite = isFavorite;
+}

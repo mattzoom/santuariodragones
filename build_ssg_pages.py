@@ -79,11 +79,17 @@ for d in dragons:
     page_title = f"{d['name']} ({d['title']}) | Santuario de Dragones"
     meta_desc = f"{d['name']} es un dragón {d['type']} de {d['element']} de la mitología {d['mythology']}. Hábitat: {d['habitat']}. {d['scroll'][:140]}..."
     
+    en_page_url = f"{base_url}/en/dragon/{slug}.html"
+    encoded_myth = d['mythology'].replace(" ", "%20")
+    
     og_meta = f'''
   <!-- Custom SSG Open Graph & Meta Tags for {d['name']} -->
   <title>{page_title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="{page_url}">
+  <link rel="alternate" hreflang="es" href="{page_url}">
+  <link rel="alternate" hreflang="en" href="{en_page_url}">
+  <link rel="alternate" hreflang="x-default" href="{page_url}">
   <meta property="og:title" content="{d['name']} - {d['title']}">
   <meta property="og:description" content="{meta_desc}">
   <meta property="og:image" content="{img_url}">
@@ -99,40 +105,70 @@ for d in dragons:
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "{d['name']} - {d['title']}",
-    "description": "{meta_desc}",
-    "image": "{img_url}",
-    "url": "{page_url}",
-    "author": {{
-      "@type": "Person",
-      "name": "Magus Dragus"
-    }},
-    "publisher": {{
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "{base_url}/",
-      "logo": {{
-        "@type": "ImageObject",
-        "url": "{base_url}/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {{
+        "@type": "BreadcrumbList",
+        "@id": "{page_url}#breadcrumb",
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "{base_url}/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{d['mythology']}",
+            "item": "{base_url}/?mitologia={encoded_myth}"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{d['name']}",
+            "item": "{page_url}"
+          }}
+        ]
+      }},
+      {{
+        "@type": "Article",
+        "@id": "{page_url}#article",
+        "headline": "{d['name']} - {d['title']}",
+        "description": "{meta_desc}",
+        "image": "{img_url}",
+        "url": "{page_url}",
+        "inLanguage": ["es", "en"],
+        "author": {{
+          "@type": "Person",
+          "name": "Magus Dragus"
+        }},
+        "publisher": {{
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "{base_url}/",
+          "logo": {{
+            "@type": "ImageObject",
+            "url": "{base_url}/assets/ui/hero_emblem.webp"
+          }}
+        }},
+        "mainEntity": {{
+          "@type": "Thing",
+          "name": "{d['name']}",
+          "alternateName": "{d['title']}",
+          "description": "{meta_desc}",
+          "image": "{img_url}",
+          "additionalProperty": [
+            {{ "@type": "PropertyValue", "name": "Mitología", "value": "{d['mythology']}" }},
+            {{ "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "{d['type']}" }},
+            {{ "@type": "PropertyValue", "name": "Elemento", "value": "{d['element']}" }},
+            {{ "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "{d['danger']}/5" }},
+            {{ "@type": "PropertyValue", "name": "Hábitat", "value": "{d['habitat']}" }},
+            {{ "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "{d['ability']}" }},
+            {{ "@type": "PropertyValue", "name": "Debilidad", "value": "{d['weakness']}" }}
+          ]
+        }}
       }}
-    }},
-    "mainEntity": {{
-      "@type": "Thing",
-      "name": "{d['name']}",
-      "alternateName": "{d['title']}",
-      "description": "{meta_desc}",
-      "image": "{img_url}",
-      "additionalProperty": [
-        {{ "@type": "PropertyValue", "name": "Mitología", "value": "{d['mythology']}" }},
-        {{ "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "{d['type']}" }},
-        {{ "@type": "PropertyValue", "name": "Elemento", "value": "{d['element']}" }},
-        {{ "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "{d['danger']}/5" }},
-        {{ "@type": "PropertyValue", "name": "Hábitat", "value": "{d['habitat']}" }},
-        {{ "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "{d['ability']}" }},
-        {{ "@type": "PropertyValue", "name": "Debilidad", "value": "{d['weakness']}" }}
-      ]
-    }}
+    ]
   }}
   </script>
 '''
@@ -223,9 +259,9 @@ for d in dragons:
     # Build pure static page replacing main section
     page_html = clean_head_template
     
-    # Absolute root paths
-    page_html = page_html.replace('href="styles.min.css?v=8.2.0"', 'href="/styles.min.css?v=8.2.0"')
-    page_html = page_html.replace('src="js/bundle.min.js?v=8.2.0"', 'src="/js/bundle.min.js?v=8.2.0"')
+    # Absolute root paths with unified v=8.4.0
+    page_html = re.sub(r'href="[^"]*styles(?:\.min)?\.css(?:\?v=[^"]*)?"', 'href="/styles.min.css?v=8.4.0"', page_html)
+    page_html = re.sub(r'src="[^"]*bundle(?:\.min)?\.js(?:\?v=[^"]*)?"', 'src="/js/bundle.min.js?v=8.4.0"', page_html)
     
     # Inject OG meta tags
     page_html = page_html.replace('</head>', f'{og_meta}\n</head>')

@@ -18,12 +18,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="/styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="/styles.min.css?v=8.4.0">
 
   <!-- Custom SSG Open Graph & Meta Tags for Grabakr -->
   <title>Grabakr (La Llama Gris de la Caverna) | Santuario de Dragones</title>
   <meta name="description" content="Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...">
   <link rel="canonical" href="https://santuariodragones.vercel.app/dragon/grabakr.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/dragon/grabakr.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/dragon/grabakr.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/dragon/grabakr.html">
   <meta property="og:title" content="Grabakr - La Llama Gris de la Caverna">
   <meta property="og:description" content="Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/dragons/dragon_6.webp">
@@ -39,40 +42,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Grabakr - La Llama Gris de la Caverna",
-    "description": "Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...",
-    "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_6.webp",
-    "url": "https://santuariodragones.vercel.app/dragon/grabakr.html",
-    "author": {
-      "@type": "Person",
-      "name": "Magus Dragus"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Santuario Secreto de Dragones",
-      "url": "https://santuariodragones.vercel.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://santuariodragones.vercel.app/dragon/grabakr.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Santuario de Dragones",
+            "item": "https://santuariodragones.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nórdica y Germánica",
+            "item": "https://santuariodragones.vercel.app/?mitologia=Nórdica%20y%20Germánica"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Grabakr",
+            "item": "https://santuariodragones.vercel.app/dragon/grabakr.html"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://santuariodragones.vercel.app/dragon/grabakr.html#article",
+        "headline": "Grabakr - La Llama Gris de la Caverna",
+        "description": "Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...",
+        "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_6.webp",
+        "url": "https://santuariodragones.vercel.app/dragon/grabakr.html",
+        "inLanguage": ["es", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Magus Dragus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Santuario Secreto de Dragones",
+          "url": "https://santuariodragones.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp"
+          }
+        },
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Grabakr",
+          "alternateName": "La Llama Gris de la Caverna",
+          "description": "Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...",
+          "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_6.webp",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mitología", "value": "Nórdica y Germánica" },
+            { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Dragón Europeo" },
+            { "@type": "PropertyValue", "name": "Elemento", "value": "Fuego" },
+            { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
+            { "@type": "PropertyValue", "name": "Hábitat", "value": "Cavernas de Ceniza de Muspelheim" },
+            { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Aliento de Ceniza Ardiente y Visión Térmica" },
+            { "@type": "PropertyValue", "name": "Debilidad", "value": "Agua de Glaciar" }
+          ]
+        }
       }
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Grabakr",
-      "alternateName": "La Llama Gris de la Caverna",
-      "description": "Grabakr es un dragón Dragón Europeo de Fuego de la mitología Nórdica y Germánica. Hábitat: Cavernas de Ceniza de Muspelheim. Cuyo nombre significa 'Lomo Gris', este dragón posee escamas de color carbón que se encienden al enfurecerse. Se cuenta que dormía cerca de ...",
-      "image": "https://santuariodragones.vercel.app/assets/dragons/dragon_6.webp",
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Mitología", "value": "Nórdica y Germánica" },
-        { "@type": "PropertyValue", "name": "Tipo de Cuerpo", "value": "Dragón Europeo" },
-        { "@type": "PropertyValue", "name": "Elemento", "value": "Fuego" },
-        { "@type": "PropertyValue", "name": "Nivel de Peligro", "value": "4/5" },
-        { "@type": "PropertyValue", "name": "Hábitat", "value": "Cavernas de Ceniza de Muspelheim" },
-        { "@type": "PropertyValue", "name": "Habilidad Primordial", "value": "Aliento de Ceniza Ardiente y Visión Térmica" },
-        { "@type": "PropertyValue", "name": "Debilidad", "value": "Agua de Glaciar" }
-      ]
-    }
+    ]
   }
   </script>
 
@@ -1497,9 +1530,9 @@
   <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
   <script src="/js/data/dragons_en.js"></script>
   <script src="/js/data/dragons_en.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="/js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>

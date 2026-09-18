@@ -18,10 +18,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Santuario Dragones">
 
-  <link rel="stylesheet" href="styles.min.css?v=8.2.0">
+  <link rel="stylesheet" href="styles.min.css?v=8.4.0">
   <title>Mis Dragones Favoritos | Santuario de Dragones</title>
   <meta name="description" content="Tu guarida personal en el Santuario Secreto: consultá y gestioná los dragones legendarios guardados en tu sesión.">
   <link rel="canonical" href="https://santuariodragones.vercel.app/favoritos.html">
+  <link rel="alternate" hreflang="es" href="https://santuariodragones.vercel.app/favoritos.html">
+  <link rel="alternate" hreflang="en" href="https://santuariodragones.vercel.app/en/favoritos.html">
+  <link rel="alternate" hreflang="x-default" href="https://santuariodragones.vercel.app/favoritos.html">
   <meta property="og:title" content="Mis Dragones Favoritos | Santuario de Dragones">
   <meta property="og:description" content="Tu guarida personal en el Santuario Secreto: consultá y gestioná los dragones legendarios guardados en tu sesión.">
   <meta property="og:image" content="https://santuariodragones.vercel.app/assets/ui/hero_emblem.webp">
@@ -56,18 +59,19 @@
       <div class="header-container">
         <div class="brand-title">
           <span class="brand-icon">🐉</span>
-          <h2 class="brand-name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
+          <h2 class="brand-name" data-i18n="brand_name" style="margin: 0; font-size: 1.25rem; color: var(--gold-main); font-family: var(--font-heading); display: inline-block;">SANTUARIO DE DRAGONES</h2>
         </div>
 
-                        <nav class="nav-tabs">
-          <a class="nav-tab" data-tab="encyclopedia" href="/">📚 Enciclopedia</a>
-          <a class="nav-tab" data-tab="arena" href="/arena.html">⚔️ Arena</a>
-          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html">✨ Magia Draconiana</a>
-          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html">🧪 Test Draconiano</a>
-          <a class="nav-tab active" data-tab="favorites" href="/favoritos.html">❤️ Mis Favoritos</a>
+        <nav class="nav-tabs">
+          <a class="nav-tab" data-tab="encyclopedia" href="/"><span data-i18n="nav_encyclopedia">📚 Enciclopedia</span></a>
+          <a class="nav-tab" data-tab="arena" href="/arena.html"><span data-i18n="nav_arena">⚔️ Arena</span></a>
+          <a class="nav-tab" data-tab="magic" href="/magia-draconiana.html"><span data-i18n="nav_magic">✨ Magia Draconiana</span></a>
+          <a class="nav-tab" data-tab="quiz" href="/test-draconiano.html"><span data-i18n="nav_quiz">🧪 Test Draconiano</span></a>
+          <a class="nav-tab active" data-tab="favorites" href="/favoritos.html"><span data-i18n="nav_favorites">❤️ Mis Favoritos</span></a>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-actions" style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-lang-toggle" onclick="if(window.I18N) window.I18N.toggleLanguage();" title="Cambiar a Inglés (Switch to English)" style="min-width: 68px; font-weight: 600;">🌐 EN</button>
           <button class="btn btn-secondary btn-sm" id="btn-audio-toggle">🔊 Sonido: ON</button>
         </div>
       </div>
@@ -79,15 +83,15 @@
       <!-- 6. FAVORITES SECTION -->
       <section id="section-favorites" class="view-section active" style="display: block; max-width: 1000px; margin: 0 auto; padding: 1rem 0.5rem;">
         <div class="fantasy-panel margin-bottom-lg" style="text-align: center; padding: 2rem;">
-          <h1 style="color: var(--gold-main); font-size: 2.2rem; margin-top: 0;">❤️ Tu Guarida de Dragones Favoritos</h1>
-          <p class="text-muted" style="font-size: 1.1rem; max-width: 700px; margin: 10px auto 0 auto;">
+          <h1 data-i18n="fav_hero_title" style="color: var(--gold-main); font-size: 2.2rem; margin-top: 0;">❤️ Tu Guarida de Dragones Favoritos</h1>
+          <p data-i18n="fav_hero_desc" class="text-muted" style="font-size: 1.1rem; max-width: 700px; margin: 10px auto 0 auto;">
             Acá están custodiados los dragones que marcaste con el corazón durante tu travesía por la enciclopedia. Podés consultar sus fichas o eliminarlos cuando lo desees.
           </p>
         </div>
         <div id="favorites-grid" class="dragons-grid">
           <div class="fantasy-panel text-center" style="grid-column: 1 / -1; padding: 2.5rem; text-align: center;">
-            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">Cargando tu guarida personal...</p>
-            <a href="/" class="btn btn-gold" style="text-decoration: none; padding: 10px 22px; font-weight: 700;">📚 Explorar la Enciclopedia</a>
+            <p data-i18n="fav_loading" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">Cargando tu guarida personal...</p>
+            <a href="/" class="btn btn-gold" style="text-decoration: none; padding: 10px 22px; font-weight: 700;"><span data-i18n="fav_explore_btn">📚 Explorar la Enciclopedia</span></a>
           </div>
         </div>
       </section>
@@ -167,8 +171,11 @@
 
   </div>
 
+  <!-- Lightweight i18n Engine (ES/EN) & English Dragon Lore -->
+  <script src="/js/data/dragons_en.js"></script>
+  <script src="/js/i18n.js?v=8.4.0"></script>
   <!-- Standalone Unified JavaScript Entry Point (CORS & Module-free) -->
-  <script src="js/bundle.min.js?v=8.2.0"></script>
+  <script src="/js/bundle.min.js?v=8.4.0"></script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
