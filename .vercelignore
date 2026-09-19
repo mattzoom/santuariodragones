@@ -1,0 +1,18 @@
+﻿# Backups & Archives (Over 1.2 GB - Critical for Vercel Bandwidth & Deploy Limits)
+*.zip
+backup*.zip
+punto_restauracion*.zip
+archive/
+scratch/
+tests/
+
+# Python scripts & local tooling
+*.py
+*.pyc
+__pycache__/
+
+# Local documentation & artifacts
+.agents/
+audit_report_data.json
+*.log
+*.tmp

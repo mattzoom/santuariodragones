@@ -1,0 +1,14 @@
+﻿# Backups & Archives
+*.zip
+backup*.zip
+punto_restauracion*.zip
+archive/
+scratch/
+
+# Python
+*.pyc
+__pycache__/
+
+# Logs & temp
+*.log
+*.tmp

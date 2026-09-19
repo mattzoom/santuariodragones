@@ -2806,18 +2806,15 @@ function renderEncyclopedia() {
 }
 
 function getDragonArtworkSrc(dragon) {
-  return `assets/dragons/dragon_${dragon.id}.jpg`;
+  return `assets/dragons/dragon_${dragon.id}.webp`;
 }
 
 function renderDragonCardHTML(dragon) {
   const isFav = favoritesSet.has(dragon.id);
   const dangerLevel = Math.max(1, Math.min(5, parseInt(dragon.danger || 1, 10)));
   const flames = "🔥".repeat(dangerLevel);
-  const hasJpg = dragon.id <= 12;
 
-  const mediaHtml = hasJpg
-    ? `<img src="assets/dragons/dragon_${dragon.id}.jpg" alt="${dragon.name}" class="dragon-artwork-img" />`
-    : renderDragonSVG(dragon, 260, 200);
+  const mediaHtml = `<img src="assets/dragons/dragon_${dragon.id}.webp" alt="${dragon.name}" class="dragon-artwork-img" />`;
 
   return `
     <div class="dragon-card fantasy-panel" data-id="${dragon.id}">

@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /*.zip$
 
 # Search Engine Crawlers
 User-agent: Googlebot

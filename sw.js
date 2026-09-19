@@ -1,5 +1,5 @@
 // Santuario de Dragones - Service Worker
-const CACHE_NAME = 'santuario-dragones-v8.4.1';
+const CACHE_NAME = 'santuario-dragones-v8.4.2';
 
 const CORE_ASSETS = [
   '/',
@@ -108,20 +108,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Assets estaticos: Cache-first con actualizacion Stale-While-Revalidate
+  // Assets estaticos e imagenes: Verdadero Cache-First (cero consumo de red si ya esta en cache)
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
-      const fetchPromise = fetch(request)
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
-          }
-          return networkResponse;
-        })
-        .catch(() => {});
-
-      return cachedResponse || fetchPromise;
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
+        }
+        return networkResponse;
+      });
     })
   );
 });

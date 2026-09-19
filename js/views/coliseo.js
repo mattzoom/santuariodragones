@@ -767,7 +767,7 @@ function renderTournamentViewHtml() {
         <div style="max-width: 580px; margin: 0 auto 1.8rem auto; border-radius: 18px; overflow: hidden; border: 3px solid rgba(230,57,70,0.85); box-shadow: 0 10px 35px rgba(230,57,70,0.4); background: #0a0911;">
           <picture>
             <source srcset="/assets/ui/tournament_defeat.webp" type="image/webp">
-            <img src="/assets/ui/tournament_defeat.jpg" alt="El descanso del dragón caído en el Coliseo" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/ui/tournament_defeat.webp" alt="El descanso del dragón caído en el Coliseo" style="width: 100%; height: auto; display: block;" />
           </picture>
           <div style="padding: 12px 18px; background: rgba(10, 9, 17, 0.95); border-top: 1px solid rgba(230,57,70,0.4); text-align: center;">
             <p style="color: var(--text-muted); font-size: 0.88rem; font-style: italic; margin: 0; line-height: 1.45;">
