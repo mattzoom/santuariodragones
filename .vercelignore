@@ -1,4 +1,4 @@
-﻿# Backups & Archives (Over 1.2 GB - Critical for Vercel Bandwidth & Deploy Limits)
+# Backups & Archives (Over 1.2 GB - Critical for Vercel Bandwidth & Deploy Limits)
 *.zip
 backup*.zip
 punto_restauracion*.zip
@@ -16,3 +16,20 @@ __pycache__/
 audit_report_data.json
 *.log
 *.tmp
+*.md
+google_apps_script_webhook.js
+
+# Development and source scripts not used in production (production uses bundle.min.js & styles.min.css)
+js/bundle.js
+js/app.js
+js/views/
+js/svg/
+js/utils/
+js/creator.js
+js/quiz.js
+js/svgGenerator.js
+js/main.js
+js/audio.js
+js/particles.js
+js/dragonsData.js
+styles.css
